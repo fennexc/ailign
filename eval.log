@@ -1,0 +1,51 @@
+ ---------------------------------BAF
+| Params = Bertalign
+|             |  Strict |    Lax  |
+| Precision   |   0.921 |   0.986 |
+| Recall      |   0.956 |   0.997 |
+| F1          |   0.938 |   0.992 |
+ ---------------------------------
+Elapsed : 0 s.
+ ---------------------------------BAF
+| Params = Ailign with : --verbose --savePlot --minDensityRatio 0.3 --cosThreshold 0.4 --margin 0.05 --distNull 1 --penalty_n_n 0.06 --runDTW --outputFormat bertalign --useMargin --detectIntervals
+|             |  Strict |    Lax  |
+| Precision   |   0.924 |   0.983 |
+| Recall      |   0.945 |   0.982 |
+| F1          |   0.934 |   0.983 |
+ ---------------------------------
+Elapsed : 0 s.
+
+ ---------------------------------MD.fr-ar
+| Params = Bertalign
+|             |  Strict |    Lax  |
+| Precision   |   0.950 |   0.996 |
+| Recall      |   0.957 |   1.000 |
+| F1          |   0.954 |   0.998 |
+ ---------------------------------
+Elapsed : 0 s.
+ ---------------------------------MD.fr-ar
+| Params = Ailign with : --verbose --savePlot --minDensityRatio 0.3 --cosThreshold 0.4 --margin 0.05 --distNull 1 --penalty_n_n 0.06 --runDTW --outputFormat bertalign --useMargin --detectIntervals
+|             |  Strict |    Lax  |
+| Precision   |   0.946 |   0.991 |
+| Recall      |   0.960 |   1.000 |
+| F1          |   0.953 |   0.995 |
+ ---------------------------------
+Elapsed : 0 s.
+
+ ---------------------------------text+berg
+| Params = Bertalign
+|             |  Strict |    Lax  |
+| Precision   |   0.932 |   0.987 |
+| Recall      |   0.941 |   0.991 |
+| F1          |   0.936 |   0.989 |
+ ---------------------------------
+Elapsed : 0 s.
+ ---------------------------------text+berg
+| Params = Ailign with : --verbose --savePlot --minDensityRatio 0.3 --cosThreshold 0.4 --margin 0.05 --distNull 1 --penalty_n_n 0.06 --runDTW --outputFormat bertalign --useMargin --detectIntervals
+|             |  Strict |    Lax  |
+| Precision   |   0.913 |   0.973 |
+| Recall      |   0.930 |   0.988 |
+| F1          |   0.921 |   0.981 |
+ ---------------------------------
+Elapsed : 0 s.
+
