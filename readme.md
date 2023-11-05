@@ -15,7 +15,7 @@ Lorsque deux phrases sont jugées suffisamment similaire (forte densité de ngra
 Les points ainsi produits sont ensuite filtrés en fonction de divers critères géométriques (densité locale des points, déviation par rapport à la diagonale, etc.) afin de fournir des points d'ancrage de confiance pour la phase 2.
 On obtient ensuite des points qui permettent de définir des intervalles de confiance et de guider l'aligment, comme sur la figure ci-dessous.
 
-![alt text](https://gricad-gitlab.univ-grenoble-alpes.fr/kraifo/ailign/img/test.fr-de.png)
+![alt text](https://gricad-gitlab.univ-grenoble-alpes.fr/kraifo/ailign/-/blob/main/img/test.fr-de.png)
 
 2. la deuxième étape met en oeuvre un **algorithme de Viterbi** de type **DTW** (Dynamic Time Warping) pour calculer récursivement quel est le meilleur chemin menant à un point (i,j). Un chemin est une succession d'appariements. Les appariements pris en compte par AIlign sont les suivants: 1-1, 0-1, 1-0, 1-2, 2-1, 1-3, 3-1, 1-4, 4-1.
 
