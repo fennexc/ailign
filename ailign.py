@@ -583,11 +583,11 @@ def valid(ngram):
 # extract candidates points using ngram search
 def computePointsFromNgrams(sents1,sents2):
     # extracting hash table that records all the ngrams for sents1
-    lent_sents1=len(sents1)
-    lent_sents2=len(sents2)
+    len_sents1=len(sents1)
+    len_sents2=len(sents2)
     
     ngrams1=[]
-    for i in range(lent_sents1):
+    for i in range(len_sents1):
         ngrams1.append({})
         sent1=sents1[i]
         for k in range(0,len(sent1)-params['ngram']):
@@ -599,7 +599,7 @@ def computePointsFromNgrams(sents1,sents2):
 
     # extracting hash table that records all the ngrams for sents2
     ngrams2=[]
-    for j in range(lent_sents2):
+    for j in range(len_sents2):
         sent2=sents2[j]
         ngrams2.append({})
         for k in range(0,len(sent2)-params['ngram']):
@@ -615,18 +615,18 @@ def computePointsFromNgrams(sents1,sents2):
 
     # Using diagBeam param
     if params['diagBeam']:
-        range2=lent_sents2*params['diagBeam']
+        range2=len_sents2*params['diagBeam']
     else : 
-        range2=lent_sents2
+        range2=len_sents2
     # dice computation for each point (i,j)
-    for i in range(lent_sents1):
+    for i in range(len_sents1):
         nb1=max(1,len(sents1[i])-params['ngram']+1)
         if params['verbose'] and i%100==0:
-            print ("x =",i,"/",lent_sents1)
+            print ("x =",i,"/",len_sents1)
         for J in range(range2):
             if params['diagBeam']:
-                # when using fixed vertical width around diag, j must be computed as: int(i*lent_sents2/lent_sents1-range2/2)
-                j=int(i*lent_sents2/lent_sents1-range2/2)
+                # when using fixed vertical width around diag, j must be computed as: int(i*len_sents2/len_sents1-range2/2)
+                j=int(i*len_sents2/len_sents1-range2/2)
             else:
                 j=J
             if j<0:
@@ -971,7 +971,7 @@ def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
       Returns:
         sents: a list of sentences.
         id_sents: the list of sentence ids (build upon segment ids)
-        lent_sents: the number of sentences
+        len_sents: the number of sentences
         seg2sents: a list of list of integer, that gives the 1-n correspondence
             between an original segment number and the list of final sentences
             - if splitSent, for one segment, we may have more than one sentences
@@ -981,7 +981,7 @@ def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
     
     segs=[]
     id_segs=[]
-    lent_sents=0
+    len_sents=0
     seg2sents=[]
     nb_chars=0
 
@@ -1168,9 +1168,9 @@ def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
         id_sents=id_segs
         seg2sents=[ [j] for j in range(len(sents)) ]
 
-    lent_sents=len(sents)
+    len_sents=len(sents)
     if params['verbose']: 
-        print(lent_sents,"sentences for ",language)
+        print(len_sents,"sentences for ",language)
         if params['veryVerbose']:
             print("\n".join(sents))
             
@@ -1182,7 +1182,7 @@ def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
         seg_file.write("\n".join(sents))
         seg_file.close()
     
-    return (sents,id_sents,lent_sents,seg2sents,nb_chars)
+    return (sents,id_sents,len_sents,seg2sents,nb_chars)
 
 # write only alignable intervals of l1 or l2 file
 def write_alignable(sents,id_sents,intervals,index,output_dir,output_file,output_format):
@@ -1494,7 +1494,7 @@ def add_anchor_in_output(input_dir,input_file1,input_file2,file_id1,file_id2,x,y
         sys.exit()
 
 
-def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_mat):
+def extract_anchor_points(points,x,y,sents1,sents2,len_sents1,len_sents2,sim_mat):
     anchor_points=dict.copy(points)
     
     # =====> STEP 6 : compute average local density around selected points
@@ -1505,10 +1505,10 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
     if len(points_key)==0:
         print("No anchor points !!!")
         beginInt=(-1,-1)
-        lastI=lent_sents1-1
-        lastJ=lent_sents2-1
-        interval_length_sent1+=lastI - beginInt[0] + 1
-        interval_length_sent2+=lastJ - beginInt[1] + 1
+        lastI=len_sents1-1
+        lastJ=len_sents2-1
+        interval_length_sent1=lastI - beginInt[0] + 1
+        interval_length_sent2=lastJ - beginInt[1] + 1
         for n in range(0,lastI+1):
             interval_length_char1+=len(sents1[n])
         for n in range(0,lastJ+1):
@@ -1518,7 +1518,7 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
         tot_density=0
         for point in points_key:
             (x2,y2)=point
-            tot_density+= compute_local_density(x2,y2,anchor_points,lent_sents1,lent_sents2,sim_mat,params['deltaX'],params['deltaY'])
+            tot_density+= compute_local_density(x2,y2,anchor_points,len_sents1,len_sents2,sim_mat,params['deltaX'],params['deltaY'])
         
         average_density=tot_density/float(len(points_key))
 
@@ -1529,11 +1529,11 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
 
         # =====> STEP 7 : filtering out low density points
 
-        (anchor_points,filtered_x,filtered_y)=filter_points(anchor_points,lent_sents1,lent_sents2,average_density,sim_mat,params['deltaX'],params['deltaY'])
-        (anchor_points,filtered_x,filtered_y)=resolving_conflicts(anchor_points,lent_sents1,lent_sents2,sim_mat)
+        (anchor_points,filtered_x,filtered_y)=filter_points(anchor_points,len_sents1,len_sents2,average_density,sim_mat,params['deltaX'],params['deltaY'])
+        (anchor_points,filtered_x,filtered_y)=resolving_conflicts(anchor_points,len_sents1,len_sents2,sim_mat)
 
         if params['reiterateFiltering']:
-            (anchor_points,filtered_x,filtered_y)=filter_points(anchor_points,lent_sents1,lent_sents2,average_density*2,sim_mat,int(params['deltaX']/2),int(params['deltaY']/2))
+            (anchor_points,filtered_x,filtered_y)=filter_points(anchor_points,len_sents1,len_sents2,average_density*2,sim_mat,int(params['deltaX']/2),int(params['deltaY']/2))
 
         t7=time.time()
         if params['verbose']:
@@ -1542,7 +1542,7 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
      
         #~ x=[point[0] for point in points]
         #~ y=[point[1] for point in points]
-        #~ plt.axis([1,lent_sents1,1,lent_sents2])
+        #~ plt.axis([1,len_sents1,1,len_sents2])
         #~ plt.title(output_file_name+'.txt - filtered')
         #~ plt.scatter(x,y,c="red",s=1)                       
         #~ plt.show()
@@ -1551,8 +1551,8 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
         
         beginInt=(-1,-1)
         # adding last point as an anchor
-        filtered_x.append(lent_sents1-1)
-        filtered_y.append(lent_sents2-1)
+        filtered_x.append(len_sents1-1)
+        filtered_y.append(len_sents2-1)
         lastI=0
         lastJ=0
         intervals=[] # the array of pairs (beginInt,endInt) where beginInt and endInd are two points that define the interval
@@ -1561,16 +1561,18 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
         (interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=(0,0,0,0)
 
         if params['detectIntervals']:
+            coeff=1 if params['sentRatio']==0 else params['sentRatio']
             for num in range(0,len(filtered_x)):
                 (i,j)=(filtered_x[num],filtered_y[num])
-                localDensity=compute_local_density(i,j,anchor_points,lent_sents1,lent_sents2,sim_mat,params['deltaX'],params['deltaY'])
+                localDensity=compute_local_density(i,j,anchor_points,len_sents1,len_sents2,sim_mat,params['deltaX'],params['deltaY'])
                 density_ratio=0
                 if average_density>0 :
                     density_ratio=localDensity/average_density
                 # computation of the distance between (i,j) and (i,expected(j)) 
-                expectedJ=lastJ+(i-lastI)*params['sentRatio']
+                expectedJ=lastJ+(i-lastI)*coeff
                 vertical_deviation=abs(j-expectedJ)
                 new_interval=False
+                print(f"{vertical_deviation=}")
 
                 # monotony constraint : if the two previous and the two next anchors are monotonic but not the current
                 # the current anchor is discarded
@@ -1587,7 +1589,7 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
 
                 # deviated and low density point
                 if (vertical_deviation > params['maxDistToTheDiagonal']/2 or i<lastI or j<lastJ) and density_ratio < params['minDensityRatio']:
-                    # localDensity=compute_local_density(i,j,anchor_points,lent_sents1,lent_sents2,sim_mat,params['deltaX'],params['deltaY'])
+                    # localDensity=compute_local_density(i,j,anchor_points,len_sents1,len_sents2,sim_mat,params['deltaX'],params['deltaY'])
                     # deviated point is removed if density is not high enough
                     print(f"({i},{j}) is ignored. Low density : {density_ratio=}")
                     # the current point is skipped
@@ -1598,6 +1600,9 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
                 # only the points that are near the diagonal are taken into account
                 if vertical_deviation <= params['maxDistToTheDiagonal']:
                     nb_in_interval+=1
+                    lastI=i
+                    lastJ=j
+                    print(f"({i},{j}) is valid\n")
                 else:
                     params['verbose'] and print(f"({i},{j}) is a deviating point {lastI=}, {lastJ=}, {density_ratio=}, {vertical_deviation=}")
                     
@@ -1686,13 +1691,15 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
                         Y=[j1,j2,j3,j4,j1]
                         plt.plot(X,Y,c="grey")
                         plt.show()
-                
-                lastI=i
-                lastJ=j
+                    
+                    # la mise à jour de lastI et lastJ ne se fait pas pour 
+                    # un point déviant n'ayant pas ouvert un intervalle
+                    lastI=i
+                    lastJ=j
         else:
-            lastI=lent_sents1-1
-            lastJ=lent_sents2-1
-        
+            lastI=len_sents1-1
+            lastJ=len_sents2-1
+ 
 
         t8=time.time()
         if params['verbose']:
@@ -1707,6 +1714,7 @@ def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_m
         for n in range(max(0,beginInt[1]),lastJ+1):
             interval_length_char2+=len(sents2[n])
         intervals.append((beginInt,(lastI,lastJ)))
+        params['verbose'] and print(d,f"Closing last interval ({beginInt},({lastI},{lastJ}))")
 
     if params['verbose']:
         print("Total interval length=",interval_length_sent1,"+",interval_length_sent2)
@@ -1750,11 +1758,11 @@ def align(  l1,
     if params['verbose']: 
         print("Processing",file1,"and",file2)
                 
-    (sents1,id_sents1,lent_sents1,seg2sents1,nb_chars1)=read_input_file(input_dir,file1,input_format,col1,l1)
-    (sents2,id_sents2,lent_sents2,seg2sents2,nb_chars2)=read_input_file(input_dir,file2,input_format,col2,l2)
+    (sents1,id_sents1,len_sents1,seg2sents1,nb_chars1)=read_input_file(input_dir,file1,input_format,col1,l1)
+    (sents2,id_sents2,len_sents2,seg2sents2,nb_chars2)=read_input_file(input_dir,file2,input_format,col2,l2)
     
-    if lent_sents1*lent_sents2==0:
-        print(f"File is empty ! No sentence read : {lent_sents1=} {lent_sents2=}")
+    if len_sents1*len_sents2==0:
+        print(f"File is empty ! No sentence read : {len_sents1=} {len_sents2=}")
         return
     # computing output file names
     if output_file_name=="":
@@ -1790,13 +1798,13 @@ def align(  l1,
     
     # =====> STEP 6-8 : filtering anchor points and extracting alignable intervals
 
-    (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_mat)
+    (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=extract_anchor_points(points,x,y,sents1,sents2,len_sents1,len_sents2,sim_mat)
 
     if params['adaptativeMode']:
         params['sentRatio']=interval_length_sent2/interval_length_sent1
         params['charRatio']=interval_length_char2/interval_length_char1
         print(f"Adapted ratios : {sentRatio=} {charRatio=}")
-        (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_mat)
+        (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=extract_anchor_points(points,x,y,sents1,sents2,len_sents1,len_sents2,sim_mat)
 
     if params['writeIntervals'] and len(intervals)>0:
         output_interval_filename=output_anchor_filename.replace(".anchor",".intervals")+".txt"
@@ -1830,7 +1838,7 @@ def align(  l1,
         # display of the points : eliminated points are red
         if print_plot:
         
-            plt.axis([1,lent_sents1,1,lent_sents2])
+            plt.axis([1,len_sents1,1,len_sents2])
             plt.autoscale()
             plt.title(output_file_name+'.txt - filtered')
             plt.scatter(x,y,c="red",s=1)
@@ -1889,8 +1897,8 @@ def align(  l1,
         
         # adding empty pairs at the end
         (last_x,last_y)=dtw_path[-1]
-        x_l=list(range(last_x+1,lent_sents1-1))
-        y_l=list(range(last_y+1,lent_sents2-1))
+        x_l=list(range(last_x+1,len_sents1-1))
+        y_l=list(range(last_y+1,len_sents2-1))
 
         if len(x_l)>0:
             x_dtw.append(x_l)
@@ -1986,6 +1994,9 @@ def align(  l1,
         
         if params['useShelve']:
             embed_shelve.close() 
+
+        # =====> STEP 10 : parse aligned sentence, extract chunks and align chunk to get word 2 word alignment
+        # lexical_alignment(l1,l2,x_dtw,y_dtw,encoder,sents1,sents2)
 
         return mean_score
      
@@ -2325,7 +2336,19 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,sim_mat,embeds
                 if params['veryVerbose']:
                     print( f"Running DTW for the point : ({x},{y}) - elapsed from (1,1) =",time.time()-t8,"s.")
                 
-                (path,dist)=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,x,y,x_begin,y_begin,localBeam,char_ratio)
+                try:
+                    # compute the inferior values to give an interval to cut recursion : points that are before
+                    # x_inf,y_inf should not be considered
+                    x_inf=previous1_x-localBeam
+                    y_inf=previous1_y-localBeam
+                    (path,dist)=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,x,y,max(x_begin,x_inf),max(y_begin,y_inf),localBeam,char_ratio)
+                except RecursionError :
+                    print ("Recursion error : trying step by step computation")
+                    for xx in range(previous1_x+2,x+1,2):
+                        yy=previous1_y+int((xx-previous1_x)/(x-previous1_x)*(y-previous1_y))
+                        print (f"Trying point ({xx=},{yy=})")
+                        (path,dist)=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,xx,yy,x_begin,y_begin,localBeam,char_ratio)
+                
                 if dist==infinite and params['verbose']: 
                     print( f"Infinite distance from : ({x},{y})")
                     # initiating a new interval starting from x,y
@@ -2399,6 +2422,7 @@ def dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_ma
     path_by_group={}
     dist_by_group={}
     for group in allowed_groups:
+        #~ print(f"{localBeam} {x_begin=} {y_begin=} Calling point",i-group[0],j-group[1])
         (path_by_group[group],dist_by_group[group])=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,i-group[0],j-group[1],x_begin,y_begin,localBeam,char_ratio)
         dist_by_group[group]+= distance_dtw(encoder,sents1,sents2,encode_hash,dist_hash,sim_mat,embeds1,embeds2,i-group[0],i,j-group[1],j,char_ratio) # interval ]i-group[0];i] ]j-group[1];j] 
 
@@ -2505,9 +2529,27 @@ def distance_dtw(encoder,sents1,sents2,encode_hash,dist_hash,sim_mat,embeds1,emb
             embed_j=np.add(embed_j,embeds2[coord_j])
             if use_coeff:
                 coeff+=1
-        
-        embed_i = embed_i / np.linalg.norm(embed_i) # normalize
-        embed_j = embed_j / np.linalg.norm(embed_j) # normalize
+        try:
+            norm_i= np.linalg.norm(embed_i) # normalize
+        except:
+            norm_i=0
+            for k in range(len(embed_i)):
+                norm_i+=embed_i[k]**2
+            norm_i=math.sqrt(norm_i)
+            print(f"plantage de linalg.norm, norme calculée directement {norm_i=}")
+            
+        try:
+            norm_j= np.linalg.norm(embed_j) # normalize
+        except:
+            norm_j=0
+            for k in range(len(embed_j)):
+                norm_j+=embed_j[k]**2
+            norm_j=math.sqrt(norm_j)
+            print(f"plantage de linalg.norm, norme calculée directement {norm_j=}")
+
+            
+        embed_i = embed_i / norm_i # normalize
+        embed_j = embed_j / norm_j # normalize
         sim=np.matmul(embed_i, np.transpose(embed_j))
 
     # compute the similarity with neighbouring sentences and substract it to the global sim
