@@ -5,12 +5,12 @@ USAGE :
 
 1/ aligning 2 files FILE1 and FILE2 : 
 
-python3 ailign.py [--inputFormat INPUTFORMAT] --inputFile1 FILE1 --inputFile2 FILE2 --outputFilename OUTPUTFILENAME --outputFormats FORMATS
+python3 ailign.py [--inputFormat INPUTFORMAT] --inputFile1 FILE1 --inputFile2 FILE2 --output_filename OUTPUTFILENAME --outputFormats FORMATS
 
 Examples :
-python3 ailign.py --inputFormat json --inputFile1 4.\ stanza/KHM53.1819.grimm.de.json --inputFile2 4.\ stanza/KHM53.1869.alsleben.fr.json --outputFilename KHM53.alsleben.de-fr.txt --outputFormats txt ces
-python3 ailign.py --inputFile1 2.\ txt/KHM53.1846.martin.fr.txt --inputFile2 2.\ txt/KHM53.1869.alsleben.fr.txt --outputFilename 5.\ aligned/KHM.1846-1869.fr-fr --outputFormats tmx txt  --savePlot --verbose
-python3 ailign.py --inputFile1 corpus_aristophane/Plutus.Fleury.fr.txt --inputFile2 corpus_aristophane/Plutus.Fallex.fr.txt --outputFilename corpus_aristophane_aligné/Plutus.Fallex-Fleury.fr-fr --outputFormats tmx txt  --savePlot --verbose --margin 0.01 --cosThreshold 0.5 --k 2 --deltaX 20 --minDensityRatio 1.1
+python3 ailign.py --inputFormat json --inputFile1 4.\ stanza/KHM53.1819.grimm.de.json --inputFile2 4.\ stanza/KHM53.1869.alsleben.fr.json --output_filename KHM53.alsleben.de-fr.txt --outputFormats txt ces
+python3 ailign.py --inputFile1 2.\ txt/KHM53.1846.martin.fr.txt --inputFile2 2.\ txt/KHM53.1869.alsleben.fr.txt --output_filename 5.\ aligned/KHM.1846-1869.fr-fr --outputFormats tmx txt  --savePlot --verbose
+python3 ailign.py --inputFile1 corpus_aristophane/Plutus.Fleury.fr.txt --inputFile2 corpus_aristophane/Plutus.Fallex.fr.txt --output_filename corpus_aristophane_aligné/Plutus.Fallex-Fleury.fr-fr --outputFormats tmx txt  --savePlot --verbose --margin 0.01 --cosThreshold 0.5 --k 2 --deltaX 20 --minDensityRatio 1.1
 
 
 NB : 
@@ -34,8 +34,8 @@ Then, for each column or row, only the k points with the highest scores are reta
 At this stage, filtering is performed using the margin parameter, which allows us to retain only those points with a score greater than margin compared with their best competitor (margin=0.05 by default). If we apply this criterion, it may be consistent to set kBest to 1.
 
 We then apply a two-stage high-pass filter.
-The first filtering corresponds to the filterPoints() function. The first filter is based on a calculation of the density of candidates around each candidate point. This density is not calculated in a square centered around the point, but rather in a corridor centered on the diagonal passing through the point (the alignment path generally follows this diagonal). The width of this corridor corresponds to the deltaY parameter. The length of this corridor corresponds to the deltaY parameter. The number of candidate points divided by the size of this space gives a density value. If this density, divided by the average density of all candidate points, is greater than a certain ratio (minDensityRatio, typically around 0.5) then the point is retained. 
-The second filter, which corresponds to the resolvingConflicts() function, focuses on resolving conflicts on the vertical and horizontal axes respectively - when for the same x-coordinate there are several points with different y-coordinates, and conversely, when for the same y-coordinate there are several points with different x-coordinates - these cases only arise if KBest is greater than 1. Competitors are eliminated on the basis of density: only the point with the best density along its diagonal is retained.
+The first filtering corresponds to the filter_points() function. The first filter is based on a calculation of the density of candidates around each candidate point. This density is not calculated in a square centered around the point, but rather in a corridor centered on the diagonal passing through the point (the alignment path generally follows this diagonal). The width of this corridor corresponds to the deltaY parameter. The length of this corridor corresponds to the deltaY parameter. The number of candidate points divided by the size of this space gives a density value. If this density, divided by the average density of all candidate points, is greater than a certain ratio (minDensityRatio, typically around 0.5) then the point is retained. 
+The second filter, which corresponds to the resolving_conflicts() function, focuses on resolving conflicts on the vertical and horizontal axes respectively - when for the same x-coordinate there are several points with different y-coordinates, and conversely, when for the same y-coordinate there are several points with different x-coordinates - these cases only arise if KBest is greater than 1. Competitors are eliminated on the basis of density: only the point with the best density along its diagonal is retained.
 This density filtering can be repeated once if the --reiterateFiltering parameter is given.
 
 """
@@ -50,6 +50,7 @@ import time
 import json
 import warnings
 import xml.etree.ElementTree as ET
+from lxml import etree
 import shelve
 import math
 
@@ -89,16 +90,21 @@ in a next step (the non parallel text is supposed to be removed).
 parser.add_argument('--l1', type=str, help='The source language (ISO : ex. "en" for English)', default='en')
 parser.add_argument('--l2', type=str, help='The target language (ISO : ex. "fr" for French, "*" for any)', default='*')
 parser.add_argument('-i','--inputFormat',help='Format of the input (txt, arc, ces, json, tsv, xml-conll, xml)',default="txt")
-parser.add_argument('--xmlGuide',nargs='+',type=str,help='List of markups that should be read in the XML input',default=["speaker","p"])
+parser.add_argument('--xmlGuide',nargs='+',type=str,help='List of markups that should be read in the XML input',default=["s"])
 parser.add_argument('--col1',help='For TSV format, indicate the column of l1', type=int, default=0)
 parser.add_argument('--col2',help='For TSV format, indicate the column of l2', type=int, default=1)
-parser.add_argument('-o','--outputFormats',nargs='+',type=str,help='Formats of the output (TXT, CES, ARC, XML, BERTALIGN)',default=["txt","tmx","ces"])
+parser.add_argument('-o','--outputFormats',nargs='+',type=str,help='Formats of the output (TXT, TXT2, CES, ARC, XML, TSV, TSV2, BERTALIGN)',default=["txt","tmx","ces"])
+parser.add_argument('--collectionName',help='for TSV2 format (Lexicoscope) name of the collection',default="")
+parser.add_argument('--addAnchor',help='Add anchor in xml files',action="store_true",default=False)
+parser.add_argument('--direction',type=str, help='The aligning direction for anchors: "1<->2","1->2","2->1"', default='1<->2')
 parser.add_argument('--inputFile1', type=str, help='The l1 input file to process', default='')
 parser.add_argument('--inputFile2', type=str, help='The l2 input file to process', default='')
+parser.add_argument('--fileId1', type=str, help='The id prefix of file1 in xml anchors', default='')
+parser.add_argument('--fileId2', type=str, help='The id prefix of file2 in xml anchors', default='')
 parser.add_argument('--inputFileList', type=str, help='A tsv file with corresponding filenames separated by tab', default='')
 parser.add_argument('--inputDir', type=str, help='The directory to process', default='.')
 parser.add_argument('--outputDir', type=str, help='The directory to save output files', default='.')
-parser.add_argument('--outputFilename', type=str, help='The output filename (optional), without format extension', default='')
+parser.add_argument('--output_filename', type=str, help='The output filename (optional), without format extension', default='')
 parser.add_argument('-f','--filePattern', type=str, help='The pattern of the files that should be processed. A capturing group such as (.*) should capture the common prefix between aligned files.', default=r'([^\\/]*)[.](\w\w\w?)[.]\w+$')
 parser.add_argument('--writeAnchorPoints',help='Write anchor points',action="store_true",default=False)
 parser.add_argument('--writeSegmentedInput',help='Write sentence segmented input files in txt format',action="store_true",default=False)
@@ -111,7 +117,7 @@ parser.add_argument('--adaptativeMode',help='Using interval detection, compute e
 
 # special arguments for output control
 parser.add_argument('-v','--verbose',help='Verbose messages',action="store_true")
-parser.add_argument('-w','--writeAlignableArea',help='Write alignable area files',action="store_true",default=False)
+parser.add_argument('-w','--write_alignableArea',help='Write alignable area files',action="store_true",default=False)
 parser.add_argument('-V','--veryVerbose',help='Very verbose messages',action="store_true")
 parser.add_argument('--savePlot',help='Save scatter plot in a png file',action="store_true",default=False)
 parser.add_argument('--showPlot',help='Show scatter plot (with a pause during execution)',action="store_true",default=False)
@@ -120,11 +126,8 @@ parser.add_argument('--showPlot',help='Show scatter plot (with a pause during ex
 parser.add_argument('--detectIntervals',help='Detect alignable interval using anchor points.',action="store_true",default=False)
 parser.add_argument('-u','--useNgrams',help='Use ngrams to extract points',action="store_true",default=False)
 parser.add_argument('-r','--doNotRunDTW', help='Perform only first step without DTW algorithm)',action="store_true",default=False)
-parser.add_argument('--groupAfterOne2OnePairing', help='Run DTW algorithm with only 1-1 pairing, then, group the contiguous points',action="store_true",default=False)
 parser.add_argument('--lateGrouping', help='Run DTW algorithm with only 1-1 pairing, then, group the contiguous points with lateGrouping method (greedy algorithm)',action="store_true",default=False)
 parser.add_argument('--noMarginPenalty', help='Do not compute the similarity with neighbouring sentences, and substract the neighbouring similarity to the bead similarity)',action="store_true",default=False)
-parser.add_argument('--deltaDist',type=float,help='The min difference between distances for grouping',default=0.05)
-
 
 # controlling anchor points building and filtering 
 # (important parameters are : cosThreshold, kBest, deltaX, minDensityRatio)
@@ -132,7 +135,7 @@ parser.add_argument('--embedModel',type=str,help='Choose embedding model : sbert
 parser.add_argument('--modelName',type=str,help='Choose sbert model name (default=sentence-transformers/LaBSE)',default="sentence-transformers/LaBSE")
 parser.add_argument('-l','--cosThreshold',type=float,help='The minimum similarity for labse vectors to yield one point',default=0.4)
 parser.add_argument('--cosThresholdInOutputAnchors',type=float,help='The minimum similarity for final anchor points',default=0.5)
-parser.add_argument('-n','--ngram', type=int, help='The ngram size', default=4)
+parser.add_argument('--ngram', type=int, help='The ngram size', default=4)
 parser.add_argument('-d','--diceThreshold', type=float, help='The minimum dice score to yield a candidate point', default=0.05)
 parser.add_argument('--margin', type=float, help='Margin used to eliminate sentences that have too close neighbours on the vertical or horizontal axis', default=0.05)
 parser.add_argument('-k','--kBest', type=int, help='Number of the best coordinates for each line ore column to keep when creating points', default=4)
@@ -160,127 +163,132 @@ parser.add_argument('--penalty_0_n', help='Penalty score given for each 0-n (or 
 
 # other : persistance of embeddings
 parser.add_argument('--useShelve',help='Save the embeddings in shelve (in order to quick up the next run)',action="store_true",default=False)
-parser.add_argument('--skipLoadingModel',help='When using shelve loading labse may be skipped (only if shelve is complete)',action="store_true",default=False)
 
 args = parser.parse_args()
 
 # generic parameters
+# arguments of the ailign function
+# align(l1,l2,input_dir,file1,file2,inputFormat,outputDir,outputFormats,output_filename="",col1=0,col2=1,printIds=False,file_id1="",file_id2="",add_anchor=False):
 l1=args.l1
 l2=args.l2
-verbose=args.verbose
-detectIntervals=args.detectIntervals
-writeAlignableArea=args.writeAlignableArea
-writeAnchorPoints=args.writeAnchorPoints
-writeSegmentedInput=args.writeSegmentedInput
-writeIntervals=args.writeIntervals
-veryVerbose=args.veryVerbose
-filePattern=re.compile(args.filePattern)
-savePlot=args.savePlot
-showPlot=args.showPlot
-inputFile1=args.inputFile1
-inputFile2=args.inputFile2
-inputFileList=args.inputFileList
-inputDir=args.inputDir
-outputDir=args.outputDir
-outputFilename=args.outputFilename
-inputFormat=args.inputFormat # 'txt','arc','json'
-xmlGuide=args.xmlGuide 
+input_dir=args.inputDir
+input_file1=args.inputFile1
+input_file2=args.inputFile2
+input_format=args.inputFormat # 'txt','arc','json'
+output_dir=args.outputDir
+output_formats=args.outputFormats
+collection_name=args.collectionName
+output_file_name=args.output_filename
 col1=args.col1
 col2=args.col2
-outputFormats=args.outputFormats
-printIds=args.printIds
-splitSent=args.splitSent
-useSentenceSegmenter=args.useSentenceSegmenter
-mergeLines=args.mergeLines
-adaptativeMode=args.adaptativeMode
+print_ids=args.printIds
+file_id1=args.fileId1
+file_id2=args.fileId2
+add_anchor=args.addAnchor
 
-useNgrams=args.useNgrams
-doNotRunDTW=args.doNotRunDTW
-groupAfterOne2OnePairing=args.groupAfterOne2OnePairing
-noMarginPenalty=args.noMarginPenalty
-lateGrouping=args.lateGrouping
+params={}
 
-deltaDist=args.deltaDist
-noEmptyPair=args.noEmptyPair
-no2_2Group=args.no2_2Group
-penalty_n_n=args.penalty_n_n
-penalty_0_n=args.penalty_0_n
-charRatio=args.charRatio
+params['inputFileList']=args.inputFileList
+params['verbose']=args.verbose
+params['detectIntervals']=args.detectIntervals
+params['write_alignableArea']=args.write_alignableArea
+params['writeAnchorPoints']=args.writeAnchorPoints
+params['writeSegmentedInput']=args.writeSegmentedInput
+params['writeIntervals']=args.writeIntervals
+params['direction']=args.direction
+params['veryVerbose']=args.veryVerbose
+params['filePattern']=re.compile(args.filePattern)
+params['savePlot']=args.savePlot
+params['showPlot']=args.showPlot
+params['xmlGuide']=args.xmlGuide 
+params['splitSent']=args.splitSent
+params['useSentenceSegmenter']=args.useSentenceSegmenter
+params['mergeLines']=args.mergeLines
+params['adaptativeMode']=args.adaptativeMode
+params['useNgrams']=args.useNgrams
+params['doNotRunDTW']=args.doNotRunDTW
+params['noMarginPenalty']=args.noMarginPenalty
+params['lateGrouping']=args.lateGrouping
+params['noEmptyPair']=args.noEmptyPair
+params['no2_2Group']=args.no2_2Group
+params['penalty_n_n']=args.penalty_n_n
+params['penalty_0_n']=args.penalty_0_n
+params['charRatio']=args.charRatio
+params['sentRatio']=args.sentRatio
 
 # sentence encoder method parameters
-embedModel=args.embedModel
-modelName=args.modelName
-cosThreshold=args.cosThreshold
-cosThresholdInOutputAnchors=args.cosThresholdInOutputAnchors
-dtwBeam=args.dtwBeam
-localBeamDecay=args.localBeamDecay
-distNull=args.distNull
+params['embedModel']=args.embedModel
+params['modelName']=args.modelName
+params['cosThreshold']=args.cosThreshold
+params['cosThresholdInOutputAnchors']=args.cosThresholdInOutputAnchors
+params['dtwBeam']=args.dtwBeam
+params['localBeamDecay']=args.localBeamDecay
+params['distNull']=args.distNull
 
 # ngram identification
-n=args.ngram                # ngram size
-diceThreshold=args.diceThreshold    # min dice to add a candidate point
+params['ngram']=args.ngram                # ngram size
+params['diceThreshold']=args.diceThreshold    # min dice to add a candidate point
 
 # anchor point filtering parameters
-deltaX=args.deltaX          # local space definition : +/-delta X on horizontal axis
-deltaY=args.deltaY          # local space definition : +/-delta Y on vertical axis
-minDensityRatio=args.minDensityRatio            # the minimal local density ratio (relatively to the average local density) to keep a candidate point
-minHorizontalDensity=args.minHorizontalDensity  # the minimal density on horizontal axis to keep an interval in the final result
-maxDistToTheDiagonal=args.maxDistToTheDiagonal  # the maximal distance to the diagonal (inside a given interval) for a point to be taken into account in the horizontal density
-kBest=args.kBest            # number of best coordinates to keep in creating points
-margin=args.margin          # margin : min distance between neighbouring sentences
-maxGapSize=args.maxGapSize  # max distance between two points to make a gap between two interval
-diagBeam=args.diagBeam      # max distance to the diagonal
-localDiagBeam=args.localDiagBeam        # max distance to the diagonal in the interval
-reiterateFiltering=args.reiterateFiltering
-useShelve=args.useShelve
-skipLoadingModel=args.skipLoadingModel
-sentRatio=args.sentRatio
+params['deltaX']=args.deltaX          # local space definition : +/-delta X on horizontal axis
+params['deltaY']=args.deltaY          # local space definition : +/-delta Y on vertical axis
+params['minDensityRatio']=args.minDensityRatio            # the minimal local density ratio (relatively to the average local density) to keep a candidate point
+params['minHorizontalDensity']=args.minHorizontalDensity  # the minimal density on horizontal axis to keep an interval in the final result
+params['maxDistToTheDiagonal']=args.maxDistToTheDiagonal  # the maximal distance to the diagonal (inside a given interval) for a point to be taken into account in the horizontal density
+params['kBest']=args.kBest            # number of best coordinates to keep in creating points
+params['margin']=args.margin          # margin : min distance between neighbouring sentences
+params['maxGapSize']=args.maxGapSize  # max distance between two points to make a gap between two interval
+params['diagBeam']=args.diagBeam      # max distance to the diagonal
+params['localDiagBeam']=args.localDiagBeam        # max distance to the diagonal in the interval
+params['reiterateFiltering']=args.reiterateFiltering
+params['useShelve']=args.useShelve
+
 
 
 # various low level parameters
-printLog=False
-showPlot4NewInterval=False
-minSentLengthRatio=0.2  # the minimal ratio between the shorter and the longer sentence to yield a candidate point
-minSentLength=1         # the minimal sentence size to look for ngram
+print_log=False
+show_plot_4_new_interval=False
+min_sent_length_ratio=0.2  # the minimal ratio between the shorter and the longer sentence to yield a candidate point
+min_sent_length=1         # the minimal sentence size to look for ngram
 coeff_sent_len=0.33     # balance between sentence based length
 coeff_neighbour_sim=0.6 # strength of the margin penalty
-segMinLength=5 # min length for an aligned segment (in order to avoid oversegmentation)
-useEncoder=False # to compute the embeddings of sentence concatenations
+seg_min_length=5 # min length for an aligned segment (in order to avoid oversegmentation)
+use_encoder=False # to compute the embeddings of sentence concatenations
 max_group_size=4
-printGap=False
-
+print_gap=False
+params['verbose']=True
+embed_shelve={}
 
 ################################################################
 # initialization code
 
 infinite=float('inf')
 allowed_groups=[]
-printPlot=savePlot or showPlot
-onlyOne2OnePairing=False
+print_plot=params['savePlot'] or params['showPlot']
+only_one_2_one_pairing=False
 
 allowed_groups=[(0,1),(1,0),(1,1)]
-if not onlyOne2OnePairing:
+if not only_one_2_one_pairing:
     for i in range(2,max_group_size+1):
         allowed_groups.append((1,i))
         allowed_groups.append((i,1))
-    if noEmptyPair:
+    if params['noEmptyPair']:
         allowed_groups.remove((1,0))
         allowed_groups.remove((0,1))
-    if not no2_2Group:
+    if not params['no2_2Group']:
         allowed_groups.append((2,2))
     
-if verbose:
+if params['verbose']:
     print(f"Allowed groups : {allowed_groups}")
 
 # to optimize parameters, temporarily save the embeddings in shelve or load embeds from the shelves
 # N.B : embeds are normalized
-if useShelve:
-    embedShelve=shelve.open("embeds")
+
 log=None
 
 # opening log and models if necessary
-if printLog:
-    log=open(os.path.join(outputDir,"ailign.log"),mode="a",encoding="utf8")
+if print_log:
+    log=open(os.path.join(output_dir,"ailign.log"),mode="a",encoding="utf8")
 
 # conditionnaly import alternative models (main model is labse)
 preprocessor=False
@@ -288,16 +296,16 @@ encoder=False
 
 # open various pretrained models (https://www.sbert.net/docs/pretrained_models.html) including labse
 # n.b.: some model are more adapted to translation comparison, other to paraphrasing
-if embedModel=="laser":
+if params['embedModel']=="laser":
     # import modules for laser
     from laserembeddings import Laser
     encoder=Laser()
-elif embedModel=="sbert":
+elif params['embedModel']=="sbert":
     # import modules for sbert
     from sentence_transformers import SentenceTransformer
     print("*** Loading sbert model",)
-    encoder = SentenceTransformer(modelName)
-elif embedModel=="labse-keras":
+    encoder = SentenceTransformer(params['modelName'])
+elif params['embedModel']=="labse-keras":
     import tensorflow_hub as hub
     import tensorflow as tf
     import tensorflow_text as text  # Needed for loading universal-sentence-encoder-cmlm/multilingual-preprocess
@@ -311,10 +319,10 @@ elif embedModel=="labse-keras":
 segmenter=None
 
 # parameter for sentence segmentation
-if splitSent:
-    if useSentenceSegmenter:
+if params['splitSent']:
+    if params['useSentenceSegmenter']:
         from trankit import Pipeline
-        if verbose : 
+        if params['verbose'] : 
             print("Loading sentence segmenter from trankit")
         # names are defined here : https://trankit.readthedocs.io/en/latest/pkgnames.html
         names={
@@ -333,7 +341,7 @@ if splitSent:
             print(f"Error while loading sentence segmenter from trankit. Check that you have defined a name for languages {l1} and {l2} (line 240)")
     else :
         # Rules that define sentence segmentation
-        splitSent_regex={ 
+        split_sent_regex={ 
             'zh': r'(?<=[：，。？！”])',
             'ar': r'(?<=\.|۔)',
             'fr': r'(?<=[.!?;:]) (?=[A-Z«"])|(?<=[!?;:])', # grimm Baudry
@@ -344,7 +352,7 @@ if splitSent:
 # Rules that define a correct end of line, for line merging
 
 
-mergeLines_regex={ 
+merge_lines_regex={ 
     'zh': r'[：，。？！”]\s*$',
     'fr': r'[?;:\.!"»…]\s*$',
     'ar': r'(\.|۔)\s*$'
@@ -354,46 +362,46 @@ mergeLines_regex={
 ########################################
 
 # arc format is adapted to yasa input
-arcHeader="\n<text>\n<divid='d1'>\n<pid='d1p1'>\n"
-arcFooter="</p>\n</div>\n</text>\n"
+arc_header="\n<text>\n<divid='d1'>\n<pid='d1p1'>\n"
+arc_footer="</p>\n</div>\n</text>\n"
 
 # ces format is another standard for segmented files
-cesHeader="""<?xml version="1.0" encoding="utf-8"?>
+ces_header="""<?xml version="1.0" encoding="utf-8"?>
 <cesAna>
 <chunkList>
 <chunk>
 <par>
 """
-cesFooter="""
+ces_footer="""
 </par>
 </chunk>
 </chunkList>
 </cesAna>"""
 
 # cesalign format is used to store alignment result
-cesAlignHeader=f"""<?xml version="1.0" encoding="utf-8"?>
+ces_align_header=f"""<?xml version="1.0" encoding="utf-8"?>
 
 <cesAlign type="seg" version="1.6">
 
-<cesHeader version="2.3" meanScore="__meanScore__">
+<ces_header version="2.3" mean_score="__mean_score__">
     <translations>
         <translation lang="{l1}" />
         <translation lang="{l2}" />
     </translations>
-</cesHeader>
+</ces_header>
 
 <linkList>
     <linkGrp targType="seg">
     
 """
-cesAlignFooter="""
+ces_align_footer="""
 </linkGrp>
 </linkList>
 
 </cesAlign>
 """
 # tmx is a common xml format to encode aligned file (for translation memories)
-tmxHeader="""
+tmx_header="""
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE tmx SYSTEM "tmx14.dtd">
 <tmx version="1.4">
@@ -402,13 +410,13 @@ tmxHeader="""
     creationtoolversion="1.0"
     datatype="unknown"
     segtype="sentence"
-    meanScore="__meanScore__"
+    mean_score="__mean_score__"
   >
   </header>
   <body>
 """
 
-tmxFooter="""
+tmx_footer="""
   </body>
 </tmx>  
 """
@@ -425,66 +433,66 @@ def toXML (s):
 # local space may be centered, or before (for a point wich ends an interval) 
 # or after (for a point that begins an interval).
 # max density is taken
-def computeLocalDensity(i,j,points,I,J,simMat,deltaX,deltaY):
-    coeff=J/I if sentRatio==0 else sentRatio
-    localSpaceSizeBefore=0
-    nbPointsInLocalSpaceBefore=0
+def compute_local_density(i,j,points,I,J,sim_mat,delta_x,delta_y):
+    coeff=J/I if params['sentRatio']==0 else params['sentRatio']
+    local_space_size_before=0
+    nb_points_in_local_space_size_before=0
 
-    localSpaceSizeCentered=0
-    nbPointsInLocalSpaceCentered=0
+    local_space_size_centered=0
+    nb_points_in_local_space_size_centered=0
     
-    localSpaceSizeAfter=0
-    nbPointsInLocalSpaceAfter=0
+    local_space_size_after=0
+    nb_points_in_local_space_size_after=0
     
-    for X in range(max(0,i-2*deltaX),min(i+2*deltaX+1,I)):
-        for Y in range(int(max(0,j-(i-X)*coeff-deltaY)),int(min(j-(i-X)*coeff+deltaY+1,J))):
+    for X in range(max(0,i-2*delta_x),min(i+2*delta_x+1,I)):
+        for Y in range(int(max(0,j-(i-X)*coeff-delta_y)),int(min(j-(i-X)*coeff+delta_y+1,J))):
             if X <= i:
-                localSpaceSizeBefore+=1
+                local_space_size_before+=1
                 if (X,Y) in points.keys():
-                    nbPointsInLocalSpaceBefore+=simMat[X,Y]
+                    nb_points_in_local_space_size_before+=sim_mat[X,Y]
             if X >= i:
-                localSpaceSizeAfter+=1
+                local_space_size_after+=1
                 if (X,Y) in points.keys():
-                    nbPointsInLocalSpaceAfter+=simMat[X,Y]
-            if max(0,i-deltaX) <= X < min(i+deltaX+1,I):
-                localSpaceSizeCentered+=1
+                    nb_points_in_local_space_size_after+=sim_mat[X,Y]
+            if max(0,i-delta_x) <= X < min(i+delta_x+1,I):
+                local_space_size_centered+=1
                 if (X,Y) in points.keys():
-                    nbPointsInLocalSpaceCentered+=simMat[X,Y]
+                    nb_points_in_local_space_size_centered+=sim_mat[X,Y]
                     
     (densityBefore,densityAfter,densityCentered)=(0,0,0)
-    if localSpaceSizeBefore:
-        densityBefore=nbPointsInLocalSpaceBefore/localSpaceSizeBefore
-    if localSpaceSizeAfter:
-        densityAfter=nbPointsInLocalSpaceAfter/localSpaceSizeAfter
-    if localSpaceSizeCentered:
-        densityCentered=nbPointsInLocalSpaceCentered/localSpaceSizeCentered
+    if local_space_size_before:
+        densityBefore=nb_points_in_local_space_size_before/local_space_size_before
+    if local_space_size_after:
+        densityAfter=nb_points_in_local_space_size_after/local_space_size_after
+    if local_space_size_centered:
+        densityCentered=nb_points_in_local_space_size_centered/local_space_size_centered
     return max(densityBefore,densityAfter,densityCentered)
 
 
 # filtering points by eliminating every point in the center of a low density local area
 # output : (points,filtered_x,filtered_y)
-def filterPoints(points,I,J,averageDensity,simMat,deltaX,deltaY):
+def filter_points(points,I,J,average_density,sim_mat,delta_x,delta_y):
     # initialisation of filtered points
     filtered_x=[]
     filtered_y=[]
     nbDeleted=0
     
-    if veryVerbose:
+    if params['veryVerbose']:
         print("Filtering ",len(points),"...")
 
     # computation of local density for each point
-    pointsKey=sorted(list(points.keys()),key=lambda point:point[0])
+    points_key=sorted(list(points.keys()),key=lambda point:point[0])
     
-    for point in pointsKey:
+    for point in points_key:
         (i,j)=point
         
-        localDensity=computeLocalDensity(i,j,points,I,J,simMat,deltaX,deltaY)
+        localDensity=compute_local_density(i,j,points,I,J,sim_mat,delta_x,delta_y)
         
-        if veryVerbose:
-            print ("i=",i,"j=",j,"Local density=",localDensity,"Average density=",averageDensity,"Ratio=",round(localDensity/averageDensity,2))
+        if params['veryVerbose']:
+            print ("i=",i,"j=",j,"Local density=",localDensity,"Average density=",average_density,"Ratio=",round(localDensity/average_density,2))
         
         # point is removed if density is not high enough
-        if averageDensity>0 and localDensity/averageDensity < minDensityRatio:
+        if average_density>0 and localDensity/average_density < params['minDensityRatio']:
             del(points[(i,j)])
             nbDeleted+=1
 
@@ -494,10 +502,10 @@ def filterPoints(points,I,J,averageDensity,simMat,deltaX,deltaY):
             #~ plt.title(str(i)+","+str(j)+'=> low density')
             #~ plt.scatter(x,y,c="black",s=1) 
             #~ plt.scatter([i],[j],c="red",s=1)                      
-            #~ (i1,j1)=(i-deltaX,j-deltaX-deltaY)
-            #~ (i1,j2)=(i-deltaX,j-deltaX+deltaY)
-            #~ (i2,j3)=(i+deltaX,j+deltaX+deltaY)
-            #~ (i2,j4)=(i+deltaX,j+deltaX-deltaY)
+            #~ (i1,j1)=(i-delta_x,j-delta_x-delta_y)
+            #~ (i1,j2)=(i-delta_x,j-delta_x+delta_y)
+            #~ (i2,j3)=(i+delta_x,j+delta_x+delta_y)
+            #~ (i2,j4)=(i+delta_x,j+delta_x-delta_y)
             #~ X=[i1,i1,i2,i2,i1]
             #~ Y=[j1,j2,j3,j4,j1]
             #~ plt.plot(X,Y,c="grey")
@@ -507,28 +515,28 @@ def filterPoints(points,I,J,averageDensity,simMat,deltaX,deltaY):
             filtered_x.append(i)
             filtered_y.append(j)
     
-    if verbose:
+    if params['verbose']:
         print(nbDeleted,"points have been removed!")
     
     return (points,filtered_x,filtered_y)
 
 # removing points that are conflicting on the same column : only the point with the higher local density is kept
-def resolvingConflicts(points,I,J,simMat):
+def resolving_conflicts(points,I,J,sim_mat):
     x2y={}
     y2x={}
     filtered_x=[]
     filtered_y=[]
     nbDeleted=0
-    pointsKey=list(points.keys())
-    for point in pointsKey:
+    points_key=list(points.keys())
+    for point in points_key:
         (i,j)=point
         # conflict on x coordinate
         if i in x2y.keys():
             if x2y[i]!=j:
                 # for x coordinate, conflict between (i,j) and (i,x2y[i])
                 # only the best point is kept
-                density1=computeLocalDensity(i,j,points,I,J,simMat,deltaX,deltaY)
-                density2=computeLocalDensity(i,x2y[i],points,I,J,simMat,deltaX,deltaY)
+                density1=compute_local_density(i,j,points,I,J,sim_mat,params['deltaX'],params['deltaY'])
+                density2=compute_local_density(i,x2y[i],points,I,J,sim_mat,params['deltaX'],params['deltaY'])
                 nbDeleted+=1
                 if density1 > density2:
                     if (i,x2y[i]) in points:
@@ -544,8 +552,8 @@ def resolvingConflicts(points,I,J,simMat):
             if y2x[j]!=i:
                 # for x coordinate, conflict between (i,j) and (i,x2y[i])
                 # only the best point is kept
-                density1=computeLocalDensity(i,j,points,I,J,simMat,deltaX,deltaY)
-                density2=computeLocalDensity(y2x[j],j,points,I,J,simMat,deltaX,deltaY)
+                density1=compute_local_density(i,j,points,I,J,sim_mat,params['deltaX'],params['deltaY'])
+                density2=compute_local_density(y2x[j],j,points,I,J,sim_mat,params['deltaX'],params['deltaY'])
                 nbDeleted+=1 
                 if density1 < density2:
                     if (y2x[j],j) in points:
@@ -556,11 +564,11 @@ def resolvingConflicts(points,I,J,simMat):
         else :
             y2x[j]=i
 
-    if verbose:
+    if params['verbose']:
         print(nbDeleted,"conflicting points have been removed!")
     
-    pointsKey=list(points.keys())
-    for point in pointsKey:
+    points_key=list(points.keys())
+    for point in points_key:
         (i,j)=point
         filtered_x.append(i)
         filtered_y.append(j)
@@ -575,15 +583,15 @@ def valid(ngram):
 # extract candidates points using ngram search
 def computePointsFromNgrams(sents1,sents2):
     # extracting hash table that records all the ngrams for sents1
-    lenSents1=len(sents1)
-    lenSents2=len(sents2)
+    lent_sents1=len(sents1)
+    lent_sents2=len(sents2)
     
     ngrams1=[]
-    for i in range(lenSents1):
+    for i in range(lent_sents1):
         ngrams1.append({})
         sent1=sents1[i]
-        for k in range(0,len(sent1)-n):
-            ngram=sent1[k:k+n]
+        for k in range(0,len(sent1)-params['ngram']):
+            ngram=sent1[k:k+params['ngram']]
             if valid(ngram):
                 if ngram not in ngrams1[i].keys() :
                     ngrams1[i][ngram]=0
@@ -591,11 +599,11 @@ def computePointsFromNgrams(sents1,sents2):
 
     # extracting hash table that records all the ngrams for sents2
     ngrams2=[]
-    for j in range(lenSents2):
+    for j in range(lent_sents2):
         sent2=sents2[j]
         ngrams2.append({})
-        for k in range(0,len(sent2)-n):
-            ngram=sent2[k:k+n]
+        for k in range(0,len(sent2)-params['ngram']):
+            ngram=sent2[k:k+params['ngram']]
             if valid(ngram):
                 if ngram not in ngrams2[j].keys():
                     ngrams2[j][ngram]=0
@@ -606,26 +614,26 @@ def computePointsFromNgrams(sents1,sents2):
     bestI={}
 
     # Using diagBeam param
-    if diagBeam:
-        range2=lenSents2*diagBeam
+    if params['diagBeam']:
+        range2=lent_sents2*params['diagBeam']
     else : 
-        range2=lenSents2
+        range2=lent_sents2
     # dice computation for each point (i,j)
-    for i in range(lenSents1):
-        nb1=max(1,len(sents1[i])-n+1)
-        if verbose and i%100==0:
-            print ("x =",i,"/",lenSents1)
+    for i in range(lent_sents1):
+        nb1=max(1,len(sents1[i])-params['ngram']+1)
+        if params['verbose'] and i%100==0:
+            print ("x =",i,"/",lent_sents1)
         for J in range(range2):
-            if diagBeam:
-                # when using fixed vertical width around diag, j must be computed as: int(i*lenSents2/lenSents1-range2/2)
-                j=int(i*lenSents2/lenSents1-range2/2)
+            if params['diagBeam']:
+                # when using fixed vertical width around diag, j must be computed as: int(i*lent_sents2/lent_sents1-range2/2)
+                j=int(i*lent_sents2/lent_sents1-range2/2)
             else:
                 j=J
             if j<0:
                 continue
-            nb2=max(1,len(sents2[j])-n+1)
+            nb2=max(1,len(sents2[j])-params['ngram']+1)
             # length of sent1 and sent2 must be comparable
-            if nb1>minSentLength and nb2>minSentLength and nb1/nb2 >= minSentLengthRatio and nb2/nb1 >=minSentLengthRatio:
+            if nb1>min_sent_length and nb2>min_sent_length and nb1/nb2 >= min_sent_length_ratio and nb2/nb1 >=min_sent_length_ratio:
                 # computing the number of common ngrams (based on occurrences and not on type)
                 nbCommon=0
                 for ngram in ngrams1[i].keys():
@@ -633,7 +641,7 @@ def computePointsFromNgrams(sents1,sents2):
                         nbCommon+=min(ngrams1[i][ngram],ngrams2[j][ngram])
                 dice=2*nbCommon/(nb1+nb2)
                 # if dice is greater than the threshold, candidate point (i,j) is recorded
-                if dice>diceThreshold:
+                if dice>params['diceThreshold']:
                     if not j in bestI.keys():
                         bestI[j]=[]
                     if not i in bestJ.keys():
@@ -651,25 +659,25 @@ def kBestPoints(bestI,bestJ):
         # sorting the candidate according to sim
         bestJ[i]=sorted(bestJ[i],key = lambda x:x[0],reverse=True)
         if len(bestJ[i])>1:
-            if (bestJ[i][0][0]-bestJ[i][1][0]) < margin:
-                if verbose:
-                    print("Filtering using margin criterion : ",bestJ[i][0][0],"-",bestJ[i][1][0],"<",margin)
+            if (bestJ[i][0][0]-bestJ[i][1][0]) < params['margin']:
+                if params['verbose']:
+                    print("Filtering using margin criterion : ",bestJ[i][0][0],"-",bestJ[i][1][0],"<",params['margin'])
                 bestJ[i]=()
             else:
                 # only the k best are recorded
-                bestJ[i]=[bestJ[i][l][1] for l in range(0,min(kBest,len(bestJ[i])))]
+                bestJ[i]=[bestJ[i][l][1] for l in range(0,min(params['kBest'],len(bestJ[i])))]
         
     for j in bestI.keys():
         # sorting the candidate according to dice
         bestI[j]=sorted(bestI[j],key = lambda x:x[0],reverse=True)
         if len(bestI[j])>1:
-            if (bestI[j][0][0]-bestI[j][1][0]) < margin:
-                if verbose:
-                    print("Filtering using margin criterion : ",bestI[j][0][0],"-",bestI[j][1][0],"<",margin)
+            if (bestI[j][0][0]-bestI[j][1][0]) < params['margin']:
+                if params['verbose']:
+                    print("Filtering using margin criterion : ",bestI[j][0][0],"-",bestI[j][1][0],"<",params['margin'])
                 bestI[j]=()
             else:   
                 # only the k best are recorded
-                bestI[j]=[bestI[j][l][1] for l in range(0,min(kBest,len(bestI[j])))]
+                bestI[j]=[bestI[j][l][1] for l in range(0,min(params['kBest'],len(bestI[j])))]
     
     for i in bestJ.keys():  
         for j in bestJ[i]:
@@ -686,61 +694,62 @@ def normalization(embeds):
     return embeds / norms
     
 def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
+    global embed_shelve
     points={} # points are recorded here as keys
     
     t0=time.time()
     
     runEncoder=True
     # load from shelve in test mode (embeds are already computed)
-    if useShelve:
+    if params['useShelve']:
         embeds1=[]
         embeds2=[]
         runEncoder=False
         for sent in sents1:
-            if sent in embedShelve:
-                embeds1.append(embedShelve[sent])
+            if sent in embed_shelve:
+                embeds1.append(embed_shelve[sent])
             else:
                 runEncoder=True
                 break
         for sent in sents2:
-            if sent in embedShelve:
-                embeds2.append(embedShelve[sent])
+            if sent in embed_shelve:
+                embeds2.append(embed_shelve[sent])
             else:
                 runEncoder=True
                 break
     if runEncoder:
-        if verbose:
+        if params['verbose']:
             print("Running Encoder...\n")
             
-        embeds1 = computeEmbeds(preprocessor,encoder,embedModel,sents1,l1)
-        embeds2 = computeEmbeds(preprocessor,encoder,embedModel,sents2,l2)
+        embeds1 = computeEmbeds(preprocessor,encoder,params['embedModel'],sents1,l1)
+        embeds2 = computeEmbeds(preprocessor,encoder,params['embedModel'],sents2,l2)
 
         t1=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n1. Encoding -->",t1-t0,"s.\n")
 
         # For semantic similarity tasks, apply l2 normalization to embeddings
         embeds1 = normalization(embeds1)
         embeds2 = normalization(embeds2)
         t2=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n2. Normalization -->",t2-t1,"s.\n")
     
     # saving normalized embeddings to shelve
-    if useShelve and runEncoder:
+    if params['useShelve'] and runEncoder:
         for i,sent in enumerate(sents1):
-            embedShelve[sent]=embeds1[i]
+            embed_shelve[sent]=embeds1[i]
         for i,sent in enumerate(sents2):
-            embedShelve[sent]=embeds2[i]
+            embed_shelve[sent]=embeds2[i]
         t2=time.time()
-        if verbose:
+        if params['verbose']:
             print("1-2. Loading embeddings from shelve -->",t2-t0,"s.\n"),
     t3=time.time()
     # similarity
     mat=np.matmul(embeds1, np.transpose(embeds2))
 
     t4=time.time()
-    if verbose:
+    if params['verbose']:
         print("\n3. Similarity matrix -->",t4-t3,"s.\n"),
     
     # building the point list taking, for each coordinate, the k best corresponding point
@@ -749,17 +758,17 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
     points={} # points are recorded here as keys
 
     # if the searchspace is reduced around the diagonal, compute the kBest point manually
-    if diagBeam<1:
+    if params['diagBeam']<1:
         # record the corresponding coordinate
         bestJ={}
         bestI={}
-        maxVertDistToTheDiagonal=int(len(sents2)*diagBeam)
+        maxVertDistToTheDiagonal=int(len(sents2)*params['diagBeam'])
         for i in range(len(mat)):
             diagJ=int(i/len(mat)*len(mat[i]))
             infJ=max(0,diagJ-maxVertDistToTheDiagonal)
             supJ=min(diagJ+maxVertDistToTheDiagonal,len(mat[i]))
             for j in range(infJ,supJ):
-                if mat[i][j]>cosThreshold:
+                if mat[i][j]>params['cosThreshold']:
                     if i not in bestJ:
                         bestJ[i]=[]
                     if j not in bestI:
@@ -767,17 +776,17 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
                     bestJ[i].append((mat[i][j],j))
                     bestI[j].append((mat[i][j],i))
         t5=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n4. Extracting points -->",t5-t4,"s.\n"),
 
         (points,x,y)= kBestPoints(bestI,bestJ)      
         t6=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n5. Filtering k best vertically and horizontally -->",t6-t5,"s.\n"),
 
     # use numpy argpartition for kBest extraction
     else:
-        k=kBest
+        k=params['kBest']
         # for k=1 we extract the 2 best, in order to apply the margin criterion
         if k==1:
             k=2
@@ -789,14 +798,14 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
 
         for i in range(len(bestJ)):
             bestJ[i].sort(key=lambda x:x[0],reverse=True)
-            if (bestJ[i][0][0]-bestJ[i][1][0]) < margin:
-                if veryVerbose:
-                    print("Filtering using margin criterion : ",bestJ[i][0][0],"-",bestJ[i][1][0],"<",margin)
+            if (bestJ[i][0][0]-bestJ[i][1][0]) < params['margin']:
+                if params['veryVerbose']:
+                    print("Filtering using margin criterion : ",bestJ[i][0][0],"-",bestJ[i][1][0],"<",params['margin'])
                 bestJ[i]=[]
             # once margin criterion has been applied, apply the threshold
-            bestJ[i]=[pair for pair in bestJ[i] if pair[0]>cosThreshold]
+            bestJ[i]=[pair for pair in bestJ[i] if pair[0]>params['cosThreshold']]
             # if kBest==1, crop the candidate list
-            if kBest==1 and len(bestJ[i])>1:
+            if params['kBest']==1 and len(bestJ[i])>1:
                 bestJ[i]=bestJ[i][0:1]
         
         ind_by_col = np.argpartition(mat,-k,axis=0)[-k:,:]
@@ -807,14 +816,14 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
         bestI=[list(zip(sim_by_col[i],ind_by_col[i])) for i in range(len(ind_by_col))]
         for j in range(len(bestI)):
             bestI[j].sort(key=lambda x:x[0],reverse=True)
-            if (bestI[j][0][0]-bestI[j][1][0]) < margin:
-                if veryVerbose:
-                    print("Filtering using margin criterion : ",bestI[j][0][0],"-",bestI[j][1][0],"<",margin)
+            if (bestI[j][0][0]-bestI[j][1][0]) < params['margin']:
+                if params['veryVerbose']:
+                    print("Filtering using margin criterion : ",bestI[j][0][0],"-",bestI[j][1][0],"<",params['margin'])
                 bestI[j]=[]
             # once margin criterion has been applied, apply the threshold               
-            bestI[j]=[pair for pair in bestI[j] if pair[0]>cosThreshold]
+            bestI[j]=[pair for pair in bestI[j] if pair[0]>params['cosThreshold']]
             # if kBest==1, crop the candidate list
-            if kBest==1 and len(bestI[j])>1:
+            if params['kBest']==1 and len(bestI[j])>1:
                 bestI[j]=bestI[j][0:1]
 
         # adding points
@@ -829,7 +838,7 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
                         break
 
         t5=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n4-5. Extracting and filtering k best vertically and horizontally -->",t5-t4,"s.\n"),
 
 
@@ -840,8 +849,8 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
 
 
 # return the normalized embeddings for a given encoder and a sentence list
-def computeEmbeds(preprocessor,encoder,embedModel,sents,language=""):
-    if embedModel == "laser":
+def computeEmbeds(preprocessor,encoder,embed_model,sents,language=""):
+    if embed_model == "laser":
         # Use the Laser model to embed the sentences in different languages
         embeds = encoder.embed_sentences(sents, language)
         
@@ -857,18 +866,18 @@ def computeEmbeds(preprocessor,encoder,embedModel,sents,language=""):
     
 
 # Function to compute the similarity matrix and identify similar sentences
-def computePoints(tokenizer, model, embedModel, sents1, sents2):
+def computePoints(tokenizer, model, embed_model, sents1, sents2):
     points = {}  # Dictionary to store the indices of similar sentences
     t0 = time.time()  # Record the starting time for performance measurement
     
-    if embedModel == "bert":
-        if verbose:
+    if embed_model == "bert":
+        if params['verbose']:
             print("Running Encoder...\n"),
         # Tokenize the input sentences using the BERT tokenizer
         inputs1 = tokenizer(sents1, return_tensors='pt', padding=True, truncation=True)
         inputs2 = tokenizer(sents2, return_tensors='pt', padding=True, truncation=True)
         t1 = time.time()
-        if verbose:
+        if params['verbose']:
             print("1. Encoding -->", t1 - t0, "s.\n")  # Print the time taken for encoding
         
         # Pass the tokenized inputs through the BERT model
@@ -883,28 +892,28 @@ def computePoints(tokenizer, model, embedModel, sents1, sents2):
         embeds1 = normalization(embeds1.detach().numpy())
         embeds2 = normalization(embeds2.detach().numpy())
         t2 = time.time()
-        if verbose:
+        if params['verbose']:
             print("2. Normalization-->", t2 - t1, "s.\n")  # Print the time taken for normalization
         
-    elif embedModel == "laser":
+    elif embed_model == "laser":
         # Use the Laser model to embed the sentences in different languages
         embeds1 = laser.embed_sentences(sents1, lang='fr')
         embeds2 = laser.embed_sentences(sents2, lang='en')
         t1 = time.time()
-        if verbose:
+        if params['verbose']:
             print("1. Encoding -->", t1 - t0, "s.\n")  # Print the time taken for encoding
         
         # Normalize the embeddings using the normalization function
         embeds1 = normalization(embeds1)
         embeds2 = normalization(embeds2)
         t2 = time.time()
-        if verbose:
+        if params['verbose']:
             print("2. Normalization-->", t2 - t1, "s.\n")  # Print the time taken for normalization
     
     # Compute the similarity matrix between the embeddings of the two sets of sentences
     mat = np.matmul(embeds1, embeds2.T)
     t3 = time.time()
-    if verbose:
+    if params['verbose']:
         print("3. Similarity matrix -->", t3 - t2, "s.\n")  # Print the time taken for computing the similarity matrix
     
     x = []  # List to store the indices of similar sentences from sents1
@@ -928,19 +937,19 @@ def computePoints(tokenizer, model, embedModel, sents1, sents2):
                 m = mat[i][j]
                 bestI[j] = i
     t4 = time.time()
-    if verbose:
+    if params['verbose']:
         print("4. Extracting best point according to horizontal and vertical axis-->", t4 - t3, "s.\n")  # Print the time taken for computing the similarity matrix
 
     
     # Identify the similar sentence pairs based on the best match indices and similarity threshold
     for i in range(len(mat)):
         j = bestJ[i]
-        if bestI.get(j) == i and mat[i][j] >= cosThreshold:
+        if bestI.get(j) == i and mat[i][j] >= params['cosThreshold']:
             x.append(i)
             y.append(j)
             points[(i, j)] = 1  # Store the indices of similar sentences in the points dictionary
     t5 = time.time()
-    if verbose:
+    if params['verbose']:
         print("5. Filtering best points that exceed the threshold -->", t5 - t4, "s.\n")  # Print the time taken for computing the similarity matrix
     
     
@@ -949,87 +958,87 @@ def computePoints(tokenizer, model, embedModel, sents1, sents2):
 ######################################################################### reading / writing files
 # reading input file
 
-def readInputFile(inputDir,inputFile,inputFormat,column=0,language="fr"):
+def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
     """Reads an input file and returns a list of sentences.
 
       Args:
-        inputDir: The directory containing the input file.
+        input_dir: The directory containing the input file.
         inputFile: The name of the input file.
-        inputFormat: The format of the input file.
+        input_format: The format of the input file.
         column: The column number of the input file that contains the text.
         language: The language of the input file.
 
       Returns:
         sents: a list of sentences.
-        idSents: the list of sentence ids (build upon segment ids)
-        lenSents: the number of sentences
+        id_sents: the list of sentence ids (build upon segment ids)
+        lent_sents: the number of sentences
         seg2sents: a list of list of integer, that gives the 1-n correspondence
             between an original segment number and the list of final sentences
             - if splitSent, for one segment, we may have more than one sentences
             - if mergeSent, more than one segment may correspond to the same merged sentence
     """
-    global segMinLength
+    global seg_min_length
     
     segs=[]
-    idSegs=[]
-    lenSents=0
+    id_segs=[]
+    lent_sents=0
     seg2sents=[]
-    nbChars=0
+    nb_chars=0
 
     try:
-        inputFilePath=os.path.join(inputDir, inputFile) if inputDir else inputFile
-        f = open(inputFilePath, encoding='utf8')
+        input_file_path=os.path.join(input_dir, inputFile) if input_dir else inputFile
+        f = open(input_file_path, encoding='utf8')
     except:
         print("Error: a problem occurred while opening", inputFile)
         sys.exit()
 
-    # Reading according to inputFormat
-    if inputFormat == "arc" or inputFormat == "ces":
+    # Reading according to input_format
+    if input_format == "arc" or input_format == "ces":
         for line in f:
             line = line.strip()
             m = re.search(r'<s\b[^>]+id="([^"]*)"', line)
             if m and m.group(1):
-                idSegs.append(m.group(1))
+                id_segs.append(m.group(1))
             else:
-                idSegs.append("s"+str(lenSegs))
+                id_segs.append("s"+str(lenSegs))
             segs.append(line)
             lenSegs += 1
-            nbChars +=len(line)
+            nb_chars +=len(line)
 
 
     # The json input contains a sentences property, which is a list sentences, which are list of tokens
     # Each token is a list of conll features, col1->form, col9=blank_space
-    elif inputFormat == "json":
+    elif input_format == "json":
         content = f.read()
         jsonObj = json.loads(content)
         segs = [
             "".join([tok[1] + tok[9] for tok in sent if len(tok)>=10]) for sent in jsonObj["sentences"]
         ]
         for seg in segs :
-            nbChars+=len(seg)
-        idSegs=[str(i) for i in list(range(0,len(segs)+1))]
+            nb_chars+=len(seg)
+        id_segs=[str(i) for i in list(range(0,len(segs)+1))]
         
     # the tsv format is an already aligned format. Sentence are extracted from a specific column
-    elif inputFormat == "tsv":
+    elif input_format == "tsv":
         segs = []
         for line in f:
             alignedSegs=re.split("\t",line)
             segs.append(alignedSegs[column])
-            nbChars +=len(alignedSegs[column])
-        idSegs=[str(i) for i in list(range(1,len(segs)+1))]
+            nb_chars +=len(alignedSegs[column])
+        id_segs=[str(i) for i in list(range(1,len(segs)+1))]
 
     # in xml-conll, the conll sentences are encoded between <s></s> markup
-    elif inputFormat == "xml-conll":
+    elif input_format == "xml-conll":
         content = f.read()
         try:
-            xmlRoot = ET.fromstring(content)
+            xml_root = ET.fromstring(content)
         except:
-            print("non conform XML :",os.path.join(inputDir, inputFile))
-            # error_log.write("non conform XML :",os.path.join(inputDir, inputFile),"\n")
+            print("non conform XML :",os.path.join(input_dir, inputFile))
+            # error_log.write("non conform XML :",os.path.join(input_dir, inputFile),"\n")
             sys.exit() 
 
-        for sElt in xmlRoot.findall('.//s'):
-            s="".join(sElt.itertext())
+        for s_elt in xml_root.findall('.//s'):
+            s="".join(s_elt.itertext())
             toks=[]
             for line in re.split(r"\n",s):
                 cols=re.split("\t",line)
@@ -1037,38 +1046,41 @@ def readInputFile(inputDir,inputFile,inputFormat,column=0,language="fr"):
                     toks.append(cols[1])
             seg=" ".join(toks)
             segs.append(seg)
-            nbChars+=len(seg)
+            nb_chars+=len(seg)
             
-            if sElt.attrib["id"]:
-                idSegs.append(sElt.attrib["id"])
-            elif sElt.attrib["xml-id"]:
-                idSegs.append(sElt.attrib["xml-id"])
+            if s_elt.attrib["id"]:
+                id_segs.append(s_elt.attrib["id"])
+            elif s_elt.attrib["xml:id"]:
+                id_segs.append(s_elt.attrib["xml:id"])
             else:
-                idSegs.append(str(len(segs)))
+                id_segs.append(str(len(segs)))
     
     # In XML format, the sentences are extracted using the text content of
     # the elements that are defined by xmlGuide (a list of tag or simple xpath expressions)
-    elif inputFormat == "xml":
+    elif input_format == "xml":
         content = f.read()
+        content = re.sub(r'xmlns="[^"]*"',"",content)
         try:
-            xmlRoot = ET.fromstring(content)
+            xml_root = ET.fromstring(content)
         except:
-            print("non conform XML :",os.path.join(inputDir, inputFile))
-            # error_log.write("non conform XML :",os.path.join(inputDir, inputFile),"\n")
+            print("non conform XML :",os.path.join(input_dir, inputFile))
+            # error_log.write("non conform XML :",os.path.join(input_dir, inputFile),"\n")
             sys.exit() 
         segs = []
-        xpath='|'.join(['//'+tag for tag in xmlGuide])
-        for elt in xmlRoot.findall(xpath):
+        xpath='|'.join([".//"+tag for tag in params['xmlGuide']])
+
+        for elt in xml_root.findall(xpath):
             content="".join(elt.itertext())
+            content=re.sub(r"\n"," ",content)
             segs.append(content)
-            nbChars+=len(content)
-            # recording id in idSegs
-            if elt.attrib["id"]:
-                idSegs.append(elt.attrib["id"])
-            elif elt.attrib["xml-id"]:
-                idSegs.append(elt.attrib["xml-id"])
+            nb_chars+=len(content)
+            # recording id in id_segs
+            if 'id' in elt.attrib:
+                id_segs.append(elt.attrib["id"])
+            elif "xml:id" in elt.attrib:
+                id_segs.append(elt.attrib["xml:id"])
             else:
-                idSegs.append(str(len(segs)))
+                id_segs.append(str(len(segs)))
 
     # Default format: one sentence per line
     else:
@@ -1076,124 +1088,124 @@ def readInputFile(inputDir,inputFile,inputFormat,column=0,language="fr"):
         for line in f:
             line=line.strip()
             line=re.sub(r'\x0A|\x0D','',line)
-            nbChars+=len(line)
+            nb_chars+=len(line)
             segs.append(line)
-        idSegs=[str(i) for i in list(range(1,len(segs)+1))]
+        id_segs=[str(i) for i in list(range(1,len(segs)+1))]
 
     # Here, the lines that corresponds to the same sentences may be merged
     # The corresponding sentence id will result in the concatenation of initial segment id
-    if mergeLines:
-        if verbose: 
+    if params['mergeLines']:
+        if params['verbose']: 
             print("Line merging for ",language)
         sents=[]
-        idSents=[]
-        numSents=0
-        currentSent=[]
-        currentIds=[]
+        id_sents=[]
+        num_sents=0
+        current_sent=[]
+        current_ids=[]
         for (i,seg) in enumerate(segs):
-            seg2sents.append([numSents])
-            currentIds.append(idSegs[i])
-            currentSent.append(seg)
+            seg2sents.append([num_sents])
+            current_ids.append(id_segs[i])
+            current_sent.append(seg)
             # merging when the sentence ends with a separator
-            if re.search(mergeLines_regex[language],seg) or seg.upper()== seg:
-                idSents.append("-".join(currentIds))
-                sents.append(" ".join(currentSent))
-                currentSent=[]
-                currentIds=[]
+            if re.search(merge_lines_regex[language],seg) or seg.upper()== seg:
+                id_sents.append("-".join(current_ids))
+                sents.append(" ".join(current_sent))
+                current_sent=[]
+                current_ids=[]
                 numSent+=1
-        if len(currentIds)>0:
-            sents.append(" ".join(currentSent))
-            idSents.append("-".join(currentIds))
+        if len(current_ids)>0:
+            sents.append(" ".join(current_sent))
+            id_sents.append("-".join(current_ids))
 
     # here, segments can be split in smaller pieces
-    elif splitSent:
-        if verbose: 
+    elif params['splitSent']:
+        if params['verbose']: 
             print("Sentence segmentation for ",language)
         sents=[]
-        idSents=[]
-        if useSentenceSegmenter:
+        id_sents=[]
+        if params['useSentenceSegmenter']:
             segmenter.set_active(names[language])
         for (i,seg) in enumerate(segs):
             # use trankit for sentence segmentation
-            if useSentenceSegmenter:
+            if params['useSentenceSegmenter']:
                 print("segmentation de ",seg)
                 sentences=segmenter.ssplit(seg)['sentences']
-                someSents = [sent['text'] for sent in sentences]
+                some_sents = [sent['text'] for sent in sentences]
             # or use a set of regex declared in splitSent
             else:
-                if language in splitSent_regex:
-                    regex=splitSent_regex[language]
+                if language in split_sent_regex:
+                    regex=split_sent_regex[language]
                 else:
-                    regex=splitSent_regex["default"]
-                someSents=re.split(splitSent_regex[language],seg)
+                    regex=split_sent_regex["default"]
+                some_sents=re.split(split_sent_regex[language],seg)
                 
-            lastSent=""
-            newSents=[]
-            # the splitted segment that are too small (< segMinLength)
+            last_sent=""
+            new_sents=[]
+            # the splitted segment that are too small (< seg_min_length)
             # are grouped with the follower
-            for sent in someSents:
-                if len(lastSent+sent) > segMinLength:
-                    newSents.append(lastSent+" "+sent)
-                    lastSent=""
+            for sent in some_sents:
+                if len(last_sent+sent) > seg_min_length:
+                    new_sents.append(last_sent+" "+sent)
+                    last_sent=""
                 else:
-                    if lastSent=="":
-                        lastSent=sent
+                    if last_sent=="":
+                        last_sent=sent
                     else:
-                        lastSent+=" "+sent
-            if lastSent:
-                newSents.append(lastSent)
+                        last_sent+=" "+sent
+            if last_sent:
+                new_sents.append(last_sent)
                 
-            seg2sents.append(list(range(len(sents),len(sents)+len(newSents))))
-            newIds=[idSegs[i]]
-            if len(newSents)>1:
-                newIds=[ idSegs[i]+"_"+str(j) for j in range(len(newSents)) ]
-            sents.extend(newSents)
-            idSents.extend(newIds)
+            seg2sents.append(list(range(len(sents),len(sents)+len(new_sents))))
+            new_ids=[id_segs[i]]
+            if len(new_sents)>1:
+                new_ids=[ id_segs[i]+"_"+str(j) for j in range(len(new_sents)) ]
+            sents.extend(new_sents)
+            id_sents.extend(new_ids)
         
     # keeping the same segments as in the input
     else:
         sents=segs
-        idSents=idSegs
+        id_sents=id_segs
         seg2sents=[ [j] for j in range(len(sents)) ]
 
-    lenSents=len(sents)
-    if verbose: 
-        print(lenSents,"sentences for ",language)
-        if veryVerbose:
+    lent_sents=len(sents)
+    if params['verbose']: 
+        print(lent_sents,"sentences for ",language)
+        if params['veryVerbose']:
             print("\n".join(sents))
             
     f.close()
     
-    if writeSegmentedInput:
-        inputFilePathSeg=re.sub(r"(.*)([.]\w+)[.]\w+$",r"\1.seg\2.txt",inputFilePath)
-        segFile=open(inputFilePathSeg,mode="w",encoding="utf8")
-        segFile.write("\n".join(sents))
-        segFile.close()
+    if params['writeSegmentedInput']:
+        input_file_pathSeg=re.sub(r"(.*)([.]\w+)[.]\w+$",r"\1.seg\2.txt",input_file_path)
+        seg_file=open(input_file_pathSeg,mode="w",encoding="utf8")
+        seg_file.write("\n".join(sents))
+        seg_file.close()
     
-    return (sents,idSents,lenSents,seg2sents,nbChars)
+    return (sents,id_sents,lent_sents,seg2sents,nb_chars)
 
 # write only alignable intervals of l1 or l2 file
-def writeAlignable(sents,idSents,intervals,index,outputDir,outputFile,outputFormat):
+def write_alignable(sents,id_sents,intervals,index,output_dir,output_file,output_format):
     """
     Arguments :
         sents : List(str) : the sentence list
-        idSents : List(str) : the corresponding sentence ids    
+        id_sents : List(str) : the corresponding sentence ids    
         intervals : List(List(int)) : the list of pairs [i..j] that defines corresponding intervals. The second axe is the language : 0 for l1, 1 for l2
         index : 0 or 1 for l1 or l2
-        outputDir : str : the path of output dir
-        outputFile : str : the name of output file
-        outputFormat : str : "ces" or "arc" or "txt"
+        output_dir : str : the path of output dir
+        output_file : str : the name of output file
+        output_format : str : "ces" or "arc" or "txt"
         
-    No return value, but the file outputFile is written on the disk
+    No return value, but the file output_file is written on the disk
     """
     
     try:
-        output=open(os.path.join(outputDir,outputFile),mode="w",encoding="utf8")
+        output=open(os.path.join(output_dir,output_file),mode="w",encoding="utf8")
         # output header
-        if outputFormat=="ces":
-            output.write(cesHeader)
-        elif outputFormat=="arc":
-            output.write(arcHeader)
+        if output_format=="ces":
+            output.write(ces_header)
+        elif output_format=="arc":
+            output.write(arc_header)
 
         # output sentences
         for interval in intervals:
@@ -1201,72 +1213,79 @@ def writeAlignable(sents,idSents,intervals,index,outputDir,outputFile,outputForm
             i2=interval[1][index]
             
             for i in range(i1,i2+1):
-                if outputFormat=="ces" or outputFormat=="arc":
-                    if inputFormat=="ces" or outputFormat=="arc":
-                        idSent=idSents[i]
+                if output_format=="ces" or output_format=="arc":
+                    if input_format=="ces" or output_format=="arc":
+                        id_sent=id_sents[i]
                     else:
-                        idSent=str(i+1)
-                    output.write("<s id=\""+idSent+"\">\n"+toXML(sents[i])+"\n</s>\n")
+                        id_sent=str(i+1)
+                    output.write("<s id=\""+id_sent+"\">\n"+toXML(sents[i])+"\n</s>\n")
                 else :
                     output.write(sents[i]+"\n")
 
         # output footer
-        if outputFormat=="ces":
-            output.write(cesFooter)
-        elif outputFormat=="arc":
-            output.write(cesFooter)
+        if output_format=="ces":
+            output.write(ces_footer)
+        elif output_format=="arc":
+            output.write(arc_footer)
 
         output.close()
     except:
-        print ("Error: a problem occurred while writing",outputFile)
+        print ("Error: a problem occurred while writing",output_file)
         sys.exit()
 
 # write aligned points
 # if the anchor parameter is true then filtered_x and filtered_y are list of int
 # if not, they are list of list of int (the grouped coordinate)
-# NB : fonction d'écriture des sorties à compléter par INES - 
-# TODO : option printIds
-def writeAlignedPoints(l1,l2,sents1,idSents1,sents2,idSents2,filtered_x,filtered_y,outputDir,outputFile,outputFormat,anchor,printIds=False,meanScore=0):
+def write_aligned_points(l1,l2,sents1,id_sents1,sents2,id_sents2,filtered_x,filtered_y,output_dir,output_file,output_format,anchor,print_ids=False,mean_score=0,file1="",file2=""):
     """
     Arguments :
         sents1 : List(str) : the L1 sentence list
-        idSents1 : List(str) : the corresponding sentence ids   
+        id_sents1 : List(str) : the corresponding sentence ids   
         sents2 : List(str) : the L2 sentence list
-        idSents2 : List(str) : the corresponding sentence ids   
+        id_sents2 : List(str) : the corresponding sentence ids   
         filtered_x : List(List(int)) OR List(int) if anchor=True 
             if anchor == false : the X coordinates of groups in L1 (ex. :[[0],[1,2],[3],[4,5,6]])
             if anchor == true : the X coordinates of points in L1 (ex. [0, 2, 3, 5])
         filtered_y : List(List(int)) OR List(int) if anchor=True
             if anchor == false : the Y coordinates of groups in L2 (ex. :[[0,1],[2],[3],[4,5]])
             if anchor == true : the Y coordinates of points in L2 (ex. [1, 2, 3, 5])
-        outputDir : str : the path of output dir
-        outputFile : str : the name of output file
-        outputFormat : str : "tmx" or "ces" or "ids" or "txt"
+        output_dir : str : the path of output dir
+        output_file : str : the name of output file
+        output_format : str : "tmx" or "ces" or "ids" or "txt"
     
-    No return value, but the file outputFile is written on the disk
+    No return value, but the file output_file is written on the disk
     """
     
-    global tmxHeader,cesAlignHeader
+    global tmx_header,ces_align_header
 
     #~ try:
-    if outputFormat == "txt2":
-        outputFile1=outputFile.replace(".txt2","."+l1+".txt")
-        output1=open(os.path.join(outputDir,outputFile1),mode="w",encoding="utf8")
-        outputFile2=outputFile.replace(".txt2","."+l2+".txt")
-        output2=open(os.path.join(outputDir,outputFile2),mode="w",encoding="utf8")        
+    if output_format == "txt2":
+        output_file1=output_file.replace(".txt2","."+l1+".txt")
+        output1=open(os.path.join(output_dir,output_file1),mode="w",encoding="utf8")
+        output_file2=output_file.replace(".txt2","."+l2+".txt")
+        output2=open(os.path.join(output_dir,output_file2),mode="w",encoding="utf8")        
     else:
-        output=open(os.path.join(outputDir,outputFile),mode="w",encoding="utf8")
-    #~ output2=open(os.path.join(outputDir,outputFile+".txt"),mode="w",encoding="utf8")
+        if output_file[-4:]=="tsv2":
+            output_file=output_file[:-1]
+        output=open(os.path.join(output_dir,output_file),mode="w",encoding="utf8")
+    #~ output2=open(os.path.join(output_dir,output_file+".txt"),mode="w",encoding="utf8")
     # output header
-    if outputFormat=="ces":
-        output.write(re.sub(r'__meanScore__',f"{meanScore:.4f}",cesAlignHeader))
-    elif outputFormat=="tmx":
-        output.write(re.sub(r'__meanScore__',f"{meanScore:.4f}",tmxHeader))
-    elif outputFormat=="txt":
-        output.write(f"Mean similarity:{meanScore}\n")
-    elif outputFormat=="txt2":
-        output1.write(f"Mean similarity:{meanScore}\n")
-        output2.write(f"Mean similarity:{meanScore}\n")
+    if output_format=="ces":
+        output.write(re.sub(r'__mean_score__',f"{mean_score:.4f}",ces_align_header))
+    elif output_format=="tmx":
+        output.write(re.sub(r'__mean_score__',f"{mean_score:.4f}",tmx_header))
+    elif output_format=="txt":
+        output.write(f"Mean similarity:{mean_score}\n")
+    elif output_format=="txt2":
+        output1.write(f"Mean similarity:{mean_score}\n")
+        output2.write(f"Mean similarity:{mean_score}\n")
+    elif output_format=="tsv2":
+        #~ m=re.match('(.*)[.][^.]+[.][^.]+$',output_file)
+        #~ name=m.group(1)
+        name1=os.path.basename(file1)
+        name2=os.path.basename(file2)
+        output.write(f"source={l1}/{collection_name}/{name1}	target={l2}/{collection_name}/{name2}\n\n")
+
 
     # output sentences
     for i in range(len(filtered_x)):
@@ -1276,23 +1295,23 @@ def writeAlignedPoints(l1,l2,sents1,idSents1,sents2,idSents2,filtered_x,filtered
         else:
             x=filtered_x[i]
             y=filtered_y[i]
-        if outputFormat=="ces":
-            if inputFormat=="ces" or inputFormat=="arc":
-                idSent1=" ".join([idSents1[x[j]] for j in range(len(x))])
-                idSent2=" ".join([idSents2[y[j]] for j in range(len(y))])
+        if output_format=="ces":
+            if input_format=="ces" or input_format=="arc":
+                id_sent1=" ".join([id_sents1[x[j]] for j in range(len(x))])
+                id_sent2=" ".join([id_sents2[y[j]] for j in range(len(y))])
             else:
-                idSent1=" ".join([str(x[j]+1) for j in range(len(x))])
-                idSent2=" ".join([str(y[j]+1) for j in range(len(y))])
-            output.write(f"\t\t<link xtargets=\"{idSent1} ; {idSent2}\"/>\n")
-        elif outputFormat=="ids":
-            if inputFormat=="ces" or inputFormat=="arc":
-                idSent1=" ".join([idSents1[x[j]] for j in range(len(x))])
-                idSent2=" ".join([idSents2[y[j]] for j in range(len(y))])
+                id_sent1=" ".join([str(x[j]+1) for j in range(len(x))])
+                id_sent2=" ".join([str(y[j]+1) for j in range(len(y))])
+            output.write(f"\t\t<link xtargets=\"{id_sent1} ; {id_sent2}\"/>\n")
+        elif output_format=="ids" or output_format=="tsv2":
+            if input_format=="ces" or input_format=="arc":
+                id_sent1=" ".join([id_sents1[x[j]] for j in range(len(x))])
+                id_sent2=" ".join([id_sents2[y[j]] for j in range(len(y))])
             else:
-                idSent1=" ".join([str(x[j]+1) for j in range(len(x))])
-                idSent2=" ".join([str(y[j]+1) for j in range(len(y))])
-                output.write(f"{idSent1}\t{idSent2}\n")
-        elif outputFormat == "tmx":
+                id_sent1=" ".join([str(x[j]+1) for j in range(len(x))])
+                id_sent2=" ".join([str(y[j]+1) for j in range(len(y))])
+                output.write(f"{id_sent1}\t{id_sent2}\n")
+        elif output_format == "tmx":
             srcSegs = "".join([ "\t\t<seg>"+toXML(sents1[x[j]])+"</seg>\n" for j in range(len(x)) ])
             tgtSegs = "".join([ "\t\t<seg>"+toXML(sents2[y[j]])+"</seg>\n" for j in range(len(y)) ])
 
@@ -1300,98 +1319,231 @@ def writeAlignedPoints(l1,l2,sents1,idSents1,sents2,idSents2,filtered_x,filtered
             output.write(f"\t<tuv xml:lang=\"{l1}\">\n{srcSegs}\t</tuv>\n")
             output.write(f"\t<tuv xml:lang=\"{l2}\">\n{tgtSegs}\t</tuv>\n")
             output.write(f"</tu>\n")
-
-        elif outputFormat == "txt":
-            ids1 = "[" + " ".join([str(x[j]) for j in range(len(x))]) + "] " if printIds else ""
+        elif output_format == "txt":
+            ids1 = "[" + " ".join([str(x[j]) for j in range(len(x))]) + "] " if print_ids else ""
             sent1 = ids1 + " ".join([sents1[x[j]] for j in range(len(x))])
-            ids2 =  "[" + " ".join([str(y[j]) for j in range(len(y))]) + "] " if printIds else ""
+            ids2 =  "[" + " ".join([str(y[j]) for j in range(len(y))]) + "] " if print_ids else ""
             sent2 = ids2 + " ".join([sents2[y[j]] for j in range(len(y))])
             output.write(sent1 + "\n" + sent2 + "\n\n")
-        elif outputFormat == "txt2":
+        elif output_format == "txt2":
             sent1 = " ".join(["["+str(x[j])+"] "+sents1[x[j]] for j in range(len(x))])
             output1.write(sent1 + "\n")
             sent2 = " ".join(["["+str(y[j])+"] "+sents2[y[j]] for j in range(len(y))])
             output2.write(sent2 + "\n")
-        elif outputFormat == "tsv":
-            ids1 = "[" + " ".join([str(x[j]) for j in range(len(x))]) + "] " if printIds else ""
+        elif output_format == "tsv":
+            ids1 = "[" + " ".join([str(x[j]) for j in range(len(x))]) + "] " if print_ids else ""
             sent1 = " ".join([sents1[x[j]] for j in range(len(x))])
-            ids2 = "[" + " ".join([str(y[j]) for j in range(len(y))]) + "] " if printIds else ""
+            ids2 = "[" + " ".join([str(y[j]) for j in range(len(y))]) + "] " if print_ids else ""
             sent2 = " ".join([sents2[y[j]] for j in range(len(y))])
             output.write(f"{ids1}{sent1}\t{ids2}{sent2}\n")
-        elif outputFormat == "bertalign":
+        elif output_format == "bertalign":
             ids1 = "[" + ",".join([str(x[j]) for j in range(len(x))]) + "]"
             ids2 = "[" + ",".join([str(y[j]) for j in range(len(y))]) + "]"
             output.write(f"{ids1}:{ids2}\n")
         else :
-            ids1=  "["+" ".join([ str(x[j]) for j in range(len(x))])+"] " if printIds else ""
+            ids1=  "["+" ".join([ str(x[j]) for j in range(len(x))])+"] " if print_ids else ""
             sent1=ids1+" ".join([ sents1[x[j]] for j in range(len(x))])
-            ids2=  "["+" ".join([ str(y[j]) for j in range(len(y))])+"] " if printIds else ""
+            ids2=  "["+" ".join([ str(y[j]) for j in range(len(y))])+"] " if print_ids else ""
             sent2=ids2+" ".join([ sents2[y[j]] for j in range(len(y))])
             output.write(sent1+"\t"+sent2+"\n")
 
     # output footer
-    if outputFormat=="ces":
-        output.write(cesAlignFooter)
-    elif outputFormat=="tmx":
-        output.write(tmxFooter)
+    if output_format=="ces":
+        output.write(ces_align_footer)
+    elif output_format=="tmx":
+        output.write(tmx_footer)
     
-    if outputFormat == "txt2":
+    if output_format == "txt2":
         output1.close()
         output2.close()
     else:
         output.close()
 
+# Writing anchors in xml files
+def add_anchor_in_output(input_dir,input_file1,input_file2,file_id1,file_id2,x,y,output_dir,direction):
+    """Adds anchors in input xml files
 
-def extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat):
+      Args:
+        input_dir: The directory containing the input file.
+        file1: The name of the file1.
+        file2: The name of the file2.
+        x: the source coordinates
+        y: the corresponding target coordinates
+
+      Returns:
+        write files output_dir/file1 and output_dir/file2 (or input_dir/file1 and input_dir/file2 if output_dir is empty)
+        adding anchors
+    """
+
+    # opening files
+    try:
+        input_file_path1=os.path.join(input_dir, input_file1) if input_dir else input_file1
+        f1 = open(input_file_path1, encoding='utf8')
+    except:
+        print("Error: a problem occurred while opening", input_file_path1)
+        sys.exit()
+  
+    content1 = f1.read()
+    content1 = re.sub(r'xmlns="[^"]*"|encoding="UTF-?8"',"",content1)
+    f1.close()
+    xml_root1 = etree.fromstring(content1)
+    try:
+        xml_root1 = etree.fromstring(content1)
+        #~ xml_root1 = ET.ElementTree(ET.fromstring(content1))
+    except:
+        print("non conform XML :",input_file_path1)
+        sys.exit() 
+        
+    try:
+        input_file_path2=os.path.join(input_dir, input_file2) if input_dir else input_file2
+        f2 = open(input_file_path2, encoding='utf8')
+    except:
+        print("Error: a problem occurred while opening", input_file1)
+        sys.exit()
+  
+    content2 = f2.read()
+    content2 = re.sub(r'xmlns="[^"]*"|encoding=.UTF-?8.',"",content2)
+    f2.close()
+    try:
+        xml_root2 = etree.fromstring(content2)
+        #~ xml_root2 = ET.ElementTree(ET.fromstring(content2))
+    except:
+        print("non conform XML :",input_file_path2)
+        sys.exit() 
+            
+    segs = []
+    xpath='|'.join(['.//'+tag for tag in params['xmlGuide']])
+    #~ sents1= xml_root1.findall(xpath)
+    #~ sents2= xml_root2.findall(xpath)
+    sents1=xml_root1.xpath(xpath)
+    sents2=xml_root2.xpath(xpath)
+    
+    for i in range(len(x)):
+        if len(x[i])>0 and len(y[i])>0:
+            xi=x[i][0]
+            yi=y[i][0]
+            
+            if direction=="1<->2" or direction=="2->1":
+                anchor1=etree.Element("anchor")
+                anchor1.set("{http://www.w3.org/XML/1998/namespace}id",file_id1+str(xi+1))
+                anchor1.set("corresp","#"+file_id2+str(yi+1))
+                prev=sents1[xi].getprevious()  
+                if  prev is not None:
+                    prev.addnext(anchor1)
+                else:
+                    parent=sents1[xi].getparent()
+                    parent.insert(0,anchor1)
+            
+            if direction=="1<->2" or direction=="1->2":
+                anchor2=etree.Element("anchor")
+                anchor2.set("{http://www.w3.org/XML/1998/namespace}id",file_id2+str(yi+1))
+                anchor2.set("corresp","#"+file_id1+str(xi+1))
+                prev=sents2[yi].getprevious()  
+                if  prev is not None:
+                    prev.addnext(anchor2)
+                else:
+                    parent=sents2[yi].getparent()
+                    parent.insert(0,anchor2)
+    
+    # add anchor before each source sentence
+    if direction=='1->2':
+        for i in range(len(sents1)):
+            sent=sents1[i]
+            anchor1=etree.Element("anchor")
+            anchor1.set("{http://www.w3.org/XML/1998/namespace}id",file_id1+str(i+1))
+            prev=sents1[i].getprevious()  
+            if  prev is not None:
+                prev.addnext(anchor1)
+            else:
+                parent=sents1[i].getparent()
+                parent.insert(0,anchor1)
+    elif direction=='2->1':
+        for i in range(len(sents2)):
+            sent=sents2[i]
+            anchor2=etree.Element("anchor")
+            anchor2.set("{http://www.w3.org/XML/1998/namespace}id",file_id2+str(i+1))
+            prev=sents2[i].getprevious()  
+            if  prev is not None:
+                prev.addnext(anchor2)
+            else:
+                parent=sents2[i].getparent()
+                parent.insert(0,anchor2)
+    
+    # writing output files
+    if output_dir=="" or output_dir==None :
+        output_file_path1=input_file_path1
+        output_file_path2=input_file_path2
+    else:
+        output_file_path1=os.path.join(output_dir, os.path.basename(input_file1)) 
+        output_file_path2=os.path.join(output_dir, os.path.basename(input_file2)) 
+    
+    try:
+        tree1= etree.ElementTree(xml_root1)
+        print(f"Writing {output_file_path1}")
+        tree1.write(output_file_path1, encoding='utf-8',pretty_print=True)
+    except:
+        print("Error: a problem occurred while writing", output_file_path1)
+        sys.exit()
+
+    try:
+        tree2= etree.ElementTree(xml_root2)
+        print(f"Writing {output_file_path2}")
+        tree2.write(output_file_path2, encoding='utf-8',pretty_print=True)
+    except:
+        print("Error: a problem occurred while writing", output_file_path2)
+        sys.exit()
+
+
+def extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_mat):
     anchor_points=dict.copy(points)
     
     # =====> STEP 6 : compute average local density around selected points
     t5=time.time()
    
-    pointsKey=list(anchor_points.keys())
+    points_key=list(anchor_points.keys())
 
-    if len(pointsKey)==0:
+    if len(points_key)==0:
         print("No anchor points !!!")
         beginInt=(-1,-1)
-        lastI=lenSents1-1
-        lastJ=lenSents2-1
-        intervalLengthSent1+=lastI - beginInt[0] + 1
-        intervalLengthSent2+=lastJ - beginInt[1] + 1
+        lastI=lent_sents1-1
+        lastJ=lent_sents2-1
+        interval_length_sent1+=lastI - beginInt[0] + 1
+        interval_length_sent2+=lastJ - beginInt[1] + 1
         for n in range(0,lastI+1):
-            intervalLengthChar1+=len(sents1[n])
+            interval_length_char1+=len(sents1[n])
         for n in range(0,lastJ+1):
-            intervalLengthChar2+=len(sents2[n])
+            interval_length_char2+=len(sents2[n])
         
     else:
-        totDensity=0
-        for point in pointsKey:
+        tot_density=0
+        for point in points_key:
             (x2,y2)=point
-            totDensity+= computeLocalDensity(x2,y2,anchor_points,lenSents1,lenSents2,simMat,deltaX,deltaY)
+            tot_density+= compute_local_density(x2,y2,anchor_points,lent_sents1,lent_sents2,sim_mat,params['deltaX'],params['deltaY'])
         
-        averageDensity=totDensity/float(len(pointsKey))
+        average_density=tot_density/float(len(points_key))
 
         t6=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n6. Computing average density-->",t6-t5,"s.\n"),
             
 
         # =====> STEP 7 : filtering out low density points
 
-        (anchor_points,filtered_x,filtered_y)=filterPoints(anchor_points,lenSents1,lenSents2,averageDensity,simMat,deltaX,deltaY)
-        (anchor_points,filtered_x,filtered_y)=resolvingConflicts(anchor_points,lenSents1,lenSents2,simMat)
+        (anchor_points,filtered_x,filtered_y)=filter_points(anchor_points,lent_sents1,lent_sents2,average_density,sim_mat,params['deltaX'],params['deltaY'])
+        (anchor_points,filtered_x,filtered_y)=resolving_conflicts(anchor_points,lent_sents1,lent_sents2,sim_mat)
 
-        if reiterateFiltering:
-            (anchor_points,filtered_x,filtered_y)=filterPoints(anchor_points,lenSents1,lenSents2,averageDensity*2,simMat,int(deltaX/2),int(deltaY/2))
+        if params['reiterateFiltering']:
+            (anchor_points,filtered_x,filtered_y)=filter_points(anchor_points,lent_sents1,lent_sents2,average_density*2,sim_mat,int(params['deltaX']/2),int(params['deltaY']/2))
 
         t7=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n7. Removing low density points-->",t7-t6,"s.\n"),
 
      
         #~ x=[point[0] for point in points]
         #~ y=[point[1] for point in points]
-        #~ plt.axis([1,lenSents1,1,lenSents2])
-        #~ plt.title(outputFilename+'.txt - filtered')
+        #~ plt.axis([1,lent_sents1,1,lent_sents2])
+        #~ plt.title(output_file_name+'.txt - filtered')
         #~ plt.scatter(x,y,c="red",s=1)                       
         #~ plt.show()
        
@@ -1399,26 +1551,26 @@ def extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat):
         
         beginInt=(-1,-1)
         # adding last point as an anchor
-        filtered_x.append(lenSents1-1)
-        filtered_y.append(lenSents2-1)
+        filtered_x.append(lent_sents1-1)
+        filtered_y.append(lent_sents2-1)
         lastI=0
         lastJ=0
         intervals=[] # the array of pairs (beginInt,endInt) where beginInt and endInd are two points that define the interval
-        nbInInterval=0
+        nb_in_interval=0
         
-        (intervalLengthSent1,intervalLengthSent2,intervalLengthChar1,intervalLengthChar2)=(0,0,0,0)
+        (interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=(0,0,0,0)
 
-        if detectIntervals:
+        if params['detectIntervals']:
             for num in range(0,len(filtered_x)):
                 (i,j)=(filtered_x[num],filtered_y[num])
-                localDensity=computeLocalDensity(i,j,anchor_points,lenSents1,lenSents2,simMat,deltaX,deltaY)
-                densityRatio=0
-                if averageDensity>0 :
-                    densityRatio=localDensity/averageDensity
+                localDensity=compute_local_density(i,j,anchor_points,lent_sents1,lent_sents2,sim_mat,params['deltaX'],params['deltaY'])
+                density_ratio=0
+                if average_density>0 :
+                    density_ratio=localDensity/average_density
                 # computation of the distance between (i,j) and (i,expected(j)) 
-                expectedJ=lastJ+(i-lastI)*sentRatio
+                expectedJ=lastJ+(i-lastI)*params['sentRatio']
                 vertical_deviation=abs(j-expectedJ)
-                newInterval=False
+                new_interval=False
 
                 # monotony constraint : if the two previous and the two next anchors are monotonic but not the current
                 # the current anchor is discarded
@@ -1434,54 +1586,54 @@ def extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat):
                             continue
 
                 # deviated and low density point
-                if (vertical_deviation > maxDistToTheDiagonal/2 or i<lastI or j<lastJ) and densityRatio < minDensityRatio:
-                    # localDensity=computeLocalDensity(i,j,anchor_points,lenSents1,lenSents2,simMat,deltaX,deltaY)
+                if (vertical_deviation > params['maxDistToTheDiagonal']/2 or i<lastI or j<lastJ) and density_ratio < params['minDensityRatio']:
+                    # localDensity=compute_local_density(i,j,anchor_points,lent_sents1,lent_sents2,sim_mat,params['deltaX'],params['deltaY'])
                     # deviated point is removed if density is not high enough
-                    print(f"({i},{j}) is ignored. Low density : {densityRatio=}")
+                    print(f"({i},{j}) is ignored. Low density : {density_ratio=}")
                     # the current point is skipped
                     filtered_x[num]=lastI
                     filtered_y[num]=lastJ
                     continue
  
                 # only the points that are near the diagonal are taken into account
-                if vertical_deviation <= maxDistToTheDiagonal:
-                    nbInInterval+=1
+                if vertical_deviation <= params['maxDistToTheDiagonal']:
+                    nb_in_interval+=1
                 else:
-                    verbose and print(f"({i},{j}) is a deviating point {lastI=}, {lastJ=}, {densityRatio=}, {vertical_deviation=}")
+                    params['verbose'] and print(f"({i},{j}) is a deviating point {lastI=}, {lastJ=}, {density_ratio=}, {vertical_deviation=}")
                     
                     # considering next points to compute next deviation
                     preview_scope=2
                     if num+preview_scope<len(filtered_x):
                         (next_i,next_j)=(filtered_x[num+preview_scope],filtered_y[num+preview_scope])
-                        next_expectedJ=lastJ+(next_i-lastI)*sentRatio
+                        next_expectedJ=lastJ+(next_i-lastI)*params['sentRatio']
                         next_vertical_deviation=abs(next_j-next_expectedJ)
                         # the next point is aligned with previous point
-                        if next_vertical_deviation <= maxDistToTheDiagonal:
-                             verbose and print(f"({i},{j}) is ignored (next point is aligned with the previous). {vertical_deviation=}")
+                        if next_vertical_deviation <= params['maxDistToTheDiagonal']:
+                             params['verbose'] and print(f"({i},{j}) is ignored (next point is aligned with the previous). {vertical_deviation=}")
                               # the current point is skipped
                              filtered_x[num]=lastI
                              filtered_y[num]=lastJ
                              continue
                         else :
-                            next_expectedJ=j+(next_i-i)*sentRatio
+                            next_expectedJ=j+(next_i-i)*params['sentRatio']
                             next_vertical_deviation=abs(next_j-next_expectedJ)
                             # if the next point is aligned with the current point, then a new interval should be created
-                            if next_vertical_deviation <= maxDistToTheDiagonal and densityRatio > minDensityRatio:
-                                 verbose and print(f"({i},{j}) is kept for a new interval because aligned with next points")
-                                 newInterval=True
+                            if next_vertical_deviation <= params['maxDistToTheDiagonal'] and density_ratio > params['minDensityRatio']:
+                                 params['verbose'] and print(f"({i},{j}) is kept for a new interval because aligned with next points")
+                                 new_interval=True
                             else:
-                                verbose and print(f"({i},{j}) is ignored (next point is not aligned) {next_vertical_deviation=} {densityRatio=}")
+                                params['verbose'] and print(f"({i},{j}) is ignored (next point is not aligned) {next_vertical_deviation=} {density_ratio=}")
                                 # the current point is skipped
                                 filtered_x[num]=lastI
                                 filtered_y[num]=lastJ
                                 continue
                     # if the deviating point has a high density then create a new interval
                     #~ # a new interval must be created from the deviating point
-                    #~ if densityRatio > 1.5:
-                        #~ verbose and print(f"({i},{j}) is kept for a new interval because of high density",densityRatio)
-                        #~ newInterval=True
+                    #~ if density_ratio > 1.5:
+                        #~ params['verbose'] and print(f"({i},{j}) is kept for a new interval because of high density",density_ratio)
+                        #~ new_interval=True
                     #~ else:
-                        #~ verbose and print(f"({i},{j}) is ignored. {densityRatio=}")
+                        #~ params['verbose'] and print(f"({i},{j}) is ignored. {density_ratio=}")
                          #~ # the current point is skipped
                          #~ filtered_x[num]=lastI
                          #~ filtered_y[num]=lastJ
@@ -1491,31 +1643,31 @@ def extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat):
                 #~ # computing distance
                 d=math.sqrt((i-lastI)**2+(j-lastJ)**2)
                 # if a there is a gap the previous interval is closed and a new interval will begin
-                if d > maxGapSize and densityRatio > 1.5:
-                    verbose and print(f"{d} > maxGapSize, {densityRatio=}")
-                    newInterval=True
+                if d > params['maxGapSize'] and density_ratio > 1.5:
+                    params['verbose'] and print(f"{d} > maxGapSize, {density_ratio=}")
+                    new_interval=True
                    
                 # Creating a new interval if necessary
-                if newInterval:
+                if new_interval:
                     endInt=(lastI,lastJ)
-                    verbose and print(d,f"Closing interval ({beginInt},{endInt}) for point ({i},{j})")
+                    params['verbose'] and print(d,f"Closing interval ({beginInt},{endInt}) for point ({i},{j})")
                     if beginInt[0]<lastI and beginInt[1]<lastJ:
                         # to save the interval, we compute the density of selected points according to the horizontal width
-                        if nbInInterval/(lastI - beginInt[0]) >= minHorizontalDensity and nbInInterval>1:
+                        if nb_in_interval/(lastI - beginInt[0]) >= params['minHorizontalDensity'] and nb_in_interval>1:
                             intervals.append((beginInt,endInt))
-                            intervalLengthSent1+=lastI - beginInt[0] + 1
-                            intervalLengthSent2+=lastJ - beginInt[1] + 1
+                            interval_length_sent1+=lastI - beginInt[0] + 1
+                            interval_length_sent2+=lastJ - beginInt[1] + 1
                             for n in range(max(0,beginInt[0]),lastI+1):
-                                intervalLengthChar1+=len(sents1[n])
+                                interval_length_char1+=len(sents1[n])
                             for n in range(max(0,beginInt[1]),lastJ+1):
-                                intervalLengthChar2+=len(sents2[n])
+                                interval_length_char2+=len(sents2[n])
                         else:
-                            if verbose:
+                            if params['verbose']:
                                 print("Interval",beginInt,endInt,"has been discarded (density too low)")
                     beginInt=(i,j)
-                    nbInInterval=0
+                    nb_in_interval=0
                     
-                    if showPlot4NewInterval:
+                    if show_plot_4_new_interval:
                         min_x=max(0,i-100)
                         max_x=min(len(sents1)-1,i+100)
                         min_y=max(0,j-100)
@@ -1526,10 +1678,10 @@ def extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat):
                         plt.axis([min_x,max_x,min_y,max_y])
                         plt.title(str(i)+","+str(j)+'=> new interval')
                         plt.scatter(x,y,c="black",s=1)                       
-                        (i1,j1)=(i-deltaX/2,j-deltaX/2-deltaY/2)
-                        (i1,j2)=(i-deltaX/2,j-deltaX/2+deltaY/2)
-                        (i2,j3)=(i+deltaX/2,j+deltaX/2+deltaY/2)
-                        (i2,j4)=(i+deltaX/2,j+deltaX/2-deltaY/2)
+                        (i1,j1)=(i-params['deltaX']/2,j-params['deltaX']/2-params['deltaY']/2)
+                        (i1,j2)=(i-params['deltaX']/2,j-params['deltaX']/2+params['deltaY']/2)
+                        (i2,j3)=(i+params['deltaX']/2,j+params['deltaX']/2+params['deltaY']/2)
+                        (i2,j4)=(i+params['deltaX']/2,j+params['deltaX']/2-params['deltaY']/2)
                         X=[i1,i1,i2,i2,i1]
                         Y=[j1,j2,j3,j4,j1]
                         plt.plot(X,Y,c="grey")
@@ -1538,85 +1690,117 @@ def extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat):
                 lastI=i
                 lastJ=j
         else:
-            lastI=lenSents1-1
-            lastJ=lenSents2-1
+            lastI=lent_sents1-1
+            lastJ=lent_sents2-1
         
 
         t8=time.time()
-        if verbose:
+        if params['verbose']:
             print("\n8. Extracting alignable intervals-->",t8-t7,"s.\n"),       
         
     if lastI!=beginInt[0]:
         # closing last interval
-        intervalLengthSent1+=lastI - beginInt[0] + 1
-        intervalLengthSent2+=lastJ - beginInt[1] + 1
+        interval_length_sent1+=lastI - beginInt[0] + 1
+        interval_length_sent2+=lastJ - beginInt[1] + 1
         for n in range(max(0,beginInt[0]),lastI+1):
-            intervalLengthChar1+=len(sents1[n])
+            interval_length_char1+=len(sents1[n])
         for n in range(max(0,beginInt[1]),lastJ+1):
-            intervalLengthChar2+=len(sents2[n])
+            interval_length_char2+=len(sents2[n])
         intervals.append((beginInt,(lastI,lastJ)))
 
-    if verbose:
-        print("Total interval length=",intervalLengthSent1,"+",intervalLengthSent2)
-    return (filtered_x,filtered_y,intervals,intervalLengthSent1,intervalLengthSent2,intervalLengthChar1,intervalLengthChar2)
+    if params['verbose']:
+        print("Total interval length=",interval_length_sent1,"+",interval_length_sent2)
+    return (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)
 
 
 ########################################################################## align function
-def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputFilename="",col1=0,col2=1,printIds=False):
-    global log,splitSent_regex,sentRatio,charRatio
+def align(  l1,
+            l2,
+            input_dir,
+            file1,
+            file2,
+            input_format,
+            output_dir,
+            output_formats,
+            output_file_name="",
+            col1=0,
+            col2=1,
+            print_ids=False,
+            file_id1="",
+            file_id2="",
+            add_anchor=False,
+            local_params={}):
     
-    if splitSent and l1 not in splitSent_regex:
-        verbose and print(f"Default regex ",splitSent_regex["default"],f"will be used for sentence segmentation in {l1}")
-        splitSent_regex[l1]=splitSent_regex['default']
-    if splitSent and  l2 not in splitSent_regex:
-        verbose and print(f"Default regex ",splitSent_regex["default"],f"will be used for sentence segmentation in {l2}")
-        splitSent_regex[l2]=splitSent_regex['default']
+    global log,split_sent_regex,params
+    
+    for param in local_params:
+        params[param]=local_params[param]
+
+    if params['useShelve']:
+        embed_shelve=shelve.open("embeds")
+    
+    if params['splitSent'] and l1 not in split_sent_regex:
+        params['verbose'] and print(f"Default regex ",split_sent_regex["default"],f"will be used for sentence segmentation in {l1}")
+        split_sent_regex[l1]=split_sent_regex['default']
+    if params['splitSent'] and  l2 not in split_sent_regex:
+        params['verbose'] and print(f"Default regex ",split_sent_regex["default"],f"will be used for sentence segmentation in {l2}")
+        split_sent_regex[l2]=split_sent_regex['default']
      
     # processing of an aligned file pair
-    if verbose: 
+    if params['verbose']: 
         print("Processing",file1,"and",file2)
                 
-    (sents1,idSents1,lenSents1,seg2sents1,nbChars1)=readInputFile(inputDir,file1,inputFormat,col1,l1)
-    (sents2,idSents2,lenSents2,seg2sents2,nbChars2)=readInputFile(inputDir,file2,inputFormat,col2,l2)
+    (sents1,id_sents1,lent_sents1,seg2sents1,nb_chars1)=read_input_file(input_dir,file1,input_format,col1,l1)
+    (sents2,id_sents2,lent_sents2,seg2sents2,nb_chars2)=read_input_file(input_dir,file2,input_format,col2,l2)
     
+    if lent_sents1*lent_sents2==0:
+        print(f"File is empty ! No sentence read : {lent_sents1=} {lent_sents2=}")
+        return
     # computing output file names
-    if outputFilename=="":
-        m=re.search(filePattern,file1)
+    if output_file_name=="":
+        m=re.search(params['filePattern'],file1)
+        
         if m:
-            name=m.group(1)
-            outputFilename=name+"."+l1+"-"+l2
-            outputAnchorFilename=name+".anchor."+l1+"-"+l2
+            name1=m.group(1)
+            m=re.search(params['filePattern'],file2)
+            name2=m.group(1)
+            if name1!=name2:
+                name=name1+"-"+name2
+            else:
+                name=name1
+            output_file_name=name+"."+l1+"-"+l2
+            output_anchor_filename=name+".anchor."+l1+"-"+l2
         else:
-            outputFilename=os.path.basename(file1)+"-"+os.path.basename(file2)
-            outputAnchorFilename=file1+"-"+file2+".anchor"
+            output_file_name=os.path.basename(file1)+"-"+os.path.basename(file2)
+            output_anchor_filename=file1+"-"+file2+".anchor"
     else:
-        outputAnchorFilename=outputFilename+".anchor"
+        output_anchor_filename=output_file_name+".anchor"
     
     
     ####################################################### extract candidate anchor points here !
 
     # =====> STEP 1-5 : extracting anchor points from similarity matrix
     
-    if useNgrams:
-        (points,x,y)=computePointsFromNgrams(sents1,sents2) # TODO : add simMat
+    if params['useNgrams']:
+        (points,x,y)=computePointsFromNgrams(sents1,sents2) # TODO : add sim_mat
     else:
-        (points,x,y,simMat,embeds1,embeds2)=computePointsWithEncoder(preprocessor,encoder,sents1,sents2)
+        (points,x,y,sim_mat,embeds1,embeds2)=computePointsWithEncoder(preprocessor,encoder,sents1,sents2)
 
     #######################################################  extract filtered anchor points here !
     
     # =====> STEP 6-8 : filtering anchor points and extracting alignable intervals
 
-    (filtered_x,filtered_y,intervals,intervalLengthSent1,intervalLengthSent2,intervalLengthChar1,intervalLengthChar2)=extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat)
+    (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_mat)
 
-    if adaptativeMode:
-        sentRatio=intervalLengthSent2/intervalLengthSent1
-        charRatio=intervalLengthChar2/intervalLengthChar1
+    if params['adaptativeMode']:
+        params['sentRatio']=interval_length_sent2/interval_length_sent1
+        params['charRatio']=interval_length_char2/interval_length_char1
         print(f"Adapted ratios : {sentRatio=} {charRatio=}")
-        (filtered_x,filtered_y,intervals,intervalLengthSent1,intervalLengthSent2,intervalLengthChar1,intervalLengthChar2)=extractAnchorPoints(points,x,y,sents1,sents2,lenSents1,lenSents2,simMat)
+        (filtered_x,filtered_y,intervals,interval_length_sent1,interval_length_sent2,interval_length_char1,interval_length_char2)=extract_anchor_points(points,x,y,sents1,sents2,lent_sents1,lent_sents2,sim_mat)
 
-    if writeIntervals and len(intervals)>0:
-        outputIntervalFilename=outputAnchorFilename.replace(".anchor",".intervals")+".txt"
-        f_int=open(outputIntervalFilename,mode="w",encoding="utf8")
+    if params['writeIntervals'] and len(intervals)>0:
+        output_interval_filename=output_anchor_filename.replace(".anchor",".intervals")+".txt"
+        f_int=open(output_interval_filename,mode="w",encoding="utf8")
         for interval in intervals:
             (x1,y1)=interval[0]
             (x2,y2)=interval[1]
@@ -1626,29 +1810,29 @@ def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputF
 
     # anchor point output
     if (len(filtered_x)>0):
-        if writeAnchorPoints:
+        if params['writeAnchorPoints']:
             x_final=[]
             y_final=[]
             score=0
             nbScore=0
             for (x2,y2) in zip(filtered_x,filtered_y):
-                if simMat[x2,y2] >= cosThresholdInOutputAnchors:
+                if sim_mat[x2,y2] >= params['cosThresholdInOutputAnchors']:
                     x_final.append(x2)
                     y_final.append(y2)
-                    score+=simMat[x2,y2]
+                    score+=sim_mat[x2,y2]
                     nbScore+=2
             if nbScore>0:
-                meanScore=score/nbScore
-                for outputFormat in outputFormats:
-                    writeAlignedPoints(l1,l2,sents1,idSents1,sents2,idSents2,x_final,y_final,outputDir,outputAnchorFilename+"."+outputFormat,outputFormat,True,printIds,meanScore)
+                mean_score=score/nbScore
+                for output_format in output_formats:
+                    write_aligned_points(l1,l2,sents1,id_sents1,sents2,id_sents2,x_final,y_final,output_dir,output_anchor_filename+"."+output_format,output_format,True,print_ids,mean_score)
         
        
         # display of the points : eliminated points are red
-        if printPlot:
+        if print_plot:
         
-            plt.axis([1,lenSents1,1,lenSents2])
+            plt.axis([1,lent_sents1,1,lent_sents2])
             plt.autoscale()
-            plt.title(outputFilename+'.txt - filtered')
+            plt.title(output_file_name+'.txt - filtered')
             plt.scatter(x,y,c="red",s=1)
             plt.scatter(filtered_x,filtered_y,c="black",s=1)
             for interval in intervals:
@@ -1657,36 +1841,36 @@ def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputF
                 X=[i1,i1,i2,i2,i1]
                 Y=[j1,j2,j2,j1,j1]
                 plt.plot(X,Y,c="grey")
-            if savePlot:
-                plt.savefig(os.path.join(outputDir,outputFilename)+'.png')
-            if showPlot:
+            if params['savePlot']:
+                plt.savefig(os.path.join(output_dir,output_file_name)+'.png')
+            if params['showPlot']:
                 plt.show()
             plt.close()
             
         # writing intervals
-        if len(intervals)>0 and writeAlignableArea:
-            if not os.path.exists(outputDir):
-                os.mkdir(outputDir)
+        if len(intervals)>0 and params['write_alignableArea']:
+            if not os.path.exists(output_dir):
+                os.mkdir(output_dir)
      
-            writeAlignable(sents1,idSents1,intervals,0,outputDir,file1+"."+outputFormat,outputFormat)
-            writeAlignable(sents2,idSents2,intervals,1,outputDir,file2+"."+outputFormat,outputFormat)
+            write_alignable(sents1,id_sents1,intervals,0,output_dir,file1+"."+output_format,output_format)
+            write_alignable(sents2,id_sents2,intervals,1,output_dir,file2+"."+output_format,output_format)
             
     # If no interval is alignable
-    if intervalLengthSent1==0 or intervalLengthSent2==0:
-        if printLog:
-            log.write(f"{outputFilename} not alignable\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmeanScore={0}\tsilence1={1:.3f}\tsilence2={1:.3f}\tcommandLine="+" ".join(sys.argv)+"\n")
-        if verbose:
-            print(f"{outputFilename} not alignable")
+    if interval_length_sent1==0 or interval_length_sent2==0:
+        if print_log:
+            log.write(f"{output_file_name} not alignable\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={0}\tsilence1={1:.3f}\tsilence2={1:.3f}\tcommandLine="+" ".join(sys.argv)+"\n")
+        if params['verbose']:
+            print(f"{output_file_name} not alignable")
         return
 
 
     # =====> STEP 9 : extracting complete alignment using DTW
     
-    if not doNotRunDTW:
-        char_ratio=nbChars2/nbChars1 if charRatio==0 else charRatio
-        verbose and print("Chararacter ratio=",char_ratio)
+    if not params['doNotRunDTW']:
+        char_ratio=nb_chars2/nb_chars1 if params['charRatio']==0 else params['charRatio']
+        params['verbose'] and print("Chararacter ratio=",char_ratio)
         
-        (dtw_path,score)=run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1,embeds2,char_ratio)
+        (dtw_path,score)=run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,sim_mat,embeds1,embeds2,char_ratio)
         # x_dtw and y_dtw contains a list of list of corresponding coordinates
         # eg. x_dtw=[[0],[1,2],[]]
         # eg. y_dtw=[[0],[1],[2]]
@@ -1696,8 +1880,8 @@ def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputF
         nb_x=0
         nb_y=0
         
-        if useShelve:
-            encode_hash=embedShelve
+        if params['useShelve']:
+            encode_hash=embed_shelve
         else:
             encode_hash={}
 
@@ -1705,18 +1889,18 @@ def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputF
         
         # adding empty pairs at the end
         (last_x,last_y)=dtw_path[-1]
-        x_l=list(range(last_x+1,lenSents1-1))
-        y_l=list(range(last_y+1,lenSents2-1))
+        x_l=list(range(last_x+1,lent_sents1-1))
+        y_l=list(range(last_y+1,lent_sents2-1))
 
         if len(x_l)>0:
             x_dtw.append(x_l)
             y_dtw.append([])
-            if veryVerbose : 
+            if params['veryVerbose'] : 
                 print (f"Empty pair=([{x_l}],[])")
         if len(y_l)>0:
             x_dtw.append([])
             y_dtw.append(y_l)
-            if veryVerbose : 
+            if params['veryVerbose'] : 
                 print (f"Empty pair=([],[{y_l}])")
         # constitution des groupes en fonctions des bornes
         for i in range(len(dtw_path)-1,-1,-1):
@@ -1740,7 +1924,7 @@ def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputF
                     #~ nb_x+=1
                     #~ nb_y+=1
                     # creating empty pairs for each gap
-                    if i-2>=0 and dtw_path[i-2] !=() and printGap:
+                    if i-2>=0 and dtw_path[i-2] !=() and print_gap:
                         (prev_x,prev_y)=dtw_path[i-2]
                         x_l=list(range(prev_x+1,x+1))
                         y_l=list(range(prev_y+1,y+1))
@@ -1748,51 +1932,65 @@ def align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputF
                         if len(x_l)>0:
                             x_dtw.append(x_l)
                             y_dtw.append([])
-                            if veryVerbose : 
+                            if params['veryVerbose'] : 
                                 print (f"Empty pair=([{x_l}],[])")
                         if len(y_l)>0:
                             x_dtw.append([])
                             y_dtw.append(y_l)
-                            if veryVerbose : 
+                            if params['veryVerbose'] : 
                                 print (f"Empty pair=([],[{y_l}])")
     
         #~ print(f"first x={x},first y={y}")
         # adding first empty pair
-        if printGap:
+        if print_gap:
             x_l=list(range(0,x))
             y_l=list(range(0,y))
             if len(x_l)>0:
                 x_dtw.append(x_l)
                 y_dtw.append([])
-                if veryVerbose : 
+                if params['veryVerbose'] : 
                     print (f"Empty pair=([{x_l}],[])")
             if len(y_l)>0:
                 x_dtw.append([])
                 y_dtw.append(y_l)
-                if veryVerbose : 
+                if params['veryVerbose'] : 
                     print (f"Empty pair=([],[{y_l}])")                      
 
         x_dtw.reverse()
         y_dtw.reverse()
         
         # grouping points may occur here
-        if lateGrouping:
-            (x_dtw,y_dtw)=late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio)
+        if params['lateGrouping']:
+            (x_dtw,y_dtw)=late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio)
     
         # writing output files
-        meanScore=len(sents1)+len(sents2)-score
-        if verbose and len(sents1)>0:
-            meanScore=1-(score/(len(sents1)+len(sents2)))
-            print(f"Average similarity={meanScore:.4f}")
+        mean_score=len(sents1)+len(sents2)-score
+        if params['verbose'] and len(sents1)>0:
+            mean_score=1-(score/(len(sents1)+len(sents2)))
+            print(f"Average similarity={mean_score:.4f}")
         silence1=(len(sents1)-nb_x)/len(sents1)
         silence2=(len(sents2)-nb_y)/len(sents2)
         
-        if printLog:
-            log.write(f"{outputFilename}\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmeanScore={meanScore}\tignored1={(len(sents1)-nb_x)}\tsilence1={silence1:.3f}\tignored2={(len(sents2)-nb_y)}\tsilence2={silence2:.3f}\tcommandLine="+" ".join(sys.argv)+"\n")
+        if print_log:
+            log.write(f"{output_file_name}\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={mean_score}\tignored1={(len(sents1)-nb_x)}\tsilence1={silence1:.3f}\tignored2={(len(sents2)-nb_y)}\tsilence2={silence2:.3f}\tcommandLine="+" ".join(sys.argv)+"\n")
             
-        for outputFormat in outputFormats:
-            writeAlignedPoints(l1,l2,sents1,idSents1,sents2,idSents2,x_dtw,y_dtw,outputDir,outputFilename+"."+outputFormat,outputFormat,False,printIds,meanScore)
-        return meanScore
+        for output_format in output_formats:
+            if output_format=="xml" and input_format=="xml" and add_anchor:
+                if not file_id1:
+                    file_id1=l1
+                if not file_id2:
+                    file_id2=l2
+                add_anchor_in_output(input_dir,file1,file2,file_id1,file_id2,x_dtw,y_dtw,output_dir,params['direction'])
+            else:
+                write_aligned_points(l1,l2,sents1,id_sents1,sents2,id_sents2,x_dtw,y_dtw,output_dir,output_file_name+"."+output_format,output_format,False,print_ids,mean_score,file1,file2)
+        
+        if params['useShelve']:
+            embed_shelve.close() 
+
+        return mean_score
+     
+    if params['useShelve']:
+        embed_shelve.close() 
 
 
 # for group [x_inf,..,x_sup], return the interval [x_inf-1,x_sup] (to use in distance_DTW)
@@ -1813,21 +2011,21 @@ def calc_int(group_x,group_y):
     return (x_inf,x_sup,y_inf,y_sup)        
             
 # apply a greedy algorithme to perform the best grouping (which increase sim between source and target)
-def late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio):
+def late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio):
     # this btree records the index of each group ordered by their gain
     gains = OOBTree()
     groups = []
     # initialisation of the groups data structure : foreach group, record x,y, and the corresponding dist
     for (group_x,group_y) in zip(x_dtw,y_dtw):
         (inf_x,sup_x,inf_y,sup_y)=calc_int(group_x,group_y)
-        dist=distanceDTW(encoder,sents1,sents2,encode_hash,{},simMat,embeds1,embeds2,inf_x,sup_x,inf_y,sup_y,char_ratio,False) 
+        dist=distance_dtw(encoder,sents1,sents2,encode_hash,{},sim_mat,embeds1,embeds2,inf_x,sup_x,inf_y,sup_y,char_ratio,False) 
         groups.append( {'x':group_x,'y':group_y,"dist":dist} )
     
     # first iteration : for each group, the gain of similarity is computed whether grouping
     # on the left or on the right (direction indicates which direction has the best gain)
     # all the strictly positive gains are recorded in the gains btree
     for i in range(len(groups)):
-        compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio)
+        compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio)
 
     if len(gains)>0:
         best_gain=gains.maxKey()
@@ -1843,7 +2041,7 @@ def late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,simMat,embeds1,e
         # group i with next group
         if groups[i]['direction']==1:
             next_i=next(groups,i)
-            verbose and print(f"group {i} with next {next_i} :",groups[i]['newX'],groups[i]['newY'])
+            params['verbose'] and print(f"group {i} with next {next_i} :",groups[i]['newX'],groups[i]['newY'])
             if next_i!=-1:
                 # the next group is first "deleted" : dist is set to -1, and x and y are set to []
                 groups[next_i]['dist']=-1
@@ -1855,7 +2053,7 @@ def late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,simMat,embeds1,e
         elif groups[i]['direction']==-1:
         # group i with previous group
             prev_i=prev(groups,i)
-            verbose and print(f"group {i} with prev {prev_i} :",groups[i]['newX'],groups[i]['newY'])
+            params['verbose'] and print(f"group {i} with prev {prev_i} :",groups[i]['newX'],groups[i]['newY'])
             if prev_i!=-1:
                 # the prev group is first "deleted" : dist is set to -1, and x and y are set to []
                 groups[prev_i]['dist']=-1
@@ -1874,16 +2072,16 @@ def late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,simMat,embeds1,e
         groups[i]['dist']=groups[i]['newDist']
         
         # update of the gain, on the left and on the right (after the prev group or the next_group which are "deleted")
-        compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio)
+        compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio)
         
         # update gain on the left and right side
         prev_i=prev(groups,i)
         if prev_i!=-1:
-            compute_gain(gains,groups,prev_i,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio)
+            compute_gain(gains,groups,prev_i,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio)
             
         next_i=next(groups,i)
         if next_i!=-1:
-            compute_gain(gains,groups,next_i,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio)
+            compute_gain(gains,groups,next_i,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio)
 
         # computing best gain for next iteration
         if len(gains)>0:
@@ -1903,7 +2101,7 @@ def late_grouping(x_dtw,y_dtw,encoder,sents1,sents2,encode_hash,simMat,embeds1,e
 
 # compute the gain when grouping on the left (direction=-1) or on the right (direction=1) side
 # and record the corresponding merged groups and distance
-def compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,simMat,embeds1,embeds2,char_ratio):
+def compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,sim_mat,embeds1,embeds2,char_ratio):
     group_x=groups[i]['x']
     group_y=groups[i]['y']
     dist=groups[i]['dist']
@@ -1931,12 +2129,12 @@ def compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,simMat,embeds1
         new_group_x1=prev_group_x+group_x
         new_group_y1=prev_group_y+group_y
         (inf_x,sup_x,inf_y,sup_y)=calc_int(new_group_x1,new_group_y1)
-        prev_dist=distanceDTW(encoder,sents1,sents2,encode_hash,{},simMat,embeds1,embeds2,inf_x,sup_x,inf_y,sup_y,char_ratio,False) 
+        prev_dist=distance_dtw(encoder,sents1,sents2,encode_hash,{},sim_mat,embeds1,embeds2,inf_x,sup_x,inf_y,sup_y,char_ratio,False) 
         prev_gain=dist-prev_dist
         if no_empty:
-            prev_gain -= penalty_n_n
+            prev_gain -= params['penalty_n_n']
         else:
-            prev_gain += penalty_0_n
+            prev_gain += params['penalty_0_n']
         #~ print(i,"prev",no_empty,prev_gain,new_group_x1,new_group_y1,dist,prev_dist,prev_gain)
 
     next_i=next(groups,i)
@@ -1948,12 +2146,12 @@ def compute_gain(gains,groups,i,encoder,sents1,sents2,encode_hash,simMat,embeds1
         new_group_x2=group_x+next_group_x
         new_group_y2=group_y+next_group_y
         (inf_x,sup_x,inf_y,sup_y)=calc_int(new_group_x2,new_group_y2)
-        next_dist=distanceDTW(encoder,sents1,sents2,encode_hash,{},simMat,embeds1,embeds2,inf_x,sup_x,inf_y,sup_y,char_ratio,False) 
+        next_dist=distance_dtw(encoder,sents1,sents2,encode_hash,{},sim_mat,embeds1,embeds2,inf_x,sup_x,inf_y,sup_y,char_ratio,False) 
         next_gain=dist-next_dist
         if no_empty:
-            next_gain -= penalty_n_n
+            next_gain -= params['penalty_n_n']
         else:
-            next_gain += penalty_0_n
+            next_gain += params['penalty_0_n']
         #~ print(i,"next",no_empty,next_gain,new_group_x2,new_group_y2,dist,next_dist,next_gain)
 
     if next_gain > prev_gain and next_gain > 0:
@@ -2013,15 +2211,14 @@ def next(groups,i):
 # from each anchor points (the paths must not deviate from these anchors points
 # at a distance lower than dtwBeam) 
 
-def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1,embeds2,char_ratio):
-    global useShelve
-    global embedShelve
+def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,sim_mat,embeds1,embeds2,char_ratio):
+    global embed_shelve
     
     path_hash={}
     dist_hash={"-2--1;-2--1":0} # for the point (-1,-1), the lower bound
     
-    if useShelve:
-        encode_hash=embedShelve
+    if params['useShelve']:
+        encode_hash=embed_shelve
     else:
         encode_hash={}
     
@@ -2062,7 +2259,7 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
         # if there is a gap between the last point in path and the first point in current interval, add an empty point () in the path
         if key_xy not in path_hash:
             (lastI,lastJ)=lastBestPath[-1]
-            if verbose:
+            if params['verbose']:
                 print(f"Inserting gap between ({lastI},{lastJ}) and ({x_begin},{y_begin})")
             lastBestPath.append(()) # an empty point indicate a break in the path
             lastBestPath.append((x_begin-1,y_begin-1))
@@ -2075,12 +2272,12 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
         previous1_x=x_begin
         previous1_y=y_begin
         for x in range(x_begin,x_end+1):
-            localBeam=dtwBeam
+            localBeam=params['dtwBeam']
             
             # case 1 : if (x,y) is an anchor point
             if x in x_2_y:
                 y=x_2_y[x]
-                if verbose:
+                if params['verbose']:
                     print(f"Anchor point {x},{y}")
                     
                 # if (x,y) is too far from the interval diagonal, it is discarded
@@ -2091,19 +2288,19 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
                     continue
                
                 # First condition : 1/ deviation > localDiagBeam
-                if (deviation > localDiagBeam and deviation*(y_end-y_begin)>dtwBeam) :
+                if (deviation > params['localDiagBeam'] and deviation*(y_end-y_begin)>params['dtwBeam']) :
                     del x_2_y[x]
                     if y in y_2_x:
                         del y_2_x[y]
-                    if verbose:
+                    if params['verbose']:
                         print( f"deviation*(y_end-y_begin)= {deviation*(y_end-y_begin)} - Anchor point ({x},{y}) is too far from the interval diagonal - point has been discarded!")
                     continue
                 # Second condition : 2/ the ratio between deltaX and deltaY exceeds 4 (1-4 or 4-1 grouping is the max allowed)
-                if (noEmptyPair and (min(y-previous1_y,x-previous1_x)==0 or max(y-previous1_y,x-previous1_x)/min(y-previous1_y,x-previous1_x)>4)) :
+                if (params['noEmptyPair'] and (min(y-previous1_y,x-previous1_x)==0 or max(y-previous1_y,x-previous1_x)/min(y-previous1_y,x-previous1_x)>4)) :
                     del x_2_y[x]
                     if y in y_2_x:
                         del y_2_x[y]
-                    if verbose:
+                    if params['verbose']:
                         print( f"Deviating anchor point ({x},{y}) is too close from the preceding - point has been discarded!")
                     continue
                 
@@ -2112,8 +2309,8 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
                 # from the previous anchor point - according to x axis (previous1_x,previous1_y) 
                 # and y axis (previous2_x,previous2_y) - the max deviation is taken into account
 
-                if (previous1_y < y) and abs((y-previous1_y) - int((x-previous1_x)*coeff_y_per_x)) > dtwBeam :
-                    localBeam=abs((y-previous1_y) - int((x-previous1_x)*coeff_y_per_x))+dtwBeam+1
+                if (previous1_y < y) and abs((y-previous1_y) - int((x-previous1_x)*coeff_y_per_x)) > params['dtwBeam'] :
+                    localBeam=abs((y-previous1_y) - int((x-previous1_x)*coeff_y_per_x))+params['dtwBeam']+1
                     print( f"Applying local margin {localBeam} for point : ({x},{y}) previous1=({previous1_x},{previous1_y}) with coeff={coeff_y_per_x}")
                     
                 previous2_y=y-1
@@ -2123,13 +2320,13 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
                 if previous2_y in y_2_x:
                     previous2_x=y_2_x[previous2_y]
                     if (previous2_x < x) and abs((y-previous2_y) - int((x-previous2_x)*coeff_y_per_x)) > localBeam :
-                        localBeam=abs((y-previous2_y) - int((x-previous2_x)*coeff_y_per_x))+dtwBeam+1
+                        localBeam=abs((y-previous2_y) - int((x-previous2_x)*coeff_y_per_x))+params['dtwBeam']+1
                         print( f"Applying local margin {localBeam} for point : ({x},{y}) previous2=({previous2_x},{previous2_y})  with coeff={coeff_y_per_x}")
-                if veryVerbose:
+                if params['veryVerbose']:
                     print( f"Running DTW for the point : ({x},{y}) - elapsed from (1,1) =",time.time()-t8,"s.")
                 
-                (path,dist)=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,simMat,embeds1,embeds2,x,y,x_begin,y_begin,localBeam,char_ratio)
-                if dist==infinite and verbose: 
+                (path,dist)=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,x,y,x_begin,y_begin,localBeam,char_ratio)
+                if dist==infinite and params['verbose']: 
                     print( f"Infinite distance from : ({x},{y})")
                     # initiating a new interval starting from x,y
                     x_begin=x
@@ -2145,7 +2342,7 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
                     lastBestPath=path
                     lastBestScore=dist
                     
-                if veryVerbose:
+                if params['veryVerbose']:
                     print(f"Distance->{dist}")
                 previous1_x=x
                 previous1_y=y
@@ -2156,9 +2353,9 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
     last_x=len(sents1)-1
     last_y=len(sents2)-1
     if (last_x-x)+(last_y-y)<200:
-        if verbose:
+        if params['verbose']:
             print( f"Last point ({last_x},{last_y})")
-        dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,simMat,embeds1,embeds2,last_x,last_y,x_end,y_end,dtwBeam,char_ratio)
+        dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,last_x,last_y,x_end,y_end,params['dtwBeam'],char_ratio)
     # if last point has not been discarded
     score=infinite
     if f"{last_x}-{last_y}" in path_hash:
@@ -2168,7 +2365,7 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
         (best_path,score)=path_hash[f"{previous1_x}-{previous1_y}"]
     
     t9=time.time()
-    if verbose:
+    if params['verbose']:
         print( f"\n9. Elapsed time for complete DTW-->",t9-t8,"s.\n")
 
     return (best_path,score)
@@ -2176,11 +2373,10 @@ def run_dtw(encoder,sents1,sents2,intervals,filtered_x,filtered_y,simMat,embeds1
 
 # Compute the bestpath (a list of [I,J] pairs) and the corresponding score (the minimum distance)
 # The current point correspond to the interval between (infI,inJ) excluded
-def dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,simMat,embeds1,embeds2,i,j,x_begin,y_begin,localBeam,char_ratio):
-    global verbose
-    global dtwBeam
+def dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,i,j,x_begin,y_begin,localBeam,char_ratio):
+
     # at each recursion step, localBeam decreases to the dtwBeam floor value
-    localBeam=max(localBeam-localBeamDecay,dtwBeam)
+    localBeam=max(localBeam-params['localBeamDecay'],params['dtwBeam'])
     
     # The hash path_hash records the result for already computed path, in order to reduce recursivity
     dtw_key=str(i)+"-"+str(j)
@@ -2203,8 +2399,8 @@ def dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,simMat
     path_by_group={}
     dist_by_group={}
     for group in allowed_groups:
-        (path_by_group[group],dist_by_group[group])=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,simMat,embeds1,embeds2,i-group[0],j-group[1],x_begin,y_begin,localBeam,char_ratio)
-        dist_by_group[group]+= distanceDTW(encoder,sents1,sents2,encode_hash,dist_hash,simMat,embeds1,embeds2,i-group[0],i,j-group[1],j,char_ratio) # interval ]i-group[0];i] ]j-group[1];j] 
+        (path_by_group[group],dist_by_group[group])=dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,sim_mat,embeds1,embeds2,i-group[0],j-group[1],x_begin,y_begin,localBeam,char_ratio)
+        dist_by_group[group]+= distance_dtw(encoder,sents1,sents2,encode_hash,dist_hash,sim_mat,embeds1,embeds2,i-group[0],i,j-group[1],j,char_ratio) # interval ]i-group[0];i] ]j-group[1];j] 
 
     best_group=None
     min_dist=infinite
@@ -2225,7 +2421,7 @@ def dtw(encoder,sents1,sents2,encode_hash,path_hash,dist_hash,x_2_y,y_2_x,simMat
 # for empty aligning, dist is equal to distNull which should be near to 1
 # when the similarity is below a given threshold (sim_threshold), the dist is fixed to 1 (in order to force using 1-0 or 0-1 pairing)
 
-def distanceDTW(encoder,sents1,sents2,encode_hash,dist_hash,simMat,embeds1,embeds2,inf_i,i,inf_j,j,char_ratio,use_coeff=True):
+def distance_dtw(encoder,sents1,sents2,encode_hash,dist_hash,sim_mat,embeds1,embeds2,inf_i,i,inf_j,j,char_ratio,use_coeff=True):
     # if the distance has already been stored in dist_hash
     key=str(inf_i)+"-"+str(i)+";"+str(inf_j)+"-"+str(j)
     if key in dist_hash:
@@ -2233,21 +2429,21 @@ def distanceDTW(encoder,sents1,sents2,encode_hash,dist_hash,simMat,embeds1,embed
         
     # coeff indicates the total number of segments (for both language) involved in the alignment
     coeff=1
-    penalty=penalty_n_n
+    penalty=params['penalty_n_n']
 
     # case of relations 1-0 et 0-1
     if inf_i==i or inf_j==j:
-        return distNull * coeff
+        return params['distNull'] * coeff
     
     if i < 0 or j < 0 or inf_i < -2 or inf_j < -2:
         return infinite
     
     coeff=2
-    if useEncoder:
+    if use_encoder:
         # similarity are computed for sentence group
         # case of relations 1-1
         if inf_i==i-1 and inf_j==j-1:
-            sim=simMat[i,j]
+            sim=sim_mat[i,j]
             if use_coeff:
                 penalty=0
         # case of relations n-n
@@ -2315,8 +2511,9 @@ def distanceDTW(encoder,sents1,sents2,encode_hash,dist_hash,simMat,embeds1,embed
         sim=np.matmul(embed_i, np.transpose(embed_j))
 
     # compute the similarity with neighbouring sentences and substract it to the global sim
-    if not noMarginPenalty:
+    if not params['noMarginPenalty']:
         nb=0
+        nn=0
         if inf_j>=0:
             left_embed_j=embeds2[inf_j][:]
             left_sim_j=np.matmul(embed_i, np.transpose(left_embed_j))
@@ -2329,7 +2526,10 @@ def distanceDTW(encoder,sents1,sents2,encode_hash,dist_hash,simMat,embeds1,embed
             nb+=1
         else:
             right_sim_j=0
-        neighbour_sim_j=(left_sim_j+right_sim_j)/nb
+        neighbour_sim_j=0
+        if nb>0:
+            neighbour_sim_j=(left_sim_j+right_sim_j)/nb
+            nn+=1
         
         nb=0
         if inf_i>=0:
@@ -2344,14 +2544,19 @@ def distanceDTW(encoder,sents1,sents2,encode_hash,dist_hash,simMat,embeds1,embed
             nb+=1
         else:
             right_sim_i=0
-        neighbour_sim_i=(left_sim_i+right_sim_i)/nb
-        
-        average_neighbour_sim=(neighbour_sim_i+neighbour_sim_j)/2
+        neighbour_sim_i=0
+        if nb>0:
+            neighbour_sim_i=(left_sim_i+right_sim_i)/nb
+            nn+=1
+
+        average_neighbour_sim=0
+        if nn>0:
+            average_neighbour_sim=(neighbour_sim_i+neighbour_sim_j)/nn
         sim-=coeff_neighbour_sim*average_neighbour_sim
 
     # for empty sentences
     if len_i*len_j==0:
-        return distNull * coeff
+        return params['distNull'] * coeff
 
     dist=1-sim
     if use_coeff:
@@ -2376,15 +2581,15 @@ if __name__ == "__main__":
     t0=time.monotonic()
 
     # processing a unic pair of files
-    if inputFile1 and inputFile2:
-        align(l1,l2,inputDir,inputFile1,inputFile2,inputFormat,outputDir,outputFormats,outputFilename,col1=col1,col2=col2,printIds=printIds)
+    if input_file1 and input_file2:
+        align(l1,l2,input_dir,input_file1,input_file2,input_format,output_dir,output_formats,output_file_name,col1=col1,col2=col2,print_ids=print_ids,file_id1=file_id1,file_id2=file_id2)
     # processing a full directory
     else :
-        if verbose:
-            print("Processing directory",inputDir)
+        if params['verbose']:
+            print("Processing directory",input_dir)
         # reading a tsv file with pairs fileName1 tab fileName2
-        if inputFileList:
-            f=open(inputFileList,encoding="utf8")
+        if params['inputFileList']:
+            f=open(params['inputFileList'],encoding="utf8")
             files1=[]
             files2=[]
             for line in f:
@@ -2398,34 +2603,33 @@ if __name__ == "__main__":
                         files1.append(f1)
                         files2.append(f2)
             f.close()
-            if verbose:
+            if params['verbose']:
                 print("Files to process",list(zip(files1,files2)))
             for file1,file2 in zip(files1,files2):
-                outputFilename=""
-                if filePattern.match(file1):
-                    outputFilename= filePattern.match(file1).group(1)
-                    l1= filePattern.match(file1).group(2)
-                    l2= filePattern.match(file2).group(2)
-                align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputFilename,col1=col1,col2=col2,printIds=printIds)
+                output_file_name=""
+                if params['filePattern'].match(file1):
+                    output_file_name= params['filePattern'].match(file1).group(1)
+                    l1= params['filePattern'].match(file1).group(2)
+                    l2= params['filePattern'].match(file2).group(2)
+                align(l1,l2,input_dir,file1,file2,input_format,output_dir,output_formats,output_file_name,col1=col1,col2=col2,print_ids=print_ids)
         else:
-            files=[f for f in os.listdir(inputDir) if filePattern.match(f) ] # and re.search(inputFormat+"$",f,re.I)]
-            files1=[f for f in files if filePattern.match(f).group(2)==l1]
-            files2=[f for f in files if filePattern.match(f).group(2)!=l1 and (filePattern.match(f).group(2)==l2 or l2=="*")]
-            if verbose:
+            files=[f for f in os.listdir(input_dir) if params['filePattern'].match(f) ] # and re.search(input_format+"$",f,re.I)]
+            files1=[f for f in files if params['filePattern'].match(f).group(2)==l1]
+            files2=[f for f in files if params['filePattern'].match(f).group(2)!=l1 and (params['filePattern'].match(f).group(2)==l2 or l2=="*")]
+            if params['verbose']:
                 print("Files to process",files1)
             # processing input files
             for file1 in files1:
-                m=filePattern.match(file1)
+                m=params['filePattern'].match(file1)
                 name=m.group(1)
                 for file2 in files2:
-                    m=filePattern.match(file2)
+                    m=params['filePattern'].match(file2)
                     if m.group(1)==name:
                         l2=m.group(2)
-                        align(l1,l2,inputDir,file1,file2,inputFormat,outputDir,outputFormats,outputFilename="",col1=col1,col2=col2,printIds=printIds)
-    if  verbose:
+                        align(l1,l2,input_dir,file1,file2,input_format,output_dir,output_formats,output_file_name="",col1=col1,col2=col2,print_ids=print_ids)
+    if  params['verbose']:
         print ("Terminated in",time.monotonic()-t0,"s.")
         
-    if useShelve:
-        embedShelve.close() 
-    if printLog:
+
+    if print_log:
         log.close()

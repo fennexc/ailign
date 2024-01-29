@@ -150,8 +150,6 @@ def read_alignments(file):
 
 # main 
 if __name__=="__main__":
-
-
         
     for corpus_name in corpora:
         eval_dir = f'eval/{corpus_name}'
