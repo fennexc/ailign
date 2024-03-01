@@ -62,7 +62,7 @@ import matplotlib.pyplot as plt
 
 import torch
 
-
+import lexical_alignment as lxal
 
 # reading the command line arguments
 parser = argparse.ArgumentParser(
@@ -790,7 +790,7 @@ def computePointsWithEncoder(preprocessor,encoder,sents1,sents2):
         # for k=1 we extract the 2 best, in order to apply the margin criterion
         if k==1:
             k=2
-        k=min(k,len(mat[0]))
+        k=min(k,len(mat[0])-1)
         # using argpartition allow to extract quickly the k-best col for each line
         ind_by_line = np.argpartition(mat,-k,axis=1)[:,-k:]
         sim_by_line = np.take_along_axis(mat, ind_by_line, axis=1)
@@ -1032,8 +1032,8 @@ def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
         content = f.read()
         try:
             xml_root = ET.fromstring(content)
-        except:
-            print("non conform XML :",os.path.join(input_dir, inputFile))
+        except Exception as err:
+            print(f"Error {err} - Non conform XML :",os.path.join(input_dir, inputFile))
             # error_log.write("non conform XML :",os.path.join(input_dir, inputFile),"\n")
             sys.exit() 
 
@@ -1062,8 +1062,8 @@ def read_input_file(input_dir,inputFile,input_format,column=0,language="fr"):
         content = re.sub(r'xmlns="[^"]*"',"",content)
         try:
             xml_root = ET.fromstring(content)
-        except:
-            print("non conform XML :",os.path.join(input_dir, inputFile))
+        except Exception as err:
+            print(f"Error {err} - Non conform XML :",os.path.join(input_dir, inputFile))
             # error_log.write("non conform XML :",os.path.join(input_dir, inputFile),"\n")
             sys.exit() 
         segs = []
@@ -1390,8 +1390,8 @@ def add_anchor_in_output(input_dir,input_file1,input_file2,file_id1,file_id2,x,y
     try:
         xml_root1 = etree.fromstring(content1)
         #~ xml_root1 = ET.ElementTree(ET.fromstring(content1))
-    except:
-        print("non conform XML :",input_file_path1)
+    except Exception as err:
+        print(f"Error {err} - Non conform XML :""non conform XML :",input_file_path1)
         sys.exit() 
         
     try:
@@ -1407,8 +1407,8 @@ def add_anchor_in_output(input_dir,input_file1,input_file2,file_id1,file_id2,x,y
     try:
         xml_root2 = etree.fromstring(content2)
         #~ xml_root2 = ET.ElementTree(ET.fromstring(content2))
-    except:
-        print("non conform XML :",input_file_path2)
+    except Exception as err:
+        print(f"Error {err} - Non conform XML :",input_file_path2)
         sys.exit() 
             
     segs = []
@@ -1419,14 +1419,17 @@ def add_anchor_in_output(input_dir,input_file1,input_file2,file_id1,file_id2,x,y
     sents2=xml_root2.xpath(xpath)
     
     for i in range(len(x)):
+        # first case : adding non empty correspondances in targets
         if len(x[i])>0 and len(y[i])>0:
             xi=x[i][0]
             yi=y[i][0]
             
+            # adding anchor in side 1
             if direction=="1<->2" or direction=="2->1":
                 anchor1=etree.Element("anchor")
                 anchor1.set("{http://www.w3.org/XML/1998/namespace}id",file_id1+str(xi+1))
                 anchor1.set("corresp","#"+file_id2+str(yi+1))
+                # inserts anchor element at the right place, after previous sentence or at the beggining of the paragraph
                 prev=sents1[xi].getprevious()  
                 if  prev is not None:
                     prev.addnext(anchor1)
@@ -1434,18 +1437,50 @@ def add_anchor_in_output(input_dir,input_file1,input_file2,file_id1,file_id2,x,y
                     parent=sents1[xi].getparent()
                     parent.insert(0,anchor1)
             
+             # adding anchor in side 2
             if direction=="1<->2" or direction=="1->2":
                 anchor2=etree.Element("anchor")
                 anchor2.set("{http://www.w3.org/XML/1998/namespace}id",file_id2+str(yi+1))
                 anchor2.set("corresp","#"+file_id1+str(xi+1))
+                # inserts anchor element at the right place, after previous sentence or at the beggining of the paragraph
                 prev=sents2[yi].getprevious()  
                 if  prev is not None:
                     prev.addnext(anchor2)
                 else:
                     parent=sents2[yi].getparent()
                     parent.insert(0,anchor2)
+        # second case : adding empty correspondances in side 2
+        elif len(y[i])>0:
+            for j in range(len(y[i])):
+                yi=y[i][j]
+                # adding anchor in side 2
+                if direction=="1<->2" or direction=="1->2":
+                    anchor2=etree.Element("anchor")
+                    anchor2.set("{http://www.w3.org/XML/1998/namespace}id",file_id2+str(yi+1))
+                    # inserts anchor element at the right place, after previous sentence or at the beggining of the paragraph
+                    prev=sents2[yi].getprevious()  
+                    if  prev is not None:
+                        prev.addnext(anchor2)
+                    else:
+                        parent=sents2[yi].getparent()
+                        parent.insert(0,anchor2)
+        # third case : adding empty correspondances in side 1
+        elif len(x[i])>0:
+            for j in range(len(x[i])):
+                xi=x[i][j]
+                # adding anchor in side 1
+                if direction=="1<->2" or direction=="2->1":
+                    anchor1=etree.Element("anchor")
+                    anchor1.set("{http://www.w3.org/XML/1998/namespace}id",file_id1+str(xi+1))
+                    # inserts anchor element at the right place, after previous sentence or at the beggining of the paragraph
+                    prev=sents1[xi].getprevious()  
+                    if  prev is not None:
+                        prev.addnext(anchor1)
+                    else:
+                        parent=sents1[xi].getparent()
+                        parent.insert(0,anchor1)                        
     
-    # add anchor before each source sentence
+    # for unidirectional alignment (1->2 or 2->1), now add anchor before each source sentence 
     if direction=='1->2':
         for i in range(len(sents1)):
             sent=sents1[i]
@@ -1714,7 +1749,7 @@ def extract_anchor_points(points,x,y,sents1,sents2,len_sents1,len_sents2,sim_mat
         for n in range(max(0,beginInt[1]),lastJ+1):
             interval_length_char2+=len(sents2[n])
         intervals.append((beginInt,(lastI,lastJ)))
-        params['verbose'] and print(d,f"Closing last interval ({beginInt},({lastI},{lastJ}))")
+        params['verbose'] and print(f"Closing last interval ({beginInt},({lastI},{lastJ}))")
 
     if params['verbose']:
         print("Total interval length=",interval_length_sent1,"+",interval_length_sent2)
@@ -1996,6 +2031,10 @@ def align(  l1,
             embed_shelve.close() 
 
         # =====> STEP 10 : parse aligned sentence, extract chunks and align chunk to get word 2 word alignment
+        print("Starting Lexical alignment....")
+        # ~ lxal.align_lexical(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name)
+
+        
         # lexical_alignment(l1,l2,x_dtw,y_dtw,encoder,sents1,sents2)
 
         return mean_score
