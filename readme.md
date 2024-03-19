@@ -117,9 +117,9 @@ Les principaux paramètres sont :
 - `--penalty_2_2` (défaut=0.1): pénalité de granularité large liée à un appariement 2-2 (pour favoriser 2 appariements 1-1 correspondant).
 - `--penalty_n_n` (défaut=0.1): pénalité de granularité large liée à un appariement 1-n ou n-1.
 
-## 4. Prérequis
+## 4. Référence à citer
 
-En construction
+Kraif, Olivier (2024). Adaptative Bilingual Aligning Using Multilingual Sentence Embedding. Pre-print Arxiv. https://arxiv.org/abs/2403.11921
 
 
 
