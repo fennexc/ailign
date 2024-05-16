@@ -60,9 +60,7 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-import torch
-
-import lexical_alignment as lxal
+from lexical_alignment import chunk_alignment, word_alignment
 
 # reading the command line arguments
 parser = argparse.ArgumentParser(
@@ -2032,10 +2030,12 @@ def align(  l1,
 
         # =====> STEP 10 : parse aligned sentence, extract chunks and align chunk to get word 2 word alignment
         print("Starting Lexical alignment....")
-        # ~ lxal.align_lexical(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name)
+        aligned_output_formats = params.get("alignedOutputFormats")
+        if params.get('chunk_alignment', False):
+            chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, aligned_output_formats)
 
-        
-        # lexical_alignment(l1,l2,x_dtw,y_dtw,encoder,sents1,sents2)
+        if params.get('word_alignment', False):
+            word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, aligned_output_formats)
 
         return mean_score
      
