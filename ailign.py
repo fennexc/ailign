@@ -134,7 +134,7 @@ parser.add_argument('--adaptativeMode',
 
 # special arguments for output control
 parser.add_argument('-v', '--verbose', help='Verbose messages', action="store_true")
-parser.add_argument('-w', '--write_alignableArea', help='Write alignable area files', action="store_true",
+parser.add_argument('-w', '--writeAlignableArea', help='Write alignable area files', action="store_true",
                     default=False)
 parser.add_argument('-V', '--veryVerbose', help='Very verbose messages', action="store_true")
 parser.add_argument('--savePlot', help='Save scatter plot in a png file', action="store_true", default=False)
@@ -244,7 +244,7 @@ params = {}
 params['inputFileList'] = args.inputFileList
 params['verbose'] = args.verbose
 params['detectIntervals'] = args.detectIntervals
-params['write_alignableArea'] = args.write_alignableArea
+params['writeAlignableArea'] = args.writeAlignableArea
 params['writeAnchorPoints'] = args.writeAnchorPoints
 params['writeSegmentedInput'] = args.writeSegmentedInput
 params['writeIntervals'] = args.writeIntervals
@@ -2014,7 +2014,7 @@ def align(l1,
             plt.close()
 
         # writing intervals
-        if len(intervals) > 0 and params['write_alignableArea']:
+        if len(intervals) > 0 and params['writeAlignableArea']:
             if not os.path.exists(output_dir):
                 os.mkdir(output_dir)
 
@@ -2165,7 +2165,7 @@ def align(l1,
        
         aligned_output_formats = params.get("alignedOutputFormats")
         if params.get('chunk_alignment', False):
-             print("Starting Chunk alignment....")
+            print("Starting Chunk alignment....")
             chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, aligned_output_formats)
 
         if params.get('word_alignment', False):
