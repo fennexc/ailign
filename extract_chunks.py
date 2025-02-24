@@ -1,5 +1,7 @@
 import requests
 import json
+import re
+import sys
 
 from urllib.parse import urlencode
 
@@ -41,6 +43,78 @@ def extract_words(sentences):
             words.append((token.form, token.id))
 
     return words
+
+# Extracting flat chunks based on a simple heuristique
+# We keep verb phrase and noun phrase, and the rest will give simple chunks
+def extract_flat_chunks(sentences):
+    chunks = []
+    for sentence in sentences:
+        # Create a mapping from each token to its head
+        head_map = {token.id: token.head for token in sentence}
+        
+        i=0
+        current_chunk=[]
+        current_chunk_ids=[]
+        while i < len(sentence):
+            token=sentence[i]
+            current_chunk.append(token.form)
+            current_chunk_ids.append(token.id)            
+            i+=1
+            # processing multi-word tokens
+            m=re.search(r'(\d+)-(\d+)',token.id)
+            if m:
+                # inherit the pos of the first compound token
+                token.upos=sentence[i].upos
+                begin=int(m.groups(1))
+                end=int(m.groups(2))
+                # jump to the next token
+                i+=end-begin+1
+
+            # noun phrase
+            if token.upos in ('DET','NUM','NOUN','ADJ','PROPN'):
+                # note that the inner tokens must not be DET (which opens a new noun phrase)
+                while i < len(sentence) and sentence[i].lemma != "ne" and \
+                    (sentence[i].upos in ('NUM','NOUN','ADV','ADJ','PROPN') or \
+                    str(sentence[i].feats.get('VerbForm'))=="{'Part'}"):
+                    token=sentence[i]
+                    # ~ print(token.id,token.form, token.lemma)
+                    i+=1
+                    current_chunk.append(token.form)
+                    current_chunk_ids.append(token.id)
+                chunks.append((' '.join(current_chunk), current_chunk_ids))
+                current_chunk=[]
+                current_chunk_ids=[]
+
+                continue
+            
+            # verb phrase
+            if token.upos in ('AUX','VERB') or (token.lemma in ("ne","pas","point") and token.upos=="ADV"):
+                while i < len(sentence) and (sentence[i].upos in ('AUX','VERB','PRON') or (sentence[i].lemma in ("ne","pas","point") and sentence[i].upos=="ADV")):
+                    token=sentence[i]
+                    # ~ print(token.id,token.form, token.lemma)
+                    i+=1
+                    current_chunk.append(token.form)
+                    current_chunk_ids.append(token.id)
+                chunks.append((' '.join(current_chunk), current_chunk_ids))
+                current_chunk=[]
+                current_chunk_ids=[]
+                continue
+                
+            # the preposition or sconj is added to the current chunk
+            # the other POS (PUNCT, PRON, SYM, INTJ) are added to the current_chunk
+            # which is validated and reinitialized
+            if token.upos not in ("ADP","SCONJ"):
+                chunks.append((' '.join(current_chunk), current_chunk_ids))
+                current_chunk=[]
+                current_chunk_ids=[]
+        if current_chunk!=[]:
+            chunks.append((' '.join(current_chunk), current_chunk_ids))
+            current_chunk=[]
+            current_chunk_ids=[]
+        # ~ print("|".join([ pair[0] for pair in chunks]))
+    return chunks
+
+
 
 def extract_chunks(sentences):
     chunks = []

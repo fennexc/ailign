@@ -3,18 +3,27 @@ import os
 import stanza
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from extract_chunks import extract_chunks, extract_words
+from extract_chunks import extract_chunks, extract_flat_chunks, extract_words
 import json
 import pyconll
+import re
+import sys
+
 def convert_conll_list_to_string(doc):
     try:
         conll_string = ""
         for sentence in doc.sentences:
             for token in sentence.tokens:
-                for word in token.words:
+                for i,word in enumerate(token.words):
+                    # here, for compound token, use the compound form
+                    # not the analysed forms
+                    if i==0:
+                        form =  word.parent.text
+                    else:
+                        form = ""
                     line = "\t".join([
                         str(word.id) if word.id is not None else '_',
-                        word.text if word.text is not None else '_',
+                        form,
                         word.lemma if word.lemma is not None else '_',
                         word.upos if word.upos is not None else '_',
                         word.xpos if word.xpos is not None else '_',
@@ -25,6 +34,7 @@ def convert_conll_list_to_string(doc):
                         word.misc if word.misc is not None else '_'
                     ])
                     conll_string += line + '\n'
+                    form=""
             conll_string += '\n'
         return conll_string
     except Exception as e:
@@ -107,10 +117,11 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     # Initialize the id counters
     last_id_l1 = 0
     last_id_l2 = 0
-    # split filename by / to get the last part of the path and then split by . to get the languages
-    filename_split= file_name.split("/")[-1].split("_")[1].split(".")
-    langSrc = filename_split[1]
-    langTarget = filename_split[0]
+    
+    langSrc = l1
+    langTarget = l2
+
+
 
     # Iterate over each group of aligned sentences
     # The function zip(x, y) pairs each element of x with the corresponding element in y,
@@ -168,11 +179,11 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             })
 
         # print top 10 lexical alignments
-    for alignment in alignments[:10]:
-        print(f"Chunk in {l1}: {alignment['l1_word']}")
-        print(f"Chunk in {l2}: {alignment['l2_word']}")
-        print(f"Similarity score: {alignment['similarity']:.2f}")
-        print("-" * 30)
+    # ~ for alignment in alignments[:10]:
+        # ~ print(f"Chunk in {l1}: {alignment['l1_word']}")
+        # ~ print(f"Chunk in {l2}: {alignment['l2_word']}")
+        # ~ print(f"Similarity score: {alignment['similarity']:.2f}")
+        # ~ print("-" * 30)
 
     if "json" in outputFormats:
         output_file_name_json = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.json"
@@ -198,6 +209,14 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 formatted_file.write(f"[{id1}] {alignment['l1_word']}\n")
                 formatted_file.write(f"[{id2}] {alignment['l2_word']}\n")
                 formatted_file.write('\n')
+                
+    if "tsv" in outputFormats:
+        aligned_txt_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.tsv"
+        output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
+        with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
+            for (id1, id2), alignment in zip(alignments_ids, alignments):
+                formatted_file.write(f"{alignment['l1_word']}\t")
+                formatted_file.write(f"{alignment['l2_word']}\n")
 
     return alignments
 
@@ -235,19 +254,25 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
     last_id_l1 = 0
     last_id_l2 = 0
     # split filename by / to get the last part of the path and then split by . to get the languages
-    filename_split= file_name.split("/")[-1].split("_")[1].split(".")
-    langSrc = filename_split[1]
-    langTarget = filename_split[0]
+    #filename_split= file_name.split("/")[-1].split("_")[1].split(".")
+    langSrc = l1
+    langTarget = l2
 
     # Iterate over each group of aligned sentences
     # The function zip(x, y) pairs each element of x with the corresponding element in y,
     # allowing the loop to process these pairs in tandem
     # La fonction zip(x, y) associe chaque élément de x avec l'élément correspondant dans y,
     # permettant à la boucle de traiter ces paires en tandem
+    
+    # hash that associates ids to tokens, globally
+    tokens1={}
+    tokens2={}
+    numSent1=0
+    numSent2=0
     for group_x, group_y in zip(x, y):
         # Concatenate sentences in each group to form a single text for parsing
-        text_l1 = ' '.join([sents1[i-1] for i in group_x])  # Adjust indices for 0-based indexing
-        text_l2 = ' '.join([sents2[i-1] for i in group_y])
+        text_l1 = ' '.join([sents1[i] for i in group_x])  # Adjust indices for 0-based indexing
+        text_l2 = ' '.join([sents2[i] for i in group_y])
 
         # Process texts with Stanza to get CoNLL-U formatted data
         doc_l1 = nlp_l1(text_l1)
@@ -260,12 +285,27 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
         # Update IDs in the CoNLL strings
         conll_l1, last_id_l1 = update_conll_ids(conll_l1, last_id_l1)
         conll_l2, last_id_l2 = update_conll_ids(conll_l2, last_id_l2)
-
+ 
         # Now, you can extract chunks from the CoNLL data
         conll_l1_sentences = pyconll.load_from_string(conll_l1)
         conll_l2_sentences = pyconll.load_from_string(conll_l2)
-        chunks_l1 = extract_chunks(conll_l1_sentences)
-        chunks_l2 = extract_chunks(conll_l2_sentences)
+        
+        # recording the tokens in the hashes
+        for sentence in conll_l1_sentences:
+            numSent1+=1
+            for token in sentence:
+                token.misc["numSent"]=numSent1
+                tokens1[token.id]=token
+        for sentence in conll_l2_sentences:
+            numSent2+=1
+            for token in sentence:
+                token.misc["numSent"]=numSent2
+                tokens2[token.id]=token                
+   
+       
+        # Chunks are lists of (chunk,ids) where ids are the corresponding token ids
+        chunks_l1 = extract_flat_chunks(conll_l1_sentences)
+        chunks_l2 = extract_flat_chunks(conll_l2_sentences)
 
         if not chunks_l1 or not chunks_l2:
             print("One of the languages has no chunks, skipping similarity calculation for this pair.")
@@ -283,22 +323,63 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
         similarity_matrix = cosine_similarity(chunk_embeds_l1, chunk_embeds_l2)
 
         # For each chunk in l1, find the best matching chunk in l2
+        # first pass : pairing, associating each id1 to the best (id2,score) 
+        id2_to_id1s={}
         for i, row in enumerate(similarity_matrix):
             best_match_index = np.argmax(row)
-            best_match_score = float(row[best_match_index])
-            alignments_ids.append((chunks_l1[i][1], chunks_l2[best_match_index][1]))
+            if best_match_index not in id2_to_id1s:
+                id2_to_id1s[best_match_index]=[]
+            id2_to_id1s[best_match_index].append((i,row[best_match_index]))
+        
+        # second pass : resolving conflicts
+        # if the same id2 is associated with different id1, the best association is conserved and other pairing are deleted
+        id1_to_id2={}
+        for id2 in id2_to_id1s:
+            # reducing conflicts by keeping the best association for i2
+            if len(id2_to_id1s[id2]) >= 2:
+                best_match_pair=np.argmax([pair[1] for pair in id2_to_id1s[id2]])
+                id2_to_id1s[id2]=[id2_to_id1s[id2][best_match_pair]]
+            id1=id2_to_id1s[id2][0][0]
+            id1_to_id2[id1]=id2
+            
+        # third pass : associating the missing id1
+        for i, row in enumerate(similarity_matrix):
+            if not i in id1_to_id2.keys():
+                best_match_indices = list(np.argsort(row))
+                best_match_indices.reverse()
+                found=False
+                for id2 in best_match_indices:
+                    # if id2 is still free, it can be associated
+                    if id2 not in id2_to_id1s:
+                        id1_to_id2[i]=id2
+                        id2_to_id1s[id2]=[(i,row[id2])]
+                        found=True
+                        break
+                # ~ if not found:
+                    # ~ print ("3. assoc",i,"-> NULL")
+                
+            best_chunk_l2=["",""]
+            best_match_score=0
+            best_match_index=id1_to_id2.get(i,None)
+            if  best_match_index != None:
+                best_chunk_l2=chunks_l2[best_match_index]
+                best_match_score = float(row[best_match_index])
+            
+            alignments_ids.append((chunks_l1[i][1], best_chunk_l2[1]))
             alignments.append({
                 'l1_chunk': chunks_l1[i][0],
-                'l2_chunk': chunks_l2[best_match_index][0],
+                'l2_chunk': best_chunk_l2[0],
+                'l1_chunk_ids' : chunks_l1[i][1],
+                'l2_chunk_ids' : best_chunk_l2[1],
                 'similarity': best_match_score
             })
 
     # print top 10 lexical alignments
-    for alignment in alignments[:10]:
-        print(f"Chunk in {l1}: {alignment['l1_chunk']}")
-        print(f"Chunk in {l2}: {alignment['l2_chunk']}")
-        print(f"Similarity score: {alignment['similarity']:.2f}")
-        print("-" * 30)
+    # ~ for alignment in alignments[:10]:
+        # ~ print(f"Chunk in {l1}: {alignment['l1_chunk']}")
+        # ~ print(f"Chunk in {l2}: {alignment['l2_chunk']}")
+        # ~ print(f"Similarity score: {alignment['similarity']:.2f}")
+        # ~ print("-" * 30)
 
     # File name for the raw data
     if "json" in outputFormats:
@@ -327,4 +408,21 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
                 formatted_file.write(f"{formatted_ids1} {alignment['l1_chunk']}\n")
                 formatted_file.write(f"{formatted_ids2} {alignment['l2_chunk']}\n")
                 formatted_file.write('\n')
+    if "tsv" in outputFormats:
+        aligned_txt_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_phrase_ai.tsv"
+        output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
+        with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
+            for (ids1, ids2), alignment in zip(alignments_ids, alignments):
+                formatted_file.write(f"{alignment['l1_chunk']}\t")
+                formatted_file.write(f"{alignment['l2_chunk']}\t")
+                lemmas1=" ".join([tokens1[tokId].lemma for tokId in alignment['l1_chunk_ids']])
+                lemmas2=" ".join([tokens2[tokId].lemma for tokId in alignment['l2_chunk_ids']])
+                formatted_file.write(f"{lemmas1}\t")
+                formatted_file.write(f"{lemmas2}\t")
+                upos1=" ".join([tokens1[tokId].upos for tokId in alignment['l1_chunk_ids']])
+                upos2=" ".join([tokens2[tokId].upos for tokId in alignment['l2_chunk_ids']])
+                formatted_file.write(f"{upos1}\t")
+                formatted_file.write(f"{upos2}\n")                
+
+                
     return alignments

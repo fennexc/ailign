@@ -54,6 +54,7 @@ from lxml import etree
 import shelve
 import math
 
+from datetime import datetime
 from BTrees.OOBTree import OOBTree
 
 import numpy as np
@@ -91,7 +92,7 @@ parser.add_argument('-i', '--inputFormat', help='Format of the input (txt, arc, 
                     default="txt")
 parser.add_argument('--xmlGuide', nargs='+', type=str, help='List of markups that should be read in the XML input',
                     default=["s"])
-parser.add_argument('--anchorTag', nargs='+', type=str, help='Tag that defines prealigned anchors in XML input (eg. "anchor" or "p")',
+parser.add_argument('--anchorTag',type=str, help='Tag that defines prealigned anchors in XML input (eg. "anchor" or "p")',
                     default="")
            
 parser.add_argument('--col1', help='For TSV format, indicate the column of l1', type=int, default=0)
@@ -110,9 +111,9 @@ parser.add_argument('--fileId2', type=str, help='The id prefix of file2 in xml a
 parser.add_argument('--inputFileList', type=str, help='A tsv file with corresponding filenames separated by tab',
                     default='')
 parser.add_argument('--inputDir', type=str, help='The directory to process', default='.')
-parser.add_argument('--outputDir', type=str, help='The directory to save output files', default='.')
+parser.add_argument('--outputDir', type=str, help='The directory to save output files', default='')
 parser.add_argument('--outputFilename', type=str, help='The output filename (optional), without format extension',
-                    default='troiscochons.en-fr')
+                    default='./output.l1-l2')
 parser.add_argument('-f', '--filePattern', type=str,
                     help='The pattern of the files that should be processed. A capturing group such as (.*) should capture the common prefix between aligned files.',
                     default=r'([^\\/]*)[.](\w\w\w?)[.]\w+$')
@@ -123,6 +124,8 @@ parser.add_argument('--writeIntervals', help='Write aligned intervals (as corres
                     action="store_true", default=False)
 parser.add_argument('--printIds', help='Print IDs in txt output', action="store_true", default=False)
 parser.add_argument('--splitSent', help='Split the txt segments into sentences', action="store_true", default=False)
+parser.add_argument('--splitSentRegex', type=str, help='Regex to split sentences', default="")
+
 parser.add_argument('--useSentenceSegmenter',
                     help='Use the trankit sentence segmenter for txt input (instead of regex segmenter)',
                     action="store_true", default=False)
@@ -140,6 +143,8 @@ parser.add_argument('-V', '--veryVerbose', help='Very verbose messages', action=
 parser.add_argument('--savePlot', help='Save scatter plot in a png file', action="store_true", default=False)
 parser.add_argument('--showPlot', help='Show scatter plot (with a pause during execution)', action="store_true",
                     default=False)
+parser.add_argument('--showSimMat', help='Show heat map for similarity matrix', action="store_true",
+                    default=False)
 
 # controlling stage 1 and 2
 parser.add_argument('--detectIntervals', help='Detect alignable interval using anchor points.', action="store_true",
@@ -156,7 +161,7 @@ parser.add_argument('--noMarginPenalty',
 
 # controlling anchor points building and filtering
 # (important parameters are : cosThreshold, kBest, deltaX, minDensityRatio)
-parser.add_argument('--embedModel', type=str, help='Choose embedding model : sbert or laser or labse-keras',
+parser.add_argument('--embedModel', type=str, help='Choose embedding model : sbert or laser or labse-keras or stsb-xlm-r-multilingual',
                     default="sbert")
 parser.add_argument('--modelName', type=str, help='Choose sbert model name (default=sentence-transformers/LaBSE)',
                     default="sentence-transformers/LaBSE")
@@ -213,9 +218,13 @@ parser.add_argument('--penalty_0_n',
                     help='Penalty score given for each 0-n (or n-0) grouping (only used in lateGrouping)', type=float,
                     default=0.15)
 
+parser.add_argument('--wordAlignment', help='Run the word alignment script', action="store_true", default=False)
+parser.add_argument('--chunkAlignment', help='Run the chunk alignment script', action="store_true", default=False)
+
 # other : persistance of embeddings
 parser.add_argument('--useShelve', help='Save the embeddings in shelve (in order to quick up the next run)',
                     action="store_true", default=False)
+
 
 args = parser.parse_args()
 
@@ -228,10 +237,15 @@ input_dir = args.inputDir
 input_file1 = args.inputFile1
 input_file2 = args.inputFile2
 input_format = args.inputFormat  # 'txt','arc','json'
-output_dir = args.outputDir
 output_formats = args.outputFormats
 collection_name = args.collectionName
 output_file_name = args.outputFilename
+
+output_dir = args.outputDir
+# if no output dir, we take the path of outputFilename
+if output_dir=="":
+    output_dir=os.path.split(output_file_name)[0]
+    
 col1 = args.col1
 col2 = args.col2
 print_ids = args.printIds
@@ -253,9 +267,11 @@ params['veryVerbose'] = args.veryVerbose
 params['filePattern'] = re.compile(args.filePattern)
 params['savePlot'] = args.savePlot
 params['showPlot'] = args.showPlot
+params['showSimMat'] = args.showSimMat
 params['xmlGuide'] = args.xmlGuide
 params['anchorTag'] = args.anchorTag
 params['splitSent'] = args.splitSent
+params['splitSentRegex'] = args.splitSentRegex
 params['useSentenceSegmenter'] = args.useSentenceSegmenter
 params['mergeLines'] = args.mergeLines
 params['adaptativeMode'] = args.adaptativeMode
@@ -299,9 +315,13 @@ params['diagBeam'] = args.diagBeam  # max distance to the diagonal
 params['localDiagBeam'] = args.localDiagBeam  # max distance to the diagonal in the interval
 params['reiterateFiltering'] = args.reiterateFiltering
 params['useShelve'] = args.useShelve
+params['wordAlignment'] = args.wordAlignment
+params['chunkAlignment'] = args.chunkAlignment
+params['outputFormats'] = args.outputFormats
+params['outputDir'] = args.outputDir
 
 # various low level parameters
-print_log = False
+print_log = True
 show_plot_4_new_interval = False
 min_sent_length_ratio = 0.2  # the minimal ratio between the shorter and the longer sentence to yield a candidate point
 min_sent_length = 1  # the minimal sentence size to look for ngram
@@ -314,6 +334,7 @@ print_gap = False
 params['verbose'] = True
 embed_shelve = {}
 xml_id_offset = 0
+match_first_pre_anchors = True
 
 ################################################################
 # initialization code
@@ -345,6 +366,10 @@ log = None
 # opening log and models if necessary
 if print_log:
     log = open(os.path.join(output_dir, "ailign.log"), mode="a", encoding="utf8")
+    now = datetime.now()
+    # Formater la date et l'heure
+    formatted_date = now.strftime("%d-%m-%Y, %H:%M:%S")
+    log.write("\n"+formatted_date+"\nExecution of : "+" ".join(sys.argv)+"\n")
 
 # conditionnaly import alternative models (main model is labse)
 preprocessor = False
@@ -361,7 +386,7 @@ elif params['embedModel'] == "sbert":
     # import modules for sbert
     from sentence_transformers import SentenceTransformer
 
-    print("*** Loading sbert model", )
+    print("*** Loading sbert model", params['modelName'])
     encoder = SentenceTransformer(params['modelName'])
 elif params['embedModel'] == "labse-keras":
     import tensorflow_hub as hub
@@ -404,8 +429,9 @@ if params['splitSent']:
         split_sent_regex = {
             'zh': r'(?<=[：，。？！”])',
             'ar': r'(?<=\.|۔)',
-            'fr': r'(?<=[.!?;:]) (?=[A-Z«"])|(?<=[!?;:])',  # grimm Baudry
+            'fr': r'(?<=[.!?;:])\s+(?=[A-Z«"])|(?<=[!?;:])',  # grimm Baudry
             'de': r'(?<=[.!?;:’“]) (?=[A-Z«"„])|(?<=[!?;:])|(?=[‘“])',  # grimm KHM 1857
+            'grc': r'(?<=[?;:.!"»…])\s',
             'default': r'(?<=[?;:.!"»…]) (?=[A-Z])',
         }
 
@@ -649,7 +675,8 @@ def computePointsFromNgrams(sents1, sents2):
     # extracting hash table that records all the ngrams for sents1
     len_sents1 = len(sents1)
     len_sents2 = len(sents2)
-
+    sim_mat=np.array([0]*len_sents1*len_sents2)
+    sim_mat.shape=len_sents1,len_sents2
     ngrams1 = []
     for i in range(len_sents1):
         ngrams1.append({})
@@ -704,6 +731,7 @@ def computePointsFromNgrams(sents1, sents2):
                     if ngram in ngrams2[j].keys():
                         nbCommon += min(ngrams1[i][ngram], ngrams2[j][ngram])
                 dice = 2 * nbCommon / (nb1 + nb2)
+                sim_mat[i,j]=dice
                 # if dice is greater than the threshold, candidate point (i,j) is recorded
                 if dice > params['diceThreshold']:
                     if not j in bestI.keys():
@@ -712,7 +740,9 @@ def computePointsFromNgrams(sents1, sents2):
                         bestJ[i] = []
                     bestI[j].append((dice, i))
                     bestJ[i].append((dice, j))
-    return kBestPoints(bestI, bestJ)
+    
+    (points, x, y)=kBestPoints(bestI, bestJ)
+    return (points, x, y, sim_mat)
 
 
 def kBestPoints(bestI, bestJ):
@@ -923,7 +953,6 @@ def computeEmbeds(preprocessor, encoder, embed_model, sents, language=""):
     if embed_model == "laser":
         # Use the Laser model to embed the sentences in different languages
         embeds = encoder.embed_sentences(sents, language)
-
     else:
         if preprocessor:
             embeds = encoder(preprocessor(sents))["default"]
@@ -934,96 +963,102 @@ def computeEmbeds(preprocessor, encoder, embed_model, sents, language=""):
     embeds = normalization(embeds)
     return embeds
 
+# Mean Pooling - Take attention mask into account for correct averaging
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0] #First element of model_output contains all token embeddings
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+
 
 # Function to compute the similarity matrix and identify similar sentences
-def computePoints(tokenizer, model, embed_model, sents1, sents2):
-    points = {}  # Dictionary to store the indices of similar sentences
-    t0 = time.time()  # Record the starting time for performance measurement
+# ~ def computePoints(tokenizer, model, embed_model, sents1, sents2):
+    # ~ points = {}  # Dictionary to store the indices of similar sentences
+    # ~ t0 = time.time()  # Record the starting time for performance measurement
 
-    if embed_model == "bert":
-        if params['verbose']:
-            print("Running Encoder...\n"),
-        # Tokenize the input sentences using the BERT tokenizer
-        inputs1 = tokenizer(sents1, return_tensors='pt', padding=True, truncation=True)
-        inputs2 = tokenizer(sents2, return_tensors='pt', padding=True, truncation=True)
-        t1 = time.time()
-        if params['verbose']:
-            print("1. Encoding -->", t1 - t0, "s.\n")  # Print the time taken for encoding
+    # ~ if embed_model == "bert":
+        # ~ if params['verbose']:
+            # ~ print("Running Encoder...\n"),
+        # ~ # Tokenize the input sentences using the BERT tokenizer
+        # ~ inputs1 = tokenizer(sents1, return_tensors='pt', padding=True, truncation=True)
+        # ~ inputs2 = tokenizer(sents2, return_tensors='pt', padding=True, truncation=True)
+        # ~ t1 = time.time()
+        # ~ if params['verbose']:
+            # ~ print("1. Encoding -->", t1 - t0, "s.\n")  # Print the time taken for encoding
 
-        # Pass the tokenized inputs through the BERT model
-        outputs1 = model(**inputs1)
-        outputs2 = model(**inputs2)
+        # ~ # Pass the tokenized inputs through the BERT model
+        # ~ outputs1 = model(**inputs1)
+        # ~ outputs2 = model(**inputs2)
 
-        # Extract the embeddings from the BERT model's output and convert them to numpy arrays
-        embeds1 = outputs1.last_hidden_state[:, 0, :]
-        embeds2 = outputs2.last_hidden_state[:, 0, :]
+        # ~ # Extract the embeddings from the BERT model's output and convert them to numpy arrays
+        # ~ embeds1 = outputs1.last_hidden_state[:, 0, :]
+        # ~ embeds2 = outputs2.last_hidden_state[:, 0, :]
 
-        # Normalize the embeddings using the normalization function
-        embeds1 = normalization(embeds1.detach().numpy())
-        embeds2 = normalization(embeds2.detach().numpy())
-        t2 = time.time()
-        if params['verbose']:
-            print("2. Normalization-->", t2 - t1, "s.\n")  # Print the time taken for normalization
+        # ~ # Normalize the embeddings using the normalization function
+        # ~ embeds1 = normalization(embeds1.detach().numpy())
+        # ~ embeds2 = normalization(embeds2.detach().numpy())
+        # ~ t2 = time.time()
+        # ~ if params['verbose']:
+            # ~ print("2. Normalization-->", t2 - t1, "s.\n")  # Print the time taken for normalization
 
-    elif embed_model == "laser":
-        # Use the Laser model to embed the sentences in different languages
-        embeds1 = laser.embed_sentences(sents1, lang='fr')
-        embeds2 = laser.embed_sentences(sents2, lang='en')
-        t1 = time.time()
-        if params['verbose']:
-            print("1. Encoding -->", t1 - t0, "s.\n")  # Print the time taken for encoding
+    # ~ elif embed_model == "laser":
+        # ~ # Use the Laser model to embed the sentences in different languages
+        # ~ embeds1 = laser.embed_sentences(sents1, lang='fr')
+        # ~ embeds2 = laser.embed_sentences(sents2, lang='en')
+        # ~ t1 = time.time()
+        # ~ if params['verbose']:
+            # ~ print("1. Encoding -->", t1 - t0, "s.\n")  # Print the time taken for encoding
 
-        # Normalize the embeddings using the normalization function
-        embeds1 = normalization(embeds1)
-        embeds2 = normalization(embeds2)
-        t2 = time.time()
-        if params['verbose']:
-            print("2. Normalization-->", t2 - t1, "s.\n")  # Print the time taken for normalization
+        # ~ # Normalize the embeddings using the normalization function
+        # ~ embeds1 = normalization(embeds1)
+        # ~ embeds2 = normalization(embeds2)
+        # ~ t2 = time.time()
+        # ~ if params['verbose']:
+            # ~ print("2. Normalization-->", t2 - t1, "s.\n")  # Print the time taken for normalization
 
-    # Compute the similarity matrix between the embeddings of the two sets of sentences
-    mat = np.matmul(embeds1, embeds2.T)
-    t3 = time.time()
-    if params['verbose']:
-        print("3. Similarity matrix -->", t3 - t2, "s.\n")  # Print the time taken for computing the similarity matrix
+    # ~ # Compute the similarity matrix between the embeddings of the two sets of sentences
+    # ~ mat = np.matmul(embeds1, embeds2.T)
+    # ~ t3 = time.time()
+    # ~ if params['verbose']:
+        # ~ print("3. Similarity matrix -->", t3 - t2, "s.\n")  # Print the time taken for computing the similarity matrix
 
-    x = []  # List to store the indices of similar sentences from sents1
-    y = []  # List to store the indices of similar sentences from sents2
-    bestJ = {}  # Dictionary to store the best match index for each sentence in sents1
-    bestI = {}  # Dictionary to store the best match index for each sentence in sents2
+    # ~ x = []  # List to store the indices of similar sentences from sents1
+    # ~ y = []  # List to store the indices of similar sentences from sents2
+    # ~ bestJ = {}  # Dictionary to store the best match index for each sentence in sents1
+    # ~ bestI = {}  # Dictionary to store the best match index for each sentence in sents2
 
-    # Find the best match index for each sentence in sents1
-    for i in range(len(mat)):
-        m = 0
-        for j in range(len(mat[i])):
-            if mat[i][j] > m:
-                m = mat[i][j]
-                bestJ[i] = j
+    # ~ # Find the best match index for each sentence in sents1
+    # ~ for i in range(len(mat)):
+        # ~ m = 0
+        # ~ for j in range(len(mat[i])):
+            # ~ if mat[i][j] > m:
+                # ~ m = mat[i][j]
+                # ~ bestJ[i] = j
 
-    # Find the best match index for each sentence in sents2
-    for j in range(len(mat[0])):
-        m = 0
-        for i in range(len(mat)):
-            if mat[i][j] > m:
-                m = mat[i][j]
-                bestI[j] = i
-    t4 = time.time()
-    if params['verbose']:
-        print("4. Extracting best point according to horizontal and vertical axis-->", t4 - t3,
-              "s.\n")  # Print the time taken for computing the similarity matrix
+    # ~ # Find the best match index for each sentence in sents2
+    # ~ for j in range(len(mat[0])):
+        # ~ m = 0
+        # ~ for i in range(len(mat)):
+            # ~ if mat[i][j] > m:
+                # ~ m = mat[i][j]
+                # ~ bestI[j] = i
+    # ~ t4 = time.time()
+    # ~ if params['verbose']:
+        # ~ print("4. Extracting best point according to horizontal and vertical axis-->", t4 - t3,
+              # ~ "s.\n")  # Print the time taken for computing the similarity matrix
 
-    # Identify the similar sentence pairs based on the best match indices and similarity threshold
-    for i in range(len(mat)):
-        j = bestJ[i]
-        if bestI.get(j) == i and mat[i][j] >= params['cosThreshold']:
-            x.append(i)
-            y.append(j)
-            points[(i, j)] = 1  # Store the indices of similar sentences in the points dictionary
-    t5 = time.time()
-    if params['verbose']:
-        print("5. Filtering best points that exceed the threshold -->", t5 - t4,
-              "s.\n")  # Print the time taken for computing the similarity matrix
+    # ~ # Identify the similar sentence pairs based on the best match indices and similarity threshold
+    # ~ for i in range(len(mat)):
+        # ~ j = bestJ[i]
+        # ~ if bestI.get(j) == i and mat[i][j] >= params['cosThreshold']:
+            # ~ x.append(i)
+            # ~ y.append(j)
+            # ~ points[(i, j)] = 1  # Store the indices of similar sentences in the points dictionary
+    # ~ t5 = time.time()
+    # ~ if params['verbose']:
+        # ~ print("5. Filtering best points that exceed the threshold -->", t5 - t4,
+              # ~ "s.\n")  # Print the time taken for computing the similarity matrix
 
-    return points, x, y, mat, embeds1, embeds2
+    # ~ return points, x, y, mat, embeds1, embeds2
 
 
 ######################################################################### reading / writing files
@@ -1060,8 +1095,8 @@ def read_input_file(input_dir, inputFile, input_format, column=0, language="fr")
     try:
         input_file_path = os.path.join(input_dir, inputFile) if input_dir else inputFile
         f = open(input_file_path, encoding='utf8')
-    except:
-        print("Error: a problem occurred while opening", inputFile)
+    except Exception as e :
+        print("Error: a problem occurred while opening", inputFile, e)
         sys.exit()
 
     # Reading according to input_format
@@ -1104,13 +1139,16 @@ def read_input_file(input_dir, inputFile, input_format, column=0, language="fr")
         content = f.read()
         try:
             xml_root = ET.fromstring(content)
-        except:
+        except :
             print("non conform XML :", os.path.join(input_dir, inputFile))
+            print(sys.exc_info()[0])
             # error_log.write("non conform XML :",os.path.join(input_dir, inputFile),"\n")
             sys.exit()
 
         for s_elt in xml_root.findall('.//s'):
             s = "".join(s_elt.itertext())
+            # suppression des tabulations
+            s = re.sub(r"\t","",s)
             toks = []
             for line in re.split(r"\n", s):
                 cols = re.split("\t", line)
@@ -1134,21 +1172,31 @@ def read_input_file(input_dir, inputFile, input_format, column=0, language="fr")
         content = re.sub(r'xmlns="[^"]*"', "", content)
         try:
             xml_root = ET.fromstring(content)
-        except:
+        except Exception as err :
             print("non conform XML :", os.path.join(input_dir, inputFile))
+            print(err)
             # error_log.write("non conform XML :",os.path.join(input_dir, inputFile),"\n")
             sys.exit()
         segs = []
-        xpath = '|'.join([".//" + tag for tag in params['xmlGuide']+[params['anchorTag']] if tag!=""])
-
-        for elt in xml_root.findall(xpath):
-            # if an anchor or prealignment is found, feed the preAnchors list
-            if elt.tag==params['anchorTag']:
+        # text element is default anchor 
+        anchor_xpath= ".//" +params['anchorTag'] if params['anchorTag'] else ".//text"
+        for prealigned_elt in xml_root.findall(anchor_xpath):
+            if  params['anchorTag']:
+                # when an anchor or prealignment is found, feed the preAnchors list
                 pre_anchors.append(len(segs))
+            # special case where xmlGuide=anchorTag
+            if params['anchorTag'] and params['anchorTag'] in params['xmlGuide']:
+                prealigned_elts=[prealigned_elt]
             else:
+                xpath = '|'.join([".//" + tag for tag in params['xmlGuide'] if tag!=""])
+                prealigned_elts=prealigned_elt.findall(xpath)
+
+            for elt in prealigned_elts:
                 content = "".join(elt.itertext())
-                content = re.sub(r"\n", " ", content)
+                content = re.sub(r"[\n\t]", " ", content)
                 segs.append(content)
+                params['verbose'] and print("Adding sentence n°",len(segs))
+
                 nb_chars += len(content)
                 # recording id in id_segs
                 if 'id' in elt.attrib:
@@ -1191,7 +1239,7 @@ def read_input_file(input_dir, inputFile, input_format, column=0, language="fr")
                 sents.append(" ".join(current_sent))
                 current_sent = []
                 current_ids = []
-                numSent += 1
+                num_sents += 1
         if len(current_ids) > 0:
             sents.append(" ".join(current_sent))
             id_sents.append("-".join(current_ids))
@@ -1215,25 +1263,28 @@ def read_input_file(input_dir, inputFile, input_format, column=0, language="fr")
                 some_sents = [sent['text'] for sent in sentences]
             # or use a set of regex declared in splitSent
             else:
-                if language in split_sent_regex:
+                if params["splitSentRegex"]:
+                    regex=params["splitSentRegex"]
+                elif language in split_sent_regex:
                     regex = split_sent_regex[language]
                 else:
                     regex = split_sent_regex["default"]
-                some_sents = re.split(split_sent_regex[language], seg)
+                some_sents = re.split(regex, seg)
             
             last_sent = ""
             new_sents = []
             # the splitted segment that are too small (< seg_min_length)
             # are grouped with the follower
             for sent in some_sents:
-                if len(last_sent + sent) > seg_min_length:
-                    new_sents.append(last_sent + " " + sent)
-                    last_sent = ""
-                else:
-                    if last_sent == "":
-                        last_sent = sent
+                if not re.match(r'^\s*$',sent):
+                    if len(last_sent + sent) > seg_min_length:
+                        new_sents.append(last_sent + " " + sent)
+                        last_sent = ""
                     else:
-                        last_sent += " " + sent
+                        if last_sent == "":
+                            last_sent = sent
+                        else:
+                            last_sent += " " + sent
             if last_sent:
                 new_sents.append(last_sent)
 
@@ -1261,9 +1312,11 @@ def read_input_file(input_dir, inputFile, input_format, column=0, language="fr")
     f.close()
 
     if params['writeSegmentedInput']:
-        input_file_pathSeg = re.sub(r"(.*)([.]\w+)[.]\w+$", r"\1.seg\2.txt", input_file_path)
+        input_file_pathSeg = re.sub(r"(.*)([._]\w+)[.]\w+$", r"\1.seg\2.txt", input_file_path)
+        if input_file_pathSeg==input_file_path:
+            input_file_pathSeg=input_file_path+".seg"
         seg_file = open(input_file_pathSeg, mode="w", encoding="utf8")
-        seg_file.write("\n".join(sents))
+        seg_file.write("\n".join([ (f"<anchor/> {i}: " if i in pre_anchors else f"{i}: ")+sent for i,sent in enumerate(sents)]))
         seg_file.close()
 
     return (sents, id_sents, len_sents, seg2sents, nb_chars, pre_anchors)
@@ -1595,6 +1648,7 @@ def add_anchor_in_output(input_dir, input_file1, input_file2, file_id1, file_id2
 
 
 def extract_anchor_points(pre_anchors_x, pre_anchors_y, points, x, y, sents1, sents2, len_sents1, len_sents2, sim_mat):
+    
     anchor_points = dict.copy(points)
 
     # =====> STEP 6 : compute average local density around selected points
@@ -1668,7 +1722,11 @@ def extract_anchor_points(pre_anchors_x, pre_anchors_y, points, x, y, sents1, se
         if len(pre_anchors_x)>0:
             for x,y in zip(pre_anchors_x,pre_anchors_y):
                 endInt=(x,y)
+                if params['verbose']:
+                    print ("Adding interval according to pre anchors ",(beginInt,endInt))
                 intervals.append((beginInt,endInt))
+                interval_length_sent1 += endInt[0] - beginInt[0] + 1
+                interval_length_sent2 += endInt[1] - beginInt[1] + 1
                 beginInt=endInt
             lastI = len_sents1 - 1
             lastJ = len_sents2 - 1
@@ -1829,7 +1887,6 @@ def extract_anchor_points(pre_anchors_x, pre_anchors_y, points, x, y, sents1, se
             print("\n8. Extracting alignable intervals-->", t8 - t7, "s.\n"),
 
     if lastI != beginInt[0]:
-        d = "Debug:"
         # closing last interval
         interval_length_sent1 += lastI - beginInt[0] + 1
         interval_length_sent2 += lastJ - beginInt[1] + 1
@@ -1838,10 +1895,40 @@ def extract_anchor_points(pre_anchors_x, pre_anchors_y, points, x, y, sents1, se
         for n in range(max(0, beginInt[1]), lastJ + 1):
             interval_length_char2 += len(sents2[n])
         intervals.append((beginInt, (lastI, lastJ)))
-        params['verbose'] and print(d, f"Closing last interval ({beginInt},({lastI},{lastJ}))")
+        params['verbose'] and print( f"Closing last interval ({beginInt},({lastI},{lastJ}))")
 
     if params['verbose']:
         print("Total interval length=", interval_length_sent1, "+", interval_length_sent2)
+        
+    # last filtering step : for each interval, points that are two far from the diagonal are discarded  
+    i=0
+    for (begin,end) in intervals:
+        (x_begin,y_begin)=begin
+        (x_end,y_end)=end
+        # looking for anchor points in interval begin, end
+        while i<len(filtered_x) and filtered_x[i] < x_begin:
+            i+=1
+        # if point i falls in x interval
+        while i<len(filtered_x) and filtered_x[i]>=x_begin and filtered_x[i]<=x_end:
+            delete=False
+            #  if point i does not fall in y interval, delete point
+            if filtered_y[i]<y_begin or filtered_y[i]>y_end:
+                delete=True
+            expected_y=y_begin+(filtered_x[i]-x_begin)/(x_end-x_begin)*(y_end-y_begin) 
+            # if point i is two far from diag, delete point
+            if abs((filtered_y[i]-expected_y)/(y_end-y_begin)) > params['localDiagBeam'] or abs(filtered_y[i]-expected_y) > params['maxDistToTheDiagonal']:
+                delete=True
+                
+            if delete :
+                if params['veryVerbose']:
+                    print(f"point {i} ({filtered_x[i]},{filtered_y[i]}) too far from diagonal")
+                del(filtered_x[i])
+                del(filtered_y[i])
+                if i>=len(filtered_x):
+                    break
+            else:
+                i+=1
+        
     return (filtered_x, filtered_y, intervals, interval_length_sent1, interval_length_sent2, interval_length_char1,
             interval_length_char2)
 
@@ -1871,11 +1958,11 @@ def align(l1,
     if params['useShelve']:
         embed_shelve = shelve.open("embeds")
 
-    if params['splitSent'] and l1 not in split_sent_regex:
+    if params['splitSent'] and l1 not in split_sent_regex and not params["splitSentRegex"]:
         params['verbose'] and print(f"Default regex ", split_sent_regex["default"],
                                     f"will be used for sentence segmentation in {l1}")
         split_sent_regex[l1] = split_sent_regex['default']
-    if params['splitSent'] and l2 not in split_sent_regex:
+    if params['splitSent'] and l2 not in split_sent_regex and not params["splitSentRegex"]:
         params['verbose'] and print(f"Default regex ", split_sent_regex["default"],
                                     f"will be used for sentence segmentation in {l2}")
         split_sent_regex[l2] = split_sent_regex['default']
@@ -1887,11 +1974,20 @@ def align(l1,
     (sents1, id_sents1, len_sents1, seg2sents1, nb_chars1,pre_anchors_x) = read_input_file(input_dir, file1, input_format, col1, l1)
     (sents2, id_sents2, len_sents2, seg2sents2, nb_chars2,pre_anchors_y) = read_input_file(input_dir, file2, input_format, col2, l2)
 
+    params['verbose'] and print(f"{len(pre_anchors_x)=}, {len(pre_anchors_y)=}")
+
     # checking if anchors are coherent
     if len(pre_anchors_x) != len(pre_anchors_y) :
-        print("*************** Prealignment anchor mismatch ! anchors will be ignored !")
-        pre_anchors_x.clear()
-        pre_anchors_y.clear()
+        if match_first_pre_anchors:
+            if len(pre_anchors_x) > len(pre_anchors_y):
+                pre_anchors_x=pre_anchors_x[:len(pre_anchors_y)]
+            else:
+                pre_anchors_y=pre_anchors_y[:len(pre_anchors_x)]
+            print("*************** Prealignment anchor mismatch ! only first ",len(pre_anchors_x)," anchors are kept !")
+        else:
+            print("*************** Prealignment anchor mismatch ! anchors will be ignored !")
+            pre_anchors_x.clear()
+            pre_anchors_y.clear()
         
     if len_sents1 * len_sents2 == 0:
         print(f"File is empty ! No sentence read : {len_sents1=} {len_sents2=}")
@@ -1921,37 +2017,48 @@ def align(l1,
     # =====> STEP 1-5 : extracting anchor points from similarity matrix
 
     if params['useNgrams']:
-        (points, x, y) = computePointsFromNgrams(sents1, sents2)  # TODO : add sim_mat
+        (points, x, y, sim_mat) = computePointsFromNgrams(sents1, sents2)  
     else:
         (points, x, y, sim_mat, embeds1, embeds2) = computePointsWithEncoder(preprocessor, encoder, sents1, sents2)
+
+    if params['showSimMat']:
+        print(sim_mat)
+        plt.imshow(sim_mat, vmin=0.2,  cmap='hot',origin='lower')
+        plt.show()
 
     # adding anchor points and deleting mismatching coordinates
     if len(pre_anchors_x) > 0 :
         for x_anchor,y_anchor in zip(pre_anchors_x,pre_anchors_y):
-            while x_anchor in x:
-                i=x.index(x_anchor)
-                # deleting old x_anchor,y point 
-                if y[i]!=y_anchor:
-                    del(points[x[i],y[i]])
-                x.pop(i)
-                y.pop(i)
-            while y_anchor in y:
-                j=y.index(y_anchor)
-                # deleting old x,y_anchor
-                if x[j]!=x_anchor: 
-                    del(points[x[j],y[j]])
-                x.pop(j)
-                y.pop(j)
-            # adding x_anchor & y_anchor
-            x=x[:i]+[x_anchor]+x[i:]
-            y=y[:i]+[y_anchor]+y[i:]
-                
+            params['verbose'] and print("Anchor :",x_anchor,y_anchor)
+            insertPoint=len(x)
+            for i in range(len(x)):
+                if x[i] == x_anchor:
+                    # deleting old x_anchor,y point 
+                    if y[i]!=y_anchor:
+                        params['verbose'] and print(f"Conflict with pre anchor Deleting point {[x[i],y[i]]=}")
+                        del(points[(x[i],y[i])])
+                    break
+            
+            for j in range(len(y)):
+                if y[j] == y_anchor:
+                    # deleting old x,y_anchor
+                    if x[j]!=x_anchor: 
+                        params['verbose'] and print(f"Conflict with pre anchor Deleting point {[x[j],y[j]]=}")
+                        if (x[j],y[j]) in points:
+                            del(points[(x[j],y[j])])
+                    break
+             
             # [x_anchor,y_anchor] point has no conflicts
             points[(x_anchor,y_anchor)]=1
+        
+        # sorting points according to first coordinate
+        points={ point:1 for point in sorted(list(points.keys()),key=lambda point:point[0])}
 
     #######################################################  extract filtered anchor points here !
 
     # =====> STEP 6-8 : filtering anchor points and extracting alignable intervals
+
+
 
     (filtered_x, filtered_y, intervals, interval_length_sent1, interval_length_sent2, interval_length_char1,
      interval_length_char2) = extract_anchor_points(pre_anchors_x, pre_anchors_y, points, x, y, sents1, sents2, len_sents1, len_sents2, sim_mat)
@@ -1976,6 +2083,7 @@ def align(l1,
     # anchor point output
     if (len(filtered_x) > 0):
         if params['writeAnchorPoints']:
+        
             x_final = []
             y_final = []
             score = 0
@@ -1992,6 +2100,9 @@ def align(l1,
                     write_aligned_points(l1, l2, sents1, id_sents1, sents2, id_sents2, x_final, y_final, output_dir,
                                          output_anchor_filename + "." + output_format, output_format, True, print_ids,
                                          mean_score)
+            else:
+                print("No anchor points over the cos Threshold")
+
 
         # display of the points : eliminated points are red
         if print_plot:
@@ -2037,7 +2148,8 @@ def align(l1,
         char_ratio = nb_chars2 / nb_chars1 if params['charRatio'] == 0 else params['charRatio']
         params['verbose'] and print("Chararacter ratio=", char_ratio)
 
-        (dtw_path, score) = run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat, embeds1,
+       
+        (dtw_path, score) = run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, pre_anchors_x, sim_mat, embeds1,
                                     embeds2, char_ratio)
         # x_dtw and y_dtw contains a list of list of corresponding coordinates
         # eg. x_dtw=[[0],[1,2],[]]
@@ -2163,14 +2275,14 @@ def align(l1,
 
         # =====> STEP 10 : parse aligned sentence, extract chunks and align chunk to get word 2 word alignment
        
-        aligned_output_formats = params.get("alignedOutputFormats")
-        if params.get('chunk_alignment', False):
+        output_formats = params.get("outputFormats")
+        if params.get('chunkAlignment', True):
             print("Starting Chunk alignment....")
-            chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, aligned_output_formats)
+            chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
 
-        if params.get('word_alignment', False):
+        if params.get('wordAlignment', True):
             print("Starting Word alignment....")
-            word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, aligned_output_formats)
+            word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
         return mean_score
 
     if params['useShelve']:
@@ -2404,7 +2516,7 @@ def next(groups, i):
 # from each anchor points (the paths must not deviate from these anchors points
 # at a distance lower than dtwBeam)
 
-def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat, embeds1, embeds2, char_ratio):
+def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, pre_anchors_x, sim_mat, embeds1, embeds2, char_ratio):
     global embed_shelve
 
     path_hash = {}
@@ -2418,8 +2530,9 @@ def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat,
     # initialization for the NULL path
     x_first = intervals[0][0][0]
     y_first = intervals[0][0][1]
+    
     path_hash[f"{x_first}-{y_first}"] = [[[-1, -1]], 0]
-
+    params['verbose'] and print(f"First point : {x_first}-{y_first}")
     print(f"Init : dtw from ", intervals[0][0], " to ", intervals[-1][1])
 
     lastBestPath = [[intervals[0][0][0] - 1, intervals[0][0][1] - 1]]
@@ -2430,6 +2543,7 @@ def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat,
     for interval in intervals:
         (x_begin, y_begin) = interval[0]
         (x_end, y_end) = interval[1]
+        print (f"Current interval {interval=}")
         key_xy = f"{x_begin}-{y_begin}"
         coeff_y_per_x = (y_end - y_begin) / (x_end - x_begin)
 
@@ -2461,86 +2575,86 @@ def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat,
         # now run the DTW search between each anchor point in the interval
         # the path are computed recursively, but in order to minimize the recursive depth, the
         # dtw hash is progressively filled by calling the function point by point
-        previous1_x = x_begin
-        previous1_y = y_begin
+        previous_x = x_begin
+        previous_y = y_begin
         for x in range(x_begin, x_end + 1):
             localBeam = params['dtwBeam']
 
-            # case 1 : if (x,y) is an anchor point
+            # if (x,y) is an anchor point, run dtw from x !
             if x in x_2_y:
                 y = x_2_y[x]
                 if params['verbose']:
                     print(f"Anchor point {x},{y}")
 
-                # if (x,y) is too far from the interval diagonal, it is discarded
-                deviation = 0
-                if y >= y_begin:
-                    deviation = abs((y - y_begin) / (y_end - y_begin) - (x - x_begin) / (x_end - x_begin))
-                else:
-                    continue
+                # if it is a preanchor the point cannot be discarded and the local beam is null
+                if x in pre_anchors_x:
+                    localBeam=0
+                else :
+                    # computing deviation and beam
+                    # if (x,y) is too far from the interval diagonal, it is discarded
+                    deviation = 0
+                    if y >= y_begin:
+                        deviation = abs((y - y_begin) / (y_end - y_begin) - (x - x_begin) / (x_end - x_begin))
+                    else:
+                        continue
 
-                # First condition : 1/ deviation > localDiagBeam
-                if (deviation > params['localDiagBeam'] and deviation * (y_end - y_begin) > params['dtwBeam']):
-                    del x_2_y[x]
-                    if y in y_2_x:
-                        del y_2_x[y]
-                    if params['verbose']:
-                        print(
-                            f"deviation*(y_end-y_begin)= {deviation * (y_end - y_begin)} - Anchor point ({x},{y}) is too far from the interval diagonal - point has been discarded!")
-                    continue
-                # Second condition : 2/ the ratio between deltaX and deltaY exceeds 4 (1-4 or 4-1 grouping is the max allowed)
-                if (params['noEmptyPair'] and (
-                        min(y - previous1_y, x - previous1_x) == 0 or max(y - previous1_y, x - previous1_x) / min(
-                        y - previous1_y, x - previous1_x) > 4)):
-                    del x_2_y[x]
-                    if y in y_2_x:
-                        del y_2_x[y]
-                    if params['verbose']:
-                        print(
-                            f"Deviating anchor point ({x},{y}) is too close from the preceding - point has been discarded!")
-                    continue
+                    # First condition : 1/ deviation > localDiagBeam
+                    if (deviation > params['localDiagBeam'] and deviation * (y_end - y_begin) > params['dtwBeam']):
+                        del x_2_y[x]
+                        if y in y_2_x:
+                            del y_2_x[y]
+                        if params['verbose']:
+                            print(
+                                f"deviation*(y_end-y_begin)= {deviation * (y_end - y_begin)} - Anchor point ({x},{y}) is too far from the interval diagonal - point has been discarded!")
+                        continue
+                    # Second condition : 2/ the ratio between deltaX and deltaY exceeds 4 (1-4 or 4-1 grouping is the max allowed)
+                    if (params['noEmptyPair'] and (
+                            min(y - previous_y, x - previous_x) == 0 or max(y - previous_y, x - previous_x) / min(
+                            y - previous_y, x - previous_x) > 4)):
+                        del x_2_y[x]
+                        if y in y_2_x:
+                            del y_2_x[y]
+                        if params['verbose']:
+                            print(
+                                f"Deviating anchor point ({x},{y}) is too close from the preceding - point has been discarded!")
+                        continue
 
-                # Processing of the gaps (taking into account non monotony) :
-                # the localBeam is recomputed according to the deviation of the current anchor point
-                # from the previous anchor point - according to x axis (previous1_x,previous1_y)
-                # and y axis (previous2_x,previous2_y) - the max deviation is taken into account
-
-                if (previous1_y < y) and abs((y - previous1_y) - int((x - previous1_x) * coeff_y_per_x)) > params[
-                    'dtwBeam']:
-                    localBeam = abs((y - previous1_y) - int((x - previous1_x) * coeff_y_per_x)) + params['dtwBeam'] + 1
-                    print(
-                        f"Applying local margin {localBeam} for point : ({x},{y}) previous1=({previous1_x},{previous1_y}) with coeff={coeff_y_per_x}")
-
-                previous2_y = y - 1
-                # looking for previous point according to y
-                while previous2_y > y_begin and previous2_y not in y_2_x:
-                    previous2_y -= 1
-                if previous2_y in y_2_x:
-                    previous2_x = y_2_x[previous2_y]
-                    if (previous2_x < x) and abs(
-                            (y - previous2_y) - int((x - previous2_x) * coeff_y_per_x)) > localBeam:
-                        localBeam = abs((y - previous2_y) - int((x - previous2_x) * coeff_y_per_x)) + params[
-                            'dtwBeam'] + 1
-                        print(
-                            f"Applying local margin {localBeam} for point : ({x},{y}) previous2=({previous2_x},{previous2_y})  with coeff={coeff_y_per_x}")
+                    # Processing of the gaps (taking into account non monotony) :
+                    # if y < previous_y, the area is enlarged : y will be set equal to previous_y and previous_x is decreased, to correspond 
+                    # to the last point with x_2_y[prev_x] < y
+                    
+                    if y < previous_y:
+                        print(f"Monotonic discrepancy : {y=} < {previous_y=}. Recomputing previous_x.")
+                        prev_x=previous_x
+                        # looking for previous point according to y
+                        found=False
+                        while prev_x > x_begin:
+                            prev_x -= 1
+                            if prev_x in x_2_y:
+                                prev_y = x_2_y[prev_x]
+                                if prev_y < y:
+                                    y=previous_y
+                                    previous_x=prev_x
+                                    previous_y=prev_y
+                                    found=True
+                                    break
+                        if not found:
+                             y=previous_y
+                             previous_x=x_begin
+                             previous_y=y_begin     
+                
                 if params['veryVerbose']:
                     print(f"Running DTW for the point : ({x},{y}) - elapsed from (1,1) =", time.time() - t8, "s.")
 
-                try:
-                    # compute the inferior values to give an interval to cut recursion : points that are before
-                    # x_inf,y_inf should not be considered
-                    x_inf = previous1_x - localBeam
-                    y_inf = previous1_y - localBeam
-                    (path, dist) = dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash, x_2_y, y_2_x,
-                                       sim_mat, embeds1, embeds2, x, y, max(x_begin, x_inf), max(y_begin, y_inf),
-                                       localBeam, char_ratio)
-                except RecursionError:
-                    print("Recursion error : trying step by step computation")
-                    for xx in range(previous1_x + 2, x + 1, 2):
-                        yy = previous1_y + int((xx - previous1_x) / (x - previous1_x) * (y - previous1_y))
-                        print(f"Trying point ({xx=},{yy=})")
-                        (path, dist) = dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash, x_2_y, y_2_x,
-                                           sim_mat, embeds1, embeds2, xx, yy, x_begin, y_begin, localBeam, char_ratio)
+   
+                # compute the inferior values to give an interval to cut recursion : points that are before
+                # x_inf,y_inf should not be considered
+                x_inf = previous_x - localBeam
+                y_inf = previous_y - localBeam
+                
+                print( f"Lancement de DTW entre ({max(x_begin, x_inf)},{max(y_begin, y_inf)}) et ({x},{y})")
+                (path, dist) = dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash, x_2_y, y_2_x,
+                                   sim_mat, embeds1, embeds2, x, y, max(x_begin, x_inf), max(y_begin, y_inf), char_ratio)
 
                 if dist == infinite and params['verbose']:
                     print(f"Infinite distance from : ({x},{y})")
@@ -2560,10 +2674,10 @@ def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat,
 
                 if params['veryVerbose']:
                     print(f"Distance->{dist}")
-                previous1_x = x
-                previous1_y = y
+                previous_x = x
+                previous_y = y
 
-        (lastBestPath, lastBestScore) = path_hash[f"{previous1_x}-{previous1_y}"]
+        (lastBestPath, lastBestScore) = path_hash[f"{previous_x}-{previous_y}"]
 
     # chaining with the end of the text
     last_x = len(sents1) - 1
@@ -2572,14 +2686,14 @@ def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat,
         if params['verbose']:
             print(f"Last point ({last_x},{last_y})")
         dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash, x_2_y, y_2_x, sim_mat, embeds1, embeds2, last_x,
-            last_y, x_end, y_end, params['dtwBeam'], char_ratio)
+            last_y, x_end, y_end, char_ratio)
     # if last point has not been discarded
     score = infinite
     if f"{last_x}-{last_y}" in path_hash:
         (best_path, score) = path_hash[f"{last_x}-{last_y}"]
     # the last interval is used instead
     if score == infinite:
-        (best_path, score) = path_hash[f"{previous1_x}-{previous1_y}"]
+        (best_path, score) = path_hash[f"{previous_x}-{previous_y}"]
 
     t9 = time.time()
     if params['verbose']:
@@ -2590,54 +2704,52 @@ def run_dtw(encoder, sents1, sents2, intervals, filtered_x, filtered_y, sim_mat,
 
 # Compute the bestpath (a list of [I,J] pairs) and the corresponding score (the minimum distance)
 # The current point correspond to the interval between (infI,inJ) excluded
-def dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash, x_2_y, y_2_x, sim_mat, embeds1, embeds2, i, j,
-        x_begin, y_begin, localBeam, char_ratio):
-    # at each recursion step, localBeam decreases to the dtwBeam floor value
-    localBeam = max(localBeam - params['localBeamDecay'], params['dtwBeam'])
+def dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash, x_2_y, y_2_x, sim_mat, embeds1, embeds2, x_end, y_end,
+        x_begin, y_begin, char_ratio):
+    for i in range(x_begin,x_end+1):
+        for j in range(y_begin,y_end+1):
+            # The hash path_hash records the result for already computed path, in order to reduce recursivity
+            dtw_key = str(i) + "-" + str(j)
 
-    # The hash path_hash records the result for already computed path, in order to reduce recursivity
-    dtw_key = str(i) + "-" + str(j)
+            if dtw_key in path_hash:
+                continue
 
-    if dtw_key in path_hash:
-        return path_hash[dtw_key]
+            path_by_group = {}
+            dist_by_group = {}
+            # on examine chaque groupe
+            for group in allowed_groups:
+                previous_i=i - group[0]
+                previous_j=j - group[1]
+                previous_key= str(previous_i) + "-" + str(previous_j)
+                
+                # en principe, previous_key doit être trouvée
+                if previous_key in path_hash:
+                    (path_by_group[group], dist_by_group[group])=path_hash[previous_key]
+                    # ~ print (f"path_hash[{previous_key}]={path_hash[previous_key]}")
+                else:
+                    # ~ print (f"{previous_key=} pas trouvée")
+                    (path_by_group[group], dist_by_group[group])=([], infinite)
+                
+                # on incrémente la distance pour le groupe courant
+                dist_by_group[group] += distance_dtw(encoder, sents1, sents2, encode_hash, dist_hash, sim_mat, embeds1, embeds2,
+                                                     previous_i, i, previous_j, j,
+                                                     char_ratio) 
 
-    # if point is two far from the corresponding anchor point on vertical or horizontal axis, the path is discarded (dist=infinite)
-    if i in x_2_y and abs(x_2_y[i] - j) > localBeam:
-        # ~ print (f"Rejection of point ({i},{j}) too far from ({i},{x_2_y[i]}) with localBeam={localBeam}")
-        return ([], infinite)
-    if j in y_2_x and abs(y_2_x[j] - i) > localBeam:
-        # ~ print (f"Rejection of point ({i},{j}) too far from ({y_2_x[j]},{j}) with localBeam={localBeam}")
-        return ([], infinite)
+            best_group = None
+            min_dist = infinite
+            for group in allowed_groups:
+                if dist_by_group[group] < min_dist:
+                    min_dist = dist_by_group[group]
+                    best_group = group
+            if best_group != None:
+                path = path_by_group[best_group][:]  # warning here, create a copy !
+                path.append([i, j])
+                path_hash[dtw_key] = [path, min_dist]
+            else:
+                path_hash[dtw_key] = [[], infinite]
+   
+    return path_hash[str(x_end) + "-" + str(y_end)]
 
-    # end of recursivity if the current coordinates reach the @inf point : the path must end here
-    if i < x_begin - 1 or j < y_begin - 1:
-        return ([], infinite)
-
-    path_by_group = {}
-    dist_by_group = {}
-    for group in allowed_groups:
-        # ~ print(f"{localBeam} {x_begin=} {y_begin=} Calling point",i-group[0],j-group[1])
-        (path_by_group[group], dist_by_group[group]) = dtw(encoder, sents1, sents2, encode_hash, path_hash, dist_hash,
-                                                           x_2_y, y_2_x, sim_mat, embeds1, embeds2, i - group[0],
-                                                           j - group[1], x_begin, y_begin, localBeam, char_ratio)
-        dist_by_group[group] += distance_dtw(encoder, sents1, sents2, encode_hash, dist_hash, sim_mat, embeds1, embeds2,
-                                             i - group[0], i, j - group[1], j,
-                                             char_ratio)  # interval ]i-group[0];i] ]j-group[1];j]
-
-    best_group = None
-    min_dist = infinite
-    for group in allowed_groups:
-        if dist_by_group[group] < min_dist:
-            min_dist = dist_by_group[group]
-            best_group = group
-    if best_group != None:
-        path = path_by_group[best_group][:]  # warning here, create a copy !
-        path.append([i, j])
-        path_hash[dtw_key] = [path, min_dist]
-        return (path, min_dist)
-
-    path_hash[dtw_key] = [[], infinite]
-    return ([], infinite)
 
 
 # computing the distance as 1-cosinus
