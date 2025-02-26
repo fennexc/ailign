@@ -2256,13 +2256,14 @@ def align(l1,
             log.write(
                 f"{output_file_name}\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={mean_score}\tignored1={(len(sents1) - nb_x)}\tsilence1={silence1:.3f}\tignored2={(len(sents2) - nb_y)}\tsilence2={silence2:.3f}\tcommandLine=" + " ".join(
                     sys.argv) + "\n")
-
+        print(f"{input_format=} {add_anchor=}")
         for output_format in output_formats:
             if output_format == "xml" and input_format == "xml" and add_anchor:
                 if not file_id1:
                     file_id1 = l1
                 if not file_id2:
                     file_id2 = l2
+                print("Add anchors in XML", output_file_name+".xml")
                 add_anchor_in_output(input_dir, file1, file2, file_id1, file_id2, x_dtw, y_dtw, output_dir,
                                      params['direction'])
             else:
@@ -2935,7 +2936,7 @@ if __name__ == "__main__":
 
     # processing a unic pair of files
     if input_file1 and input_file2:
-        align(l1, l2, input_dir, input_file1, input_file2, input_format, output_dir, output_formats, output_file_name,
+        align(l1, l2, input_dir, input_file1, input_file2, input_format, output_dir, output_formats, output_file_name, add_anchor=add_anchor,
               col1=col1, col2=col2, print_ids=print_ids, file_id1=file_id1, file_id2=file_id2)
     # processing a full directory
     else:
@@ -2965,7 +2966,7 @@ if __name__ == "__main__":
                     output_file_name = params['filePattern'].match(file1).group(1)
                     l1 = params['filePattern'].match(file1).group(2)
                     l2 = params['filePattern'].match(file2).group(2)
-                align(l1, l2, input_dir, file1, file2, input_format, output_dir, output_formats, output_file_name,
+                align(l1, l2, input_dir, file1, file2, input_format, output_dir, output_formats, output_file_name, add_anchor=add_anchor,
                       col1=col1, col2=col2, print_ids=print_ids)
         else:
             files = [f for f in os.listdir(input_dir) if
@@ -2984,7 +2985,7 @@ if __name__ == "__main__":
                     if m.group(1) == name:
                         l2 = m.group(2)
                         align(l1, l2, input_dir, file1, file2, input_format, output_dir, output_formats,
-                              output_file_name="", col1=col1, col2=col2, print_ids=print_ids)
+                              output_file_name="", add_anchor=add_anchor, col1=col1, col2=col2, print_ids=print_ids)
     if params['verbose']:
         print("Terminated in", time.monotonic() - t0, "s.")
 

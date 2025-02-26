@@ -130,8 +130,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     # permettant à la boucle de traiter ces paires en tandem
     for group_x, group_y in zip(x, y):
         # Concatenate sentences in each group to form a single text for parsing
-        text_l1 = ' '.join([sents1[i - 1] for i in group_x])  # Adjust indices for 0-based indexing
-        text_l2 = ' '.join([sents2[i - 1] for i in group_y])
+        text_l1 = ' '.join([sents1[i] for i in group_x])  
+        text_l2 = ' '.join([sents2[i] for i in group_y])
 
         # Process texts with Stanza to get CoNLL-U formatted data
         doc_l1 = nlp_l1(text_l1)
@@ -151,6 +151,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
         # Use the modified extract_words function
         words_l1 = extract_words(conll_l1_sentences)
         words_l2 = extract_words(conll_l2_sentences)
+
         # Compute embeddings for each word
         word_embeds_l1 = encoder.encode([word[0] for word in words_l1])
         word_embeds_l2 = encoder.encode([word[0] for word in words_l2])
@@ -168,22 +169,63 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
         similarity_matrix = cosine_similarity(word_embeds_l1, word_embeds_l2)
 
+        # For each chunk in l1, find the best matching chunk in l2
+        # first pass : pairing, associating each id1 to the best (id2,score) 
+        id2_to_id1s={}
         for i, row in enumerate(similarity_matrix):
             best_match_index = np.argmax(row)
-            best_match_score = float(row[best_match_index])
-            alignments_ids.append((words_l1[i][1], words_l2[best_match_index][1]))
-            alignments.append({
-                'l1_word': words_l1[i][0],
-                'l2_word': words_l2[best_match_index][0],
-                'similarity': best_match_score
-            })
+            if best_match_index not in id2_to_id1s:
+                id2_to_id1s[best_match_index]=[]
+            id2_to_id1s[best_match_index].append((i,row[best_match_index]))
+        
+        # second pass : resolving conflicts
+        # if the same id2 is associated with different id1, the best association is conserved and other pairing are deleted
+        id1_to_id2={}
+        for id2 in id2_to_id1s:
+            # reducing conflicts by keeping the best association for i2
+            if len(id2_to_id1s[id2]) >= 2:
+                best_match_pair=np.argmax([pair[1] for pair in id2_to_id1s[id2]])
+                id2_to_id1s[id2]=[id2_to_id1s[id2][best_match_pair]]
+            id1=id2_to_id1s[id2][0][0]
+            id1_to_id2[id1]=id2
+            
+        # third pass : associating the missing id1
+        for i, row in enumerate(similarity_matrix):
+            if not i in id1_to_id2.keys():
+                best_match_indices = list(np.argsort(row))
+                best_match_indices.reverse()
+                found=False
+                for id2 in best_match_indices:
+                    # if id2 is still free, it can be associated
+                    if id2 not in id2_to_id1s:
+                        id1_to_id2[i]=id2
+                        id2_to_id1s[id2]=[(i,row[id2])]
+                        found=True
+                        break
+                
+            best_word_l2=["",""]
+            best_match_score=0
+            best_match_index=id1_to_id2.get(i,None)
+            if  best_match_index != None:
+                best_match_score = float(row[best_match_index])
+                alignments_ids.append((words_l1[i][1], words_l2[best_match_index][1]))
+                alignments.append({
+                    'l1_word': words_l1[i][0],
+                    'l2_word': words_l2[best_match_index][0],
+                    'similarity': best_match_score
+                })
 
-        # print top 10 lexical alignments
-    # ~ for alignment in alignments[:10]:
-        # ~ print(f"Chunk in {l1}: {alignment['l1_word']}")
-        # ~ print(f"Chunk in {l2}: {alignment['l2_word']}")
-        # ~ print(f"Similarity score: {alignment['similarity']:.2f}")
-        # ~ print("-" * 30)
+
+        # old strategy with no injectivity
+        # ~ for i, row in enumerate(similarity_matrix):
+            # ~ best_match_index = np.argmax(row)
+            # ~ best_match_score = float(row[best_match_index])
+            # ~ alignments_ids.append((words_l1[i][1], words_l2[best_match_index][1]))
+            # ~ alignments.append({
+                # ~ 'l1_word': words_l1[i][0],
+                # ~ 'l2_word': words_l2[best_match_index][0],
+                # ~ 'similarity': best_match_score
+            # ~ })
 
     if "json" in outputFormats:
         output_file_name_json = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.json"
@@ -216,7 +258,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
         with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
             for (id1, id2), alignment in zip(alignments_ids, alignments):
                 formatted_file.write(f"{alignment['l1_word']}\t")
-                formatted_file.write(f"{alignment['l2_word']}\n")
+                formatted_file.write(f"{alignment['l2_word']}\t")
+                formatted_file.write(f"{alignment['similarity']}\n")
 
     return alignments
 

@@ -36,11 +36,21 @@ def extract_words(sentences):
     words = []
 
     for sentence in sentences:
-        for token in sentence:
-            if '-' in token.id:  # Skip multi-word tokens
-                continue
+        i=0
+        while i < len(sentence):
+            token=sentence[i]
+            i+=1
+            # useless because of convert_conll_list_to_string (multi tokens are simplified) 
+            # processing multi-word tokens
+            # ~ m=re.search(r'(\d+)-(\d+)',token.id)
+            # ~ if m:
+                # ~ begin=int(m.groups(1))
+                # ~ end=int(m.groups(2))
+                # ~ # jump to the next token
+                # ~ i+=end-begin+1
             # Append word text and its ID
-            words.append((token.form, token.id))
+            if token.form!="":
+                words.append((token.form, token.id))
 
     return words
 
@@ -61,14 +71,15 @@ def extract_flat_chunks(sentences):
             current_chunk_ids.append(token.id)            
             i+=1
             # processing multi-word tokens
-            m=re.search(r'(\d+)-(\d+)',token.id)
-            if m:
-                # inherit the pos of the first compound token
-                token.upos=sentence[i].upos
-                begin=int(m.groups(1))
-                end=int(m.groups(2))
-                # jump to the next token
-                i+=end-begin+1
+            # useless because of convert_conll_list_to_string (multi tokens are simplified) 
+            # ~ m=re.search(r'(\d+)-(\d+)',token.id)
+            # ~ if m:
+                # ~ # inherit the pos of the first compound token
+                # ~ token.upos=sentence[i].upos
+                # ~ begin=int(m.groups(1))
+                # ~ end=int(m.groups(2))
+                # ~ # jump to the next token
+                # ~ i+=end-begin+1
 
             # noun phrase
             if token.upos in ('DET','NUM','NOUN','ADJ','PROPN'):
