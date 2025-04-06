@@ -251,7 +251,7 @@ def process_text(text):
 
     except Exception as e:
         print(f"Error processing text: {e}")
-        return []  # Return an empty list in case of error
+        return [[],[]]  # Return an empty list in case of error
 
 # Main script execution if the script is run directly.
 if __name__ == "__main__":
