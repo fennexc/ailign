@@ -684,7 +684,7 @@ def extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sen
                 expectedJ = lastJ + (i - lastI) * coeff
                 vertical_deviation = abs(j - expectedJ)
                 new_interval = False
-                print(f"{vertical_deviation=}")
+                print(f"vertical_deviation={vertical_deviation}")
 
                 # monotony constraint : if the two previous and the two next anchors are monotonic but not the current
                 # the current anchor is discarded
@@ -706,7 +706,7 @@ def extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sen
                     'minDensityRatio']:
                     
                     # deviated point is removed if density is not high enough
-                    print(f"({i},{j}) is ignored. Low density : {density_ratio=}")
+                    print(f"({i},{j}) is ignored. Low density : density_ratio={density_ratio}")
                     # the current point is skipped
                     filtered_x[num] = lastI
                     filtered_y[num] = lastJ
@@ -720,7 +720,7 @@ def extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sen
                     print(f"({i},{j}) is valid\n")
                 else:
                     params['verbose'] and print(
-                        f"({i},{j}) is a deviating point {lastI=}, {lastJ=}, {density_ratio=}, {vertical_deviation=}")
+                        f"({i},{j}) is a deviating point lastI={lastI}, lastJ={lastJ}, density_ratio={density_ratio}, vertical_deviation={vertical_deviation}")
 
                     # considering next points to compute next deviation
                     preview_scope = 2
@@ -731,7 +731,7 @@ def extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sen
                         # the next point is aligned with previous point
                         if next_vertical_deviation <= params['maxDistToTheDiagonal']:
                             params['verbose'] and print(
-                                f"({i},{j}) is ignored (next point is aligned with the previous). {vertical_deviation=}")
+                                f"({i},{j}) is ignored (next point is aligned with the previous). vertical_deviation={vertical_deviation}")
                             # the current point is skipped
                             filtered_x[num] = lastI
                             filtered_y[num] = lastJ
@@ -747,7 +747,7 @@ def extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sen
                                 new_interval = True
                             else:
                                 params['verbose'] and print(
-                                    f"({i},{j}) is ignored (next point is not aligned) {next_vertical_deviation=} {density_ratio=}")
+                                    f"({i},{j}) is ignored (next point is not aligned) next_vertical_deviation={next_vertical_deviation} density_ratio={density_ratio}")
                                 # the current point is skipped
                                 filtered_x[num] = lastI
                                 filtered_y[num] = lastJ
@@ -768,7 +768,7 @@ def extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sen
                 d = math.sqrt((i - lastI) ** 2 + (j - lastJ) ** 2)
                 # if a there is a gap the previous interval is closed and a new interval will begin
                 if d > params['maxGapSize'] and density_ratio > 1.5:
-                    params['verbose'] and print(f"{d} > maxGapSize, {density_ratio=}")
+                    params['verbose'] and print(f"{d} > maxGapSize, density_ratio={density_ratio}")
                     new_interval = True
 
                 # Creating a new interval if necessary

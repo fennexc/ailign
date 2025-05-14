@@ -228,7 +228,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             # ~ })
 
     if "json" in outputFormats:
-        output_file_name_json = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.json"
+        output_file_name_json = file_name + f"_{langTarget}-{langSrc}_word_ai.json"
         output_path_json = os.path.join(output_directory, output_file_name_json)
         with open(output_path_json, 'w', encoding='utf-8') as file:
             json.dump(alignments, file, ensure_ascii=False, indent=4)
@@ -238,13 +238,13 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
         for i, (id1, id2) in enumerate(alignments_ids):
             ces_align_body += f'<link xtargets="{id1} ; {id2}"/>\n'
         ces_align_content = ces_align_header + ces_align_body + ces_align_footer
-        output_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.ces"
+        output_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.ces"
         output_path = os.path.join(output_directory, output_file_name)
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(ces_align_content)
 
     if "txt" in outputFormats:
-        aligned_txt_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.txt"
+        aligned_txt_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.txt"
         output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
         with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
             for (id1, id2), alignment in zip(alignments_ids, alignments):
@@ -253,7 +253,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 formatted_file.write('\n')
                 
     if "tsv" in outputFormats:
-        aligned_txt_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_word_ai.tsv"
+        aligned_txt_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.tsv"
         output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
         with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
             for (id1, id2), alignment in zip(alignments_ids, alignments):
@@ -426,7 +426,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
 
     # File name for the raw data
     if "json" in outputFormats:
-        output_file_name_json = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_phrase_ai.json"
+        output_file_name_json = file_name + f"_{langTarget}-{langSrc}_phrase_ai.json"
         output_path_json = os.path.join(output_directory, output_file_name_json)
         with open(output_path_json, 'w', encoding='utf-8') as file:
             json.dump(alignments, file, ensure_ascii=False, indent=4)
@@ -437,12 +437,12 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
         ces_align_content = ces_align_header + ces_align_body + ces_align_footer
 
 
-        output_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_phrase_ai.ces"
+        output_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.ces"
         output_path = os.path.join(output_directory, output_file_name)
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(ces_align_content)
     if "txt" in outputFormats:
-        aligned_txt_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_phrase_ai.txt"
+        aligned_txt_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.txt"
         output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
         with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
             for (ids1, ids2), alignment in zip(alignments_ids, alignments):
@@ -452,7 +452,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
                 formatted_file.write(f"{formatted_ids2} {alignment['l2_chunk']}\n")
                 formatted_file.write('\n')
     if "tsv" in outputFormats:
-        aligned_txt_file_name = file_name.split(".")[0] + file_name.split(".")[1] + f"_{langTarget}-{langSrc}_phrase_ai.tsv"
+        aligned_txt_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.tsv"
         output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
         with open(output_path_formatted, 'w', encoding='utf-8') as formatted_file:
             for (ids1, ids2), alignment in zip(alignments_ids, alignments):

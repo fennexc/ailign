@@ -81,17 +81,17 @@ def align(params,preprocessor,encoder):
     param1 (dict) : the global parameters. Main parameters are :
         params['l1'] (str) : the iso code for language 1 (eg. "en","fr","it",...)
         params['l2'] (str) : the iso code for language 2 (eg. "en","fr","it",...)
-        params['input_dir'] (str): the directory that contains input files
-        params['input_file1'] (str): the filename 1
-        params['input_file2'] (str): the filename 2
-        params['input_format'] (str) : the directory where to write output files
-        params['output_formats'] (list[str]) : the list of output formats (eg. ['tmx','txt','tsv','ces']
-        params['output_file_name'] (str, optionnal) : the prefix of the output filename (without extension ".tmx", ".txt", etc.)
+        params['inputDir'] (str): the directory that contains input files
+        params['inputFile1'] (str): the filename 1
+        params['inputFile2'] (str): the filename 2
+        params['inputFormat'] (str) : the directory where to write output files
+        params['outputFormats'] (list[str]) : the list of output formats (eg. ['tmx','txt','tsv','ces']
+        params['outputFileName'] (str, optionnal) : the prefix of the output filename (without extension ".tmx", ".txt", etc.)
         params['col1'] (int, optionnal) : for tsv input format, the number of column that contains language 1 text
         params['col2'] (int, optionnal) : for tsv input format, the number of column that contains language 2 text
-        params['add_anchor'] (bool) : indicates whether anchors should be inserted in xml format
-        params['file_id1'] (str): the file id prefix in the xml anchors
-        params['file_id2'] (str): the file id prefix in the xml anchors
+        params['addAnchor'] (bool) : indicates whether anchors should be inserted in xml format
+        params['fileId1'] (str): the file id prefix in the xml anchors
+        params['fileId2'] (str): the file id prefix in the xml anchors
     param2 (preprocessor): the preprocesser of embedding encoder
     param3 (encoder): the embedding encoder
     
@@ -99,23 +99,23 @@ def align(params,preprocessor,encoder):
     
     l1=params['l1']
     l2=params['l2']
-    input_dir=params['input_dir']
-    file1=params['input_file1']
-    file2=params['input_file2']
-    input_format=params['input_format']
-    output_dir=params['output_dir']
-    output_formats=params['output_formats']
-    output_file_name=params['output_file_name']
+    input_dir=params['inputDir']
+    file1=params['inputFile1']
+    file2=params['inputFile2']
+    input_format=params['inputFormat']
+    output_dir=params['outputDir']
+    output_formats=params['outputFormats']
+    output_file_name=params['outputFileName']
     col1=params['col1']
     col2=params['col2']
-    print_ids=params['print_ids']
-    file_id1=params['file_id1']
-    file_id2=params['file_id2']
-    add_anchor=params['add_anchor']
-    print_log=params['print_log']
+    print_ids=params['printIds']
+    file_id1=params['fileId1']
+    file_id2=params['fileId2']
+    add_anchor=params['addAnchor']
+    print_log=params['printLog']
     # the log handle is saved in global params
     if print_log:
-        log=params['log_handle']
+        log=params['logHandle']
     
 
     embed_shelve={}
@@ -137,266 +137,215 @@ def align(params,preprocessor,encoder):
             allowed_groups.remove((0, 1))
         if not params['no2_2Group']:
             allowed_groups.append((2, 2))
-    params['allowed_groups']=allowed_groups
+    params['allowedGroups']=allowed_groups
     if params['verbose']:
         print(f"Allowed groups : {allowed_groups}")
 
     # reading files
-    (sents1, id_sents1, len_sents1, seg2sents1, nb_chars1,pre_anchors_x) = read_input_file(params, file1, col1, l1)
-    (sents2, id_sents2, len_sents2, seg2sents2, nb_chars2,pre_anchors_y) = read_input_file(params, file2, col2, l2)
+    (sents1, id_sents1, len_sents1, seg2sents1, nb_chars1,pre_anchors_x) = read_input_file(params, file1, params['splitSent1'],col1, l1)
+    (sents2, id_sents2, len_sents2, seg2sents2, nb_chars2,pre_anchors_y) = read_input_file(params, file2, params['splitSent2'],col2, l2)
 
-    params['verbose'] and print(f"{len(pre_anchors_x)=}, {len(pre_anchors_y)=}")
+    params['verbose'] and print(f"len(pre_anchors_x)={len(pre_anchors_x)}, len(pre_anchors_x)={len(pre_anchors_y)}")
 
-    # checking if anchors are coherent
-    if len(pre_anchors_x) != len(pre_anchors_y) :
-        if params['match_first_pre_anchors']:
-            if len(pre_anchors_x) > len(pre_anchors_y):
-                pre_anchors_x=pre_anchors_x[:len(pre_anchors_y)]
-            else:
-                pre_anchors_y=pre_anchors_y[:len(pre_anchors_x)]
-            print("*************** Prealignment anchor mismatch ! only first ",len(pre_anchors_x)," anchors are kept !")
-        else:
-            print("*************** Prealignment anchor mismatch ! anchors will be ignored !")
-            pre_anchors_x.clear()
-            pre_anchors_y.clear()
-        
-    if len_sents1 * len_sents2 == 0:
-        print(f"File is empty ! No sentence read : {len_sents1=} {len_sents2=}")
-        return
-    # computing output file names
-    if output_file_name == "":
-        m = re.search(params['filePattern'], file1)
-
-        if m:
-            name1 = m.group(1)
-            m = re.search(params['filePattern'], file2)
-            name2 = m.group(1)
-            if name1 != name2:
-                name = name1 + "-" + name2
-            else:
-                name = name1
-            output_file_name = name + "." + l1 + "-" + l2
-            output_anchor_filename = name + ".anchor." + l1 + "-" + l2
-        else:
-            output_file_name = os.path.basename(file1) + "-" + os.path.basename(file2)
-            output_anchor_filename = file1 + "-" + file2 + ".anchor"
-    else:
-        output_anchor_filename = output_file_name + ".anchor"
-
-    ####################################################### extract candidate anchor points here !
-
-    # =====> STEP 1-5 : extracting anchor points from similarity matrix
-
-    if params['useNgrams']:
-        (points, x, y, sim_mat) = compute_points_from_ngrams(params,sents1, sents2)  
-    else:
-        (points, x, y, sim_mat, embeds1, embeds2) = compute_points_with_encoder(params,preprocessor, encoder, sents1, sents2, embed_shelve)
-
-    # prints the similarity matrix
-    if params['showSimMat']:
-        print(sim_mat)
-        plt.imshow(sim_mat, vmin=0.2,  cmap='hot',origin='lower')
-        plt.show()
-
-    # adding anchor points and deleting mismatching coordinates
-    if len(pre_anchors_x) > 0 :
-        for x_anchor,y_anchor in zip(pre_anchors_x,pre_anchors_y):
-            params['verbose'] and print("Anchor :",x_anchor,y_anchor)
-            insertPoint=len(x)
-            for i in range(len(x)):
-                if x[i] == x_anchor:
-                    # deleting old x_anchor,y point 
-                    if y[i]!=y_anchor and (x[i],y[i]) in points:
-                        params['verbose'] and print(f"Conflict with pre anchor Deleting point {[x[i],y[i]]=}")
-                        del(points[(x[i],y[i])])
-                    break
-            
-            for j in range(len(y)):
-                if y[j] == y_anchor:
-                    # deleting old x,y_anchor
-                    if x[j]!=x_anchor: 
-                        params['verbose'] and print(f"Conflict with pre anchor Deleting point {[x[j],y[j]]=}")
-                        if (x[j],y[j]) in points :
-                            del(points[(x[j],y[j])])
-                    break
-             
-            # [x_anchor,y_anchor] point has no conflicts
-            points[(x_anchor,y_anchor)]=1
-        
-        # sorting points according to first coordinate
-        points={ point:1 for point in sorted(list(points.keys()),key=lambda point:point[0])}
-
-    #######################################################  extract filtered anchor points here !
-
-    # =====> STEP 6-8 : filtering anchor points and extracting alignable intervals
-
-    (filtered_x, filtered_y, intervals, interval_length_sent1, interval_length_sent2, interval_length_char1,
-     interval_length_char2) = extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sents1, sents2, len_sents1, len_sents2, sim_mat)
-
-    # In this mode, the char and sent ratios are recomputed according to the aligned intervals
-    # Then the anchor points are reextracted more finely using these values
-    if params['adaptativeMode']:
-        params['sentRatio'] = interval_length_sent2 / interval_length_sent1
-        params['charRatio'] = interval_length_char2 / interval_length_char1
-        print(f"Adapted ratios : {sentRatio=} {charRatio=}")
-        (filtered_x, filtered_y, intervals, interval_length_sent1, interval_length_sent2, interval_length_char1,
-         interval_length_char2) = extract_anchor_points(params, pre_anchors_x, pre_anchors_y, points, x, y, sents1, sents2, len_sents1, len_sents2, sim_mat)
-
-    # write the intervals output file if necessary
-    if params['writeIntervals'] and len(intervals) > 0:
-        output_interval_filename = output_anchor_filename.replace(".anchor", ".intervals") + ".txt"
-        f_int = open(output_interval_filename, mode="w", encoding="utf8")
-        for interval in intervals:
-            (x1, y1) = interval[0]
-            (x2, y2) = interval[1]
-            # here sentence num starts from 1
-            f_int.write(f"{x1 + 1}-{x2 + 1}\t{y1 + 1}-{y2 + 1}\n")
-        f_int.close()
-
-    # write anchor point output
-    if (len(filtered_x) > 0):
-        if params['writeAnchorPoints']:
-        
-            x_final = []
-            y_final = []
-            score = 0
-            nbScore = 0
-            for (x2, y2) in zip(filtered_x, filtered_y):
-                if sim_mat[x2, y2] >= params['cosThresholdInOutputAnchors']:
-                    x_final.append(x2)
-                    y_final.append(y2)
-                    score += sim_mat[x2, y2]
-                    nbScore += 2
-            if nbScore > 0:
-                mean_score = score / nbScore
-                for output_format in output_formats:
-                    write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_final, y_final, output_dir,
-                                         output_anchor_filename + "." + output_format, output_format, True, print_ids,
-                                         mean_score)
-            else:
-                print("No anchor points over the cos Threshold")
-
-
-        # display of the points : eliminated points are red
-        if params['savePlot'] or params['showPlot']:
-
-            plt.axis([1, len_sents1, 1, len_sents2])
-            plt.autoscale()
-            plt.title(output_file_name + '.txt - filtered')
-            plt.scatter(x, y, c="red", s=1)
-            plt.scatter(filtered_x, filtered_y, c="black", s=1)
-            for interval in intervals:
-                (i1, j1) = interval[0]
-                (i2, j2) = interval[1]
-                X = [i1, i1, i2, i2, i1]
-                Y = [j1, j2, j2, j1, j1]
-                plt.plot(X, Y, c="grey")
-            if params['savePlot']:
-                plt.savefig(os.path.join(output_dir, output_file_name) + '.png')
-            if params['showPlot']:
-                plt.show()
-            plt.close()
-
-        # writing intervals
-        if len(intervals) > 0 and params['writeAlignableArea']:
-            if not os.path.exists(output_dir):
-                os.mkdir(output_dir)
-
-            write_alignable(sents1, id_sents1, intervals, 0, output_dir, file1 + "." + output_format, output_format)
-            write_alignable(sents2, id_sents2, intervals, 1, output_dir, file2 + "." + output_format, output_format)
-
-    # If no interval is alignable
-    if interval_length_sent1 == 0 or interval_length_sent2 == 0:
-        if print_log:
-            log.write(
-                f"{output_file_name} not alignable\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={0}\tsilence1={1:.3f}\tsilence2={1:.3f}\tcommandLine=" + " ".join(
-                    sys.argv) + "\n")
-        if params['verbose']:
-            print(f"{output_file_name} not alignable")
-        return
-
-    # =====> STEP 9 : extracting complete alignment using DTW
-
-    if not params['doNotRunDTW']:
-        char_ratio = nb_chars2 / nb_chars1 if params['charRatio'] == 0 else params['charRatio']
-        params['verbose'] and print("Chararacter ratio=", char_ratio)
-
-        (dtw_path, score) = run_dtw(params, encoder, sents1, sents2, intervals, filtered_x, filtered_y, pre_anchors_x, sim_mat, embeds1,
-                                    embeds2, char_ratio, embed_shelve)
-        # x_dtw and y_dtw contains a list of list of corresponding coordinates
-        # eg. x_dtw=[[0],[1,2],[]]
-        # eg. y_dtw=[[0],[1],[2]]
-
-        x_dtw = []
-        y_dtw = []
-        nb_x = 0
-        nb_y = 0
-
-        if params['useShelve']:
-            encode_hash = embed_shelve
-        else:
-            encode_hash = {}
-
-        # Chaining the points
-
-        # adding empty pairs at the end
-        (last_x, last_y) = dtw_path[-1]
-        x_l = list(range(last_x + 1, len_sents1 - 1))
-        y_l = list(range(last_y + 1, len_sents2 - 1))
-
-        if len(x_l) > 0:
-            x_dtw.append(x_l)
-            y_dtw.append([])
-            if params['veryVerbose']:
-                print(f"Empty pair=([{x_l}],[])")
-        if len(y_l) > 0:
-            x_dtw.append([])
-            y_dtw.append(y_l)
-            if params['veryVerbose']:
-                print(f"Empty pair=([],[{y_l}])")
-        # constitution des groupes en fonctions des bornes
-        for i in range(len(dtw_path) - 1, -1, -1):
-            if dtw_path[i] != ():
-                (x, y) = dtw_path[i]
-                # if the point is not empty (interval border)
-                if i >= 1 and dtw_path[i - 1] != ():
-                    (prev_x, prev_y) = dtw_path[i - 1]
-                    x_l = list(range(prev_x + 1, x + 1))
-                    y_l = list(range(prev_y + 1, y + 1))
-
-                    if len(x_l) > 0 or len(y_l) > 0:
-                        x_dtw.append(x_l)
-                        y_dtw.append(y_l)
-                    nb_x += len(x_l)
-                    nb_y += len(y_l)
-                # if the point is the first of the interval, then use (x,y) as a simple point
+    # dans le cas où les fichiers sont alignés, on saute toute l'étape d'alignement phrastique
+    if not params['alreadyAligned']:
+        # checking if anchors are coherent
+        if len(pre_anchors_x) != len(pre_anchors_y) :
+            if params['matchFirstPreAnchors']:
+                if len(pre_anchors_x) > len(pre_anchors_y):
+                    pre_anchors_x=pre_anchors_x[:len(pre_anchors_y)]
                 else:
-                    # ~ x_dtw.append([x])
-                    # ~ y_dtw.append([y])
-                    # ~ nb_x+=1
-                    # ~ nb_y+=1
-                    # creating empty pairs for each gap
-                    if i - 2 >= 0 and dtw_path[i - 2] != () and params['print_gap']:
-                        (prev_x, prev_y) = dtw_path[i - 2]
-                        x_l = list(range(prev_x + 1, x + 1))
-                        y_l = list(range(prev_y + 1, y + 1))
+                    pre_anchors_y=pre_anchors_y[:len(pre_anchors_x)]
+                print("*************** Prealignment anchor mismatch ! only first ",len(pre_anchors_x)," anchors are kept !")
+            else:
+                print("*************** Prealignment anchor mismatch ! anchors will be ignored !")
+                pre_anchors_x.clear()
+                pre_anchors_y.clear()
+            
+        if len_sents1 * len_sents2 == 0:
+            print(f"File is empty ! No sentence read : len_sents1={len_sents1} len_sents2={len_sents2}")
+            return
+        # computing output file names
+        if output_file_name == "":
+            m = re.search(params['filePattern'], file1)
 
-                        if len(x_l) > 0:
-                            x_dtw.append(x_l)
-                            y_dtw.append([])
-                            if params['veryVerbose']:
-                                print(f"Empty pair=([{x_l}],[])")
-                        if len(y_l) > 0:
-                            x_dtw.append([])
-                            y_dtw.append(y_l)
-                            if params['veryVerbose']:
-                                print(f"Empty pair=([],[{y_l}])")
+            if m:
+                name1 = m.group(1)
+                m = re.search(params['filePattern'], file2)
+                name2 = m.group(1)
+                if name1 != name2:
+                    name = name1 + "-" + name2
+                else:
+                    name = name1
+                output_file_name = name + "." + l1 + "-" + l2
+                output_anchor_filename = name + ".anchor." + l1 + "-" + l2
+            else:
+                output_file_name = os.path.basename(file1) + "-" + os.path.basename(file2)
+                output_anchor_filename = file1 + "-" + file2 + ".anchor"
+        else:
+            output_anchor_filename = output_file_name + ".anchor"
 
-        # ~ print(f"first x={x},first y={y}")
-        # adding first empty pair
-        if params['print_gap']:
-            x_l = list(range(0, x))
-            y_l = list(range(0, y))
+        ####################################################### extract candidate anchor points here !
+
+        # =====> STEP 1-5 : extracting anchor points from similarity matrix
+
+        if params['useNgrams']:
+            (points, x, y, sim_mat) = compute_points_from_ngrams(params,sents1, sents2)  
+        else:
+            (points, x, y, sim_mat, embeds1, embeds2) = compute_points_with_encoder(params,preprocessor, encoder, sents1, sents2, embed_shelve)
+
+        # prints the similarity matrix
+        if params['showSimMat']:
+            print(sim_mat)
+            plt.imshow(sim_mat, vmin=0.2,  cmap='hot',origin='lower')
+            plt.show()
+
+        # adding anchor points and deleting mismatching coordinates
+        if len(pre_anchors_x) > 0 :
+            for x_anchor,y_anchor in zip(pre_anchors_x,pre_anchors_y):
+                params['verbose'] and print("Anchor :",x_anchor,y_anchor)
+                insertPoint=len(x)
+                for i in range(len(x)):
+                    if x[i] == x_anchor:
+                        # deleting old x_anchor,y point 
+                        if y[i]!=y_anchor and (x[i],y[i]) in points:
+                            params['verbose'] and print(f"Conflict with pre anchor Deleting point [x[i],y[i]]={[x[i],y[i]]}")
+                            del(points[(x[i],y[i])])
+                        break
+                
+                for j in range(len(y)):
+                    if y[j] == y_anchor:
+                        # deleting old x,y_anchor
+                        if x[j]!=x_anchor: 
+                            params['verbose'] and print(f"Conflict with pre anchor Deleting point [x[i],y[i]]={[x[j],y[j]]}")
+                            if (x[j],y[j]) in points :
+                                del(points[(x[j],y[j])])
+                        break
+                 
+                # [x_anchor,y_anchor] point has no conflicts
+                points[(x_anchor,y_anchor)]=1
+            
+            # sorting points according to first coordinate
+            points={ point:1 for point in sorted(list(points.keys()),key=lambda point:point[0])}
+
+        #######################################################  extract filtered anchor points here !
+
+        # =====> STEP 6-8 : filtering anchor points and extracting alignable intervals
+
+        (filtered_x, filtered_y, intervals, interval_length_sent1, interval_length_sent2, interval_length_char1,
+         interval_length_char2) = extract_anchor_points(params,pre_anchors_x, pre_anchors_y, points, x, y, sents1, sents2, len_sents1, len_sents2, sim_mat)
+
+        # In this mode, the char and sent ratios are recomputed according to the aligned intervals
+        # Then the anchor points are reextracted more finely using these values
+        if params['adaptativeMode']:
+            params['sentRatio'] = interval_length_sent2 / interval_length_sent1
+            params['charRatio'] = interval_length_char2 / interval_length_char1
+            print(f"Adapted ratios : sentRatio={sentRatio} charRatio={charRatio}")
+            (filtered_x, filtered_y, intervals, interval_length_sent1, interval_length_sent2, interval_length_char1,
+             interval_length_char2) = extract_anchor_points(params, pre_anchors_x, pre_anchors_y, points, x, y, sents1, sents2, len_sents1, len_sents2, sim_mat)
+
+        # write the intervals output file if necessary
+        if params['writeIntervals'] and len(intervals) > 0:
+            output_interval_filename = output_anchor_filename.replace(".anchor", ".intervals") + ".txt"
+            f_int = open(output_interval_filename, mode="w", encoding="utf8")
+            for interval in intervals:
+                (x1, y1) = interval[0]
+                (x2, y2) = interval[1]
+                # here sentence num starts from 1
+                f_int.write(f"{x1 + 1}-{x2 + 1}\t{y1 + 1}-{y2 + 1}\n")
+            f_int.close()
+
+        # write anchor point output
+        if (len(filtered_x) > 0):
+            if params['writeAnchorPoints']:
+            
+                x_final = []
+                y_final = []
+                score = 0
+                nbScore = 0
+                for (x2, y2) in zip(filtered_x, filtered_y):
+                    if sim_mat[x2, y2] >= params['cosThresholdInOutputAnchors']:
+                        x_final.append(x2)
+                        y_final.append(y2)
+                        score += sim_mat[x2, y2]
+                        nbScore += 2
+                if nbScore > 0:
+                    mean_score = score / nbScore
+                    for output_format in output_formats:
+                        write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_final, y_final, output_dir,
+                                             output_anchor_filename + "." + output_format, output_format, True, print_ids,
+                                             mean_score)
+                else:
+                    print("No anchor points over the cos Threshold")
+
+
+            # display of the points : eliminated points are red
+            if params['savePlot'] or params['showPlot']:
+
+                plt.axis([1, len_sents1, 1, len_sents2])
+                plt.autoscale()
+                plt.title(output_file_name + '.txt - filtered')
+                plt.scatter(x, y, c="red", s=1)
+                plt.scatter(filtered_x, filtered_y, c="black", s=1)
+                for interval in intervals:
+                    (i1, j1) = interval[0]
+                    (i2, j2) = interval[1]
+                    X = [i1, i1, i2, i2, i1]
+                    Y = [j1, j2, j2, j1, j1]
+                    plt.plot(X, Y, c="grey")
+                if params['savePlot']:
+                    plt.savefig(os.path.join(output_dir, output_file_name) + '.png')
+                if params['showPlot']:
+                    plt.show()
+                plt.close()
+
+            # writing intervals
+            if len(intervals) > 0 and params['writeAlignableArea']:
+                if not os.path.exists(output_dir):
+                    os.mkdir(output_dir)
+
+                write_alignable(sents1, id_sents1, intervals, 0, output_dir, file1 + "." + output_format, output_format)
+                write_alignable(sents2, id_sents2, intervals, 1, output_dir, file2 + "." + output_format, output_format)
+
+        # If no interval is alignable
+        if interval_length_sent1 == 0 or interval_length_sent2 == 0:
+            if print_log:
+                log.write(
+                    f"{output_file_name} not alignable\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={0}\tsilence1={1:.3f}\tsilence2={1:.3f}\tcommandLine=" + " ".join(
+                        sys.argv) + "\n")
+            if params['verbose']:
+                print(f"{output_file_name} not alignable")
+            return
+
+        # =====> STEP 9 : extracting complete alignment using DTW
+
+        if not params['doNotRunDTW']:
+            char_ratio = nb_chars2 / nb_chars1 if params['charRatio'] == 0 else params['charRatio']
+            params['verbose'] and print("Chararacter ratio=", char_ratio)
+
+            (dtw_path, score) = run_dtw(params, encoder, sents1, sents2, intervals, filtered_x, filtered_y, pre_anchors_x, sim_mat, embeds1,
+                                        embeds2, char_ratio, embed_shelve)
+            # x_dtw and y_dtw contains a list of list of corresponding coordinates
+            # eg. x_dtw=[[0],[1,2],[]]
+            # eg. y_dtw=[[0],[1],[2]]
+
+            x_dtw = []
+            y_dtw = []
+            nb_x = 0
+            nb_y = 0
+
+            if params['useShelve']:
+                encode_hash = embed_shelve
+            else:
+                encode_hash = {}
+
+            # Chaining the points
+
+            # adding empty pairs at the end
+            (last_x, last_y) = dtw_path[-1]
+            x_l = list(range(last_x + 1, len_sents1 - 1))
+            y_l = list(range(last_y + 1, len_sents2 - 1))
+
             if len(x_l) > 0:
                 x_dtw.append(x_l)
                 y_dtw.append([])
@@ -407,57 +356,116 @@ def align(params,preprocessor,encoder):
                 y_dtw.append(y_l)
                 if params['veryVerbose']:
                     print(f"Empty pair=([],[{y_l}])")
+            # constitution des groupes en fonctions des bornes
+            for i in range(len(dtw_path) - 1, -1, -1):
+                if dtw_path[i] != ():
+                    (x, y) = dtw_path[i]
+                    # if the point is not empty (interval border)
+                    if i >= 1 and dtw_path[i - 1] != ():
+                        (prev_x, prev_y) = dtw_path[i - 1]
+                        x_l = list(range(prev_x + 1, x + 1))
+                        y_l = list(range(prev_y + 1, y + 1))
 
-        x_dtw.reverse()
-        y_dtw.reverse()
+                        if len(x_l) > 0 or len(y_l) > 0:
+                            x_dtw.append(x_l)
+                            y_dtw.append(y_l)
+                        nb_x += len(x_l)
+                        nb_y += len(y_l)
+                    # if the point is the first of the interval, then use (x,y) as a simple point
+                    else:
+                        # ~ x_dtw.append([x])
+                        # ~ y_dtw.append([y])
+                        # ~ nb_x+=1
+                        # ~ nb_y+=1
+                        # creating empty pairs for each gap
+                        if i - 2 >= 0 and dtw_path[i - 2] != () and params['printGap']:
+                            (prev_x, prev_y) = dtw_path[i - 2]
+                            x_l = list(range(prev_x + 1, x + 1))
+                            y_l = list(range(prev_y + 1, y + 1))
 
-        # grouping points may occur here
-        if params['lateGrouping']:
-            (x_dtw, y_dtw) = late_grouping(x_dtw, y_dtw, encoder, sents1, sents2, encode_hash, sim_mat, embeds1,
-                                           embeds2, char_ratio)
+                            if len(x_l) > 0:
+                                x_dtw.append(x_l)
+                                y_dtw.append([])
+                                if params['veryVerbose']:
+                                    print(f"Empty pair=([{x_l}],[])")
+                            if len(y_l) > 0:
+                                x_dtw.append([])
+                                y_dtw.append(y_l)
+                                if params['veryVerbose']:
+                                    print(f"Empty pair=([],[{y_l}])")
 
-        # writing output files
-        mean_score = len(sents1) + len(sents2) - score
-        if params['verbose'] and len(sents1) > 0:
-            mean_score = 1 - (score / (len(sents1) + len(sents2)))
-            print(f"Average similarity={mean_score:.4f}")
-        silence1 = (len(sents1) - nb_x) / len(sents1)
-        silence2 = (len(sents2) - nb_y) / len(sents2)
+            # ~ print(f"first x={x},first y={y}")
+            # adding first empty pair
+            if params['printGap']:
+                x_l = list(range(0, x))
+                y_l = list(range(0, y))
+                if len(x_l) > 0:
+                    x_dtw.append(x_l)
+                    y_dtw.append([])
+                    if params['veryVerbose']:
+                        print(f"Empty pair=([{x_l}],[])")
+                if len(y_l) > 0:
+                    x_dtw.append([])
+                    y_dtw.append(y_l)
+                    if params['veryVerbose']:
+                        print(f"Empty pair=([],[{y_l}])")
 
-        if print_log:
-            log.write(
-                f"{output_file_name}\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={mean_score}\tignored1={(len(sents1) - nb_x)}\tsilence1={silence1:.3f}\tignored2={(len(sents2) - nb_y)}\tsilence2={silence2:.3f}\tcommandLine=" + " ".join(
-                    sys.argv) + "\n")
-        # print(f"{input_format=} {add_anchor=}")
-        
-        # write alignment files
-        for output_format in output_formats:
-            if output_format == "xml" and input_format == "xml" and add_anchor:
-                if not file_id1:
-                    file_id1 = l1
-                if not file_id2:
-                    file_id2 = l2
-                params['verbose'] and print("Add anchors in XML", output_file_name+".xml")
-                add_anchor_in_output(params, file1, file2, file_id1, file_id2, x_dtw, y_dtw)
-            else:
-                write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_dtw, y_dtw, output_dir,
-                                     output_file_name + "." + output_format, output_format, False, print_ids,
-                                     mean_score, file1, file2)
+            x_dtw.reverse()
+            y_dtw.reverse()
 
-        # =====> STEP 10 : parse aligned sentence, extract chunks and align chunk to get word 2 word alignment
-       
-        output_formats = params.get("outputFormats")
-        if params.get('chunkAlignment', True):
-            params['verbose'] and  print("Starting Chunk alignment....")
-            chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
+            # grouping points may occur here
+            if params['lateGrouping']:
+                (x_dtw, y_dtw) = late_grouping(x_dtw, y_dtw, encoder, sents1, sents2, encode_hash, sim_mat, embeds1,
+                                               embeds2, char_ratio)
 
-        if params.get('wordAlignment', True):
-            params['verbose'] and print("Starting Word alignment....")
-            word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
-        return mean_score
+            # writing output files
+            mean_score = len(sents1) + len(sents2) - score
+            if params['verbose'] and len(sents1) > 0:
+                mean_score = 1 - (score / (len(sents1) + len(sents2)))
+                print(f"Average similarity={mean_score:.4f}")
+            silence1 = (len(sents1) - nb_x) / len(sents1)
+            silence2 = (len(sents2) - nb_y) / len(sents2)
 
+            if print_log:
+                log.write(
+                    f"{output_file_name}\t{l1}={len(sents1)}\t{l2}={len(sents2)}\tmean_score={mean_score}\tignored1={(len(sents1) - nb_x)}\tsilence1={silence1:.3f}\tignored2={(len(sents2) - nb_y)}\tsilence2={silence2:.3f}\tcommandLine=" + " ".join(
+                        sys.argv) + "\n")
+            # print(f"{input_format=} {add_anchor=}")
+            
+            # write alignment files
+            for output_format in output_formats:
+                if output_format == "xml" and input_format == "xml" and add_anchor:
+                    if not file_id1:
+                        file_id1 = l1
+                    if not file_id2:
+                        file_id2 = l2
+                    params['verbose'] and print("Add anchors in XML", file1, file2)
+                    add_anchor_in_output(params, file1, file2, file_id1, file_id2, x_dtw, y_dtw)
+                else:
+                    write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_dtw, y_dtw, output_dir,
+                                         output_file_name + "." + output_format, output_format, False, print_ids,
+                                         mean_score, file1, file2)
+    else:
+        x_dtw=[[x] for x in pre_anchors_x]
+        y_dtw=[[y] for y in pre_anchors_y]
+   
     if params['useShelve']:
         embed_shelve.close()
+                
+    # =====> STEP 10 : parse aligned sentence, extract chunks and align chunk to get word 2 word alignment
+   
+    output_formats = params.get("outputFormats")
+    if params.get('chunkAlignment', True):
+        params['verbose'] and  print("Starting Chunk alignment....")
+        chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
+
+    if params.get('wordAlignment', True):
+        params['verbose'] and print("Starting Word alignment....")
+        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
+    return mean_score
+
+
+
 
     # for group [x_inf,..,x_sup], return the interval [x_inf-1,x_sup] (to use in distance_DTW)
 
@@ -739,7 +747,7 @@ def run_dtw(params, encoder, sents1, sents2, intervals, filtered_x, filtered_y, 
     for interval in intervals:
         (x_begin, y_begin) = interval[0]
         (x_end, y_end) = interval[1]
-        print (f"Current interval {interval=}")
+        print (f"Current interval {interval}")
         key_xy = (x_begin,y_begin)
         coeff_y_per_x = (y_end - y_begin) / (x_end - x_begin)
 
@@ -820,7 +828,7 @@ def run_dtw(params, encoder, sents1, sents2, intervals, filtered_x, filtered_y, 
                     # to the last point with x_2_y[prev_x] < y
                     
                     if y < previous_y:
-                        print(f"Monotonic discrepancy : {y=} < {previous_y=}. Recomputing previous_x.")
+                        print(f"Monotonic discrepancy : y={y} < previous_y={previous_y}. Recomputing previous_x.")
                         prev_x=previous_x
                         # looking for previous point according to y
                         found=False
@@ -957,7 +965,7 @@ def dtw(params,
             path_by_group = {}
             dist_by_group = {}
             # on examine chaque groupe
-            for group in params['allowed_groups']:
+            for group in params['allowedGroups']:
                 previous_i=i - group[0]
                 previous_j=j - group[1]
                 previous_key= (previous_i,previous_j)
@@ -977,7 +985,7 @@ def dtw(params,
 
             best_group = None
             min_dist = infinite
-            for group in params['allowed_groups']:
+            for group in params['allowedGroups']:
                 if dist_by_group[group] < min_dist:
                     min_dist = dist_by_group[group]
                     best_group = group
@@ -1052,7 +1060,7 @@ def distance_dtw(
         return infinite
 
     coeff = 2
-    if params['use_encoder']:
+    if params['useEncoder']:
         # similarity are computed for sentence group
         # case of relations 1-1
         if inf_i == i - 1 and inf_j == j - 1:
@@ -1125,7 +1133,7 @@ def distance_dtw(
             for k in range(len(embed_i)):
                 norm_i += embed_i[k] ** 2
             norm_i = math.sqrt(norm_i)
-            print(f"Plantage de linalg.norm, norme calculée directement {norm_i=}")
+            print(f"Plantage de linalg.norm, norme calculée directement norm_i={norm_i}")
 
         try:
             norm_j = np.linalg.norm(embed_j)  # normalize
@@ -1134,7 +1142,7 @@ def distance_dtw(
             for k in range(len(embed_j)):
                 norm_j += embed_j[k] ** 2
             norm_j = math.sqrt(norm_j)
-            print(f"Plantage de linalg.norm, norme calculée directement {norm_j=}")
+            print(f"Plantage de linalg.norm, norme calculée directement norm_j={norm_j}")
 
         embed_i = embed_i / norm_i  # normalize
         embed_j = embed_j / norm_j  # normalize

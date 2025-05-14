@@ -137,7 +137,7 @@ def toXML(s):
 ######################################################################### reading / writing files
 # reading input file
 
-def read_input_file(params, input_file, column=0, language="fr"):
+def read_input_file(params, input_file, splitSent, column=0, language="fr"):
     """Reads an input file and returns a list of sentences.
 
       Args:
@@ -158,11 +158,13 @@ def read_input_file(params, input_file, column=0, language="fr"):
     """
     global seg_min_length, merge_lines_regex
     
-    input_format=params['input_format'] 
-    input_dir=params['input_dir'] 
+    input_format=params['inputFormat'] 
+    input_dir=params['inputDir']
+    l1=params['l1']
+    l2=params['l2']
 
     # parameter for sentence segmentation
-    if params['splitSent']:
+    if splitSent:
         if params['useSentenceSegmenter']:
             from trankit import Pipeline
 
@@ -195,11 +197,11 @@ def read_input_file(params, input_file, column=0, language="fr"):
                 'default': r'(?<=[?;:.!"»…]) (?=[A-Z])',
             }
 
-            if params['splitSent'] and l1 not in split_sent_regex and not params["splitSentRegex"]:
+            if splitSent and l1 not in split_sent_regex and not params["splitSentRegex"]:
                 params['verbose'] and print(f"Default regex ", split_sent_regex["default"],
                                             f"will be used for sentence segmentation in {l1}")
                 split_sent_regex[l1] = split_sent_regex['default']
-            if params['splitSent'] and l2 not in split_sent_regex and not params["splitSentRegex"]:
+            if splitSent and l2 not in split_sent_regex and not params["splitSentRegex"]:
                 params['verbose'] and print(f"Default regex ", split_sent_regex["default"],
                                             f"will be used for sentence segmentation in {l2}")
                 split_sent_regex[l2] = split_sent_regex['default']
@@ -324,15 +326,16 @@ def read_input_file(params, input_file, column=0, language="fr"):
                     id_segs.append(elt.attrib["xml:id"])
                 else:
                     id_segs.append(str(len(segs)))
-
     # Default format: one sentence per line
     else:
         print("Warning : default format TXT")
-        for line in f:
+        for (i,line) in enumerate(f):
             line = line.strip()
             line = re.sub(r'\x0A|\x0D', '', line)
             nb_chars += len(line)
             segs.append(line)
+            if (params['alreadyAligned']):
+                pre_anchors.append(i)
         id_segs = [str(i) for i in list(range(1, len(segs) + 1))]
 
     # Here, the lines that corresponds to the same sentences may be merged
@@ -364,7 +367,7 @@ def read_input_file(params, input_file, column=0, language="fr"):
             id_sents.append("-".join(current_ids))
 
     # here, segments can be split in smaller pieces
-    elif params['splitSent']:
+    elif splitSent:
         if params['verbose']:
             print("Sentence segmentation for ", language)
         sents = []
@@ -515,7 +518,7 @@ def write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, filtered_
 
     l1=params['l1']
     l2=params['l2']
-    input_format=params['input_format']
+    input_format=params['inputFormat']
 
     if output_format == "txt2":
         output_file1 = output_file.replace(".txt2", "." + l1 + ".txt")
@@ -588,11 +591,14 @@ def write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, filtered_
             sent2 = " ".join(["[" + str(y[j]) + "] " + sents2[y[j]] for j in range(len(y))])
             output2.write(sent2 + "\n")
         elif output_format == "tsv":
-            ids1 = "[" + " ".join([str(x[j]) for j in range(len(x))]) + "] " if print_ids else ""
-            sent1 = " ".join([sents1[x[j]] for j in range(len(x))])
-            ids2 = "[" + " ".join([str(y[j]) for j in range(len(y))]) + "] " if print_ids else ""
-            sent2 = " ".join([sents2[y[j]] for j in range(len(y))])
-            output.write(f"{ids1}{sent1}\t{ids2}{sent2}\n")
+            if print_ids :
+                sent1 = " ".join(["["+str(x[j])+"] "+sents1[x[j]] for j in range(len(x))])
+                sent2 = " ".join(["["+str(y[j])+"] "+sents2[y[j]] for j in range(len(y))])
+            else:
+                sent1 = " ".join(["["+str(x[j])+"] "+sents1[x[j]] for j in range(len(x))])
+                sent2 = " ".join([sents2[y[j]] for j in range(len(y))])
+            output.write(f"{sent1}\t{sent2}\n")
+            
         elif output_format == "bertalign":
             ids1 = "[" + ",".join([str(x[j]) for j in range(len(x))]) + "]"
             ids2 = "[" + ",".join([str(y[j]) for j in range(len(y))]) + "]"
@@ -635,8 +641,8 @@ def add_anchor_in_output(params, input_file1, input_file2, file_id1, file_id2, x
     
     global xml_id_offset
 
-    input_dir=params['input_dir']
-    output_dir=params['output_dir']
+    input_dir=params['inputDir']
+    output_dir=params['outputDir']
     direction=params['direction']
     
     # opening files
@@ -682,16 +688,18 @@ def add_anchor_in_output(params, input_file1, input_file2, file_id1, file_id2, x
     sents1 = xml_root1.xpath(xpath)
     sents2 = xml_root2.xpath(xpath)
 
+    hash_sign_for_corresp = "#" if params['hashSignInAnchor'] else ""
+
     for i in range(len(x)):
         if len(x[i]) > 0 and len(y[i]) > 0:
             xi = x[i][0]
             yi = y[i][0]
-            corresp2_values = " ".join("#" + file_id1 + str(xi + xml_id_offset) for xi in x[i])
+            corresp2_values = " ".join(hash_sign_for_corresp + file_id1 + str(xi + xml_id_offset) for xi in x[i])
 
             if direction == "1<->2" or direction == "2->1":
                 anchor1 = etree.Element("anchor")
                 anchor1.set("{http://www.w3.org/XML/1998/namespace}id", file_id1 + str(xi + xml_id_offset))
-                anchor1.set("corresp", "#" + file_id2 + str(yi + xml_id_offset))
+                anchor1.set("corresp", hash_sign_for_corresp + file_id2 + str(yi + xml_id_offset))
                 prev = sents1[xi].getprevious()
                 if prev is not None:
                     prev.addnext(anchor1)
