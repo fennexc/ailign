@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 
 # local modules
 from anchor_points import extract_anchor_points, compute_points_from_ngrams, compute_points_with_encoder
-from read_write_files import read_input_file, write_alignable, write_aligned_points, add_anchor_in_output 
+from read_write_files import read_input_file, write_alignable, write_aligned_points, add_anchor_in_output, read_alignment_file
 from lexical_alignment import chunk_alignment, word_alignment
 
 # Various low level parameters
@@ -61,6 +61,11 @@ def load_sentence_encoder(params):
 
         print("*** Loading sbert model", params['modelName'])
         encoder = SentenceTransformer(params['modelName'])
+        if not params['useGPU']:
+            encoder.to("cpu")
+            print("Using device: CPU")
+        
+        
     elif params['embedModel'] == "labse-keras":
         import tensorflow_hub as hub
         import tensorflow as tf
@@ -142,13 +147,14 @@ def align(params,preprocessor,encoder):
         print(f"Allowed groups : {allowed_groups}")
 
     # reading files
-    (sents1, id_sents1, len_sents1, seg2sents1, nb_chars1,pre_anchors_x) = read_input_file(params, file1, params['splitSent1'],col1, l1)
-    (sents2, id_sents2, len_sents2, seg2sents2, nb_chars2,pre_anchors_y) = read_input_file(params, file2, params['splitSent2'],col2, l2)
+    (sents1, id_sents1, len_sents1, seg2sents1, nb_chars1,pre_anchors_x,xml_root1) = read_input_file(params, file1, params['splitSent1'],col1, l1)
+    (sents2, id_sents2, len_sents2, seg2sents2, nb_chars2,pre_anchors_y,xml_root2) = read_input_file(params, file2, params['splitSent2'],col2, l2)
+  
 
     params['verbose'] and print(f"len(pre_anchors_x)={len(pre_anchors_x)}, len(pre_anchors_x)={len(pre_anchors_y)}")
 
     # dans le cas où les fichiers sont alignés, on saute toute l'étape d'alignement phrastique
-    if not params['alreadyAligned']:
+    if not params['alreadyAligned'] and not params['alignedFileName']:
         # checking if anchors are coherent
         if len(pre_anchors_x) != len(pre_anchors_y) :
             if params['matchFirstPreAnchors']:
@@ -432,22 +438,28 @@ def align(params,preprocessor,encoder):
                         sys.argv) + "\n")
             # print(f"{input_format=} {add_anchor=}")
             
-            # write alignment files
-            for output_format in output_formats:
-                if output_format == "xml" and input_format == "xml" and add_anchor:
-                    if not file_id1:
-                        file_id1 = l1
-                    if not file_id2:
-                        file_id2 = l2
-                    params['verbose'] and print("Add anchors in XML", file1, file2)
-                    add_anchor_in_output(params, file1, file2, file_id1, file_id2, x_dtw, y_dtw)
-                else:
-                    write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_dtw, y_dtw, output_dir,
-                                         output_file_name + "." + output_format, output_format, False, print_ids,
-                                         mean_score, file1, file2)
+    elif params['alignedFileName']:
+        (x_dtw,y_dtw)=read_alignment_file(params)
+        mean_score=0
     else:
+        # todo : attention, corriger si split_sent, ou si on a des alignements vides
         x_dtw=[[x] for x in pre_anchors_x]
         y_dtw=[[y] for y in pre_anchors_y]
+        
+    # write alignment files
+    for output_format in output_formats:
+        if output_format == "xml" and input_format == "xml" and add_anchor:
+            if not file_id1:
+                file_id1 = l1
+            if not file_id2:
+                file_id2 = l2
+            params['verbose'] and print("Add anchors in XML", file1, file2)
+            add_anchor_in_output(params, file1, file2, xml_root1, xml_root2, file_id1, file_id2, x_dtw, y_dtw)
+        else:
+            write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_dtw, y_dtw, output_dir,
+                                 output_file_name + "." + output_format, output_format, False, print_ids,
+                                 mean_score, file1, file2)
+
    
     if params['useShelve']:
         embed_shelve.close()

@@ -23,6 +23,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from lxml import etree
+import csv
 
 #######################################
 # global parameters
@@ -33,7 +34,7 @@ xml_id_offset = 0
 merge_lines_regex = {
     'zh': r'[：，。？！”]\s*$',
     'fr': r'[?;:\.!"»…]\s*$',
-    'ar': r'(\.|۔)\s*$'
+    'ar': r'(\.|۔)\s*$',
 }
 
 ########################################
@@ -137,7 +138,7 @@ def toXML(s):
 ######################################################################### reading / writing files
 # reading input file
 
-def read_input_file(params, input_file, splitSent, column=0, language="fr"):
+def read_input_file(params, input_file, split_sent, column=0, language="fr"):
     """Reads an input file and returns a list of sentences.
 
       Args:
@@ -153,8 +154,11 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
         len_sents: the number of sentences
         seg2sents: a list of list of integer, that gives the 1-n correspondence
             between an original segment number and the list of final sentences
-            - if splitSent, for one segment, we may have more than one sentences
+            - if split_sent, for one segment, we may have more than one sentences
             - if mergeSent, more than one segment may correspond to the same merged sentence
+        nb_chars: the full number of characters that corresponds to the sentences
+        pre_anchors: the list of sent number that corresponds to pre_anchors
+        xml_root: the ET root element for xml formats
     """
     global seg_min_length, merge_lines_regex
     
@@ -162,9 +166,10 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
     input_dir=params['inputDir']
     l1=params['l1']
     l2=params['l2']
+    segmenter=None
 
     # parameter for sentence segmentation
-    if splitSent:
+    if split_sent:
         if params['useSentenceSegmenter']:
             from trankit import Pipeline
 
@@ -194,14 +199,15 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
                 'fr': r'(?<=[.!?;:])\s+(?=[A-Z«"])|(?<=[!?;:])',  # grimm Baudry
                 'de': r'(?<=[.!?;:’“]) (?=[A-Z«"„])|(?<=[!?;:])|(?=[‘“])',  # grimm KHM 1857
                 'grc': r'(?<=[?;:.!"»…])\s',
+                'la' : r'(?<=[?;:.!"»…])\s',
                 'default': r'(?<=[?;:.!"»…]) (?=[A-Z])',
             }
 
-            if splitSent and l1 not in split_sent_regex and not params["splitSentRegex"]:
+            if split_sent and l1 not in split_sent_regex and not params["splitSentRegex"]:
                 params['verbose'] and print(f"Default regex ", split_sent_regex["default"],
                                             f"will be used for sentence segmentation in {l1}")
                 split_sent_regex[l1] = split_sent_regex['default']
-            if splitSent and l2 not in split_sent_regex and not params["splitSentRegex"]:
+            if split_sent and l2 not in split_sent_regex and not params["splitSentRegex"]:
                 params['verbose'] and print(f"Default regex ", split_sent_regex["default"],
                                             f"will be used for sentence segmentation in {l2}")
                 split_sent_regex[l2] = split_sent_regex['default']
@@ -212,6 +218,7 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
     seg2sents = []
     nb_chars = 0
     pre_anchors = [] # in XML format, it is possible to define anchors of prealignment
+    xml_root = None
 
     try:
         input_file_path = os.path.join(input_dir, input_file) if input_dir else input_file
@@ -249,11 +256,14 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
     # the tsv format is an already aligned format. Sentence are extracted from a specific column
     elif input_format == "tsv":
         segs = []
-        for line in f:
+        for i,line in enumerate(f):
             alignedSegs = re.split("\t", line)
             segs.append(alignedSegs[column])
             nb_chars += len(alignedSegs[column])
+            if (params['alreadyAligned']):
+                pre_anchors.append(i)
         id_segs = [str(i) for i in list(range(1, len(segs) + 1))]
+        
 
     # in xml-conll, the conll sentences are encoded between <s></s> markup
     elif input_format == "xml-conll":
@@ -268,8 +278,8 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
 
         for s_elt in xml_root.findall('.//s'):
             s = "".join(s_elt.itertext())
-            # suppression des tabulations
-            s = re.sub(r"\t","",s)
+            # suppression des tabulations et espaces répétés
+            s = re.sub(r"\s+"," ",s)
             toks = []
             for line in re.split(r"\n", s):
                 cols = re.split("\t", line)
@@ -290,9 +300,9 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
     # the elements that are defined by xmlGuide (a list of tag or simple xpath expressions)
     elif input_format == "xml":
         content = f.read()
-        content = re.sub(r'xmlns="[^"]*"', "", content)
+        content = re.sub(r'xmlns="[^"]*"|encoding="UTF-?8"', "", content)
         try:
-            xml_root = ET.fromstring(content)
+            xml_root = etree.fromstring(content)
         except Exception as err :
             print("non conform XML :", os.path.join(input_dir, input_file))
             print(err)
@@ -301,7 +311,7 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
         segs = []
         # text element is default anchor 
         anchor_xpath= ".//" +params['anchorTag'] if params['anchorTag'] else ".//text"
-        for prealigned_elt in xml_root.findall(anchor_xpath):
+        for prealigned_elt in xml_root.xpath(anchor_xpath):
             if  params['anchorTag']:
                 # when an anchor or prealignment is found, feed the preAnchors list
                 pre_anchors.append(len(segs))
@@ -310,22 +320,50 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
                 prealigned_elts=[prealigned_elt]
             else:
                 xpath = '|'.join([".//" + tag for tag in params['xmlGuide'] if tag!=""])
-                prealigned_elts=prealigned_elt.findall(xpath)
+                prealigned_elts=prealigned_elt.xpath(xpath)
 
             for elt in prealigned_elts:
                 content = "".join(elt.itertext())
-                content = re.sub(r"[\n\t]", " ", content)
-                segs.append(content)
-                params['verbose'] and print("Adding sentence n°",len(segs))
+                content = re.sub(r"[\s]+", " ", content)
+                # if split_sent, new elements s must be added
+                if split_sent:
+                    sents=sentence_splitter(content,params,language,split_sent_regex,segmenter)
+                    # deleting childs
+                    for child in elt:
+                        print("Because of split sent, sub element",child.tag,"will be removed")
+                        elt.remove(child)
+                    elt.text=""
+                    # adding s elements as new children
+                    i=1
+                    for sent in sents:
+                        s=etree.Element("s")
+                        s.text=sent
+                        elt.append(s)
+                        
+                        segs.append(sent)
+                        params['verbose'] and print("Adding sentence n°",len(segs))
 
-                nb_chars += len(content)
-                # recording id in id_segs
-                if 'id' in elt.attrib:
-                    id_segs.append(elt.attrib["id"])
-                elif "xml:id" in elt.attrib:
-                    id_segs.append(elt.attrib["xml:id"])
+                        nb_chars += len(sent)
+                        # recording id in id_segs
+                        if 'id' in elt.attrib:
+                            id_segs.append(elt.attrib["id"]+"_"+str(i))
+                        elif "xml:id" in elt.attrib:
+                            id_segs.append(elt.attrib["xml:id"]+"_"+str(i))
+                        else:
+                            id_segs.append(str(len(segs)))
+                        i+=1
                 else:
-                    id_segs.append(str(len(segs)))
+                    segs.append(content)
+                    params['verbose'] and print("Adding sentence n°",len(segs))
+
+                    nb_chars += len(content)
+                    # recording id in id_segs
+                    if 'id' in elt.attrib:
+                        id_segs.append(elt.attrib["id"])
+                    elif "xml:id" in elt.attrib:
+                        id_segs.append(elt.attrib["xml:id"])
+                    else:
+                        id_segs.append(str(len(segs)))
     # Default format: one sentence per line
     else:
         print("Warning : default format TXT")
@@ -366,8 +404,8 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
             sents.append(" ".join(current_sent))
             id_sents.append("-".join(current_ids))
 
-    # here, segments can be split in smaller pieces
-    elif splitSent:
+    # here, segments can be split in smaller pieces (for xml format, already done !)
+    elif split_sent and input_format != "xml":
         if params['verbose']:
             print("Sentence segmentation for ", language)
         sents = []
@@ -378,37 +416,7 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
         for (i, seg) in enumerate(segs):
             if i in pre_anchors:
                 new_pre_anchors.append(len(sents))
-            # use trankit for sentence segmentation
-            if params['useSentenceSegmenter']:
-                print("segmentation de ", seg)
-                sentences = segmenter.ssplit(seg)['sentences']
-                some_sents = [sent['text'] for sent in sentences]
-            # or use a set of regex declared in splitSent
-            else:
-                if params["splitSentRegex"]:
-                    regex=params["splitSentRegex"]
-                elif language in split_sent_regex:
-                    regex = split_sent_regex[language]
-                else:
-                    regex = split_sent_regex["default"]
-                some_sents = re.split(regex, seg)
-            
-            last_sent = ""
-            new_sents = []
-            # the splitted segment that are too small (< seg_min_length)
-            # are grouped with the follower
-            for sent in some_sents:
-                if not re.match(r'^\s*$',sent):
-                    if len(last_sent + sent) > seg_min_length:
-                        new_sents.append(last_sent + " " + sent)
-                        last_sent = ""
-                    else:
-                        if last_sent == "":
-                            last_sent = sent
-                        else:
-                            last_sent += " " + sent
-            if last_sent:
-                new_sents.append(last_sent)
+            new_sents=sentence_splitter(content,params,language,split_sent_regex,segmenter)
 
             seg2sents.append(list(range(len(sents), len(sents) + len(new_sents))))
             new_ids = [id_segs[i]]
@@ -441,7 +449,59 @@ def read_input_file(params, input_file, splitSent, column=0, language="fr"):
         seg_file.write("\n".join([ (f"<anchor/> {i}: " if i in pre_anchors else f"{i}: ")+sent for i,sent in enumerate(sents)]))
         seg_file.close()
 
-    return (sents, id_sents, len_sents, seg2sents, nb_chars, pre_anchors)
+    return (sents, id_sents, len_sents, seg2sents, nb_chars, pre_anchors, xml_root)
+
+
+def sentence_splitter(seg,params,language,split_sent_regex,segmenter):
+    """
+    args :
+        seg (str): the segment to split in sentences
+        params (dict) : the global params
+        language (str): the language
+        split_sent_regex (dict) : the segmenting regex for each language
+        segmenter (obj) : the trankit segmenter
+    return:
+        new_sents (list[str]): the list of strings
+    
+    """
+    if params['verbose']:
+        print("Sentence segmentation for ", language)
+
+    if params['useSentenceSegmenter']:
+        segmenter.set_active(names[language])
+
+    # use trankit for sentence segmentation
+    if params['useSentenceSegmenter']:
+        print("segmentation de ", seg)
+        sentences = segmenter.ssplit(seg)['sentences']
+        some_sents = [sent['text'] for sent in sentences]
+    # or use a set of regex declared in split_sent
+    else:
+        if params["splitSentRegex"]:
+            regex=params["splitSentRegex"]
+        elif language in split_sent_regex:
+            regex = split_sent_regex[language]
+        else:
+            regex = split_sent_regex["default"]
+        some_sents = re.split(regex, seg)
+    
+    last_sent = ""
+    new_sents = []
+    # the splitted segment that are too small (< seg_min_length)
+    # are grouped with the follower
+    for sent in some_sents:
+        if not re.match(r'^\s*$',sent):
+            if len(last_sent + sent) > seg_min_length:
+                new_sents.append(last_sent + " " + sent)
+                last_sent = ""
+            else:
+                if last_sent == "":
+                    last_sent = sent
+                else:
+                    last_sent += " " + sent
+    if last_sent:
+        new_sents.append(last_sent)
+    return new_sents
 
 
 # write only alignable intervals of l1 or l2 file
@@ -595,7 +655,7 @@ def write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, filtered_
                 sent1 = " ".join(["["+str(x[j])+"] "+sents1[x[j]] for j in range(len(x))])
                 sent2 = " ".join(["["+str(y[j])+"] "+sents2[y[j]] for j in range(len(y))])
             else:
-                sent1 = " ".join(["["+str(x[j])+"] "+sents1[x[j]] for j in range(len(x))])
+                sent1 = " ".join([sents1[x[j]] for j in range(len(x))])
                 sent2 = " ".join([sents2[y[j]] for j in range(len(y))])
             output.write(f"{sent1}\t{sent2}\n")
             
@@ -623,7 +683,7 @@ def write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, filtered_
 
 
 # Writing anchors in xml files
-def add_anchor_in_output(params, input_file1, input_file2, file_id1, file_id2, x, y):
+def add_anchor_in_output(params, input_file1, input_file2, xml_root1, xml_root2, file_id1, file_id2, x, y):
     """
     Adds anchors in input xml files
 
@@ -631,6 +691,8 @@ def add_anchor_in_output(params, input_file1, input_file2, file_id1, file_id2, x
         input_dir: The directory containing the input file.
         file1: The name of the file1.
         file2: The name of the file2.
+        xml_root1 : The ET element for file1 (may be modified if split_sent=True)
+        xml_root2 : The ET element for file2 (may be modified if split_sent=True)
         x: the source coordinates
         y: the corresponding target coordinates
 
@@ -645,48 +707,24 @@ def add_anchor_in_output(params, input_file1, input_file2, file_id1, file_id2, x
     output_dir=params['outputDir']
     direction=params['direction']
     
-    # opening files
-    try:
-        input_file_path1 = os.path.join(input_dir, input_file1) if input_dir else input_file1
-        f1 = open(input_file_path1, encoding='utf8')
-    except:
-        print("Error: a problem occurred while opening", input_file_path1)
-        sys.exit()
-
-    content1 = f1.read()
-    content1 = re.sub(r'xmlns="[^"]*"|encoding="UTF-?8"', "", content1)
-    f1.close()
-    xml_root1 = etree.fromstring(content1)
-    try:
-        xml_root1 = etree.fromstring(content1)
-        # ~ xml_root1 = ET.ElementTree(ET.fromstring(content1))
-    except:
-        print("non conform XML :", input_file_path1)
-        sys.exit()
-
-    try:
-        input_file_path2 = os.path.join(input_dir, input_file2) if input_dir else input_file2
-        f2 = open(input_file_path2, encoding='utf8')
-    except:
-        print("Error: a problem occurred while opening", input_file1)
-        sys.exit()
-
-    content2 = f2.read()
-    content2 = re.sub(r'xmlns="[^"]*"|encoding=.UTF-?8.', "", content2)
-    f2.close()
-    try:
-        xml_root2 = etree.fromstring(content2)
-        # ~ xml_root2 = ET.ElementTree(ET.fromstring(content2))
-    except:
-        print("non conform XML :", input_file_path2)
-        sys.exit()
+    if xml_root1==None or xml_root2==None:
+        print ("Impossible to add anchors to",input_file1," and ",input_file2,"because of XML format problem")
+        return 
 
     segs = []
-    xpath = '|'.join(['.//' + tag for tag in params['xmlGuide']])
+    if params["splitSent1"]:
+        xpath1 = './/s'
+    else:
+        xpath1 = '|'.join(['.//' + tag for tag in params['xmlGuide']])
+    if params["splitSent2"]:
+        xpath2 = './/s'
+    else:
+        xpath2 = '|'.join(['.//' + tag for tag in params['xmlGuide']])
+        
     # ~ sents1= xml_root1.findall(xpath)
     # ~ sents2= xml_root2.findall(xpath)
-    sents1 = xml_root1.xpath(xpath)
-    sents2 = xml_root2.xpath(xpath)
+    sents1 = xml_root1.xpath(xpath1)
+    sents2 = xml_root2.xpath(xpath2)
 
     hash_sign_for_corresp = "#" if params['hashSignInAnchor'] else ""
 
@@ -776,3 +814,57 @@ def add_anchor_in_output(params, input_file1, input_file2, file_id1, file_id2, x
     except:
         print("Error: a problem occurred while writing", output_file_path2)
         sys.exit()
+
+# reading TSV or CES file with ids 
+def read_alignment_file(params):
+    """
+    args : 
+        params (dict): global params
+    returns :
+        x (list[list]): the list of num groups for x [[0,1],[2],[]...]
+        y (list[list]): the list of num groups for y [[0],[1],[2,3]...]
+    """
+    aligned_file_name=params['alignedFileName']
+    name_ext=os.path.splitext(aligned_file_name)
+    x=[]
+    y=[]
+ 
+    if name_ext[1].lower() in ('.csv','.tsv'):
+        delimiter= "\t" if name_ext[1].lower() == ".tsv" else ";"
+        with open(aligned_file_name, newline='') as csvfile:
+            csvreader = csv.reader(csvfile, delimiter=delimiter, quotechar='"')
+            i=0
+            j=0
+            for row in csvreader:
+                if len(row)==2:
+                    source=row[0]
+                    target=row[1]
+                    ids1=re.findall(r'\[\d.*?\]',source)
+                    ids2=re.findall(r'\[\d.*?\]',target)
+                    l1=list(range(i,i+len(ids1)))
+                    l2=list(range(j,j+len(ids2)))
+                    if l1!=[] or l2!=[]:
+                        x.append(l1)
+                        y.append(l2)
+                        i+=len(ids1)
+                        j+=len(ids2)
+                else:
+                    print("Unreadable line in alignment file :",row)
+            params['verbose'] and print("Aligned sentences: ",i,"x",j) 
+    elif name_ext[1].lower() in ('.ces','.cesalign'):
+        with open(aligned_file_name,encoding="utf8") as f:
+            for line in f:
+                m=re.search(r'<link xtargets\s*=\s*"(.*);(.*)"')
+                if m:
+                    l1=[ int(sid)-1 for sid in m.group(1).split(" ")]
+                    l2=[ int(sid)-1 for sid in m.group(2).split(" ")]
+                    x.append(l1)
+                    y.append(l2)
+                else:
+                    print("Unreadable line in alignment file :",line)
+    else:
+        print("Warning : can only process csv/tsv files with ID, or CESAlign format")
+        print(aligned_file_name,"will be ignored")
+    
+
+    return (x,y)

@@ -87,7 +87,8 @@ parser.add_argument('--col2', help='For TSV format, indicate the column of l2', 
 parser.add_argument('-o', '--outputFormats', nargs='+', type=str,
                     help='Formats of the output (TXT, TXT2, CES, ARC, XML, TSV, TSV2, BERTALIGN)')
 parser.add_argument('--collectionName', help='for TSV2 format (Lexicoscope) name of the collection')
-parser.add_argument('--alreadyAligned', help='for TXT format with two files aligned line by line', action="store_true")
+parser.add_argument('--alreadyAligned', help='for TXT or TSV format with two files aligned line by line', action="store_true")
+parser.add_argument('--alignedFileName', type=str, help='to import sentence alignments from a TSV file')
 parser.add_argument('--addAnchor', help='Add anchor in xml files', action="store_true")
 parser.add_argument('--direction', type=str, help='The aligning direction for anchors: "1<->2","1->2","2->1"')
 parser.add_argument('--inputFile1', type=str, help='The l1 input file to process')
@@ -188,6 +189,9 @@ parser.add_argument('--chunkAlignment', help='Run the chunk alignment script', a
 # other : persistance of embeddings
 parser.add_argument('--useShelve', help='Save the embeddings in shelve (in order to quick up the next run)',
                     action="store_true")
+parser.add_argument('--useGPU', help='Use GPU (otherwise CPU)',
+                    action="store_true")
+
 
 
 args = vars(parser.parse_args())

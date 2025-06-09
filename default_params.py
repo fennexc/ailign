@@ -18,6 +18,7 @@ def default_params(local_params={}):
     params['col1'] = 0
     params['col2'] = 1
     params['collectionName'] = ""
+    params['alignedFileName'] = ""
     params['alreadyAligned'] = False
     params['hashSignInAnchor'] = False
     params['direction'] = '1->2'
@@ -55,7 +56,7 @@ def default_params(local_params={}):
     params['deltaX'] = 20
     params['deltaY'] = 3
     params['minHorizontalDensity'] = 0.05
-    params['maxDistToTheDiagonal'] = 20
+    params['maxDistToTheDiagonal'] = 200
     params['minDensityRatio'] = 0.3
     params['maxGapSize'] = 100
     params['diagBeam'] = 1
@@ -74,7 +75,7 @@ def default_params(local_params={}):
     params['useShelve'] = False
     params['wordAlignment'] = False
     params['chunkAlignment'] = False
-    
+    params['useGPU']=True
     params['printLog'] = False # Print execution log in log file
     params['useEncoder'] = False # Use encoder for concatened sentences in groups 
                               # (if false, single sentence embeddings are summed)
