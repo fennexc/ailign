@@ -464,8 +464,7 @@ def sentence_splitter(seg,params,language,split_sent_regex,segmenter):
         new_sents (list[str]): the list of strings
     
     """
-    if params['verbose']:
-        print("Sentence segmentation for ", language)
+
 
     if params['useSentenceSegmenter']:
         segmenter.set_active(names[language])

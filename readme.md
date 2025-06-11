@@ -24,46 +24,64 @@ On calcule ainsi tous les chemins possibles entre les points d'ancrage fournis �
 Le cout d'un chemin est calculé comme la somme des distances des phrases ou groupes de phrases appariées, en utilisant les plongements de phrases (une distance alternative s'appuyant sur les longueurs de phrases et les probabilités de transition, comme chez Gale & Church 2012, pourrait être facilement implémentée).
 Pour un appariement vide (1-0 ou 0-1) on définit une distance constante (paramètre `dist_null`).
 
+3. optionnellement, on peut lancer l'alignement lexical lors d'une troisième étape.
+
 ## 2. Utilisation
 
-AIlign fonctionne en ligne de commande. Il peut s'appliquer sur 2 fichiers, ou sur tout un répertoire.
+AIlign fonctionne en ligne de commande. Il peut s'appliquer sur 2 fichiers, ou sur tout un répertoire. Il peut également prendre en entrée une liste de paires de fichiers.
 
 ### 2.1. Fonctionnement avec deux fichiers
 
 La ligne de commande prend la forme suivante: 
 
 ``` 
-python3 ailign.py --inputFile1 FILENAME1 --inputFile2 FILENAME2 --inputFormat INPUTFORMAT -- outputFormats OUTPUTFORMATS --outputDir OUTPUTDIR [--outputFile OUTPUTFILENAME] [--runDTW] [--col1 COL1] [--col2 COL2] [--l1 LANG1 --l2 LANG2]
+python3 ailign.py --inputFile1 FILENAME1 --inputFile2 FILENAME2 --inputFormat INPUTFORMAT -- outputFormats OUTPUTFORMATS --outputDir OUTPUTDIR [--outputFile OUTPUTFILENAME] [--l1 LANG1 --l2 LANG2]
 ```
-P.ex. :
+
+Pour lancer optionnellement la troisième étape, on peut rajouter les options :
+
+`--wordAlignment` : alignement mot à mot
+`--chunkAlignment` : alignement de chunks (groupes syntaxiques minimaux construits à partir des sorties de Stanza)
+
+
+Par exemple, avec les données de test présentes dans le répertoire ./test, pour aligner l'original de KHM53 (1857) avec la traduction de Martin (1846), on peut écrire :
 
 ```
-python3 ailign.py --inputFile1 "4. stanza/test.fr.xml" --inputFile2 "4. stanza/test.de.xml" --inputFormat xml-conll --outputFormats txt tmx ces --outputFile "5. aligned/test.fr-de"
+python3 ailign.py --inputFile1 "test/KHM53.1857.Grimm.de.xml" --inputFile2 "test/KHM53.1846.Martin.fr.xml" --inputFormat xml --outputFormats txt tmx ces xml --outputFile "test/KHM53" --addAnchor 
 ```
+Des balises <anchor> seront ajoutées dans le xml de sorties afin d'aligner le fichier 2 avec le fichier 1.
 
 Nota Bene : OUPUTFILENAME ne doit pas contenir d'extension : celle-ci est ajoutée en fonction des formats de sortie. 
+
+`--xmlGuide` : indique quelles sont les balises à prendre en compte pour la définition des segments (p.ex <s> <l> <seg> etc.)
+`--addAnchor` : permet d'ajouter des balises anchor dans la sortie XML. Dans le cas où `--direction 1->2` est indiqué, les correspondances des ancres du fichier 2 pointent vers le fichier 1, considéré comme pivot. Si on a `--direction 1<->2`, les correspondances des ancres sont ajoutées dans les deux directions.
+
 
 Si le format de fichier OUTPUTFILENAME n'est pas indiqué, le nommage du fichier sera effectué automatiquement, à partir de FILENAME1, FILENAME2, LANG1, LANG2 et l'extension du format de fichier.
 
 Les formats reconnus en entrée sont les suivants :
-- `txt` : format texte brut
-- `ces` : format cesAna
-- `arc` : format Arcade
+- `txt` : format texte brut. Chaque ligne forme un segment.
+- `ces` : format cesAna. Format XML contenant les segments entre balises "<s>"
+- `arc` : format Arcade.
 - `tsv` : format TSV (dans ce cas spécifier les paramètres `--col1` et `--col2` pour indiquer les indices de colonnes contenant l1 et l2)
+- `xml` : format XML (p.ex. XML TEI) contenant des balises de segmentation (typiquement `<s> </s>` mais d'autres balises sont possibles, à définir avec `--xmlGuide`). Le paramètre `--anchorTag` permet d'indiquer les balises correspondant à des zones préalignées (p.ex. des paragraphes, des strophes, des sections, etc.).
 - `xml-conll` : format XML contenant entre balise `<s> </s>` des phrases analysées en conll.
+
+Avec les paramètres `--splitSent1` et `--splitSent2` les segments lus en l1 (et respectivement l2) sont ensuite découpés en phrases plus petites. La grammaire de segmentation peut-être adaptée avec la regex donnée par l'argument `--splitSentRegex`. Par défaut, la regex employée est : `(?<=[?;:.!"»…]) (?=[A-Z])`.
 
 Les formats de sortie sont les suivants :
 - `cesAlign` : format xml contenant les appariements entre identifiants
 - `tmx` : format xml contenant les phrases sources et cibles alignés
 - `txt` : format texte brut où les phrases sources et cibles sont séparées par des retours chariots
-- `tsv` : format texte brut où les phrases sources et cibles sont séparées par des tabulations et regroupées sur une même ligne
+- `txt2` : format texte brut aboutissant à deux fichiers parallèles où les lignes se correspondent
+- `tsv` : format texte brut où les phrases sources et cibles sont séparées par des tabulations et regroupées sur une même ligne (format pour tableur)
 
 Plusieurs formats de sortie peuvent être spécifiés en même temps.
 
-Par défaut seule la phase 1 est exécutée. Pour lancer la phase 2, plus couteuse en temps, rajouter le paramètres `--runDTW`.
+Par défaut les deux phases sont exécutées. Pour lancer seulement la phase 1 (préalignement), rajouter le paramètres `--doNotRunDTW`.
 
 Autres paramètres contrôlant la sortie :
-- `doNotWriteAnchorPoints` : n'écrit pas le fichier `.anchor` contenant les points d'ancrage
+- `--writeAnchorPoints` : écrit le fichier `.anchor` contenant les points d'ancrage
 - `--l1` et `--l2` : indiquent les langues concernées (p.ex. `fr` et `en`), utiles pour la sortie `tmx`.
 - `--savePlot` : enregistre le graphique des points d'ancrage dans un fichier png
 - `--showPlot` : affiche le graphique des points d'ancrage.
@@ -76,7 +94,7 @@ On place les fichiers sources et cibles dans un répertoire. Pour l'identificati
 La ligne de commande prend la forme suivante: 
 
 ``` 
-python3 ailign.py --inputDir INPUTDIR [--filePattern FILEPATTERN] --inputFormat INPUTFORMAT -- outputFormats OUTPUTFORMATS --outputDir OUTPUTDIR [--runDTW] [--col1 COL1] [--col2 COL2] --l1 LANG1 [--l2 LANG2]
+python3 ailign.py --inputDir INPUTDIR [--filePattern FILEPATTERN] --inputFormat INPUTFORMAT -- outputFormats OUTPUTFORMATS --outputDir OUTPUTDIR --l1 LANG1 [--l2 LANG2]
 ```
 - Le paramètre `filePattern` est fixé par défaut à `"(.*)[.](\w\w\w?)[.]\w+$"`. Il s'agit d'une expression régulière contenant deux parenthèses capturantes. La première capture la partie commune des fichiers à aligner et la seconde capture la langue sur deux ou trois caractères. Ce paramètre peut nécessiter une adaptation en cas de schéma de nommage plus compliqué. Par exemple, supposons que l'on gère plusieurs traductions d'une même oeuvre comme ci-dessous :
 
@@ -94,6 +112,22 @@ Dans ce cas la partie commune doit être définie comme la partie qui précède 
 - le paramètre `l2` vaut `"*"` par défaut. Dans ce cas, tout fichier contenant la même partie commune qu'un fichier de l1, et respectant le pattern filePattern, sera aligné avec ce fichier de l1, quelle que soit sa langue.
 
 - pour le nommage des fichiers cibles, celui-ci sera obtenu avec la concaténation des deux noms de fichier alignés.
+
+### 2.3. Fonctionnement avec un fichier list.txt contenant la liste des paires de fichiers à traiter
+
+La liste des paires de fichiers peut être spécifiée dans un fichier, chaque nom de fichier étant séparé par une tabulation. Le format est :
+
+``` 
+python3 ailign.py --inputFileList FILENAMELIST --inputFormat INPUTFORMAT --outputFormats OUTPUTFORMATS --outputDir OUTPUTDIR
+```
+
+Par exemple, avec les données de test présentes dans le répertoire ./test, pour aligner toutes les traductions de l'Iliade avec la traduction de Certon comme pivot, on peut écrire :
+
+```
+python3 ailign.py --inputFileList "test/filelist.txt" --inputFormat xml --outputFormats txt tmx ces xml --outputDir "test/aligned" --addAnchor --xmlGuide l --direction "1->2" --anchorTag "lg"
+```
+
+Les balises <lg> font office de balises de préalignement (anchorTag).
 
 ## 3. Paramétrages
 
@@ -120,13 +154,26 @@ Les principaux paramètres sont :
 ## 4. Référence à citer
 
 Kraif, Olivier (2024). Adaptative Bilingual Aligning Using Multilingual Sentence Embedding. Pre-print Arxiv. https://arxiv.org/abs/2403.11921
+Kraif, Olivier (2025). Alignement bi-textuel adaptatif basé sur des plongements multilingues. Actes de Coria-TALN 2025, Marseille, 1-5 juillet 2025.
+
+## 5. Modules python requis
+
+BTrees
+lxml
+matplotlib
+numpy
+sentence_transformers
+stanza
+
+Installation : 
+
+`pip3 install BTrees lxml matplotlib numpy sentence_transformers stanza`
 
 
+## Crédits et licence
 
-## Licence
+Conçu et réalisé par Olivier Kraif, Université Grenoble Alpes, 2023-2025. Pour la partie alignement lexical / alignement des chunks, conçu et réalisé avec Elnaz Jalilian.
 
-Conçu et réalisé par O. Kraif, Université Grenoble Alpes, 2023.
-
-Merci à Inès Adjoudj, Beliz Ozkan et Beining Yang pour leurs contributions.
+Merci à Inès Adjoudj, Beliz Ozkan et Beining Yang pour leurs contributions lors de leur stage.
 
 (cc) CC-BY-NC
