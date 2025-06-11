@@ -416,7 +416,7 @@ def read_input_file(params, input_file, split_sent, column=0, language="fr"):
         for (i, seg) in enumerate(segs):
             if i in pre_anchors:
                 new_pre_anchors.append(len(sents))
-            new_sents=sentence_splitter(content,params,language,split_sent_regex,segmenter)
+            new_sents=sentence_splitter(seg,params,language,split_sent_regex,segmenter)
 
             seg2sents.append(list(range(len(sents), len(sents) + len(new_sents))))
             new_ids = [id_segs[i]]
