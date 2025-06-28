@@ -246,7 +246,7 @@ if __name__ == "__main__":
     # processing a full directory
     else:
         if params['verbose']:
-            print("Processing directory", params['input_dir'])
+            print("Processing directory", params['inputDir'])
         # reading a tsv file with pairs fileName1 tab fileName2
         
         # processing files according to inputFileList
@@ -278,7 +278,7 @@ if __name__ == "__main__":
                 align(params,preprocessor,encoder)
         else:
             # processing files according to filePattern, l1 and l2, in input_dir
-            files = [f for f in os.listdir(params['input_dir']) if
+            files = [f for f in os.listdir(params['inputDir']) if
                      params['filePattern'].match(f)]  # and re.search(input_format+"$",f,re.I)]
             files1 = [f for f in files if params['filePattern'].match(f).group(2) == params['l1']]
             files2 = [f for f in files if params['filePattern'].match(f).group(2) != params['l1'] and (

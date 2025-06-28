@@ -164,10 +164,16 @@ matplotlib
 numpy
 sentence_transformers
 stanza
+pyconll
 
 Installation : 
 
-`pip3 install BTrees lxml matplotlib numpy sentence_transformers stanza`
+Pour lxml sur Ubuntu/Debian : 
+`sudo apt-get install python3-libxml2`
+`python3 -m pip install lxml==4.6.3`
+
+`pip3 install -U Pillow`
+`pip3 install BTrees matplotlib numpy sentence_transformers stanza pyconll`
 
 
 ## Crédits et licence
@@ -175,5 +181,7 @@ Installation :
 Conçu et réalisé par Olivier Kraif, Université Grenoble Alpes, 2023-2025. Pour la partie alignement lexical / alignement des chunks, conçu et réalisé avec Elnaz Jalilian.
 
 Merci à Inès Adjoudj, Beliz Ozkan et Beining Yang pour leurs contributions lors de leur stage.
+
+Une partie de ces développements a été financée par un projet IRGA 2023 (IDEX UGA).
 
 (cc) CC-BY-NC
