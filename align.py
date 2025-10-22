@@ -425,9 +425,10 @@ def align(params,preprocessor,encoder):
                                                embeds2, char_ratio)
 
             # writing output files
-            mean_score = len(sents1) + len(sents2) - score
-            if params['verbose'] and len(sents1) > 0:
+            mean_score = 0
+            if len(sents1) > 0 and len(sents2) > 0:
                 mean_score = 1 - (score / (len(sents1) + len(sents2)))
+            if params['verbose']:
                 print(f"Average similarity={mean_score:.4f}")
             silence1 = (len(sents1) - nb_x) / len(sents1)
             silence2 = (len(sents2) - nb_y) / len(sents2)

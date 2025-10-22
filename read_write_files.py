@@ -300,7 +300,8 @@ def read_input_file(params, input_file, split_sent, column=0, language="fr"):
     # the elements that are defined by xmlGuide (a list of tag or simple xpath expressions)
     elif input_format == "xml":
         content = f.read()
-        content = re.sub(r'xmlns="[^"]*"|encoding="UTF-?8"', "", content)
+        content = re.sub(r'<\?xml.*\?>', "", content,flags=re.I) # deleting xml declaration
+        content = re.sub(r'xmlns="[^"]*"', "", content,flags=re.I) # deleting xml declaration
         try:
             xml_root = etree.fromstring(content)
         except Exception as err :
@@ -311,7 +312,8 @@ def read_input_file(params, input_file, split_sent, column=0, language="fr"):
         segs = []
         # text element is default anchor 
         anchor_xpath= ".//" +params['anchorTag'] if params['anchorTag'] else ".//text"
-        for prealigned_elt in xml_root.xpath(anchor_xpath):
+        for prealigned_elt in xml_root.findall(anchor_xpath):
+            print(f"{prealigned_elt=}")
             if  params['anchorTag']:
                 # when an anchor or prealignment is found, feed the preAnchors list
                 pre_anchors.append(len(segs))
@@ -604,6 +606,7 @@ def write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, filtered_
         # ~ name=m.group(1)
         name1 = os.path.basename(file1)
         name2 = os.path.basename(file2)
+        collection_name=params['collectionName']
         output.write(f"source={l1}/{collection_name}/{name1}	target={l2}/{collection_name}/{name2}\n\n")
 
     # output sentences

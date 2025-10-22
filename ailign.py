@@ -271,10 +271,10 @@ if __name__ == "__main__":
                 params['inputFile1']=file1
                 params['inputFile2']=file2
                 output_file_name = ""
-                if params['filePattern'].match(file1):
-                    output_file_name = params['filePattern'].match(file1).group(1)
-                    params['l1'] = params['filePattern'].match(file1).group(2)
-                    params['l2'] = params['filePattern'].match(file2).group(2)
+                if params['filePattern'].search(file1):
+                    output_file_name = params['filePattern'].search(file1).group(1)
+                    params['l1'] = params['filePattern'].search(file1).group(2)
+                    params['l2'] = params['filePattern'].search(file2).group(2)
                 align(params,preprocessor,encoder)
         else:
             # processing files according to filePattern, l1 and l2, in input_dir

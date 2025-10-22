@@ -1,8 +1,8 @@
 def default_params(local_params={}):
     params={}
     
-    params['l1'] = "l1"
-    params['l2'] = "l2"
+    params['l1'] = "src"
+    params['l2'] = "tgt"
     params['inputFile1'] = ""
     params['inputFile2'] = ""
     params['inputFormat'] = "txt"
@@ -23,7 +23,7 @@ def default_params(local_params={}):
     params['hashSignInAnchor'] = False
     params['direction'] = '1->2'
     params['inputFileList'] = ''
-    params['filePattern'] = r'([^\\/]*)[.](\w\w\w?)[.]\w+$'
+    params['filePattern'] = r'([^\\/]*)[._](\w\w\w?)[.]\w\w\w$'
     params['writeAnchorPoints'] = False
     params['writeSegmentedInput'] = False
     params['writeIntervals'] = False
