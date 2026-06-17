@@ -8,6 +8,7 @@ import json
 import pyconll
 import re
 import sys
+import xml.etree.ElementTree as ET
 
 def convert_conll_list_to_string(doc):
     try:
@@ -106,6 +107,34 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
     </cesAlign>
     """
+
+    tei_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>{file_name}</title>
+      </titleStmt>
+      <sourceDesc>
+        <p>ailigne</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="{l1}"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+    """
+    tei_align_footer = """
+    </body>
+  </text>
+</TEI>
+    """
+
+
     # Load Stanza models for the specified languages
     nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,mwt,pos,lemma,depparse')
     nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,mwt,pos,lemma,depparse')
@@ -261,6 +290,18 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 formatted_file.write(f"{alignment['l2_word']}\t")
                 formatted_file.write(f"{alignment['similarity']}\n")
 
+    if "tei" in outputFormats:
+        tei_align_body = ""
+        for (id1, id2), alignment in zip(alignments_ids, alignments):
+            tei_align_body += f'        <seg corresp="{id2}">\n'
+            tei_align_body += f'          <w xml:id="{id1}" lemma="{alignment['l1_word']}" pos=""/>{alignment['l1_word']}</w>\n'
+            tei_align_body += f'        </seg>\n'
+        tei_align_content = tei_align_header + tei_align_body + tei_align_footer
+        output_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.tei.xml"
+        output_path = os.path.join(output_directory, output_file_name)
+        with open(output_path, 'w', encoding='utf-8') as file:
+            file.write(tei_align_content)
+         
     return alignments
 
 def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats):
@@ -285,6 +326,33 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
 
         </cesAlign>
         """
+
+    tei_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>{file_name}</title>
+      </titleStmt>
+      <sourceDesc>
+        <p>ailigne</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="{l1}"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+    """
+    tei_align_footer = """
+    </body>
+  </text>
+</TEI>
+    """
+
     # Load Stanza models for the specified languages
     nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,mwt,pos,lemma,depparse')
     nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,mwt,pos,lemma,depparse')
@@ -430,6 +498,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
         output_path_json = os.path.join(output_directory, output_file_name_json)
         with open(output_path_json, 'w', encoding='utf-8') as file:
             json.dump(alignments, file, ensure_ascii=False, indent=4)
+
     if "ces" in outputFormats:
         ces_align_body = ""
         for i, (id1, id2) in enumerate(alignments_ids):
@@ -441,6 +510,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
         output_path = os.path.join(output_directory, output_file_name)
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(ces_align_content)
+
     if "txt" in outputFormats:
         aligned_txt_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.txt"
         output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
@@ -451,6 +521,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
                 formatted_file.write(f"{formatted_ids1} {alignment['l1_chunk']}\n")
                 formatted_file.write(f"{formatted_ids2} {alignment['l2_chunk']}\n")
                 formatted_file.write('\n')
+
     if "tsv" in outputFormats:
         aligned_txt_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.tsv"
         output_path_formatted = os.path.join(output_directory, aligned_txt_file_name)
@@ -467,5 +538,26 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
                 formatted_file.write(f"{upos1}\t")
                 formatted_file.write(f"{upos2}\n")                
 
+    if "tei" in outputFormats:
+        tei_align_body = ""
+        for (ids1, ids2), alignment in zip(alignments_ids, alignments):
+            corresp = " ".join(f"#{tok_id}" for tok_id in ids2)
+            tei_align_body += f'        <seg corresp="{corresp}">\n'
+            for tok_id in ids1:
+                tok = tokens1[tok_id]
+                form = tok.form or ""
+                lemma = tok.lemma or ""
+                pos = tok.upos or ""
+                tei_align_body += (
+                    f'          <w xml:id="{tok_id}" '
+                    f'lemma="{lemma}" '
+                    f'pos="{pos}">{form}</w>\n'
+                )
+            tei_align_body += '        </seg>\n'
+        tei_align_content = tei_align_header + tei_align_body + tei_align_footer
+        output_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.tei.xml"
+        output_path = os.path.join(output_directory, output_file_name)
+        with open(output_path, 'w', encoding='utf-8') as file:
+            file.write(tei_align_content)
                 
     return alignments
