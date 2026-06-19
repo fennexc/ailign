@@ -53,7 +53,7 @@ Des balises <anchor> seront ajoutées dans le xml de sorties afin d'aligner le f
 
 Nota Bene : OUPUTFILENAME ne doit pas contenir d'extension : celle-ci est ajoutée en fonction des formats de sortie. 
 
-`--xmlGuide` : indique quelles sont les balises à prendre en compte pour la définition des segments (p.ex <s> <l> <seg> etc.)
+`--xmlGuide` : indique quelles sont les balises à prendre en compte pour la définition des segments (p.ex `<s>` `<l>` `<seg>` etc.)
 `--addAnchor` : permet d'ajouter des balises anchor dans la sortie XML. Dans le cas où `--direction 1->2` est indiqué, les correspondances des ancres du fichier 2 pointent vers le fichier 1, considéré comme pivot. Si on a `--direction 1<->2`, les correspondances des ancres sont ajoutées dans les deux directions.
 
 
@@ -61,7 +61,7 @@ Si le format de fichier OUTPUTFILENAME n'est pas indiqué, le nommage du fichier
 
 Les formats reconnus en entrée sont les suivants :
 - `txt` : format texte brut. Chaque ligne forme un segment.
-- `ces` : format cesAna. Format XML contenant les segments entre balises "<s>"
+- `ces` : format cesAna. Format XML contenant les segments entre balises `<s>`
 - `arc` : format Arcade.
 - `tsv` : format TSV (dans ce cas spécifier les paramètres `--col1` et `--col2` pour indiquer les indices de colonnes contenant l1 et l2)
 - `xml` : format XML (p.ex. XML TEI) contenant des balises de segmentation (typiquement `<s> </s>` mais d'autres balises sont possibles, à définir avec `--xmlGuide`). Le paramètre `--anchorTag` permet d'indiquer les balises correspondant à des zones préalignées (p.ex. des paragraphes, des strophes, des sections, etc.).
