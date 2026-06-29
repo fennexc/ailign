@@ -8,8 +8,8 @@ USAGE :
 python3 ailign.py [--inputFormat INPUTFORMAT] --inputFile1 FILE1 --inputFile2 FILE2 --outputFileName outputFileName --outputFormats FORMATS
 
 Examples :
-python3 ailign.py --inputFormat json --inputFile1 4.\ stanza/KHM53.1819.grimm.de.json --inputFile2 4.\ stanza/KHM53.1869.alsleben.fr.json --outputFileName KHM53.alsleben.de-fr.txt --outputFormats txt ces
-python3 ailign.py --inputFile1 2.\ txt/KHM53.1846.martin.fr.txt --inputFile2 2.\ txt/KHM53.1869.alsleben.fr.txt --outputFileName 5.\ aligned/KHM.1846-1869.fr-fr --outputFormats tmx txt  --savePlot --verbose
+python3 ailign.py --inputFormat json --inputFile1 4. stanza/KHM53.1819.grimm.de.json --inputFile2 4. stanza/KHM53.1869.alsleben.fr.json --outputFileName KHM53.alsleben.de-fr.txt --outputFormats txt ces
+python3 ailign.py --inputFile1 2. txt/KHM53.1846.martin.fr.txt --inputFile2 2. txt/KHM53.1869.alsleben.fr.txt --outputFileName 5. aligned/KHM.1846-1869.fr-fr --outputFormats tmx txt  --savePlot --verbose
 python3 ailign.py --inputFile1 corpus_aristophane/Plutus.Fleury.fr.txt --inputFile2 corpus_aristophane/Plutus.Fallex.fr.txt --outputFileName corpus_aristophane_aligné/Plutus.Fallex-Fleury.fr-fr --outputFormats tmx txt  --savePlot --verbose --margin 0.01 --cosThreshold 0.5 --k 2 --deltaX 20 --minDensityRatio 1.1
 
 
@@ -57,7 +57,7 @@ from default_params import default_params
 parser = argparse.ArgumentParser(
     prog='ailign',
     formatter_class=argparse.RawDescriptionHelpFormatter,
-    description='''\
+    description='''
 A program that align sentences for parallel text pairs. 
 
 Input : 
