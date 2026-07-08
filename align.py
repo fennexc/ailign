@@ -470,11 +470,11 @@ def align(params,preprocessor,encoder):
     output_formats = params.get("outputFormats")
     if params.get('chunkAlignment', True):
         params['verbose'] and  print("Starting Chunk alignment....")
-        chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
+        chunk_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats, file1, file2)
 
     if params.get('wordAlignment', True):
         params['verbose'] and print("Starting Word alignment....")
-        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats)
+        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats, file1, file2)
     return mean_score
 
 

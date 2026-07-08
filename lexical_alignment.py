@@ -10,6 +10,25 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
+def tei_id_prefix(file_path, fallback_lang):
+    """Build ids like prose_1_ar from filenames like prose.1.ar.txt."""
+    name = os.path.basename(file_path or "")
+    for suffix in (".tei.xml", ".xml", ".tei", ".txt"):
+        if name.endswith(suffix):
+            name = name[:-len(suffix)]
+            break
+    parts = [part for part in re.split(r"[._-]+", name) if part]
+    if len(parts) >= 3 and parts[-1] == "fr":
+        parts = parts[:-1]
+    if len(parts) >= 2:
+        return "_".join(parts)
+    return fallback_lang
+
+
+def token_ref(prefix, token_id):
+    return f"{prefix}_t{token_id}"
+
+
 def convert_conll_list_to_string(doc):
     try:
         conll_string = ""
@@ -84,7 +103,7 @@ def update_conll_ids(conll_string, start_id=0):
 
     return updated_conll, current_id
 
-def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats):
+def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2=""):
     # cesalign format is used to store alignment result
     ces_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
 
@@ -121,7 +140,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     </fileDesc>
     <profileDesc>
       <langUsage>
-        <language ident="{l1}"/>
+        <language ident="{l2}"/>
       </langUsage>
     </profileDesc>
   </teiHeader>
@@ -149,6 +168,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     
     langSrc = l1
     langTarget = l2
+    prefix1 = tei_id_prefix(file1, l1)
+    prefix2 = tei_id_prefix(file2, l2)
 
 
 
@@ -293,8 +314,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     if "tei" in outputFormats:
         tei_align_body = ""
         for (id1, id2), alignment in zip(alignments_ids, alignments):
-            tei_align_body += f'        <seg corresp="{id2}">\n'
-            tei_align_body += f'          <w xml:id="{id1}" lemma="{alignment['l1_word']}" pos=""/>{alignment['l1_word']}</w>\n'
+            tei_align_body += f'        <seg corresp="#{token_ref(prefix1, id1)}">\n'
+            tei_align_body += f'          <w xml:id="{token_ref(prefix2, id2)}" lemma="{alignment['l2_word']}" pos="">{alignment['l2_word']}</w>\n'
             tei_align_body += f'        </seg>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
         output_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.tei.xml"
@@ -304,7 +325,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
          
     return alignments
 
-def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats):
+def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2=""):
     ces_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
 
         <cesAlign type="seg" version="1.6">
@@ -340,7 +361,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
     </fileDesc>
     <profileDesc>
       <langUsage>
-        <language ident="{l1}"/>
+        <language ident="{l2}"/>
       </langUsage>
     </profileDesc>
   </teiHeader>
@@ -368,6 +389,8 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
     #filename_split= file_name.split("/")[-1].split("_")[1].split(".")
     langSrc = l1
     langTarget = l2
+    prefix1 = tei_id_prefix(file1, l1)
+    prefix2 = tei_id_prefix(file2, l2)
 
     # Iterate over each group of aligned sentences
     # The function zip(x, y) pairs each element of x with the corresponding element in y,
@@ -541,15 +564,15 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
     if "tei" in outputFormats:
         tei_align_body = ""
         for (ids1, ids2), alignment in zip(alignments_ids, alignments):
-            corresp = " ".join(f"#{tok_id}" for tok_id in ids2)
+            corresp = " ".join(f"#{token_ref(prefix1, tok_id)}" for tok_id in ids1)
             tei_align_body += f'        <seg corresp="{corresp}">\n'
-            for tok_id in ids1:
-                tok = tokens1[tok_id]
+            for tok_id in ids2:
+                tok = tokens2[tok_id]
                 form = tok.form or ""
                 lemma = tok.lemma or ""
                 pos = tok.upos or ""
                 tei_align_body += (
-                    f'          <w xml:id="{tok_id}" '
+                    f'          <w xml:id="{token_ref(prefix2, tok_id)}" '
                     f'lemma="{lemma}" '
                     f'pos="{pos}">{form}</w>\n'
                 )
