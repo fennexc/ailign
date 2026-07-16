@@ -70,7 +70,7 @@ must be named following this pattern : NAME..*.L1.txt NAME..*.L2.txt
 
 Output :
 The output will yield a new file (or a new pair of files) that contain a selection of 
-sentences in TXT, CES, TSV, BERTALIGN or ARC format, in order to be easily aligned
+sentences in TXT, CES, TSV, TEI, BERTALIGN or ARC format, in order to be easily aligned
 in a next step (the non parallel text is supposed to be removed).
 '''
 )
@@ -85,7 +85,7 @@ parser.add_argument('--anchorTag',type=str, help='Tag that defines prealigned an
 parser.add_argument('--col1', help='For TSV format, indicate the column of l1', type=int)
 parser.add_argument('--col2', help='For TSV format, indicate the column of l2', type=int)
 parser.add_argument('-o', '--outputFormats', nargs='+', type=str,
-                    help='Formats of the output (TXT, TXT2, CES, ARC, XML, TSV, TSV2, BERTALIGN)')
+                    help='Formats of the output (TXT, TXT2, CES, ARC, XML, TEI, TSV, TSV2, BERTALIGN)')
 parser.add_argument('--collectionName', help='for TSV2 format (Lexicoscope) name of the collection')
 parser.add_argument('--alreadyAligned', help='for TXT or TSV format with two files aligned line by line', action="store_true")
 parser.add_argument('--alignedFileName', type=str, help='to import sentence alignments from a TSV file')

@@ -9,6 +9,7 @@ import pyconll
 import re
 import sys
 import xml.etree.ElementTree as ET
+from xml.sax.saxutils import escape, quoteattr
 
 def tei_id_prefix(file_path, fallback_lang):
     """Build ids like prose_1_ar from filenames like prose.1.ar.txt."""
@@ -313,10 +314,15 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
     if "tei" in outputFormats:
         tei_align_body = ""
-        for (id1, id2), alignment in zip(alignments_ids, alignments):
-            tei_align_body += f'        <seg corresp="#{token_ref(prefix1, id1)}">\n'
-            tei_align_body += f'          <w xml:id="{token_ref(prefix2, id2)}" lemma="{alignment['l2_word']}" pos="">{alignment['l2_word']}</w>\n'
-            tei_align_body += f'        </seg>\n'
+        for i, ((id1, id2), alignment) in enumerate(zip(alignments_ids, alignments), start=1):
+            l2_word = alignment['l2_word'] or ""
+            tei_align_body += f'      <p>\n'
+            tei_align_body += f'        <s xml:id="{prefix2}_s{i}">\n'
+            tei_align_body += f'          <seg corresp="#{token_ref(prefix1, id1)}">\n'
+            tei_align_body += f'            <w xml:id="{token_ref(prefix2, id2)}" lemma={quoteattr(l2_word)} pos="">{escape(l2_word)}</w>\n'
+            tei_align_body += f'          </seg>\n'
+            tei_align_body += f'        </s>\n'
+            tei_align_body += f'      </p>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
         output_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.tei.xml"
         output_path = os.path.join(output_directory, output_file_name)
@@ -563,20 +569,24 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
 
     if "tei" in outputFormats:
         tei_align_body = ""
-        for (ids1, ids2), alignment in zip(alignments_ids, alignments):
+        for i, ((ids1, ids2), alignment) in enumerate(zip(alignments_ids, alignments), start=1):
             corresp = " ".join(f"#{token_ref(prefix1, tok_id)}" for tok_id in ids1)
-            tei_align_body += f'        <seg corresp="{corresp}">\n'
+            tei_align_body += f'      <p>\n'
+            tei_align_body += f'        <s xml:id="{prefix2}_s{i}">\n'
+            tei_align_body += f'          <seg corresp="{corresp}">\n'
             for tok_id in ids2:
                 tok = tokens2[tok_id]
                 form = tok.form or ""
                 lemma = tok.lemma or ""
                 pos = tok.upos or ""
                 tei_align_body += (
-                    f'          <w xml:id="{token_ref(prefix2, tok_id)}" '
-                    f'lemma="{lemma}" '
-                    f'pos="{pos}">{form}</w>\n'
+                    f'            <w xml:id="{token_ref(prefix2, tok_id)}" '
+                    f'lemma={quoteattr(lemma)} '
+                    f'pos={quoteattr(pos)}>{escape(form)}</w>\n'
                 )
-            tei_align_body += '        </seg>\n'
+            tei_align_body += '          </seg>\n'
+            tei_align_body += '        </s>\n'
+            tei_align_body += '      </p>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
         output_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.tei.xml"
         output_path = os.path.join(output_directory, output_file_name)
