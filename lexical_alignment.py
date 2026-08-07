@@ -166,6 +166,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     # Initialize the id counters
     last_id_l1 = 0
     last_id_l2 = 0
+    token_sent2 = {}
+    numSent2 = 0
     
     langSrc = l1
     langTarget = l2
@@ -199,6 +201,10 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
         # Now, you can extract chunks from the CoNLL data
         conll_l1_sentences = pyconll.load_from_string(conll_l1)
         conll_l2_sentences = pyconll.load_from_string(conll_l2)
+        for sentence in conll_l2_sentences:
+            numSent2 += 1
+            for token in sentence:
+                token_sent2[token.id] = numSent2
         # Use the modified extract_words function
         words_l1 = extract_words(conll_l1_sentences)
         words_l2 = extract_words(conll_l2_sentences)
@@ -314,13 +320,18 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
     if "tei" in outputFormats:
         tei_align_body = ""
+        tei_segments_by_sent = {}
         for i, ((id1, id2), alignment) in enumerate(zip(alignments_ids, alignments), start=1):
             l2_word = alignment['l2_word'] or ""
+            sent_id = token_sent2.get(id2, i)
+            tei_segments_by_sent.setdefault(sent_id, "")
+            tei_segments_by_sent[sent_id] += f'          <seg corresp="#{token_ref(prefix1, id1)}">\n'
+            tei_segments_by_sent[sent_id] += f'            <w xml:id="{token_ref(prefix2, id2)}" lemma={quoteattr(l2_word)} pos="">{escape(l2_word)}</w>\n'
+            tei_segments_by_sent[sent_id] += f'          </seg>\n'
+        for sent_id in sorted(tei_segments_by_sent):
             tei_align_body += f'      <p>\n'
-            tei_align_body += f'        <s xml:id="{prefix2}_s{i}">\n'
-            tei_align_body += f'          <seg corresp="#{token_ref(prefix1, id1)}">\n'
-            tei_align_body += f'            <w xml:id="{token_ref(prefix2, id2)}" lemma={quoteattr(l2_word)} pos="">{escape(l2_word)}</w>\n'
-            tei_align_body += f'          </seg>\n'
+            tei_align_body += f'        <s xml:id="{prefix2}_s{sent_id}">\n'
+            tei_align_body += tei_segments_by_sent[sent_id]
             tei_align_body += f'        </s>\n'
             tei_align_body += f'      </p>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
@@ -407,6 +418,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
     # hash that associates ids to tokens, globally
     tokens1={}
     tokens2={}
+    token_sent2={}
     numSent1=0
     numSent2=0
     for group_x, group_y in zip(x, y):
@@ -441,7 +453,8 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
             for token in sentence:
                 token.misc["numSent"]=numSent2
                 tokens2[token.id]=token                
-   
+                token_sent2[token.id]=numSent2
+       
        
         # Chunks are lists of (chunk,ids) where ids are the corresponding token ids
         chunks_l1 = extract_flat_chunks(conll_l1_sentences)
@@ -569,22 +582,27 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
 
     if "tei" in outputFormats:
         tei_align_body = ""
+        tei_segments_by_sent = {}
         for i, ((ids1, ids2), alignment) in enumerate(zip(alignments_ids, alignments), start=1):
             corresp = " ".join(f"#{token_ref(prefix1, tok_id)}" for tok_id in ids1)
-            tei_align_body += f'      <p>\n'
-            tei_align_body += f'        <s xml:id="{prefix2}_s{i}">\n'
-            tei_align_body += f'          <seg corresp="{corresp}">\n'
+            sent_id = token_sent2.get(ids2[0], i) if ids2 else i
+            tei_segments_by_sent.setdefault(sent_id, "")
+            tei_segments_by_sent[sent_id] += f'          <seg corresp="{corresp}">\n'
             for tok_id in ids2:
                 tok = tokens2[tok_id]
                 form = tok.form or ""
                 lemma = tok.lemma or ""
                 pos = tok.upos or ""
-                tei_align_body += (
+                tei_segments_by_sent[sent_id] += (
                     f'            <w xml:id="{token_ref(prefix2, tok_id)}" '
                     f'lemma={quoteattr(lemma)} '
                     f'pos={quoteattr(pos)}>{escape(form)}</w>\n'
                 )
-            tei_align_body += '          </seg>\n'
+            tei_segments_by_sent[sent_id] += '          </seg>\n'
+        for sent_id in sorted(tei_segments_by_sent):
+            tei_align_body += f'      <p>\n'
+            tei_align_body += f'        <s xml:id="{prefix2}_s{sent_id}">\n'
+            tei_align_body += tei_segments_by_sent[sent_id]
             tei_align_body += '        </s>\n'
             tei_align_body += '      </p>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
