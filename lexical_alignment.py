@@ -9,6 +9,8 @@ import pyconll
 import re
 import sys
 import xml.etree.ElementTree as ET
+from copy import deepcopy
+from lxml import etree
 from xml.sax.saxutils import escape, quoteattr
 
 def tei_id_prefix(file_path, fallback_lang):
@@ -28,6 +30,82 @@ def tei_id_prefix(file_path, fallback_lang):
 
 def token_ref(prefix, token_id):
     return f"{prefix}_t{token_id}"
+
+
+def local_name(elt):
+    if not isinstance(elt.tag, str):
+        return ""
+    return etree.QName(elt).localname
+
+
+def xml_id(elt):
+    return elt.get("{http://www.w3.org/XML/1998/namespace}id") or elt.get("xml:id") or elt.get("id")
+
+
+def tokenized_tei_sentences(xml_root):
+    if xml_root is None:
+        return []
+    return [elt for elt in xml_root.iter() if local_name(elt) == "s" and any(local_name(child) == "w" for child in elt.iter())]
+
+
+def tei_words_from_sentences(sentences, sent_indexes):
+    words = []
+    for sent_index in sent_indexes:
+        if sent_index >= len(sentences):
+            continue
+        for word in sentences[sent_index].iter():
+            if local_name(word) == "w":
+                words.append(("".join(word.itertext()), xml_id(word)))
+    return words
+
+
+def unwrap_existing_segs(sentence):
+    for seg in list(sentence.iter()):
+        if local_name(seg) != "seg":
+            continue
+        parent = seg.getparent()
+        if parent is None:
+            continue
+        index = parent.index(seg)
+        seg_children = list(seg)
+        for child in seg_children:
+            seg.remove(child)
+            parent.insert(index, child)
+            index += 1
+        if seg.text and index > 0 and index - 1 < len(parent):
+            parent[index - 1].tail = (parent[index - 1].tail or "") + seg.text
+        if seg.tail:
+            if index > 0 and index - 1 < len(parent):
+                parent[index - 1].tail = (parent[index - 1].tail or "") + seg.tail
+            else:
+                parent.text = (parent.text or "") + seg.tail
+        parent.remove(seg)
+
+
+def write_tokenized_tei_output(xml_root2, target_to_source_ids, file_name, output_directory):
+    tei_root = deepcopy(xml_root2)
+    tei_root.set("xmlns", "http://www.tei-c.org/ns/1.0")
+    for sentence in [elt for elt in tei_root.iter() if local_name(elt) == "s"]:
+        unwrap_existing_segs(sentence)
+        for word in list(sentence):
+            if local_name(word) != "w":
+                continue
+            source_ids = target_to_source_ids.get(xml_id(word), [])
+            attrs = {}
+            if source_ids:
+                attrs["corresp"] = " ".join(f"#{source_id}" for source_id in source_ids)
+            seg = etree.Element("seg", attrs)
+            index = sentence.index(word)
+            word_tail = word.tail
+            word.tail = None
+            sentence.remove(word)
+            seg.append(word)
+            seg.tail = word_tail
+            sentence.insert(index, seg)
+
+    output_file_name = file_name + "_word_ai.xml"
+    output_path = os.path.join(output_directory, output_file_name)
+    etree.ElementTree(tei_root).write(output_path, encoding="utf-8", xml_declaration=True, pretty_print=True)
 
 
 def convert_conll_list_to_string(doc):
@@ -104,7 +182,7 @@ def update_conll_ids(conll_string, start_id=0):
 
     return updated_conll, current_id
 
-def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2=""):
+def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2="", xml_root1=None, xml_root2=None):
     # cesalign format is used to store alignment result
     ces_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
 
@@ -154,10 +232,14 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 </TEI>
     """
 
+    tei_sentences1 = tokenized_tei_sentences(xml_root1)
+    tei_sentences2 = tokenized_tei_sentences(xml_root2)
+    use_tokenized_tei = bool(tei_sentences1 and tei_sentences2)
 
-    # Load Stanza models for the specified languages
-    nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,mwt,pos,lemma,depparse')
-    nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,mwt,pos,lemma,depparse')
+    if not use_tokenized_tei:
+        # Load Stanza models for the specified languages
+        nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,mwt,pos,lemma,depparse')
+        nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,mwt,pos,lemma,depparse')
 
     # Initialize the list to store final word or chunk alignments
     alignments = []
@@ -168,6 +250,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     last_id_l2 = 0
     token_sent2 = {}
     numSent2 = 0
+    target_to_source_ids = {}
     
     langSrc = l1
     langTarget = l2
@@ -182,32 +265,36 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     # La fonction zip(x, y) associe chaque élément de x avec l'élément correspondant dans y,
     # permettant à la boucle de traiter ces paires en tandem
     for group_x, group_y in zip(x, y):
-        # Concatenate sentences in each group to form a single text for parsing
-        text_l1 = ' '.join([sents1[i] for i in group_x])  
-        text_l2 = ' '.join([sents2[i] for i in group_y])
+        if use_tokenized_tei:
+            words_l1 = tei_words_from_sentences(tei_sentences1, group_x)
+            words_l2 = tei_words_from_sentences(tei_sentences2, group_y)
+        else:
+            # Concatenate sentences in each group to form a single text for parsing
+            text_l1 = ' '.join([sents1[i] for i in group_x])  
+            text_l2 = ' '.join([sents2[i] for i in group_y])
 
-        # Process texts with Stanza to get CoNLL-U formatted data
-        doc_l1 = nlp_l1(text_l1)
-        doc_l2 = nlp_l2(text_l2)
+            # Process texts with Stanza to get CoNLL-U formatted data
+            doc_l1 = nlp_l1(text_l1)
+            doc_l2 = nlp_l2(text_l2)
 
-        # Use the function to convert documents to CoNLL format
-        conll_l1 = convert_conll_list_to_string(doc_l1)
-        conll_l2 = convert_conll_list_to_string(doc_l2)
+            # Use the function to convert documents to CoNLL format
+            conll_l1 = convert_conll_list_to_string(doc_l1)
+            conll_l2 = convert_conll_list_to_string(doc_l2)
 
-        # Update IDs in the CoNLL strings
-        conll_l1, last_id_l1 = update_conll_ids(conll_l1, last_id_l1)
-        conll_l2, last_id_l2 = update_conll_ids(conll_l2, last_id_l2)
+            # Update IDs in the CoNLL strings
+            conll_l1, last_id_l1 = update_conll_ids(conll_l1, last_id_l1)
+            conll_l2, last_id_l2 = update_conll_ids(conll_l2, last_id_l2)
 
-        # Now, you can extract chunks from the CoNLL data
-        conll_l1_sentences = pyconll.load_from_string(conll_l1)
-        conll_l2_sentences = pyconll.load_from_string(conll_l2)
-        for sentence in conll_l2_sentences:
-            numSent2 += 1
-            for token in sentence:
-                token_sent2[token.id] = numSent2
-        # Use the modified extract_words function
-        words_l1 = extract_words(conll_l1_sentences)
-        words_l2 = extract_words(conll_l2_sentences)
+            # Now, you can extract chunks from the CoNLL data
+            conll_l1_sentences = pyconll.load_from_string(conll_l1)
+            conll_l2_sentences = pyconll.load_from_string(conll_l2)
+            for sentence in conll_l2_sentences:
+                numSent2 += 1
+                for token in sentence:
+                    token_sent2[token.id] = numSent2
+            # Use the modified extract_words function
+            words_l1 = extract_words(conll_l1_sentences)
+            words_l2 = extract_words(conll_l2_sentences)
 
         # Compute embeddings for each word
         word_embeds_l1 = encoder.encode([word[0] for word in words_l1])
@@ -266,6 +353,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             if  best_match_index != None:
                 best_match_score = float(row[best_match_index])
                 alignments_ids.append((words_l1[i][1], words_l2[best_match_index][1]))
+                target_to_source_ids.setdefault(words_l2[best_match_index][1], []).append(words_l1[i][1])
                 alignments.append({
                     'l1_word': words_l1[i][0],
                     'l2_word': words_l2[best_match_index][0],
@@ -319,6 +407,10 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 formatted_file.write(f"{alignment['similarity']}\n")
 
     if "tei" in outputFormats:
+        if use_tokenized_tei:
+            write_tokenized_tei_output(xml_root2, target_to_source_ids, file_name, output_directory)
+            return alignments
+
         tei_align_body = ""
         tei_segments_by_sent = {}
         for i, ((id1, id2), alignment) in enumerate(zip(alignments_ids, alignments), start=1):
