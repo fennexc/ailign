@@ -411,7 +411,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
     if "tei" in outputFormats:
         if use_tokenized_tei:
-            write_tokenized_tei_output(xml_root2, target_to_source_ids, os.path.basename(file2), output_directory)
+            write_tokenized_tei_output(xml_root2, target_to_source_ids, os.path.splitext(os.path.basename(file2))[0], output_directory)
             return alignments
 
         tei_align_body = ""
