@@ -335,7 +335,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             tei_align_body += f'        </s>\n'
             tei_align_body += f'      </p>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
-        output_file_name = file_name + f"_{langTarget}-{langSrc}_word_ai.tei.xml"
+        output_file_name = file_name + "_word_ai.xml"
         output_path = os.path.join(output_directory, output_file_name)
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(tei_align_content)
@@ -606,7 +606,7 @@ def chunk_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dir
             tei_align_body += '        </s>\n'
             tei_align_body += '      </p>\n'
         tei_align_content = tei_align_header + tei_align_body + tei_align_footer
-        output_file_name = file_name + f"_{langTarget}-{langSrc}_phrase_ai.tei.xml"
+        output_file_name = file_name + "_phrase_ai.xml"
         output_path = os.path.join(output_directory, output_file_name)
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(tei_align_content)

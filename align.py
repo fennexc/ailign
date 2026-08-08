@@ -107,6 +107,18 @@ def align(params,preprocessor,encoder):
     input_dir=params['inputDir']
     file1=params['inputFile1']
     file2=params['inputFile2']
+    
+    # Languages encoded in filenames, used for output naming.
+    file_lang1 = l1
+    file_lang2 = l2
+    m1 = re.search(params['filePattern'], file1)
+    m2 = re.search(params['filePattern'], file2)
+
+    if m1:
+        file_lang1 = m1.group(2)
+    if m2:
+        file_lang2 = m2.group(2)
+
     input_format=params['inputFormat']
     output_dir=params['outputDir']
     output_formats=params['outputFormats']
@@ -183,8 +195,8 @@ def align(params,preprocessor,encoder):
                     name = name1 + "-" + name2
                 else:
                     name = name1
-                output_file_name = name + "." + l1 + "-" + l2
-                output_anchor_filename = name + ".anchor." + l1 + "-" + l2
+                output_file_name = name + "." + file_lang1 + "-" + file_lang2
+                output_anchor_filename = name + ".anchor." + file_lang1 + "-" + file_lang2
             else:
                 output_file_name = os.path.basename(file1) + "-" + os.path.basename(file2)
                 output_anchor_filename = file1 + "-" + file2 + ".anchor"
@@ -457,8 +469,9 @@ def align(params,preprocessor,encoder):
             params['verbose'] and print("Add anchors in XML", file1, file2)
             add_anchor_in_output(params, file1, file2, xml_root1, xml_root2, file_id1, file_id2, x_dtw, y_dtw)
         else:
+            output_extension = "xml" if output_format == "tei" else output_format
             write_aligned_points(params, sents1, id_sents1, sents2, id_sents2, x_dtw, y_dtw, output_dir,
-                                 output_file_name + "." + output_format, output_format, False, print_ids,
+                                 output_file_name + "." + output_extension, output_format, False, print_ids,
                                  mean_score, file1, file2)
 
    
