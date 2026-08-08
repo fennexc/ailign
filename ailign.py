@@ -249,6 +249,10 @@ if __name__ == "__main__":
             print("Processing directory", params['inputDir'])
         # reading a tsv file with pairs fileName1 tab fileName2
         
+        # the CLI given languages get the prio over file patter languages
+        cli_l1 = params['l1']
+        cli_l2 = params['l2']
+
         # processing files according to inputFileList
         if params['inputFileList']:
             f = open(params['inputFileList'], encoding="utf8")
@@ -273,8 +277,8 @@ if __name__ == "__main__":
                 output_file_name = ""
                 if params['filePattern'].search(file1):
                     output_file_name = params['filePattern'].search(file1).group(1)
-                    params['l1'] = params['filePattern'].search(file1).group(2)
-                    params['l2'] = params['filePattern'].search(file2).group(2)
+                    params['l1'] = cli_l1 if cli_l1 is not None else params['filePattern'].search(file1).group(2)
+                    params['l2'] = cli_l2 if cli_l2 is not None else params['filePattern'].search(file2).group(2)
                 align(params,preprocessor,encoder)
         else:
             # processing files according to filePattern, l1 and l2, in input_dir
