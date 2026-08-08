@@ -91,15 +91,19 @@ def write_tokenized_tei_output(xml_root2, target_to_source_ids, file_name, outpu
             if local_name(word) != "w":
                 continue
             source_ids = target_to_source_ids.get(xml_id(word), [])
-            attrs = {}
-            if source_ids:
-                attrs["corresp"] = " ".join(f"#{source_id}" for source_id in source_ids)
-            seg = etree.Element("seg", attrs)
+            if not source_ids:
+                continue
+            seg = etree.Element("seg", {"corresp": " ".join(f"#{source_id}" for source_id in source_ids)})
             index = sentence.index(word)
             word_tail = word.tail
+            child_indent = sentence.text if sentence.text and sentence.text.strip() == "" else word_tail
+            if not child_indent or child_indent.strip() != "":
+                child_indent = "\n  "
             word.tail = None
             sentence.remove(word)
             seg.append(word)
+            seg.text = child_indent + "  "
+            word.tail = child_indent
             seg.tail = word_tail
             sentence.insert(index, seg)
 
