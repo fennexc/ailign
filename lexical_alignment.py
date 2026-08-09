@@ -317,7 +317,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
         similarity_matrix = cosine_similarity(word_embeds_l1, word_embeds_l2)
 
-        if word_alignment_strategy == "intersection":
+        if word_alignment_strategy in ("intersection", "union"):
             pivot_to_target = {
                 (id1, int(np.argmax(row)))
                 for id1, row in enumerate(similarity_matrix)
@@ -326,7 +326,11 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 (int(np.argmax(column)), id2)
                 for id2, column in enumerate(similarity_matrix.T)
             }
-            for id1, id2 in sorted(pivot_to_target & target_to_pivot):
+            if word_alignment_strategy == "intersection":
+                selected_links = pivot_to_target & target_to_pivot
+            elif word_alignment_strategy == "union":
+                selected_links = pivot_to_target | target_to_pivot
+            for id1, id2 in sorted(selected_links):
                 best_match_score = float(similarity_matrix[id1][id2])
                 alignments_ids.append((words_l1[id1][1], words_l2[id2][1]))
                 target_to_source_ids.setdefault(words_l2[id2][1], []).append(words_l1[id1][1])
