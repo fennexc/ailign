@@ -39,7 +39,7 @@ infinite = float('inf')
 
 ################################################################## definitions    
 def parse_word_alignment_similarity(config):
-    accepted_factors = {"embedding", "position"}
+    accepted_factors = {"embedding", "position", "syntax"}
     weights = {}
     for entry in config.split(","):
         if "=" not in entry:

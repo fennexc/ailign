@@ -1,6 +1,7 @@
 import os
 
 import stanza
+from stanza.pipeline.core import DownloadMethod
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from extract_chunks import extract_chunks, extract_flat_chunks, extract_words
@@ -12,6 +13,8 @@ import xml.etree.ElementTree as ET
 from copy import deepcopy
 from lxml import etree
 from xml.sax.saxutils import escape, quoteattr
+
+CONTENT_UPOS = {"NOUN", "PROPN", "VERB", "ADJ", "ADV", "NUM"}
 
 def tei_id_prefix(file_path, fallback_lang):
     """Build ids like prose_1_ar from filenames like prose.1.ar.txt."""
@@ -57,6 +60,115 @@ def tei_words_from_sentences(sentences, sent_indexes):
             if local_name(word) == "w":
                 words.append(("".join(word.itertext()), xml_id(word)))
     return words
+
+
+def tei_sentence_word_texts(sentence):
+    return ["".join(word.itertext()) for word in sentence.iter() if local_name(word) == "w"]
+
+
+def parse_tokenized_tei_syntax(sentences, nlp):
+    sentence_texts = [tei_sentence_word_texts(sentence) for sentence in sentences]
+    parsed_doc = nlp(sentence_texts)
+    if len(parsed_doc.sentences) != len(sentence_texts):
+        raise ValueError(
+            f"Stanza returned {len(parsed_doc.sentences)} parsed sentences for {len(sentence_texts)} TEI sentences"
+        )
+    parsed_sentences = []
+    for sent_index, (tei_words, parsed_sentence) in enumerate(zip(sentence_texts, parsed_doc.sentences), start=1):
+        parsed_words = parsed_sentence.words
+        parsed_texts = [word.text for word in parsed_words]
+        if parsed_texts != tei_words:
+            raise ValueError(
+                f"Stanza token mismatch in sentence {sent_index}: {parsed_texts!r} != {tei_words!r}"
+            )
+        parsed_sentences.append([
+            {
+                "text": word.text,
+                "upos": word.upos,
+                "head": word.head,
+                "deprel": word.deprel,
+            }
+            for word in parsed_words
+        ])
+    return parsed_sentences
+
+
+def stanza_doc_to_syntax_sentences(doc):
+    return [
+        [
+            {
+                "text": word.text,
+                "upos": word.upos,
+                "head": word.head,
+                "deprel": word.deprel,
+            }
+            for word in sentence.words
+        ]
+        for sentence in doc.sentences
+    ]
+
+
+def flatten_group_syntax(syntax_sentences, sent_indexes):
+    flattened = []
+    sentence_offset = 0
+    for sent_index in sent_indexes:
+        if sent_index >= len(syntax_sentences):
+            continue
+        for word in syntax_sentences[sent_index]:
+            head = word["head"]
+            flattened.append({
+                "upos": word["upos"],
+                "head": None if head == 0 else sentence_offset + head - 1,
+                "deprel": word["deprel"],
+            })
+        sentence_offset += len(syntax_sentences[sent_index])
+    return flattened
+
+
+def syntactic_neighbourhood(syntax_tokens):
+    neighbourhoods = []
+    dependents_by_head = {}
+    for index, token in enumerate(syntax_tokens):
+        head = token["head"]
+        if head is not None:
+            dependents_by_head.setdefault(head, []).append(index)
+
+    for index, token in enumerate(syntax_tokens):
+        neighbourhood = {}
+        head = token["head"]
+        if head is not None and syntax_tokens[head]["upos"] in CONTENT_UPOS:
+            neighbourhood.setdefault(("head", token["deprel"]), []).append(head)
+        for dependent_index in dependents_by_head.get(index, []):
+            dependent = syntax_tokens[dependent_index]
+            if dependent["upos"] in CONTENT_UPOS:
+                neighbourhood.setdefault(("dependent", dependent["deprel"]), []).append(dependent_index)
+        neighbourhoods.append(neighbourhood)
+    return neighbourhoods
+
+
+def syntax_similarity_matrix(syntax_l1, syntax_l2, embedding_similarity):
+    neighbourhoods_l1 = syntactic_neighbourhood(syntax_l1)
+    neighbourhoods_l2 = syntactic_neighbourhood(syntax_l2)
+    syntax_similarity = np.zeros((len(syntax_l1), len(syntax_l2)))
+    embedding_index = (embedding_similarity + 1) / 2
+
+    for id1, neighbourhood_l1 in enumerate(neighbourhoods_l1):
+        for id2, neighbourhood_l2 in enumerate(neighbourhoods_l2):
+            keys = set(neighbourhood_l1) | set(neighbourhood_l2)
+            if not keys:
+                continue
+            key_scores = []
+            for key in keys:
+                if key not in neighbourhood_l1 or key not in neighbourhood_l2:
+                    key_scores.append(0)
+                    continue
+                key_scores.append(max(
+                    embedding_index[neighbour_id1, neighbour_id2]
+                    for neighbour_id1 in neighbourhood_l1[key]
+                    for neighbour_id2 in neighbourhood_l2[key]
+                ))
+            syntax_similarity[id1, id2] = float(np.mean(key_scores))
+    return syntax_similarity
 
 
 def unwrap_existing_segs(sentence):
@@ -239,11 +351,23 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
     tei_sentences1 = tokenized_tei_sentences(xml_root1)
     tei_sentences2 = tokenized_tei_sentences(xml_root2)
     use_tokenized_tei = bool(tei_sentences1 and tei_sentences2)
+    if word_alignment_similarity is None:
+        word_alignment_similarity = {"embedding": 1.0}
+    syntax_enabled = word_alignment_similarity.get("syntax", 0) > 0
+    needs_stanza = not use_tokenized_tei or syntax_enabled
 
-    if not use_tokenized_tei:
+    parsed_tei_sentences1 = []
+    parsed_tei_sentences2 = []
+    if needs_stanza:
         # Load Stanza models for the specified languages
-        nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,mwt,pos,lemma,depparse')
-        nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,mwt,pos,lemma,depparse')
+        if use_tokenized_tei and syntax_enabled:
+            nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,pos,lemma,depparse', tokenize_pretokenized=True, download_method=DownloadMethod.REUSE_RESOURCES)
+            nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,pos,lemma,depparse', tokenize_pretokenized=True, download_method=DownloadMethod.REUSE_RESOURCES)
+            parsed_tei_sentences1 = parse_tokenized_tei_syntax(tei_sentences1, nlp_l1)
+            parsed_tei_sentences2 = parse_tokenized_tei_syntax(tei_sentences2, nlp_l2)
+        else:
+            nlp_l1 = stanza.Pipeline(lang=l1, processors='tokenize,mwt,pos,lemma,depparse')
+            nlp_l2 = stanza.Pipeline(lang=l2, processors='tokenize,mwt,pos,lemma,depparse')
 
     # Initialize the list to store final word or chunk alignments
     alignments = []
@@ -272,6 +396,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
         if use_tokenized_tei:
             words_l1 = tei_words_from_sentences(tei_sentences1, group_x)
             words_l2 = tei_words_from_sentences(tei_sentences2, group_y)
+            syntax_l1 = flatten_group_syntax(parsed_tei_sentences1, group_x) if syntax_enabled else []
+            syntax_l2 = flatten_group_syntax(parsed_tei_sentences2, group_y) if syntax_enabled else []
         else:
             # Concatenate sentences in each group to form a single text for parsing
             text_l1 = ' '.join([sents1[i] for i in group_x])  
@@ -280,6 +406,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             # Process texts with Stanza to get CoNLL-U formatted data
             doc_l1 = nlp_l1(text_l1)
             doc_l2 = nlp_l2(text_l2)
+            syntax_l1 = flatten_group_syntax(stanza_doc_to_syntax_sentences(doc_l1), range(len(doc_l1.sentences)))
+            syntax_l2 = flatten_group_syntax(stanza_doc_to_syntax_sentences(doc_l2), range(len(doc_l2.sentences)))
 
             # Use the function to convert documents to CoNLL format
             conll_l1 = convert_conll_list_to_string(doc_l1)
@@ -300,6 +428,12 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             words_l1 = extract_words(conll_l1_sentences)
             words_l2 = extract_words(conll_l2_sentences)
 
+        if syntax_enabled or not use_tokenized_tei:
+            if len(syntax_l1) != len(words_l1):
+                raise ValueError(f"Syntax length mismatch for l1: {len(syntax_l1)} != {len(words_l1)}")
+            if len(syntax_l2) != len(words_l2):
+                raise ValueError(f"Syntax length mismatch for l2: {len(syntax_l2)} != {len(words_l2)}")
+
         # Compute embeddings for each word
         word_embeds_l1 = encoder.encode([word[0] for word in words_l1])
         word_embeds_l2 = encoder.encode([word[0] for word in words_l2])
@@ -316,8 +450,8 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
             word_embeds_l2 = word_embeds_l2.reshape(1, -1)
 
         embedding_similarity = cosine_similarity(word_embeds_l1, word_embeds_l2)
-        if word_alignment_similarity is None:
-            word_alignment_similarity = {"embedding": 1.0}
+        if syntax_enabled:
+            syntax_similarity = syntax_similarity_matrix(syntax_l1, syntax_l2, embedding_similarity)
         if set(word_alignment_similarity) == {"embedding"}:
             similarity_matrix = embedding_similarity
         else:
@@ -328,6 +462,10 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 position_l1 = (np.arange(len(words_l1)) + 0.5) / len(words_l1)
                 position_l2 = (np.arange(len(words_l2)) + 0.5) / len(words_l2)
                 factor_matrices["position"] = 1 - np.abs(position_l1[:, None] - position_l2[None, :])
+            if syntax_enabled:
+                factor_matrices["syntax"] = syntax_similarity
+            elif "syntax" in word_alignment_similarity:
+                factor_matrices["syntax"] = np.zeros_like(embedding_similarity)
             total_weight = sum(word_alignment_similarity.values())
             similarity_matrix = sum(
                 word_alignment_similarity[factor] * factor_matrices[factor]
