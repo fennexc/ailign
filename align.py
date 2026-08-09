@@ -487,7 +487,7 @@ def align(params,preprocessor,encoder):
 
     if params.get('wordAlignment', True):
         params['verbose'] and print("Starting Word alignment....")
-        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats, file1, file2, xml_root1, xml_root2, params.get("wordAlignmentStrategy", "baseline"))
+        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats, file1, file2, xml_root1, xml_root2, params.get("wrodAlignmentMethod", "baseline"))
     return mean_score
 
 
