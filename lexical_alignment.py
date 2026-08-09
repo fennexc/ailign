@@ -317,7 +317,7 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
         similarity_matrix = cosine_similarity(word_embeds_l1, word_embeds_l2)
 
-        if word_alignment_strategy in ("intersection", "union"):
+        if word_alignment_strategy in ("intersection", "union", "grow_diag"):
             pivot_to_target = {
                 (id1, int(np.argmax(row)))
                 for id1, row in enumerate(similarity_matrix)
@@ -326,10 +326,39 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
                 (int(np.argmax(column)), id2)
                 for id2, column in enumerate(similarity_matrix.T)
             }
+            intersection_links = pivot_to_target & target_to_pivot
+            union_links = pivot_to_target | target_to_pivot
             if word_alignment_strategy == "intersection":
-                selected_links = pivot_to_target & target_to_pivot
+                selected_links = intersection_links
             elif word_alignment_strategy == "union":
-                selected_links = pivot_to_target | target_to_pivot
+                selected_links = union_links
+            elif word_alignment_strategy == "grow_diag":
+                selected_links = set(intersection_links)
+                aligned_pivot_ids = {id1 for id1, _ in selected_links}
+                aligned_target_ids = {id2 for _, id2 in selected_links}
+                neighbours = (
+                    (-1, 0), (0, -1), (1, 0), (0, 1),
+                    (-1, -1), (-1, 1), (1, -1), (1, 1),
+                )
+                added_link = True
+                while added_link:
+                    added_link = False
+                    for id1, id2 in sorted(selected_links):
+                        for offset_id1, offset_id2 in neighbours:
+                            candidate = (id1 + offset_id1, id2 + offset_id2)
+                            new_id1, new_id2 = candidate
+                            if (
+                                candidate in union_links
+                                and candidate not in selected_links
+                                and (
+                                    new_id1 not in aligned_pivot_ids
+                                    or new_id2 not in aligned_target_ids
+                                )
+                            ):
+                                selected_links.add(candidate)
+                                aligned_pivot_ids.add(new_id1)
+                                aligned_target_ids.add(new_id2)
+                                added_link = True
             for id1, id2 in sorted(selected_links):
                 best_match_score = float(similarity_matrix[id1][id2])
                 alignments_ids.append((words_l1[id1][1], words_l2[id2][1]))
