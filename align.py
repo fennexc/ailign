@@ -38,6 +38,36 @@ only_one_2_one_pairing = False # if True, only [(0, 1), (1, 0), (1, 1)] are cons
 infinite = float('inf')
 
 ################################################################## definitions    
+def parse_word_alignment_similarity(config):
+    accepted_factors = {"embedding", "position"}
+    weights = {}
+    for entry in config.split(","):
+        if "=" not in entry:
+            raise ValueError(f"Malformed word alignment similarity entry: {entry}")
+        factor, weight = entry.split("=", 1)
+        factor = factor.strip()
+        weight = weight.strip()
+        if not factor or not weight:
+            raise ValueError(f"Malformed word alignment similarity entry: {entry}")
+        if factor not in accepted_factors:
+            raise ValueError(f"Unknown word alignment similarity factor: {factor}")
+        if factor in weights:
+            raise ValueError(f"Duplicate word alignment similarity factor: {factor}")
+        try:
+            weights[factor] = float(weight)
+        except ValueError:
+            raise ValueError(f"Malformed word alignment similarity weight: {weight}")
+        if not math.isfinite(weights[factor]):
+            raise ValueError(f"Non-finite word alignment similarity weight: {factor}={weight}")
+        if weights[factor] < 0:
+            raise ValueError(f"Negative word alignment similarity weight: {factor}={weight}")
+    if not weights:
+        raise ValueError("Word alignment similarity configuration is empty")
+    if all(weight == 0 for weight in weights.values()):
+        raise ValueError("At least one word alignment similarity weight must be positive")
+    return weights
+
+
 def load_sentence_encoder(params):
     """
     Conditionnaly import alternative models (main model is labse)
@@ -487,7 +517,8 @@ def align(params,preprocessor,encoder):
 
     if params.get('wordAlignment', True):
         params['verbose'] and print("Starting Word alignment....")
-        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats, file1, file2, xml_root1, xml_root2, params.get("wrodAlignmentMethod", "baseline"))
+        word_alignment_similarity = parse_word_alignment_similarity(params.get("wordAlignmentSimilarity", "embedding=1"))
+        word_alignment(l1, l2, x_dtw, y_dtw, encoder, sents1, sents2, output_file_name, output_dir, output_formats, file1, file2, xml_root1, xml_root2, params.get("wordAlignmentMethod", "baseline"), word_alignment_similarity)
     return mean_score
 
 

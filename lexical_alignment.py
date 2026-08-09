@@ -186,7 +186,7 @@ def update_conll_ids(conll_string, start_id=0):
 
     return updated_conll, current_id
 
-def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2="", xml_root1=None, xml_root2=None, word_alignment_strategy="baseline"):
+def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2="", xml_root1=None, xml_root2=None, word_alignment_strategy="baseline", word_alignment_similarity=None):
     # cesalign format is used to store alignment result
     ces_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
 
@@ -315,7 +315,24 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
         if word_embeds_l2.ndim == 1:
             word_embeds_l2 = word_embeds_l2.reshape(1, -1)
 
-        similarity_matrix = cosine_similarity(word_embeds_l1, word_embeds_l2)
+        embedding_similarity = cosine_similarity(word_embeds_l1, word_embeds_l2)
+        if word_alignment_similarity is None:
+            word_alignment_similarity = {"embedding": 1.0}
+        if set(word_alignment_similarity) == {"embedding"}:
+            similarity_matrix = embedding_similarity
+        else:
+            factor_matrices = {}
+            if "embedding" in word_alignment_similarity:
+                factor_matrices["embedding"] = (embedding_similarity + 1) / 2
+            if "position" in word_alignment_similarity:
+                position_l1 = (np.arange(len(words_l1)) + 0.5) / len(words_l1)
+                position_l2 = (np.arange(len(words_l2)) + 0.5) / len(words_l2)
+                factor_matrices["position"] = 1 - np.abs(position_l1[:, None] - position_l2[None, :])
+            total_weight = sum(word_alignment_similarity.values())
+            similarity_matrix = sum(
+                word_alignment_similarity[factor] * factor_matrices[factor]
+                for factor in word_alignment_similarity
+            ) / total_weight
 
         if word_alignment_strategy in ("intersection", "union", "grow_diag"):
             pivot_to_target = {
