@@ -184,6 +184,7 @@ parser.add_argument('--penalty_0_n',
                     help='Penalty score given for each 0-n (or n-0) grouping (only used in lateGrouping)', type=float)
 
 parser.add_argument('--wordAlignment', help='Run the word alignment script', action="store_true")
+parser.add_argument('--wordAlignmentStrategy', choices=("baseline", "intersection"), help='Word alignment strategy')
 parser.add_argument('--chunkAlignment', help='Run the chunk alignment script', action="store_true")
 
 # other : persistance of embeddings

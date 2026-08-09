@@ -74,6 +74,7 @@ def default_params(local_params={}):
     params['penalty_0_n'] = 0.15
     params['useShelve'] = False
     params['wordAlignment'] = False
+    params['wordAlignmentStrategy'] = "baseline"
     params['chunkAlignment'] = False
     params['useGPU']=True
     params['printLog'] = False # Print execution log in log file

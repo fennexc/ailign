@@ -186,7 +186,7 @@ def update_conll_ids(conll_string, start_id=0):
 
     return updated_conll, current_id
 
-def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2="", xml_root1=None, xml_root2=None):
+def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_directory, outputFormats, file1="", file2="", xml_root1=None, xml_root2=None, word_alignment_strategy="baseline"):
     # cesalign format is used to store alignment result
     ces_align_header = f"""<?xml version="1.0" encoding="utf-8"?>
 
@@ -317,51 +317,74 @@ def word_alignment(l1, l2, x, y, encoder, sents1, sents2, file_name, output_dire
 
         similarity_matrix = cosine_similarity(word_embeds_l1, word_embeds_l2)
 
-        # For each word in l2, find the best matching word in l1.
-        # first pass : pairing, associating each id2 to the best (id1,score)
-        id1_to_id2s={}
-        for id2, column in enumerate(similarity_matrix.T):
-            best_match_index = np.argmax(column)
-            if best_match_index not in id1_to_id2s:
-                id1_to_id2s[best_match_index]=[]
-            id1_to_id2s[best_match_index].append((id2,column[best_match_index]))
-        
-        # second pass : resolving conflicts
-        # if the same id1 is associated with different id2, the best association is conserved and other pairing are deleted
-        id2_to_id1={}
-        for id1 in id1_to_id2s:
-            # reducing conflicts by keeping the best association for id1
-            if len(id1_to_id2s[id1]) >= 2:
-                best_match_pair=np.argmax([pair[1] for pair in id1_to_id2s[id1]])
-                id1_to_id2s[id1]=[id1_to_id2s[id1][best_match_pair]]
-            id2=id1_to_id2s[id1][0][0]
-            id2_to_id1[id2]=id1
-            
-        # third pass : associating the missing id2
-        for id2, column in enumerate(similarity_matrix.T):
-            if not id2 in id2_to_id1.keys():
-                best_match_indices = list(np.argsort(column))
-                best_match_indices.reverse()
-                found=False
-                for id1 in best_match_indices:
-                    # if id1 is still free, it can be associated
-                    if id1 not in id1_to_id2s:
-                        id2_to_id1[id2]=id1
-                        id1_to_id2s[id1]=[(id2,column[id1])]
-                        found=True
-                        break
-                
-            best_match_score=0
-            best_match_index=id2_to_id1.get(id2,None)
-            if  best_match_index != None:
-                best_match_score = float(column[best_match_index])
-                alignments_ids.append((words_l1[best_match_index][1], words_l2[id2][1]))
-                target_to_source_ids.setdefault(words_l2[id2][1], []).append(words_l1[best_match_index][1])
+        if word_alignment_strategy == "intersection":
+            pivot_to_target = {
+                (id1, int(np.argmax(row)))
+                for id1, row in enumerate(similarity_matrix)
+            }
+            target_to_pivot = {
+                (int(np.argmax(column)), id2)
+                for id2, column in enumerate(similarity_matrix.T)
+            }
+            for id1, id2 in sorted(pivot_to_target & target_to_pivot):
+                best_match_score = float(similarity_matrix[id1][id2])
+                alignments_ids.append((words_l1[id1][1], words_l2[id2][1]))
+                target_to_source_ids.setdefault(words_l2[id2][1], []).append(words_l1[id1][1])
                 alignments.append({
-                    'l1_word': words_l1[best_match_index][0],
+                    'l1_word': words_l1[id1][0],
                     'l2_word': words_l2[id2][0],
                     'similarity': best_match_score
                 })
+        elif word_alignment_strategy == "baseline":
+            # For each word in l2, find the best matching word in l1.
+            # first pass : pairing, associating each id2 to the best (id1,score)
+            id1_to_id2s={}
+            for id2, column in enumerate(similarity_matrix.T):
+                best_match_index = np.argmax(column)
+                if best_match_index not in id1_to_id2s:
+                    id1_to_id2s[best_match_index]=[]
+                id1_to_id2s[best_match_index].append((id2,column[best_match_index]))
+            
+            # second pass : resolving conflicts
+            # if the same id1 is associated with different id2, the best association is conserved and other pairing are deleted
+            id2_to_id1={}
+            for id1 in id1_to_id2s:
+                # reducing conflicts by keeping the best association for id1
+                if len(id1_to_id2s[id1]) >= 2:
+                    best_match_pair=np.argmax([pair[1] for pair in id1_to_id2s[id1]])
+                    id1_to_id2s[id1]=[id1_to_id2s[id1][best_match_pair]]
+                id2=id1_to_id2s[id1][0][0]
+                id2_to_id1[id2]=id1
+                
+            # third pass : associating the missing id2
+            for id2, column in enumerate(similarity_matrix.T):
+                if not id2 in id2_to_id1.keys():
+                    best_match_indices = list(np.argsort(column))
+                    best_match_indices.reverse()
+                    found=False
+                    for id1 in best_match_indices:
+                        # if id1 is still free, it can be associated
+                        if id1 not in id1_to_id2s:
+                            id2_to_id1[id2]=id1
+                            id1_to_id2s[id1]=[(id2,column[id1])]
+                            found=True
+                            break
+                    
+                best_match_score=0
+                best_match_index=id2_to_id1.get(id2,None)
+                if  best_match_index != None:
+                    best_match_score = float(column[best_match_index])
+                    alignments_ids.append((words_l1[best_match_index][1], words_l2[id2][1]))
+                    target_to_source_ids.setdefault(words_l2[id2][1], []).append(words_l1[best_match_index][1])
+                    alignments.append({
+                        'l1_word': words_l1[best_match_index][0],
+                        'l2_word': words_l2[id2][0],
+                        'similarity': best_match_score
+                    })
+        else:
+            raise ValueError(
+                f"Unknown word alignment strategy: {word_alignment_strategy}"
+            )
 
 
         # old strategy with no injectivity
