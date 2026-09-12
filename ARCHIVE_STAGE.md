@@ -21,76 +21,15 @@ Les dossiers `raw`, `tei` et `ref` regroupent trois ensembles reconnaissables pa
 
 ## Produire les alignements
 
-Les fichiers de `tei/` sont les entrées utilisées pour l'alignement lexical. Les exemples suivants emploient la méthode `grow_diag` avec les poids `embedding=1,position=0.1,syntax=0.1`.
-
-### Prose
-
-Les fichiers cibles sont des rétrotraductions françaises : Stanza doit donc les traiter comme du français, même lorsque leur nom rappelle la langue de la traduction d'origine.
-
 ```bash
-mkdir -p archive_stage/sys/prose
+mkdir -p archive_stage/sys/{prose,poeme,leopardi}
 
-python3 ailign.py \
-  --inputFile1 archive_stage/tei/prose.fr.xml \
-  --inputFile2 archive_stage/tei/prose.1.de.xml \
-  --inputFormat xml \
-  --xmlGuide s \
-  --outputFormats tei \
-  --outputDir archive_stage/sys/prose \
-  --l1 fr --l2 fr \
-  --wordAlignment \
-  --wordAlignmentStrategy grow_diag \
-  --wordAlignmentSimilarity embedding=1,position=0.1,syntax=0.1
+python3 ailign.py --inputFileList archive_stage/tei/filelist_prose.tsv --inputFormat xml --xmlGuide s --outputFormats tei --outputDir archive_stage/sys/prose --l1 fr --l2 fr --wordAlignment --wordAlignmentStrategy grow_diag --wordAlignmentSimilarity embedding=1,position=0.1,syntax=0.1
+
+python3 ailign.py --inputFileList archive_stage/tei/filelist_poeme.tsv --inputFormat xml --xmlGuide s --outputFormats tei --outputDir archive_stage/sys/poeme --l1 fr --l2 fr --wordAlignment --wordAlignmentStrategy grow_diag --wordAlignmentSimilarity embedding=1,position=0.1,syntax=0.1
+
+python3 ailign.py --inputFileList archive_stage/tei/filelist_leopardi.tsv --filePattern '([^/]*)_(it|[^/.]+)[.]xml$' --inputFormat xml --xmlGuide s --outputFormats tei --outputDir archive_stage/sys/leopardi --l1 it --l2 fr --wordAlignment --wordAlignmentStrategy grow_diag --wordAlignmentSimilarity embedding=1,position=0.1,syntax=0.1
 ```
-
-Remplacer `prose.1.de.xml` par le fichier cible voulu. Le fichier lexical produit porte le suffixe `_word_ai.xml`.
-
-### Poème
-
-Les fichiers cibles sont également des rétrotraductions françaises.
-
-```bash
-mkdir -p archive_stage/sys/poeme
-
-python3 ailign.py \
-  --inputFile1 archive_stage/tei/poeme.fr.xml \
-  --inputFile2 archive_stage/tei/poeme.1.de.fr.xml \
-  --inputFormat xml \
-  --xmlGuide s \
-  --outputFormats tei \
-  --outputDir archive_stage/sys/poeme \
-  --l1 fr --l2 fr \
-  --wordAlignment \
-  --wordAlignmentStrategy grow_diag \
-  --wordAlignmentSimilarity embedding=1,position=0.1,syntax=0.1
-```
-
-Remplacer `poeme.1.de.fr.xml` par le fichier cible voulu.
-
-### Leopardi
-
-```bash
-mkdir -p archive_stage/sys/leopardi
-
-python3 ailign.py \
-  --inputFile1 archive_stage/tei/Leopardi_it.xml \
-  --inputFile2 archive_stage/tei/Leopardi_AMIEL.xml \
-  --inputFormat xml \
-  --xmlGuide s \
-  --outputFormats tei \
-  --outputDir archive_stage/sys/leopardi \
-  --l1 it --l2 fr \
-  --wordAlignment \
-  --wordAlignmentStrategy grow_diag \
-  --wordAlignmentSimilarity embedding=1,position=0.1,syntax=0.1
-```
-
-Remplacer `Leopardi_AMIEL.xml` par la traduction voulue.
-
-Pour reproduire une autre configuration, modifier :
-
-- `--wordAlignmentStrategy` : `baseline`, `intersection`, `union` ou `grow_diag` ;
-- `--wordAlignmentSimilarity` : par exemple `embedding=1`, `embedding=1,position=0.1` ou `embedding=1,syntax=0.1`.
 
 ## Évaluer les alignements
 
