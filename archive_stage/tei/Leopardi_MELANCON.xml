@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">MELANCON</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="2007">2007</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_melancon_s1">
+          <w xml:id="leopardi_melancon_t1" lemma="moi" pos="PRON">J’</w>
+          <w xml:id="leopardi_melancon_t2" lemma="avoir" pos="AUX">ai</w>
+          <w xml:id="leopardi_melancon_t3" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_melancon_t4" lemma="aimer" pos="VERB">aimé</w>
+          <w xml:id="leopardi_melancon_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_melancon_t6" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_melancon_t7" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_melancon_t8" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_melancon_t9" lemma="écart" pos="NOUN">écart</w>
+        </s>
+        <s xml:id="leopardi_melancon_s2">
+          <w xml:id="leopardi_melancon_t10" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_melancon_t11" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_melancon_t12" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_melancon_t13" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_melancon_t14" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_melancon_t15" lemma="tout" pos="DET">tous</w>
+          <w xml:id="leopardi_melancon_t16" lemma="côté" pos="NOUN">côtés</w>
+        </s>
+        <s xml:id="leopardi_melancon_s3">
+          <w xml:id="leopardi_melancon_t17" lemma="cache" pos="NOUN">Cache</w>
+          <w xml:id="leopardi_melancon_t18" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_melancon_t19" lemma="vue" pos="NOUN">vue</w>
+          <w xml:id="leopardi_melancon_t20" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_melancon_t21" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_melancon_t22" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_melancon_t23" lemma="lointain" pos="ADJ">lointain</w>
+        </s>
+        <s xml:id="leopardi_melancon_s4">
+          <w xml:id="leopardi_melancon_t24" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_melancon_t25" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_melancon_t26" lemma="asseoir" pos="VERB">assoyant</w>
+          <w xml:id="leopardi_melancon_t27" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t28" lemma="méditer" pos="VERB">méditant</w>
+          <w xml:id="leopardi_melancon_t29" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_melancon_t30" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_melancon_t31" lemma="inventer" pos="VERB">invente</w>
+        </s>
+        <s xml:id="leopardi_melancon_s5">
+          <w xml:id="leopardi_melancon_t32" lemma="par" pos="ADP">Par</w>
+          <w xml:id="leopardi_melancon_t33" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_melancon_t34" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_melancon_t35" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_melancon_t36" lemma="interminable" pos="ADJ">interminables</w>
+          <w xml:id="leopardi_melancon_t37" lemma="espace" pos="NOUN">espaces</w>
+        </s>
+        <s xml:id="leopardi_melancon_s6">
+          <w xml:id="leopardi_melancon_t38" lemma="au-delà" pos="ADV">Au-delà</w>
+          <w xml:id="leopardi_melancon_t39" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t40" lemma="un" pos="DET">de</w>
+          <w xml:id="leopardi_melancon_t41" lemma="surhumains" pos="NOUN">surhumains</w>
+          <w xml:id="leopardi_melancon_t42" lemma="silence" pos="NOUN">silences</w>
+        </s>
+        <s xml:id="leopardi_melancon_s7">
+          <w xml:id="leopardi_melancon_t43" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_melancon_t44" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_melancon_t45" lemma="très" pos="ADV">très</w>
+          <w xml:id="leopardi_melancon_t46" lemma="profond" pos="ADJ">profonde</w>
+          <w xml:id="leopardi_melancon_t47" lemma="paix" pos="NOUN">paix</w>
+          <w xml:id="leopardi_melancon_t48" lemma="où" pos="ADV">où</w>
+          <w xml:id="leopardi_melancon_t49" lemma="pour" pos="ADP">pour</w>
+          <w xml:id="leopardi_melancon_t50" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_melancon_t51" lemma="peu" pos="NOUN">peu</w>
+        </s>
+        <s xml:id="leopardi_melancon_s8">
+          <w xml:id="leopardi_melancon_t52" lemma="son" pos="DET">Mon</w>
+          <w xml:id="leopardi_melancon_t53" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_melancon_t54" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_melancon_t55" lemma="effrayer" pos="VERB">effraierait</w>
+          <w xml:id="leopardi_melancon_t56" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_melancon_t57" lemma="comme" pos="SCONJ">comme</w>
+          <w xml:id="leopardi_melancon_t58" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_melancon_t59" lemma="entendre" pos="VERB">entends</w>
+        </s>
+        <s xml:id="leopardi_melancon_s9">
+          <w xml:id="leopardi_melancon_t60" lemma="Frémir" pos="PROPN">Frémir</w>
+          <w xml:id="leopardi_melancon_t61" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_melancon_t62" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_melancon_t63" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_melancon_t64" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_melancon_t65" lemma="feuillage" pos="NOUN">feuillage</w>
+        </s>
+        <s xml:id="leopardi_melancon_s10">
+          <w xml:id="leopardi_melancon_t66" lemma="moi" pos="PRON">Je</w>
+          <w xml:id="leopardi_melancon_t67" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_melancon_t68" lemma="mettre" pos="VERB">mets</w>
+          <w xml:id="leopardi_melancon_t69" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_melancon_t70" lemma="comparer" pos="VERB">comparer</w>
+          <w xml:id="leopardi_melancon_t71" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_melancon_t72" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_melancon_t73" lemma="voix" pos="NOUN">voix</w>
+        </s>
+        <s xml:id="leopardi_melancon_s11">
+          <w xml:id="leopardi_melancon_t74" lemma="ce" pos="DET">Ce</w>
+          <w xml:id="leopardi_melancon_t75" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_melancon_t76" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_melancon_t77" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t78" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_melancon_t79" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_melancon_t80" lemma="rappeler" pos="VERB">rappelle</w>
+        </s>
+        <s xml:id="leopardi_melancon_s12">
+          <w xml:id="leopardi_melancon_t81" lemma="le" pos="DET">L’</w>
+          <w xml:id="leopardi_melancon_t82" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_melancon_t83" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t84" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_melancon_t85" lemma="saison" pos="NOUN">saisons</w>
+          <w xml:id="leopardi_melancon_t86" lemma="mort" pos="ADJ">mortes</w>
+          <w xml:id="leopardi_melancon_t87" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t88" lemma="celui-ci" pos="PRON">celle-ci</w>
+        </s>
+        <s xml:id="leopardi_melancon_s13">
+          <w xml:id="leopardi_melancon_t89" lemma="présent" pos="ADJ">Présente</w>
+          <w xml:id="leopardi_melancon_t90" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t91" lemma="vif" pos="ADJ">vive</w>
+          <w xml:id="leopardi_melancon_t92" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_melancon_t93" lemma="bruissant" pos="ADJ">bruissante</w>
+          <w xml:id="leopardi_melancon_t94" lemma="ainsi" pos="ADV">Ainsi</w>
+        </s>
+        <s xml:id="leopardi_melancon_s14">
+          <w xml:id="leopardi_melancon_t95" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_melancon_t96" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_melancon_t97" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_melancon_t98" lemma="sombre" pos="ADJ">sombre</w>
+          <w xml:id="leopardi_melancon_t99" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_melancon_t100" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_melancon_s15">
+          <w xml:id="leopardi_melancon_t101" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_melancon_t102" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_melancon_t103" lemma="abîmer" pos="VERB">abîmer</w>
+          <w xml:id="leopardi_melancon_t104" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_melancon_t105" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_melancon_t106" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_melancon_t107" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_melancon_t108" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_melancon_t109" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

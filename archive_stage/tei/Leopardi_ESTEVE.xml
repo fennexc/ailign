@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">ESTEVE</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1996">1996</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_esteve_s1">
+          <w xml:id="leopardi_esteve_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_esteve_t2" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_esteve_t3" lemma="avoir" pos="AUX">aurai</w>
+          <w xml:id="leopardi_esteve_t4" lemma="aimer" pos="VERB">aimé</w>
+          <w xml:id="leopardi_esteve_t5" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_esteve_t6" lemma="coteau" pos="NOUN">coteau</w>
+          <w xml:id="leopardi_esteve_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+        </s>
+        <s xml:id="leopardi_esteve_s2">
+          <w xml:id="leopardi_esteve_t8" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t9" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_esteve_t10" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_esteve_t11" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_esteve_t12" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_esteve_t13" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_esteve_t14" lemma="regard" pos="NOUN">regard</w>
+        </s>
+        <s xml:id="leopardi_esteve_s3">
+          <w xml:id="leopardi_esteve_t15" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_esteve_t16" lemma="grand" pos="ADJ">grande</w>
+          <w xml:id="leopardi_esteve_t17" lemma="partie" pos="NOUN">partie</w>
+          <w xml:id="leopardi_esteve_t18" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_esteve_t19" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_esteve_t20" lemma="extrême" pos="ADJ">extrême</w>
+          <w xml:id="leopardi_esteve_t21" lemma="horizon" pos="NOUN">horizon</w>
+        </s>
+        <s xml:id="leopardi_esteve_s4">
+          <w xml:id="leopardi_esteve_t22" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_esteve_t23" lemma="asseoir" pos="VERB">assis</w>
+          <w xml:id="leopardi_esteve_t24" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_esteve_t25" lemma="contempler" pos="VERB">contemple</w>
+          <w xml:id="leopardi_esteve_t26" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t27" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_esteve_t28" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_esteve_s5">
+          <w xml:id="leopardi_esteve_t29" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_esteve_t30" lemma="créer" pos="VERB">crée</w>
+          <w xml:id="leopardi_esteve_t31" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_esteve_t32" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_esteve_t33" lemma="illimité" pos="ADJ">illimités</w>
+        </s>
+        <s xml:id="leopardi_esteve_s6">
+          <w xml:id="leopardi_esteve_t34" lemma="au-delà" pos="ADV">au-delà</w>
+          <w xml:id="leopardi_esteve_t35" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_esteve_t36" lemma="lui" pos="PRON">elle</w>
+          <w xml:id="leopardi_esteve_t37" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_esteve_t38" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_esteve_t39" lemma="surhumain" pos="ADJ">surhumains</w>
+        </s>
+        <s xml:id="leopardi_esteve_s7">
+          <w xml:id="leopardi_esteve_t40" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t41" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_esteve_t42" lemma="quiétude" pos="NOUN">quiétude</w>
+          <w xml:id="leopardi_esteve_t43" lemma="profond" pos="ADJ">profonde</w>
+        </s>
+        <s xml:id="leopardi_esteve_s8">
+          <w xml:id="leopardi_esteve_t44" lemma="peu" pos="ADV">Peu</w>
+          <w xml:id="leopardi_esteve_t45" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_esteve_t46" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_esteve_t47" lemma="falloir" pos="VERB">faut</w>
+          <w xml:id="leopardi_esteve_t48" lemma="que" pos="SCONJ">qu’</w>
+          <w xml:id="leopardi_esteve_t49" lemma="alors" pos="ADV">alors</w>
+          <w xml:id="leopardi_esteve_t50" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_esteve_t51" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_esteve_t52" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_esteve_t53" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_esteve_t54" lemma="effrayer" pos="VERB">effraie</w>
+        </s>
+        <s xml:id="leopardi_esteve_s9">
+          <w xml:id="leopardi_esteve_t55" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_esteve_t56" lemma="quand" pos="SCONJ">quand</w>
+          <w xml:id="leopardi_esteve_t57" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_esteve_t58" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_esteve_t59" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_esteve_t60" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_esteve_t61" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_esteve_t62" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_esteve_t63" lemma="ce" pos="DET">ces</w>
+          <w xml:id="leopardi_esteve_t64" lemma="feuillage" pos="NOUN">feuillages</w>
+        </s>
+        <s xml:id="leopardi_esteve_s10">
+          <w xml:id="leopardi_esteve_t65" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_esteve_t66" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_esteve_t67" lemma="proche" pos="ADJ">proche</w>
+          <w xml:id="leopardi_esteve_t68" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_esteve_t69" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_esteve_t70" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_esteve_t71" lemma="infini" pos="ADJ">infini</w>
+        </s>
+        <s xml:id="leopardi_esteve_s11">
+          <w xml:id="leopardi_esteve_t72" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_esteve_t73" lemma="aller" pos="VERB">vais</w>
+          <w xml:id="leopardi_esteve_t74" lemma="mesurer" pos="VERB">mesurant</w>
+          <w xml:id="leopardi_esteve_t75" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t76" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_esteve_t77" lemma="éternité" pos="NOUN">éternité</w>
+        </s>
+        <s xml:id="leopardi_esteve_s12">
+          <w xml:id="leopardi_esteve_t78" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_esteve_t79" lemma="moi" pos="PRON">moi</w>
+          <w xml:id="leopardi_esteve_t80" lemma="advenir" pos="VERB">advient</w>
+          <w xml:id="leopardi_esteve_t81" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t82" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_esteve_t83" lemma="mort" pos="NOUN">mortes</w>
+          <w xml:id="leopardi_esteve_t84" lemma="saison" pos="NOUN">saisons</w>
+        </s>
+        <s xml:id="leopardi_esteve_s13">
+          <w xml:id="leopardi_esteve_t85" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t86" lemma="celui-ci" pos="PRON">celle-ci</w>
+          <w xml:id="leopardi_esteve_t87" lemma="vivant" pos="ADJ">vivante</w>
+          <w xml:id="leopardi_esteve_t88" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t89" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_esteve_t90" lemma="rumeur" pos="NOUN">rumeur</w>
+        </s>
+        <s xml:id="leopardi_esteve_s14">
+          <w xml:id="leopardi_esteve_t91" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_esteve_t92" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_esteve_t93" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_esteve_t94" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_esteve_t95" lemma="abîmer" pos="VERB">abîme</w>
+          <w xml:id="leopardi_esteve_t96" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_esteve_t97" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_esteve_s15">
+          <w xml:id="leopardi_esteve_t98" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_esteve_t99" lemma="naufrager" pos="INTJ">naufrager</w>
+          <w xml:id="leopardi_esteve_t100" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_esteve_t101" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_esteve_t102" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_esteve_t103" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_esteve_t104" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_esteve_t105" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

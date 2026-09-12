@@ -1,0 +1,2640 @@
+<?xml version="1.0" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Proche Afrique</title>
+        <author>Gérard Macé</author>
+        <respStmt>
+          <respType>Edition établie par</respType>
+          <respName>Pascale Roux et Olivier Kraif</respName>
+        </respStmt>
+        <editor role="translator">Dominique Dias</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher value="Univ. Grenoble Alpes"/>
+        <pubPlace value="Grenoble"/>
+        <pubDate value="2020"/>
+      </publicationStmt>
+    </fileDesc>
+    <sourceDesc>
+      <p>Rétrotraduction en français depuis une traduction en allemand</p>
+    </sourceDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="prose_1_de_s1">
+          <seg corresp="#prose_fr_t1">
+            <w xml:id="prose_1_de_t1" lemma="proche" pos="ADJ">PROCHE</w>
+          </seg>
+          <seg corresp="#prose_fr_t2">
+            <w xml:id="prose_1_de_t2" lemma="AFRIQUE" pos="NOUN">AFRIQUE</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s2">
+          <seg corresp="#prose_fr_t3">
+            <w xml:id="prose_1_de_t3" lemma="au" pos="ADP">Au</w>
+          </seg>
+          <seg corresp="#prose_fr_t4">
+            <w xml:id="prose_1_de_t4" lemma="cœur" pos="NOUN">cœur</w>
+          </seg>
+          <seg corresp="#prose_fr_t5">
+            <w xml:id="prose_1_de_t5" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t6">
+            <w xml:id="prose_1_de_t6" lemma="ténèbre" pos="NOUN">ténèbres</w>
+          </seg>
+          <seg corresp="#prose_fr_t8">
+            <w xml:id="prose_1_de_t8" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t9" lemma="après" pos="ADP">après</w>
+          </seg>
+          <seg corresp="#prose_fr_t9">
+            <w xml:id="prose_1_de_t10" lemma="Conrad" pos="PROPN">Conrad</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s3">
+          <seg corresp="#prose_fr_t11">
+            <w xml:id="prose_1_de_t12" lemma="continent" pos="NOUN">Continent</w>
+          </seg>
+          <seg corresp="#prose_fr_t12">
+            <w xml:id="prose_1_de_t13" lemma="noir" pos="ADJ">noir</w>
+          </seg>
+          <seg corresp="#prose_fr_t14">
+            <w xml:id="prose_1_de_t15" lemma="pour" pos="ADP">pour</w>
+          </seg>
+          <seg corresp="#prose_fr_t15 #prose_fr_t16 #prose_fr_t17">
+            <w xml:id="prose_1_de_t16" lemma="le" pos="DET">la</w>
+            <w xml:id="prose_1_de_t17" lemma="plupart" pos="NOUN">plupart</w>
+            <w xml:id="prose_1_de_t18" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t18 #prose_fr_t19">
+            <w xml:id="prose_1_de_t19" lemma="entre" pos="ADP">entre</w>
+            <w xml:id="prose_1_de_t20" lemma="nous" pos="PRON">nous</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s4">
+          <seg corresp="#prose_fr_t21">
+            <w xml:id="prose_1_de_t22" lemma="le" pos="DET">L'</w>
+          </seg>
+          <seg corresp="#prose_fr_t22">
+            <w xml:id="prose_1_de_t23" lemma="Afrique" pos="PROPN">Afrique</w>
+          </seg>
+          <seg corresp="#prose_fr_t23 #prose_fr_t24">
+            <w xml:id="prose_1_de_t24" lemma="avoir" pos="VERB">a</w>
+            <w xml:id="prose_1_de_t25" lemma="le" pos="DET">la</w>
+            <w xml:id="prose_1_de_t26" lemma="réputation" pos="NOUN">réputation</w>
+            <w xml:id="prose_1_de_t27" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t28" lemma="être" pos="VERB">être</w>
+          </seg>
+          <seg corresp="#prose_fr_t25">
+            <w xml:id="prose_1_de_t29" lemma="sombre" pos="ADJ">sombre</w>
+          </seg>
+          <seg corresp="#prose_fr_t26">
+            <w xml:id="prose_1_de_t30" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t27">
+            <w xml:id="prose_1_de_t31" lemma="mystérieux" pos="ADJ">mystérieuse</w>
+          </seg>
+          <seg corresp="#prose_fr_t28">
+            <w xml:id="prose_1_de_t32" lemma="après" pos="ADP">après</w>
+          </seg>
+          <seg corresp="#prose_fr_t29 #prose_fr_t30">
+            <w xml:id="prose_1_de_t33" lemma="avoir" pos="VERB">avoir</w>
+            <w xml:id="prose_1_de_t34" lemma="être" pos="VERB">été</w>
+          </seg>
+          <seg corresp="#prose_fr_t31">
+            <w xml:id="prose_1_de_t35" lemma="impénétrable" pos="ADJ">impénétrable</w>
+          </seg>
+          <seg corresp="#prose_fr_t33">
+            <w xml:id="prose_1_de_t36" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t46">
+            <w xml:id="prose_1_de_t37" lemma="elle" pos="PRON">elle</w>
+          </seg>
+          <seg corresp="#prose_fr_t34">
+            <w xml:id="prose_1_de_t38" lemma="rester" pos="VERB">reste</w>
+          </seg>
+          <seg corresp="#prose_fr_t35 #prose_fr_t36">
+            <w xml:id="prose_1_de_t39" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t40" lemma="part" pos="NOUN">part</w>
+          </seg>
+          <seg corresp="#prose_fr_t37">
+            <w xml:id="prose_1_de_t41" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t38">
+            <w xml:id="prose_1_de_t42" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t39">
+            <w xml:id="prose_1_de_t43" lemma="histoire" pos="NOUN">histoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t40">
+            <w xml:id="prose_1_de_t44" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t41">
+            <w xml:id="prose_1_de_t45" lemma="culture" pos="NOUN">cultures</w>
+          </seg>
+          <seg corresp="#prose_fr_t43">
+            <w xml:id="prose_1_de_t47" lemma="quand" pos="CCONJ">quand</w>
+          </seg>
+          <seg corresp="#prose_fr_t45 #prose_fr_t48">
+            <w xml:id="prose_1_de_t49" lemma="ne" pos="ADV">n'</w>
+          </seg>
+          <seg corresp="#prose_fr_t47">
+            <w xml:id="prose_1_de_t50" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t45 #prose_fr_t48">
+            <w xml:id="prose_1_de_t51" lemma="pas" pos="ADV">pas</w>
+          </seg>
+          <seg corresp="#prose_fr_t49">
+            <w xml:id="prose_1_de_t52" lemma="tout" pos="ADV">tout</w>
+          </seg>
+          <seg corresp="#prose_fr_t50">
+            <w xml:id="prose_1_de_t53" lemma="bonnement" pos="ADV">bonnement</w>
+          </seg>
+          <seg corresp="#prose_fr_t47">
+            <w xml:id="prose_1_de_t54" lemma="oublier" pos="VERB">oubliée</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s5">
+          <seg corresp="#prose_fr_t52 #prose_fr_t53 #prose_fr_t54">
+            <w xml:id="prose_1_de_t56" lemma="à" pos="ADP">À</w>
+            <w xml:id="prose_1_de_t57" lemma="vrai" pos="ADJ">vrai</w>
+            <w xml:id="prose_1_de_t58" lemma="dire" pos="NOUN">dire</w>
+          </seg>
+          <seg corresp="#prose_fr_t59">
+            <w xml:id="prose_1_de_t60" lemma="avec" pos="ADP">avec</w>
+          </seg>
+          <seg corresp="#prose_fr_t60">
+            <w xml:id="prose_1_de_t61" lemma="son" pos="DET">ses</w>
+          </seg>
+          <seg corresp="#prose_fr_t61">
+            <w xml:id="prose_1_de_t62" lemma="maladie" pos="NOUN">maladies</w>
+          </seg>
+          <seg corresp="#prose_fr_t63">
+            <w xml:id="prose_1_de_t64" lemma="son" pos="DET">ses</w>
+          </seg>
+          <seg corresp="#prose_fr_t64">
+            <w xml:id="prose_1_de_t65" lemma="catastrophe" pos="NOUN">catastrophes</w>
+          </seg>
+          <seg corresp="#prose_fr_t71">
+            <w xml:id="prose_1_de_t66" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t66">
+            <w xml:id="prose_1_de_t67" lemma="son" pos="DET">ses</w>
+          </seg>
+          <seg corresp="#prose_fr_t67">
+            <w xml:id="prose_1_de_t68" lemma="coutume" pos="NOUN">coutumes</w>
+          </seg>
+          <seg corresp="#prose_fr_t68">
+            <w xml:id="prose_1_de_t69" lemma="en" pos="ADP">en</w>
+            <w xml:id="prose_1_de_t70" lemma="apparence" pos="NOUN">apparence</w>
+          </seg>
+          <seg corresp="#prose_fr_t69">
+            <w xml:id="prose_1_de_t71" lemma="étrange" pos="ADJ">étranges</w>
+          </seg>
+          <seg corresp="#prose_fr_t55">
+            <w xml:id="prose_1_de_t73" lemma="elle" pos="PRON">elle</w>
+          </seg>
+          <seg corresp="#prose_fr_t56 #prose_fr_t57 #prose_fr_t58">
+            <w xml:id="prose_1_de_t74" lemma="servir" pos="VERB">sert</w>
+            <w xml:id="prose_1_de_t75" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t76" lemma="repoussoir" pos="NOUN">repoussoir</w>
+          </seg>
+          <seg corresp="#prose_fr_t86">
+            <w xml:id="prose_1_de_t78" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t72">
+            <w xml:id="prose_1_de_t79" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t80" lemma="le" pos="DET">l'</w>
+            <w xml:id="prose_1_de_t81" lemma="instar" pos="NOUN">instar</w>
+          </seg>
+          <seg corresp="#prose_fr_t73">
+            <w xml:id="prose_1_de_t82" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t74 #prose_fr_t75">
+            <w xml:id="prose_1_de_t83" lemma="Moyen" pos="PROPN">Moyen</w>
+            <w xml:id="prose_1_de_t84" lemma="âge" pos="NOUN">Âge</w>
+          </seg>
+          <seg corresp="#prose_fr_t77 #prose_fr_t78">
+            <w xml:id="prose_1_de_t86" lemma="on" pos="PRON">on</w>
+          </seg>
+          <seg corresp="#prose_fr_t76">
+            <w xml:id="prose_1_de_t87" lemma="la" pos="PRON">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t77 #prose_fr_t78">
+            <w xml:id="prose_1_de_t88" lemma="dire" pos="VERB">dit</w>
+          </seg>
+          <seg corresp="#prose_fr_t79">
+            <w xml:id="prose_1_de_t89" lemma="obscur" pos="ADJ">obscure</w>
+          </seg>
+          <seg corresp="#prose_fr_t80 #prose_fr_t81">
+            <w xml:id="prose_1_de_t90" lemma="alors" pos="ADV">alors</w>
+            <w xml:id="prose_1_de_t91" lemma="que" pos="CCONJ">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t83">
+            <w xml:id="prose_1_de_t92" lemma="en" pos="ADP">en</w>
+            <w xml:id="prose_1_de_t93" lemma="réalité" pos="NOUN">réalité</w>
+          </seg>
+          <seg corresp="#prose_fr_t84">
+            <w xml:id="prose_1_de_t95" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t85">
+            <w xml:id="prose_1_de_t96" lemma="lumineux" pos="ADJ">lumineuse</w>
+          </seg>
+          <seg corresp="#prose_fr_t96">
+            <w xml:id="prose_1_de_t97" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t87">
+            <w xml:id="prose_1_de_t98" lemma="multicolore" pos="ADJ">multicolore</w>
+          </seg>
+          <seg corresp="#prose_fr_t89 #prose_fr_t90">
+            <w xml:id="prose_1_de_t100" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t101" lemma="même" pos="ADV">même</w>
+            <w xml:id="prose_1_de_t102" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t91">
+            <w xml:id="prose_1_de_t103" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t92 #prose_fr_t93">
+            <w xml:id="prose_1_de_t104" lemma="Moyen" pos="PROPN">Moyen</w>
+            <w xml:id="prose_1_de_t105" lemma="Âge" pos="ADJ">Âge</w>
+          </seg>
+          <seg corresp="#prose_fr_t94">
+            <w xml:id="prose_1_de_t106" lemma="être" pos="VERB">était</w>
+          </seg>
+          <seg corresp="#prose_fr_t95">
+            <w xml:id="prose_1_de_t107" lemma="vivant" pos="ADJ">vivant</w>
+          </seg>
+          <seg corresp="#prose_fr_t97">
+            <w xml:id="prose_1_de_t109" lemma="polychrome" pos="ADJ">polychrome</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s6">
+          <seg corresp="#prose_fr_t99 #prose_fr_t100 #prose_fr_t101 #prose_fr_t102">
+            <w xml:id="prose_1_de_t111" lemma="pour" pos="ADP">Pour</w>
+            <w xml:id="prose_1_de_t112" lemma="aggraver" pos="VERB">aggraver</w>
+            <w xml:id="prose_1_de_t113" lemma="encore" pos="ADV">encore</w>
+            <w xml:id="prose_1_de_t114" lemma="son" pos="DET">son</w>
+            <w xml:id="prose_1_de_t115" lemma="cas" pos="NOUN">cas</w>
+          </seg>
+          <seg corresp="#prose_fr_t106 #prose_fr_t107">
+            <w xml:id="prose_1_de_t117" lemma="on" pos="PRON">on</w>
+            <w xml:id="prose_1_de_t118" lemma="dire" pos="VERB">dit</w>
+            <w xml:id="prose_1_de_t119" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t104">
+            <w xml:id="prose_1_de_t120" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t105">
+            <w xml:id="prose_1_de_t121" lemma="Afrique" pos="PROPN">Afrique</w>
+          </seg>
+          <seg corresp="#prose_fr_t106 #prose_fr_t107">
+            <w xml:id="prose_1_de_t122" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t108">
+            <w xml:id="prose_1_de_t123" lemma="sans" pos="ADP">sans</w>
+          </seg>
+          <seg corresp="#prose_fr_t109">
+            <w xml:id="prose_1_de_t124" lemma="histoire" pos="NOUN">histoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t110 #prose_fr_t111">
+            <w xml:id="prose_1_de_t128" lemma="car" pos="CCONJ">car</w>
+          </seg>
+          <seg corresp="#prose_fr_t114 #prose_fr_t116">
+            <w xml:id="prose_1_de_t130" lemma="ne" pos="ADV">n'</w>
+            <w xml:id="prose_1_de_t132" lemma="pas" pos="ADV">pas</w>
+          </seg>
+          <seg corresp="#prose_fr_t112 #prose_fr_t113">
+            <w xml:id="prose_1_de_t133" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t134" lemma="histoire" pos="NOUN">histoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t115 #prose_fr_t117">
+            <w xml:id="prose_1_de_t135" lemma="écrire" pos="VERB">écrite</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s7">
+          <seg corresp="#prose_fr_t119 #prose_fr_t120 #prose_fr_t121">
+            <w xml:id="prose_1_de_t137" lemma="aussi" pos="ADV">Aussi</w>
+          </seg>
+          <seg corresp="#prose_fr_t123 #prose_fr_t124">
+            <w xml:id="prose_1_de_t138" lemma="suivre|être" pos="VERB">suis</w>
+          </seg>
+          <seg corresp="#prose_fr_t122">
+            <w xml:id="prose_1_de_t139" lemma="je" pos="PRON">-je</w>
+          </seg>
+          <seg corresp="#prose_fr_t125 #prose_fr_t126">
+            <w xml:id="prose_1_de_t140" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t141" lemma="abord" pos="NOUN">abord</w>
+          </seg>
+          <seg corresp="#prose_fr_t123 #prose_fr_t124">
+            <w xml:id="prose_1_de_t142" lemma="aller" pos="VERB">allé</w>
+          </seg>
+          <seg corresp="#prose_fr_t127">
+            <w xml:id="prose_1_de_t143" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#prose_fr_t128">
+            <w xml:id="prose_1_de_t144" lemma="Éthiopie" pos="PROPN">Éthiopie</w>
+          </seg>
+          <seg corresp="#prose_fr_t130">
+            <w xml:id="prose_1_de_t146" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg corresp="#prose_fr_t131">
+            <w xml:id="prose_1_de_t147" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t132">
+            <w xml:id="prose_1_de_t148" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t133 #prose_fr_t134">
+            <w xml:id="prose_1_de_t149" lemma="exister" pos="VERB">existe</w>
+          </seg>
+          <seg corresp="#prose_fr_t135">
+            <w xml:id="prose_1_de_t150" lemma="depuis" pos="ADP">depuis</w>
+          </seg>
+          <seg corresp="#prose_fr_t136">
+            <w xml:id="prose_1_de_t151" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t137">
+            <w xml:id="prose_1_de_t152" lemma="antiquité" pos="NOUN">Antiquité</w>
+          </seg>
+          <seg corresp="#prose_fr_t139 #prose_fr_t140">
+            <w xml:id="prose_1_de_t154" lemma="vraisemblablement" pos="ADV">vraisemblablement</w>
+          </seg>
+          <seg corresp="#prose_fr_t141">
+            <w xml:id="prose_1_de_t155" lemma="arriver" pos="VERB">arrivée</w>
+          </seg>
+          <seg corresp="#prose_fr_t142">
+            <w xml:id="prose_1_de_t156" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t143">
+            <w xml:id="prose_1_de_t157" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t144">
+            <w xml:id="prose_1_de_t158" lemma="péninsule" pos="NOUN">péninsule</w>
+          </seg>
+          <seg corresp="#prose_fr_t145">
+            <w xml:id="prose_1_de_t159" lemma="arabique" pos="ADJ">Arabique</w>
+          </seg>
+          <seg corresp="#prose_fr_t146 #prose_fr_t147">
+            <w xml:id="prose_1_de_t160" lemma="en" pos="ADP">en</w>
+            <w xml:id="prose_1_de_t161" lemma="traverser" pos="VERB">traversant</w>
+          </seg>
+          <seg corresp="#prose_fr_t148">
+            <w xml:id="prose_1_de_t162" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t149">
+            <w xml:id="prose_1_de_t163" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+          <seg corresp="#prose_fr_t150">
+            <w xml:id="prose_1_de_t164" lemma="Rouge" pos="PROPN">Rouge</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s8">
+          <seg corresp="#prose_fr_t152">
+            <w xml:id="prose_1_de_t166" lemma="le" pos="DET">L'</w>
+          </seg>
+          <seg corresp="#prose_fr_t153">
+            <w xml:id="prose_1_de_t167" lemma="Éthiopie" pos="PROPN">Éthiopie</w>
+          </seg>
+          <seg corresp="#prose_fr_t154">
+            <w xml:id="prose_1_de_t169" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg corresp="#prose_fr_t155">
+            <w xml:id="prose_1_de_t170" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t156">
+            <w xml:id="prose_1_de_t171" lemma="christianisme" pos="NOUN">christianisme</w>
+          </seg>
+          <seg corresp="#prose_fr_t157">
+            <w xml:id="prose_1_de_t172" lemma="adopter" pos="VERB">adopté</w>
+          </seg>
+          <seg corresp="#prose_fr_t158">
+            <w xml:id="prose_1_de_t173" lemma="au" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#prose_fr_t159 #prose_fr_t160">
+            <w xml:id="prose_1_de_t174" lemma="IVe" pos="NUM">IVe</w>
+            <w xml:id="prose_1_de_t175" lemma="siècle" pos="NOUN">siècle</w>
+          </seg>
+          <seg corresp="#prose_fr_t161 #prose_fr_t163">
+            <w xml:id="prose_1_de_t176" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg corresp="#prose_fr_t162">
+            <w xml:id="prose_1_de_t177" lemma="devoir" pos="VERB">doit</w>
+          </seg>
+          <seg corresp="#prose_fr_t161 #prose_fr_t163">
+            <w xml:id="prose_1_de_t178" lemma="rien" pos="ADV">rien</w>
+          </seg>
+          <seg corresp="#prose_fr_t164">
+            <w xml:id="prose_1_de_t179" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t165">
+            <w xml:id="prose_1_de_t180" lemma="Rome" pos="PROPN">Rome</w>
+          </seg>
+          <seg corresp="#prose_fr_t167">
+            <w xml:id="prose_1_de_t182" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t168">
+            <w xml:id="prose_1_de_t186" lemma="fidèle" pos="ADJ">fidèle</w>
+          </seg>
+          <seg corresp="#prose_fr_t169">
+            <w xml:id="prose_1_de_t187" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t170">
+            <w xml:id="prose_1_de_t188" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t171 #prose_fr_t172">
+            <w xml:id="prose_1_de_t189" lemma="ancien" pos="NOUN">Ancien</w>
+            <w xml:id="prose_1_de_t190" lemma="Testament" pos="PROPN">Testament</w>
+          </seg>
+          <seg corresp="#prose_fr_t173 #prose_fr_t175">
+            <w xml:id="prose_1_de_t192" lemma="ne" pos="ADV">n'</w>
+          </seg>
+          <seg corresp="#prose_fr_t174 #prose_fr_t176">
+            <w xml:id="prose_1_de_t193" lemma="avoir" pos="VERB">a</w>
+          </seg>
+          <seg corresp="#prose_fr_t173 #prose_fr_t175">
+            <w xml:id="prose_1_de_t194" lemma="rien" pos="ADV">rien</w>
+          </seg>
+          <seg corresp="#prose_fr_t174 #prose_fr_t176">
+            <w xml:id="prose_1_de_t195" lemma="renier" pos="VERB">renié</w>
+          </seg>
+          <seg corresp="#prose_fr_t177">
+            <w xml:id="prose_1_de_t196" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t178">
+            <w xml:id="prose_1_de_t197" lemma="judaïsme" pos="NOUN">judaïsme</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s9">
+          <seg corresp="#prose_fr_t180">
+            <w xml:id="prose_1_de_t199" lemma="son" pos="DET">Son</w>
+          </seg>
+          <seg corresp="#prose_fr_t181">
+            <w xml:id="prose_1_de_t200" lemma="histoire" pos="NOUN">histoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t182">
+            <w xml:id="prose_1_de_t201" lemma="complètement" pos="ADV">complètement</w>
+          </seg>
+          <seg corresp="#prose_fr_t183">
+            <w xml:id="prose_1_de_t202" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t203" lemma="part" pos="NOUN">part</w>
+          </seg>
+          <seg corresp="#prose_fr_t192 #prose_fr_t193 #prose_fr_t194">
+            <w xml:id="prose_1_de_t204" lemma="en" pos="ADP">en</w>
+            <w xml:id="prose_1_de_t205" lemma="lien" pos="NOUN">lien</w>
+            <w xml:id="prose_1_de_t206" lemma="avec" pos="ADP">avec</w>
+          </seg>
+          <seg corresp="#prose_fr_t195">
+            <w xml:id="prose_1_de_t207" lemma="Alexandrie" pos="PROPN">Alexandrie</w>
+          </seg>
+          <seg corresp="#prose_fr_t184 #prose_fr_t185 #prose_fr_t186">
+            <w xml:id="prose_1_de_t208" lemma="se" pos="PRON">s'</w>
+            <w xml:id="prose_1_de_t209" lemma="être" pos="VERB">est</w>
+            <w xml:id="prose_1_de_t210" lemma="poursuivre" pos="VERB">poursuivie</w>
+          </seg>
+          <seg corresp="#prose_fr_t187 #prose_fr_t188">
+            <w xml:id="prose_1_de_t211" lemma="jusque" pos="ADP">jusqu'</w>
+            <w xml:id="prose_1_de_t212" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t189 #prose_fr_t190">
+            <w xml:id="prose_1_de_t213" lemma="aujourd'hui" pos="ADV">aujourd'hui</w>
+          </seg>
+          <seg corresp="#prose_fr_t197 #prose_fr_t198">
+            <w xml:id="prose_1_de_t215" lemma="grâce" pos="NOUN">grâce</w>
+            <w xml:id="prose_1_de_t216" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t199">
+            <w xml:id="prose_1_de_t217" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t200">
+            <w xml:id="prose_1_de_t218" lemma="manuscrit" pos="NOUN">manuscrits</w>
+          </seg>
+          <seg corresp="#prose_fr_t201">
+            <w xml:id="prose_1_de_t219" lemma="enluminer" pos="VERB">enluminés</w>
+          </seg>
+          <seg corresp="#prose_fr_t202">
+            <w xml:id="prose_1_de_t220" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t203">
+            <w xml:id="prose_1_de_t221" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t204">
+            <w xml:id="prose_1_de_t222" lemma="peinture" pos="NOUN">peintures</w>
+          </seg>
+          <seg corresp="#prose_fr_t205 #prose_fr_t206">
+            <w xml:id="prose_1_de_t223" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t224" lemma="église" pos="NOUN">église</w>
+          </seg>
+          <seg corresp="#prose_fr_t207">
+            <w xml:id="prose_1_de_t225" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t208">
+            <w xml:id="prose_1_de_t226" lemma="réjouir" pos="VERB">réjouissent</w>
+          </seg>
+          <seg corresp="#prose_fr_t211 #prose_fr_t212">
+            <w xml:id="prose_1_de_t227" lemma="autant" pos="ADV">autant</w>
+          </seg>
+          <seg corresp="#prose_fr_t209">
+            <w xml:id="prose_1_de_t228" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t210">
+            <w xml:id="prose_1_de_t229" lemma="vue" pos="NOUN">vue</w>
+          </seg>
+          <seg corresp="#prose_fr_t211 #prose_fr_t212">
+            <w xml:id="prose_1_de_t230" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t213">
+            <w xml:id="prose_1_de_t231" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t214">
+            <w xml:id="prose_1_de_t232" lemma="esprit" pos="NOUN">esprit</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s10">
+          <seg corresp="#prose_fr_t216">
+            <w xml:id="prose_1_de_t234" lemma="du" pos="ADP">Des</w>
+          </seg>
+          <seg corresp="#prose_fr_t217">
+            <w xml:id="prose_1_de_t235" lemma="manuscrit" pos="NOUN">manuscrits</w>
+          </seg>
+          <seg corresp="#prose_fr_t218">
+            <w xml:id="prose_1_de_t237" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#prose_fr_t219">
+            <w xml:id="prose_1_de_t238" lemma="guèze" pos="NOUN">guèze</w>
+          </seg>
+          <seg corresp="#prose_fr_t221">
+            <w xml:id="prose_1_de_t240" lemma="un" pos="DET">une</w>
+            <w xml:id="prose_1_de_t241" lemma="langue" pos="NOUN">langue</w>
+          </seg>
+          <seg corresp="#prose_fr_t222">
+            <w xml:id="prose_1_de_t242" lemma="mort" pos="ADJ">morte</w>
+          </seg>
+          <seg corresp="#prose_fr_t226">
+            <w xml:id="prose_1_de_t245" lemma="comme" pos="ADV">comme</w>
+          </seg>
+          <seg corresp="#prose_fr_t227">
+            <w xml:id="prose_1_de_t246" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t228">
+            <w xml:id="prose_1_de_t247" lemma="latin" pos="NOUN">latin</w>
+          </seg>
+          <seg corresp="#prose_fr_t229">
+            <w xml:id="prose_1_de_t248" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#prose_fr_t230">
+            <w xml:id="prose_1_de_t249" lemma="Occident" pos="PROPN">Occident</w>
+          </seg>
+          <seg corresp="#prose_fr_t223">
+            <w xml:id="prose_1_de_t251" lemma="être" pos="VERB">est</w>
+            <w xml:id="prose_1_de_t252" lemma="devenir" pos="VERB">devenue</w>
+          </seg>
+          <seg corresp="#prose_fr_t224">
+            <w xml:id="prose_1_de_t253" lemma="un" pos="DET">une</w>
+            <w xml:id="prose_1_de_t254" lemma="langue" pos="NOUN">langue</w>
+          </seg>
+          <seg corresp="#prose_fr_t225">
+            <w xml:id="prose_1_de_t255" lemma="liturgique" pos="ADJ">liturgique</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s11">
+          <seg corresp="#prose_fr_t232">
+            <w xml:id="prose_1_de_t257" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg corresp="#prose_fr_t236 #prose_fr_t237">
+            <w xml:id="prose_1_de_t258" lemma="se" pos="PRON">se</w>
+            <w xml:id="prose_1_de_t259" lemma="poser" pos="VERB">pose</w>
+          </seg>
+          <seg corresp="#prose_fr_t233">
+            <w xml:id="prose_1_de_t260" lemma="alors" pos="ADV">alors</w>
+          </seg>
+          <seg corresp="#prose_fr_t234">
+            <w xml:id="prose_1_de_t261" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t235">
+            <w xml:id="prose_1_de_t262" lemma="question" pos="NOUN">question</w>
+          </seg>
+          <seg corresp="#prose_fr_t239">
+            <w xml:id="prose_1_de_t264" lemma="pourquoi" pos="ADV">Pourquoi</w>
+          </seg>
+          <seg corresp="#prose_fr_t240">
+            <w xml:id="prose_1_de_t265" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t241">
+            <w xml:id="prose_1_de_t266" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t243 #prose_fr_t244 #prose_fr_t245 #prose_fr_t249">
+            <w xml:id="prose_1_de_t268" lemma="partie" pos="NOUN">partie</w>
+            <w xml:id="prose_1_de_t269" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t247">
+            <w xml:id="prose_1_de_t270" lemma="Égypte" pos="PROPN">Égypte</w>
+          </seg>
+          <seg corresp="#prose_fr_t248">
+            <w xml:id="prose_1_de_t271" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t243 #prose_fr_t244 #prose_fr_t245 #prose_fr_t249">
+            <w xml:id="prose_1_de_t272" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t251">
+            <w xml:id="prose_1_de_t273" lemma="Éthiopie" pos="PROPN">Éthiopie</w>
+          </seg>
+          <seg corresp="#prose_fr_t253 #prose_fr_t257">
+            <w xml:id="prose_1_de_t275" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg corresp="#prose_fr_t254 #prose_fr_t255 #prose_fr_t258">
+            <w xml:id="prose_1_de_t276" lemma="se" pos="PRON">s'</w>
+            <w xml:id="prose_1_de_t277" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t256">
+            <w xml:id="prose_1_de_t278" lemma="elle" pos="PRON">-elle</w>
+          </seg>
+          <seg corresp="#prose_fr_t253 #prose_fr_t257">
+            <w xml:id="prose_1_de_t279" lemma="pas" pos="ADV">pas</w>
+          </seg>
+          <seg corresp="#prose_fr_t254 #prose_fr_t255 #prose_fr_t258">
+            <w xml:id="prose_1_de_t280" lemma="diffuser" pos="VERB">diffusée</w>
+          </seg>
+          <seg corresp="#prose_fr_t259">
+            <w xml:id="prose_1_de_t281" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#prose_fr_t261">
+            <w xml:id="prose_1_de_t282" lemma="Afrique" pos="PROPN">Afrique</w>
+          </seg>
+          <seg corresp="#prose_fr_t262">
+            <w xml:id="prose_1_de_t284" lemma="au" pos="ADP">au</w>
+            <w xml:id="prose_1_de_t285" lemma="sud" pos="NOUN">sud</w>
+            <w xml:id="prose_1_de_t286" lemma="du" pos="ADP">du</w>
+            <w xml:id="prose_1_de_t287" lemma="Sahara" pos="PROPN">Sahara</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s12">
+          <seg corresp="#prose_fr_t264">
+            <w xml:id="prose_1_de_t289" lemma="on" pos="PRON">On</w>
+          </seg>
+          <seg corresp="#prose_fr_t265">
+            <w xml:id="prose_1_de_t290" lemma="penser" pos="VERB">pense</w>
+          </seg>
+          <seg corresp="#prose_fr_t266">
+            <w xml:id="prose_1_de_t291" lemma="parfois" pos="ADV">parfois</w>
+          </seg>
+          <seg corresp="#prose_fr_t268 #prose_fr_t269 #prose_fr_t270 #prose_fr_t271">
+            <w xml:id="prose_1_de_t292" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t293" lemma="façon" pos="NOUN">façon</w>
+            <w xml:id="prose_1_de_t294" lemma="un" pos="DET">un</w>
+            <w xml:id="prose_1_de_t295" lemma="peu" pos="ADV">peu</w>
+            <w xml:id="prose_1_de_t296" lemma="trop" pos="ADV">trop</w>
+            <w xml:id="prose_1_de_t297" lemma="hâtif" pos="ADJ">hâtive</w>
+          </seg>
+          <seg corresp="#prose_fr_t273">
+            <w xml:id="prose_1_de_t298" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t274">
+            <w xml:id="prose_1_de_t299" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t275">
+            <w xml:id="prose_1_de_t300" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t276 #prose_fr_t277">
+            <w xml:id="prose_1_de_t301" lemma="être" pos="VERB">était</w>
+            <w xml:id="prose_1_de_t302" lemma="inconnu" pos="ADJ">inconnue</w>
+          </seg>
+          <seg corresp="#prose_fr_t278">
+            <w xml:id="prose_1_de_t303" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t279">
+            <w xml:id="prose_1_de_t304" lemma="ce" pos="PRON">ces</w>
+          </seg>
+          <seg corresp="#prose_fr_t280">
+            <w xml:id="prose_1_de_t305" lemma="région" pos="NOUN">régions</w>
+          </seg>
+          <seg corresp="#prose_fr_t281 #prose_fr_t282 #prose_fr_t283">
+            <w xml:id="prose_1_de_t306" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t307" lemma="le" pos="DET">l'</w>
+            <w xml:id="prose_1_de_t308" lemma="écart" pos="NOUN">écart</w>
+          </seg>
+          <seg corresp="#prose_fr_t284">
+            <w xml:id="prose_1_de_t309" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t285">
+            <w xml:id="prose_1_de_t310" lemma="grand" pos="ADJ">grandes</w>
+          </seg>
+          <seg corresp="#prose_fr_t286">
+            <w xml:id="prose_1_de_t311" lemma="route" pos="NOUN">routes</w>
+          </seg>
+          <seg corresp="#prose_fr_t289">
+            <w xml:id="prose_1_de_t312" lemma="commercial" pos="ADJ">commerciales</w>
+          </seg>
+          <seg corresp="#prose_fr_t291">
+            <w xml:id="prose_1_de_t314" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg corresp="#prose_fr_t292">
+            <w xml:id="prose_1_de_t315" lemma="ce" pos="PRON">ce</w>
+          </seg>
+          <seg corresp="#prose_fr_t293">
+            <w xml:id="prose_1_de_t316" lemma="continent" pos="NOUN">continent</w>
+          </seg>
+          <seg corresp="#prose_fr_t294">
+            <w xml:id="prose_1_de_t317" lemma="sous-peuplé" pos="ADJ">sous-peuplé</w>
+          </seg>
+          <seg corresp="#prose_fr_t300">
+            <w xml:id="prose_1_de_t318" lemma="jusque" pos="ADP">jusqu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t295">
+            <w xml:id="prose_1_de_t319" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg corresp="#prose_fr_t296">
+            <w xml:id="prose_1_de_t320" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t297">
+            <w xml:id="prose_1_de_t321" lemma="grand" pos="ADJ">grandes</w>
+          </seg>
+          <seg corresp="#prose_fr_t298">
+            <w xml:id="prose_1_de_t322" lemma="invention" pos="NOUN">inventions</w>
+          </seg>
+          <seg corresp="#prose_fr_t299 #prose_fr_t301">
+            <w xml:id="prose_1_de_t323" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg corresp="#prose_fr_t300">
+            <w xml:id="prose_1_de_t324" lemma="parvenir" pos="VERB">parvenaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t299 #prose_fr_t301">
+            <w xml:id="prose_1_de_t325" lemma="pas" pos="ADV">pas</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s13">
+          <seg corresp="#prose_fr_t303 #prose_fr_t304">
+            <w xml:id="prose_1_de_t328" lemma="ce" pos="PRON">c'</w>
+            <w xml:id="prose_1_de_t329" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t305">
+            <w xml:id="prose_1_de_t330" lemma="oublier" pos="VERB">oublier</w>
+          </seg>
+          <seg corresp="#prose_fr_t313">
+            <w xml:id="prose_1_de_t331" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t314">
+            <w xml:id="prose_1_de_t332" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t315">
+            <w xml:id="prose_1_de_t333" lemma="contrefort" pos="NOUN">contreforts</w>
+          </seg>
+          <seg corresp="#prose_fr_t316">
+            <w xml:id="prose_1_de_t334" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t317">
+            <w xml:id="prose_1_de_t335" lemma="Sahel" pos="PROPN">Sahel</w>
+          </seg>
+          <seg corresp="#prose_fr_t309">
+            <w xml:id="prose_1_de_t337" lemma="même" pos="ADV">même</w>
+          </seg>
+          <seg corresp="#prose_fr_t307 #prose_fr_t308">
+            <w xml:id="prose_1_de_t338" lemma="sans" pos="ADP">sans</w>
+            <w xml:id="prose_1_de_t339" lemma="tenir" pos="VERB">tenir</w>
+            <w xml:id="prose_1_de_t340" lemma="compte" pos="NOUN">compte</w>
+          </seg>
+          <seg corresp="#prose_fr_t310">
+            <w xml:id="prose_1_de_t341" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t311">
+            <w xml:id="prose_1_de_t342" lemma="migration" pos="NOUN">migrations</w>
+          </seg>
+          <seg corresp="#prose_fr_t318">
+            <w xml:id="prose_1_de_t344" lemma="être" pos="VERB">étaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t319 #prose_fr_t320">
+            <w xml:id="prose_1_de_t345" lemma="en" pos="ADP">en</w>
+            <w xml:id="prose_1_de_t346" lemma="contact" pos="NOUN">contact</w>
+          </seg>
+          <seg corresp="#prose_fr_t321">
+            <w xml:id="prose_1_de_t347" lemma="avec" pos="ADP">avec</w>
+          </seg>
+          <seg corresp="#prose_fr_t322">
+            <w xml:id="prose_1_de_t348" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t323">
+            <w xml:id="prose_1_de_t349" lemma="monde" pos="NOUN">monde</w>
+          </seg>
+          <seg corresp="#prose_fr_t324">
+            <w xml:id="prose_1_de_t350" lemma="arabe" pos="ADJ">arabe</w>
+          </seg>
+          <seg corresp="#prose_fr_t326">
+            <w xml:id="prose_1_de_t352" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t327">
+            <w xml:id="prose_1_de_t353" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t328">
+            <w xml:id="prose_1_de_t354" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t329">
+            <w xml:id="prose_1_de_t355" lemma="caravane" pos="NOUN">caravanes</w>
+          </seg>
+          <seg corresp="#prose_fr_t330">
+            <w xml:id="prose_1_de_t357" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t338">
+            <w xml:id="prose_1_de_t359" lemma="bien" pos="ADV">bien</w>
+          </seg>
+          <seg corresp="#prose_fr_t339">
+            <w xml:id="prose_1_de_t360" lemma="avant" pos="ADP">avant</w>
+          </seg>
+          <seg corresp="#prose_fr_t340">
+            <w xml:id="prose_1_de_t361" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t341">
+            <w xml:id="prose_1_de_t362" lemma="commerce" pos="NOUN">commerce</w>
+          </seg>
+          <seg corresp="#prose_fr_t332">
+            <w xml:id="prose_1_de_t363" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t336">
+            <w xml:id="prose_1_de_t364" lemma="esclave" pos="NOUN">esclaves</w>
+          </seg>
+          <seg corresp="#prose_fr_t331">
+            <w xml:id="prose_1_de_t366" lemma="échanger" pos="VERB">échangeaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t335">
+            <w xml:id="prose_1_de_t367" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t333">
+            <w xml:id="prose_1_de_t368" lemma="marchandise" pos="NOUN">marchandises</w>
+          </seg>
+          <seg corresp="#prose_fr_t334">
+            <w xml:id="prose_1_de_t369" lemma="contre" pos="ADP">contre</w>
+          </seg>
+          <seg corresp="#prose_fr_t342">
+            <w xml:id="prose_1_de_t370" lemma="du" pos="ADP">des</w>
+            <w xml:id="prose_1_de_t371" lemma="esclave" pos="NOUN">esclaves</w>
+          </seg>
+          <seg corresp="#prose_fr_t344">
+            <w xml:id="prose_1_de_t373" lemma="transporter" pos="VERB">transportaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t347">
+            <w xml:id="prose_1_de_t374" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t348">
+            <w xml:id="prose_1_de_t375" lemma="Coran" pos="PROPN">Coran</w>
+          </seg>
+          <seg corresp="#prose_fr_t345">
+            <w xml:id="prose_1_de_t376" lemma="avec" pos="ADP">avec</w>
+          </seg>
+          <seg corresp="#prose_fr_t346">
+            <w xml:id="prose_1_de_t377" lemma="elle" pos="PRON">elles</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s14">
+          <seg corresp="#prose_fr_t350 #prose_fr_t351">
+            <w xml:id="prose_1_de_t379" lemma="ce" pos="PRON">C'</w>
+            <w xml:id="prose_1_de_t380" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t353">
+            <w xml:id="prose_1_de_t381" lemma="également" pos="ADV">également</w>
+          </seg>
+          <seg corresp="#prose_fr_t352">
+            <w xml:id="prose_1_de_t382" lemma="oublier" pos="VERB">oublier</w>
+          </seg>
+          <seg corresp="#prose_fr_t354">
+            <w xml:id="prose_1_de_t383" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t355">
+            <w xml:id="prose_1_de_t384" lemma="par" pos="ADP">par</w>
+            <w xml:id="prose_1_de_t385" lemma="delà" pos="ADV">delà</w>
+          </seg>
+          <seg corresp="#prose_fr_t356">
+            <w xml:id="prose_1_de_t386" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t357">
+            <w xml:id="prose_1_de_t387" lemma="océan" pos="NOUN">océan</w>
+          </seg>
+          <seg corresp="#prose_fr_t358">
+            <w xml:id="prose_1_de_t388" lemma="indien" pos="ADJ">Indien</w>
+          </seg>
+          <seg corresp="#prose_fr_t360">
+            <w xml:id="prose_1_de_t390" lemma="par" pos="ADP">par</w>
+            <w xml:id="prose_1_de_t391" lemma="le" pos="DET">l'</w>
+            <w xml:id="prose_1_de_t392" lemma="intermédiaire" pos="NOUN">intermédiaire</w>
+          </seg>
+          <seg corresp="#prose_fr_t361">
+            <w xml:id="prose_1_de_t393" lemma="duquel" pos="PRON">duquel</w>
+          </seg>
+          <seg corresp="#prose_fr_t362">
+            <w xml:id="prose_1_de_t394" lemma="être" pos="VERB">est</w>
+            <w xml:id="prose_1_de_t395" lemma="arriver" pos="VERB">arrivée</w>
+          </seg>
+          <seg corresp="#prose_fr_t363">
+            <w xml:id="prose_1_de_t396" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t364">
+            <w xml:id="prose_1_de_t397" lemma="monnaie" pos="NOUN">monnaie</w>
+          </seg>
+          <seg corresp="#prose_fr_t365 #prose_fr_t366 #prose_fr_t367">
+            <w xml:id="prose_1_de_t398" lemma="en" pos="ADP">en</w>
+            <w xml:id="prose_1_de_t399" lemma="forme" pos="NOUN">forme</w>
+            <w xml:id="prose_1_de_t400" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t368">
+            <w xml:id="prose_1_de_t401" lemma="coquillage" pos="NOUN">coquillage</w>
+          </seg>
+          <seg corresp="#prose_fr_t370">
+            <w xml:id="prose_1_de_t403" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t371">
+            <w xml:id="prose_1_de_t404" lemma="célèbre" pos="ADJ">célèbre</w>
+          </seg>
+          <seg corresp="#prose_fr_t372">
+            <w xml:id="prose_1_de_t405" lemma="monnaie" pos="NOUN">monnaie</w>
+            <w xml:id="prose_1_de_t406" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t407" lemma="Cowry" pos="PROPN">Cowry</w>
+          </seg>
+          <seg corresp="#prose_fr_t375">
+            <w xml:id="prose_1_de_t410" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t376">
+            <w xml:id="prose_1_de_t411" lemma="Asie" pos="PROPN">Asie</w>
+          </seg>
+          <seg corresp="#prose_fr_t378">
+            <w xml:id="prose_1_de_t412" lemma="exercer" pos="VERB">exerçait</w>
+          </seg>
+          <seg corresp="#prose_fr_t379">
+            <w xml:id="prose_1_de_t413" lemma="son" pos="DET">son</w>
+          </seg>
+          <seg corresp="#prose_fr_t380">
+            <w xml:id="prose_1_de_t414" lemma="influence" pos="NOUN">influence</w>
+          </seg>
+          <seg corresp="#prose_fr_t383">
+            <w xml:id="prose_1_de_t418" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t384">
+            <w xml:id="prose_1_de_t419" lemma="un" pos="DET">une</w>
+            <w xml:id="prose_1_de_t420" lemma="manière" pos="NOUN">manière</w>
+          </seg>
+          <seg corresp="#prose_fr_t382">
+            <w xml:id="prose_1_de_t421" lemma="parfois" pos="ADV">parfois</w>
+          </seg>
+          <seg corresp="#prose_fr_t385">
+            <w xml:id="prose_1_de_t423" lemma="inattendu" pos="ADJ">inattendue</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s15">
+          <seg corresp="#prose_fr_t387">
+            <w xml:id="prose_1_de_t425" lemma="en" pos="ADP">En</w>
+          </seg>
+          <seg corresp="#prose_fr_t388">
+            <w xml:id="prose_1_de_t426" lemma="@card@" pos="NUM">1730</w>
+          </seg>
+          <seg corresp="#prose_fr_t390">
+            <w xml:id="prose_1_de_t428" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t391">
+            <w xml:id="prose_1_de_t429" lemma="voyageur" pos="NOUN">voyageur</w>
+          </seg>
+          <seg corresp="#prose_fr_t392 #prose_fr_t393 #prose_fr_t394">
+            <w xml:id="prose_1_de_t430" lemma="du" pos="ADP">du</w>
+            <w xml:id="prose_1_de_t431" lemma="nom" pos="NOUN">nom</w>
+            <w xml:id="prose_1_de_t432" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t395">
+            <w xml:id="prose_1_de_t433" lemma="Snelgrave" pos="PROPN">Snelgrave</w>
+          </seg>
+          <seg corresp="#prose_fr_t396">
+            <w xml:id="prose_1_de_t434" lemma="raconter" pos="VERB">raconte</w>
+          </seg>
+          <seg corresp="#prose_fr_t403">
+            <w xml:id="prose_1_de_t435" lemma="avoir" pos="VERB">avoir</w>
+            <w xml:id="prose_1_de_t436" lemma="rencontrer" pos="VERB">rencontré</w>
+          </seg>
+          <seg corresp="#prose_fr_t404">
+            <w xml:id="prose_1_de_t437" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t405">
+            <w xml:id="prose_1_de_t438" lemma="Malais" pos="PROPN">Malais</w>
+          </seg>
+          <seg corresp="#prose_fr_t398">
+            <w xml:id="prose_1_de_t439" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t399">
+            <w xml:id="prose_1_de_t440" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t400">
+            <w xml:id="prose_1_de_t441" lemma="bande" pos="NOUN">bande</w>
+          </seg>
+          <seg corresp="#prose_fr_t401">
+            <w xml:id="prose_1_de_t442" lemma="du" pos="ADP">du</w>
+            <w xml:id="prose_1_de_t443" lemma="Sahel" pos="PROPN">Sahel</w>
+          </seg>
+          <seg corresp="#prose_fr_t407">
+            <w xml:id="prose_1_de_t444" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t409">
+            <w xml:id="prose_1_de_t446" lemma="devant" pos="ADP">devant</w>
+          </seg>
+          <seg corresp="#prose_fr_t410">
+            <w xml:id="prose_1_de_t447" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t411">
+            <w xml:id="prose_1_de_t448" lemma="Africains" pos="PROPN">Africains</w>
+          </seg>
+          <seg corresp="#prose_fr_t413">
+            <w xml:id="prose_1_de_t449" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t414">
+            <w xml:id="prose_1_de_t450" lemma="même" pos="ADV">même</w>
+          </seg>
+          <seg corresp="#prose_fr_t415">
+            <w xml:id="prose_1_de_t451" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t416">
+            <w xml:id="prose_1_de_t452" lemma="leur" pos="DET">leur</w>
+          </seg>
+          <seg corresp="#prose_fr_t417">
+            <w xml:id="prose_1_de_t453" lemma="demande" pos="NOUN">demande</w>
+          </seg>
+          <seg corresp="#prose_fr_t408">
+            <w xml:id="prose_1_de_t458" lemma="écrire" pos="VERB">écrire</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s16">
+          <seg corresp="#prose_fr_t422">
+            <w xml:id="prose_1_de_t460" lemma="le" pos="DET">Les</w>
+          </seg>
+          <seg corresp="#prose_fr_t423">
+            <w xml:id="prose_1_de_t461" lemma="autochtone" pos="NOUN">autochtones</w>
+          </seg>
+          <seg corresp="#prose_fr_t424">
+            <w xml:id="prose_1_de_t462" lemma="faire" pos="VERB">faisaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t419">
+            <w xml:id="prose_1_de_t463" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t420">
+            <w xml:id="prose_1_de_t464" lemma="ce" pos="PRON">ces</w>
+          </seg>
+          <seg corresp="#prose_fr_t421">
+            <w xml:id="prose_1_de_t465" lemma="manuscrit" pos="NOUN">manuscrits</w>
+          </seg>
+          <seg corresp="#prose_fr_t425">
+            <w xml:id="prose_1_de_t466" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t426">
+            <w xml:id="prose_1_de_t467" lemma="amulette" pos="NOUN">amulettes</w>
+          </seg>
+          <seg corresp="#prose_fr_t428">
+            <w xml:id="prose_1_de_t468" lemma="que" pos="PRON">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t429">
+            <w xml:id="prose_1_de_t469" lemma="il" pos="PRON">ils</w>
+          </seg>
+          <seg corresp="#prose_fr_t430 #prose_fr_t431 #prose_fr_t432">
+            <w xml:id="prose_1_de_t470" lemma="porter" pos="VERB">portaient</w>
+            <w xml:id="prose_1_de_t471" lemma="sur" pos="ADP">sur</w>
+            <w xml:id="prose_1_de_t472" lemma="eux" pos="PRON">eux</w>
+          </seg>
+          <seg corresp="#prose_fr_t433">
+            <w xml:id="prose_1_de_t473" lemma="comme" pos="ADV">comme</w>
+          </seg>
+          <seg corresp="#prose_fr_t434">
+            <w xml:id="prose_1_de_t474" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t435">
+            <w xml:id="prose_1_de_t475" lemma="talisman" pos="NOUN">talismans</w>
+          </seg>
+          <seg corresp="#prose_fr_t437">
+            <w xml:id="prose_1_de_t476" lemma="ou" pos="CCONJ">ou</w>
+          </seg>
+          <seg corresp="#prose_fr_t439">
+            <w xml:id="prose_1_de_t477" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t440">
+            <w xml:id="prose_1_de_t478" lemma="symbole" pos="NOUN">symboles</w>
+          </seg>
+          <seg corresp="#prose_fr_t441">
+            <w xml:id="prose_1_de_t479" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t442">
+            <w xml:id="prose_1_de_t480" lemma="pouvoir" pos="NOUN">pouvoir</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s17">
+          <seg corresp="#prose_fr_t444">
+            <w xml:id="prose_1_de_t482" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg corresp="#prose_fr_t447">
+            <w xml:id="prose_1_de_t483" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t448">
+            <w xml:id="prose_1_de_t484" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t449">
+            <w xml:id="prose_1_de_t485" lemma="fin" pos="NOUN">fin</w>
+          </seg>
+          <seg corresp="#prose_fr_t450">
+            <w xml:id="prose_1_de_t486" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t452">
+            <w xml:id="prose_1_de_t487" lemma="siècle" pos="NOUN">siècle</w>
+          </seg>
+          <seg corresp="#prose_fr_t445 #prose_fr_t446">
+            <w xml:id="prose_1_de_t489" lemma="Mungo" pos="PROPN">Mungo</w>
+            <w xml:id="prose_1_de_t490" lemma="Park" pos="PROPN">Park</w>
+          </seg>
+          <seg corresp="#prose_fr_t453 #prose_fr_t454">
+            <w xml:id="prose_1_de_t491" lemma="avoir" pos="VERB">a</w>
+            <w xml:id="prose_1_de_t492" lemma="assister" pos="VERB">assisté</w>
+            <w xml:id="prose_1_de_t493" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t455">
+            <w xml:id="prose_1_de_t494" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t456">
+            <w xml:id="prose_1_de_t495" lemma="scène" pos="NOUN">scène</w>
+          </seg>
+          <seg corresp="#prose_fr_t457">
+            <w xml:id="prose_1_de_t496" lemma="lors" pos="ADV">lors</w>
+            <w xml:id="prose_1_de_t497" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t498" lemma="lequel" pos="PRON">laquelle</w>
+          </seg>
+          <seg corresp="#prose_fr_t458">
+            <w xml:id="prose_1_de_t499" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t500" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t459">
+            <w xml:id="prose_1_de_t501" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t460">
+            <w xml:id="prose_1_de_t502" lemma="dissoute" pos="ADJ">dissoute</w>
+          </seg>
+          <seg corresp="#prose_fr_t461">
+            <w xml:id="prose_1_de_t503" lemma="être" pos="VERB">est</w>
+            <w xml:id="prose_1_de_t504" lemma="transformer" pos="VERB">transformée</w>
+            <w xml:id="prose_1_de_t505" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#prose_fr_t462">
+            <w xml:id="prose_1_de_t506" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t463">
+            <w xml:id="prose_1_de_t507" lemma="breuvage" pos="NOUN">breuvage</w>
+          </seg>
+          <seg corresp="#prose_fr_t464">
+            <w xml:id="prose_1_de_t508" lemma="magique" pos="ADJ">magique</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s18">
+          <seg corresp="#prose_fr_t466 #prose_fr_t467">
+            <w xml:id="prose_1_de_t510" lemma="un" pos="DET">Un</w>
+            <w xml:id="prose_1_de_t511" lemma="siècle" pos="NOUN">siècle</w>
+          </seg>
+          <seg corresp="#prose_fr_t468 #prose_fr_t469">
+            <w xml:id="prose_1_de_t512" lemma="plus" pos="ADV">plus</w>
+            <w xml:id="prose_1_de_t513" lemma="tard" pos="ADV">tard</w>
+          </seg>
+          <seg corresp="#prose_fr_t471">
+            <w xml:id="prose_1_de_t515" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t472">
+            <w xml:id="prose_1_de_t516" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t473">
+            <w xml:id="prose_1_de_t517" lemma="ouest" pos="NOUN">ouest</w>
+          </seg>
+          <seg corresp="#prose_fr_t474">
+            <w xml:id="prose_1_de_t518" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t475">
+            <w xml:id="prose_1_de_t519" lemma="Cameroun" pos="PROPN">Cameroun</w>
+          </seg>
+          <seg corresp="#prose_fr_t477">
+            <w xml:id="prose_1_de_t521" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t478">
+            <w xml:id="prose_1_de_t522" lemma="sultan" pos="NOUN">sultan</w>
+          </seg>
+          <seg corresp="#prose_fr_t479">
+            <w xml:id="prose_1_de_t523" lemma="Njoya" pos="VERB">Njoya</w>
+          </seg>
+          <seg corresp="#prose_fr_t480">
+            <w xml:id="prose_1_de_t524" lemma="faire" pos="VERB">fait</w>
+          </seg>
+          <seg corresp="#prose_fr_t481">
+            <w xml:id="prose_1_de_t525" lemma="boire" pos="VERB">boire</w>
+          </seg>
+          <seg corresp="#prose_fr_t482">
+            <w xml:id="prose_1_de_t526" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t483">
+            <w xml:id="prose_1_de_t527" lemma="son" pos="DET">ses</w>
+          </seg>
+          <seg corresp="#prose_fr_t484">
+            <w xml:id="prose_1_de_t528" lemma="sujet" pos="NOUN">sujets</w>
+          </seg>
+          <seg corresp="#prose_fr_t487 #prose_fr_t488">
+            <w xml:id="prose_1_de_t530" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t531" lemma="peine" pos="NOUN">peine</w>
+          </seg>
+          <seg corresp="#prose_fr_t489">
+            <w xml:id="prose_1_de_t532" lemma="effacer" pos="VERB">effacées</w>
+          </seg>
+          <seg corresp="#prose_fr_t491">
+            <w xml:id="prose_1_de_t534" lemma="dissoutes" pos="VERB">dissoutes</w>
+          </seg>
+          <seg corresp="#prose_fr_t492">
+            <w xml:id="prose_1_de_t535" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t493">
+            <w xml:id="prose_1_de_t536" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t537" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t494">
+            <w xml:id="prose_1_de_t538" lemma="eau" pos="NOUN">eau</w>
+          </seg>
+          <seg corresp="#prose_fr_t485">
+            <w xml:id="prose_1_de_t540" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t486">
+            <w xml:id="prose_1_de_t541" lemma="lettre" pos="NOUN">lettres</w>
+          </seg>
+          <seg corresp="#prose_fr_t496">
+            <w xml:id="prose_1_de_t542" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t497">
+            <w xml:id="prose_1_de_t543" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t498">
+            <w xml:id="prose_1_de_t544" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t499">
+            <w xml:id="prose_1_de_t545" lemma="que" pos="PRON">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t500">
+            <w xml:id="prose_1_de_t546" lemma="il" pos="PRON">il</w>
+          </seg>
+          <seg corresp="#prose_fr_t501 #prose_fr_t502">
+            <w xml:id="prose_1_de_t547" lemma="venir" pos="VERB">vient</w>
+            <w xml:id="prose_1_de_t548" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t503">
+            <w xml:id="prose_1_de_t549" lemma="inventer" pos="VERB">inventer</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s19">
+          <seg corresp="#prose_fr_t505">
+            <w xml:id="prose_1_de_t551" lemma="ce" pos="PRON">Ces</w>
+          </seg>
+          <seg corresp="#prose_fr_t507">
+            <w xml:id="prose_1_de_t552" lemma="événement" pos="NOUN">événements</w>
+          </seg>
+          <seg corresp="#prose_fr_t509">
+            <w xml:id="prose_1_de_t553" lemma="se" pos="PRON">se</w>
+            <w xml:id="prose_1_de_t554" lemma="ressembler" pos="VERB">ressemblent</w>
+          </seg>
+          <seg corresp="#prose_fr_t511 #prose_fr_t512">
+            <w xml:id="prose_1_de_t556" lemma="bien" pos="ADV">bien</w>
+            <w xml:id="prose_1_de_t557" lemma="que" pos="CCONJ">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t513">
+            <w xml:id="prose_1_de_t558" lemma="il" pos="PRON">ils</w>
+          </seg>
+          <seg corresp="#prose_fr_t514 #prose_fr_t515">
+            <w xml:id="prose_1_de_t559" lemma="être" pos="VERB">soient</w>
+            <w xml:id="prose_1_de_t560" lemma="séparer" pos="VERB">séparés</w>
+          </seg>
+          <seg corresp="#prose_fr_t516">
+            <w xml:id="prose_1_de_t561" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t521">
+            <w xml:id="prose_1_de_t562" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t522">
+            <w xml:id="prose_1_de_t563" lemma="temps" pos="NOUN">temps</w>
+          </seg>
+          <seg corresp="#prose_fr_t519">
+            <w xml:id="prose_1_de_t564" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t520">
+            <w xml:id="prose_1_de_t565" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t517">
+            <w xml:id="prose_1_de_t566" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t518">
+            <w xml:id="prose_1_de_t567" lemma="espace" pos="NOUN">espace</w>
+          </seg>
+          <seg corresp="#prose_fr_t524 #prose_fr_t525">
+            <w xml:id="prose_1_de_t571" lemma="témoigner" pos="VERB">témoignent</w>
+            <w xml:id="prose_1_de_t572" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t526">
+            <w xml:id="prose_1_de_t573" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t527">
+            <w xml:id="prose_1_de_t574" lemma="rapport" pos="NOUN">rapport</w>
+          </seg>
+          <seg corresp="#prose_fr_t528">
+            <w xml:id="prose_1_de_t575" lemma="magique" pos="ADJ">magique</w>
+          </seg>
+          <seg corresp="#prose_fr_t529">
+            <w xml:id="prose_1_de_t576" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t530">
+            <w xml:id="prose_1_de_t577" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t531">
+            <w xml:id="prose_1_de_t578" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t533">
+            <w xml:id="prose_1_de_t579" lemma="dont" pos="PRON">dont</w>
+          </seg>
+          <seg corresp="#prose_fr_t534">
+            <w xml:id="prose_1_de_t580" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t535 #prose_fr_t536">
+            <w xml:id="prose_1_de_t581" lemma="avoir" pos="VERB">avons</w>
+          </seg>
+          <seg corresp="#prose_fr_t538">
+            <w xml:id="prose_1_de_t582" lemma="également" pos="ADV">également</w>
+          </seg>
+          <seg corresp="#prose_fr_t535 #prose_fr_t536">
+            <w xml:id="prose_1_de_t583" lemma="faire" pos="VERB">fait</w>
+            <w xml:id="prose_1_de_t584" lemma="le" pos="DET">l'</w>
+            <w xml:id="prose_1_de_t585" lemma="expérience" pos="NOUN">expérience</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s20">
+          <seg corresp="#prose_fr_t540">
+            <w xml:id="prose_1_de_t587" lemma="sans" pos="ADP">Sans</w>
+          </seg>
+          <seg corresp="#prose_fr_t541">
+            <w xml:id="prose_1_de_t588" lemma="parler" pos="VERB">parler</w>
+          </seg>
+          <seg corresp="#prose_fr_t542">
+            <w xml:id="prose_1_de_t589" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t543">
+            <w xml:id="prose_1_de_t590" lemma="latin" pos="NOUN">latin</w>
+          </seg>
+          <seg corresp="#prose_fr_t545">
+            <w xml:id="prose_1_de_t591" lemma="liturgique" pos="ADJ">liturgique</w>
+          </seg>
+          <seg corresp="#prose_fr_t546">
+            <w xml:id="prose_1_de_t592" lemma="ou" pos="CCONJ">ou</w>
+          </seg>
+          <seg corresp="#prose_fr_t547">
+            <w xml:id="prose_1_de_t593" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t548">
+            <w xml:id="prose_1_de_t594" lemma="grec" pos="NOUN">grec</w>
+          </seg>
+          <seg corresp="#prose_fr_t549">
+            <w xml:id="prose_1_de_t595" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t550">
+            <w xml:id="prose_1_de_t596" lemma="pharmacien" pos="NOUN">pharmaciens</w>
+          </seg>
+          <seg corresp="#prose_fr_t552 #prose_fr_t553 #prose_fr_t554">
+            <w xml:id="prose_1_de_t598" lemma="il" pos="PRON">il</w>
+            <w xml:id="prose_1_de_t599" lemma="suffire" pos="VERB">suffit</w>
+            <w xml:id="prose_1_de_t600" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t555 #prose_fr_t556">
+            <w xml:id="prose_1_de_t601" lemma="se" pos="PRON">se</w>
+            <w xml:id="prose_1_de_t602" lemma="souvenir" pos="VERB">souvenir</w>
+          </seg>
+          <seg corresp="#prose_fr_t557">
+            <w xml:id="prose_1_de_t603" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t559">
+            <w xml:id="prose_1_de_t604" lemma="folle|fou" pos="ADJ">folles</w>
+          </seg>
+          <seg corresp="#prose_fr_t558">
+            <w xml:id="prose_1_de_t605" lemma="interprétation" pos="NOUN">interprétations</w>
+          </seg>
+          <seg corresp="#prose_fr_t560 #prose_fr_t561">
+            <w xml:id="prose_1_de_t607" lemma="au" pos="ADP">au</w>
+            <w xml:id="prose_1_de_t608" lemma="sujet" pos="NOUN">sujet</w>
+          </seg>
+          <seg corresp="#prose_fr_t562">
+            <w xml:id="prose_1_de_t609" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t563">
+            <w xml:id="prose_1_de_t610" lemma="hiéroglyphe" pos="NOUN">hiéroglyphes</w>
+          </seg>
+          <seg corresp="#prose_fr_t565">
+            <w xml:id="prose_1_de_t612" lemma="du" pos="ADP">des</w>
+            <w xml:id="prose_1_de_t613" lemma="signe" pos="NOUN">signes</w>
+          </seg>
+          <seg corresp="#prose_fr_t566">
+            <w xml:id="prose_1_de_t614" lemma="sacré" pos="ADJ">sacrés</w>
+          </seg>
+          <seg corresp="#prose_fr_t567">
+            <w xml:id="prose_1_de_t615" lemma="traduire" pos="VERB">traduisant</w>
+          </seg>
+          <seg corresp="#prose_fr_t568">
+            <w xml:id="prose_1_de_t616" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t569">
+            <w xml:id="prose_1_de_t617" lemma="commandement" pos="NOUN">commandements</w>
+          </seg>
+          <seg corresp="#prose_fr_t571">
+            <w xml:id="prose_1_de_t618" lemma="céleste" pos="ADJ">célestes</w>
+          </seg>
+          <seg corresp="#prose_fr_t573">
+            <w xml:id="prose_1_de_t619" lemma="ou" pos="CCONJ">ou</w>
+          </seg>
+          <seg corresp="#prose_fr_t574">
+            <w xml:id="prose_1_de_t620" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t575">
+            <w xml:id="prose_1_de_t621" lemma="révélation" pos="NOUN">révélations</w>
+          </seg>
+          <seg corresp="#prose_fr_t576">
+            <w xml:id="prose_1_de_t622" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t577">
+            <w xml:id="prose_1_de_t623" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t578">
+            <w xml:id="prose_1_de_t624" lemma="religion" pos="NOUN">religion</w>
+          </seg>
+          <seg corresp="#prose_fr_t579">
+            <w xml:id="prose_1_de_t625" lemma="disparaître" pos="VERB">disparue</w>
+          </seg>
+          <seg corresp="#prose_fr_t581 #prose_fr_t582 #prose_fr_t583 #prose_fr_t584">
+            <w xml:id="prose_1_de_t627" lemma="jusque" pos="ADP">jusqu'</w>
+            <w xml:id="prose_1_de_t628" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t629" lemma="ce" pos="PRON">ce</w>
+            <w xml:id="prose_1_de_t630" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t585">
+            <w xml:id="prose_1_de_t631" lemma="Champollion" pos="PROPN">Champollion</w>
+          </seg>
+          <seg corresp="#prose_fr_t587">
+            <w xml:id="prose_1_de_t632" lemma="résoudre" pos="VERB">résolve</w>
+          </seg>
+          <seg corresp="#prose_fr_t588">
+            <w xml:id="prose_1_de_t633" lemma="ce" pos="PRON">ces</w>
+          </seg>
+          <seg corresp="#prose_fr_t589">
+            <w xml:id="prose_1_de_t634" lemma="faux" pos="ADJ">faux</w>
+          </seg>
+          <seg corresp="#prose_fr_t590">
+            <w xml:id="prose_1_de_t635" lemma="mystère" pos="NOUN">mystères</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s21">
+          <seg corresp="#prose_fr_t592">
+            <w xml:id="prose_1_de_t637" lemma="le" pos="DET">L'</w>
+          </seg>
+          <seg corresp="#prose_fr_t593">
+            <w xml:id="prose_1_de_t638" lemma="absence" pos="NOUN">absence</w>
+          </seg>
+          <seg corresp="#prose_fr_t594">
+            <w xml:id="prose_1_de_t639" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t595">
+            <w xml:id="prose_1_de_t640" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t599 #prose_fr_t601">
+            <w xml:id="prose_1_de_t641" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg corresp="#prose_fr_t600 #prose_fr_t605">
+            <w xml:id="prose_1_de_t642" lemma="relever" pos="VERB">relève</w>
+          </seg>
+          <seg corresp="#prose_fr_t597">
+            <w xml:id="prose_1_de_t643" lemma="certes" pos="ADV">certes</w>
+          </seg>
+          <seg corresp="#prose_fr_t599 #prose_fr_t601">
+            <w xml:id="prose_1_de_t644" lemma="pas" pos="ADV">pas</w>
+          </seg>
+          <seg corresp="#prose_fr_t602 #prose_fr_t603 #prose_fr_t604">
+            <w xml:id="prose_1_de_t645" lemma="tout" pos="ADV">tout</w>
+            <w xml:id="prose_1_de_t646" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t647" lemma="fait" pos="NOUN">fait</w>
+          </seg>
+          <seg corresp="#prose_fr_t600 #prose_fr_t605">
+            <w xml:id="prose_1_de_t648" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t606">
+            <w xml:id="prose_1_de_t649" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t607">
+            <w xml:id="prose_1_de_t651" lemma="choix" pos="NOUN">choix</w>
+          </seg>
+          <seg corresp="#prose_fr_t597">
+            <w xml:id="prose_1_de_t653" lemma="pourtant" pos="ADV">pourtant</w>
+          </seg>
+          <seg corresp="#prose_fr_t609">
+            <w xml:id="prose_1_de_t654" lemma="il" pos="PRON">il</w>
+            <w xml:id="prose_1_de_t655" lemma="se" pos="PRON">s'</w>
+            <w xml:id="prose_1_de_t656" lemma="agir" pos="VERB">agit</w>
+            <w xml:id="prose_1_de_t657" lemma="là" pos="ADV">là</w>
+            <w xml:id="prose_1_de_t658" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t610">
+            <w xml:id="prose_1_de_t659" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t611">
+            <w xml:id="prose_1_de_t660" lemma="phénomène" pos="NOUN">phénomène</w>
+          </seg>
+          <seg corresp="#prose_fr_t612">
+            <w xml:id="prose_1_de_t661" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t615 #prose_fr_t616">
+            <w xml:id="prose_1_de_t662" lemma="devoir" pos="VERB">devrait</w>
+            <w xml:id="prose_1_de_t663" lemma="éveiller" pos="VERB">éveiller</w>
+          </seg>
+          <seg corresp="#prose_fr_t617">
+            <w xml:id="prose_1_de_t664" lemma="notre" pos="DET">notre</w>
+          </seg>
+          <seg corresp="#prose_fr_t618">
+            <w xml:id="prose_1_de_t665" lemma="intérêt" pos="NOUN">intérêt</w>
+          </seg>
+          <seg corresp="#prose_fr_t620">
+            <w xml:id="prose_1_de_t666" lemma="dans" pos="ADP">dans</w>
+            <w xml:id="prose_1_de_t667" lemma="le" pos="DET">la</w>
+            <w xml:id="prose_1_de_t668" lemma="mesure" pos="NOUN">mesure</w>
+            <w xml:id="prose_1_de_t669" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg corresp="#prose_fr_t621">
+            <w xml:id="prose_1_de_t670" lemma="il" pos="PRON">il</w>
+          </seg>
+          <seg corresp="#prose_fr_t622">
+            <w xml:id="prose_1_de_t671" lemma="concerner" pos="VERB">concerne</w>
+          </seg>
+          <seg corresp="#prose_fr_t623">
+            <w xml:id="prose_1_de_t672" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t624">
+            <w xml:id="prose_1_de_t673" lemma="humanité" pos="NOUN">humanité</w>
+          </seg>
+          <seg corresp="#prose_fr_t625 #prose_fr_t626">
+            <w xml:id="prose_1_de_t674" lemma="dans" pos="ADP">dans</w>
+            <w xml:id="prose_1_de_t675" lemma="son" pos="DET">son</w>
+            <w xml:id="prose_1_de_t676" lemma="ensemble" pos="NOUN">ensemble</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s22">
+          <seg corresp="#prose_fr_t628 #prose_fr_t629 #prose_fr_t630 #prose_fr_t631">
+            <w xml:id="prose_1_de_t678" lemma="il" pos="PRON">Il</w>
+            <w xml:id="prose_1_de_t679" lemma="suffire" pos="VERB">suffirait</w>
+            <w xml:id="prose_1_de_t680" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t632 #prose_fr_t633">
+            <w xml:id="prose_1_de_t681" lemma="rappeler" pos="VERB">rappeler</w>
+            <w xml:id="prose_1_de_t682" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t634">
+            <w xml:id="prose_1_de_t683" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t635">
+            <w xml:id="prose_1_de_t684" lemma="sanskrit" pos="NOUN">sanskrit</w>
+          </seg>
+          <seg corresp="#prose_fr_t636">
+            <w xml:id="prose_1_de_t685" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t637">
+            <w xml:id="prose_1_de_t686" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t638">
+            <w xml:id="prose_1_de_t687" lemma="antiquité" pos="NOUN">Antiquité</w>
+          </seg>
+          <seg corresp="#prose_fr_t640">
+            <w xml:id="prose_1_de_t688" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t641">
+            <w xml:id="prose_1_de_t689" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t642">
+            <w xml:id="prose_1_de_t690" lemma="japonais" pos="NOUN">japonais</w>
+          </seg>
+          <seg corresp="#prose_fr_t643">
+            <w xml:id="prose_1_de_t691" lemma="jusque" pos="ADP">jusqu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t644">
+            <w xml:id="prose_1_de_t692" lemma="au" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#prose_fr_t645 #prose_fr_t646">
+            <w xml:id="prose_1_de_t693" lemma="VIIIe" pos="NUM">VIIIe</w>
+            <w xml:id="prose_1_de_t694" lemma="siècle" pos="NOUN">siècle</w>
+          </seg>
+          <seg corresp="#prose_fr_t647 #prose_fr_t648 #prose_fr_t649">
+            <w xml:id="prose_1_de_t695" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t696" lemma="notre" pos="DET">notre</w>
+            <w xml:id="prose_1_de_t697" lemma="ère" pos="NOUN">ère</w>
+          </seg>
+          <seg corresp="#prose_fr_t651">
+            <w xml:id="prose_1_de_t698" lemma="être" pos="VERB">étaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t652">
+            <w xml:id="prose_1_de_t699" lemma="du" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#prose_fr_t653">
+            <w xml:id="prose_1_de_t700" lemma="langue" pos="NOUN">langues</w>
+          </seg>
+          <seg corresp="#prose_fr_t654">
+            <w xml:id="prose_1_de_t701" lemma="dépourvues" pos="VERB">dépourvues</w>
+            <w xml:id="prose_1_de_t702" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t655">
+            <w xml:id="prose_1_de_t703" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s23">
+          <seg corresp="#prose_fr_t657">
+            <w xml:id="prose_1_de_t705" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg corresp="#prose_fr_t658">
+            <w xml:id="prose_1_de_t706" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t659">
+            <w xml:id="prose_1_de_t707" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t660">
+            <w xml:id="prose_1_de_t708" lemma="langue" pos="NOUN">langues</w>
+          </seg>
+          <seg corresp="#prose_fr_t661">
+            <w xml:id="prose_1_de_t709" lemma="sans" pos="ADP">sans</w>
+          </seg>
+          <seg corresp="#prose_fr_t662">
+            <w xml:id="prose_1_de_t710" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t665">
+            <w xml:id="prose_1_de_t711" lemma="continuer" pos="VERB">continuent</w>
+            <w xml:id="prose_1_de_t712" lemma="également" pos="ADV">également</w>
+          </seg>
+          <seg corresp="#prose_fr_t664">
+            <w xml:id="prose_1_de_t713" lemma="aujourd'hui" pos="ADV">aujourd'hui</w>
+          </seg>
+          <seg corresp="#prose_fr_t665">
+            <w xml:id="prose_1_de_t714" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t667">
+            <w xml:id="prose_1_de_t715" lemma="être" pos="VERB">être</w>
+          </seg>
+          <seg corresp="#prose_fr_t668 #prose_fr_t669 #prose_fr_t670">
+            <w xml:id="prose_1_de_t716" lemma="le" pos="DET">les</w>
+            <w xml:id="prose_1_de_t717" lemma="plus" pos="ADV">plus</w>
+            <w xml:id="prose_1_de_t718" lemma="nombreux" pos="ADJ">nombreuses</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s24">
+          <seg corresp="#prose_fr_t672">
+            <w xml:id="prose_1_de_t720" lemma="le" pos="DET">L'</w>
+          </seg>
+          <seg corresp="#prose_fr_t673">
+            <w xml:id="prose_1_de_t721" lemma="adoption" pos="NOUN">adoption</w>
+          </seg>
+          <seg corresp="#prose_fr_t674">
+            <w xml:id="prose_1_de_t722" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t675">
+            <w xml:id="prose_1_de_t723" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t676">
+            <w xml:id="prose_1_de_t724" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t686">
+            <w xml:id="prose_1_de_t725" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t688">
+            <w xml:id="prose_1_de_t726" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t689">
+            <w xml:id="prose_1_de_t727" lemma="événement" pos="NOUN">événement</w>
+          </seg>
+          <seg corresp="#prose_fr_t690">
+            <w xml:id="prose_1_de_t728" lemma="anthropologique" pos="ADJ">anthropologique</w>
+          </seg>
+          <seg corresp="#prose_fr_t691">
+            <w xml:id="prose_1_de_t729" lemma="fondamental" pos="ADJ">fondamental</w>
+          </seg>
+          <seg corresp="#prose_fr_t693">
+            <w xml:id="prose_1_de_t730" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t694">
+            <w xml:id="prose_1_de_t731" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t695">
+            <w xml:id="prose_1_de_t732" lemma="apprendre" pos="VERB">apprend</w>
+            <w xml:id="prose_1_de_t733" lemma="du" pos="ADP">des</w>
+            <w xml:id="prose_1_de_t734" lemma="chose" pos="NOUN">choses</w>
+          </seg>
+          <seg corresp="#prose_fr_t696">
+            <w xml:id="prose_1_de_t735" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg corresp="#prose_fr_t697">
+            <w xml:id="prose_1_de_t736" lemma="notre" pos="DET">notre</w>
+          </seg>
+          <seg corresp="#prose_fr_t698">
+            <w xml:id="prose_1_de_t737" lemma="propre" pos="ADJ">propre</w>
+          </seg>
+          <seg corresp="#prose_fr_t699">
+            <w xml:id="prose_1_de_t738" lemma="histoire" pos="NOUN">histoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t701 #prose_fr_t702 #prose_fr_t703">
+            <w xml:id="prose_1_de_t740" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t741" lemma="condition" pos="NOUN">condition</w>
+            <w xml:id="prose_1_de_t742" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t704 #prose_fr_t705 #prose_fr_t706 #prose_fr_t707 #prose_fr_t708">
+            <w xml:id="prose_1_de_t743" lemma="ne" pos="ADV">ne</w>
+            <w xml:id="prose_1_de_t744" lemma="pas" pos="ADV">pas</w>
+            <w xml:id="prose_1_de_t745" lemma="tomber" pos="VERB">tomber</w>
+            <w xml:id="prose_1_de_t746" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t709">
+            <w xml:id="prose_1_de_t747" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t710">
+            <w xml:id="prose_1_de_t748" lemma="ethnocentrisme" pos="NOUN">ethnocentrisme</w>
+          </seg>
+          <seg corresp="#prose_fr_t712">
+            <w xml:id="prose_1_de_t749" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t713">
+            <w xml:id="prose_1_de_t750" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t714">
+            <w xml:id="prose_1_de_t751" lemma="abandonner" pos="VERB">abandonner</w>
+          </seg>
+          <seg corresp="#prose_fr_t715">
+            <w xml:id="prose_1_de_t752" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t716">
+            <w xml:id="prose_1_de_t753" lemma="représentation" pos="NOUN">représentation</w>
+          </seg>
+          <seg corresp="#prose_fr_t717">
+            <w xml:id="prose_1_de_t754" lemma="linéaire" pos="ADJ">linéaire</w>
+          </seg>
+          <seg corresp="#prose_fr_t718">
+            <w xml:id="prose_1_de_t755" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t723">
+            <w xml:id="prose_1_de_t756" lemma="progrès" pos="NOUN">progrès</w>
+          </seg>
+          <seg corresp="#prose_fr_t719 #prose_fr_t720 #prose_fr_t721 #prose_fr_t722">
+            <w xml:id="prose_1_de_t758" lemma="quel" pos="PRON">quelle</w>
+            <w xml:id="prose_1_de_t759" lemma="que" pos="CCONJ">que</w>
+            <w xml:id="prose_1_de_t760" lemma="soit" pos="CCONJ">soit</w>
+            <w xml:id="prose_1_de_t761" lemma="son" pos="DET">sa</w>
+            <w xml:id="prose_1_de_t762" lemma="nature" pos="NOUN">nature</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s25">
+          <seg corresp="#prose_fr_t725 #prose_fr_t726 #prose_fr_t727">
+            <w xml:id="prose_1_de_t766" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t767" lemma="autant" pos="ADV">autant</w>
+            <w xml:id="prose_1_de_t768" lemma="plus" pos="ADV">plus</w>
+            <w xml:id="prose_1_de_t769" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t728">
+            <w xml:id="prose_1_de_t770" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t729">
+            <w xml:id="prose_1_de_t771" lemma="vivre" pos="VERB">vivons</w>
+          </seg>
+          <seg corresp="#prose_fr_t732 #prose_fr_t733 #prose_fr_t734">
+            <w xml:id="prose_1_de_t772" lemma="simultanément" pos="ADV">simultanément</w>
+          </seg>
+          <seg corresp="#prose_fr_t730">
+            <w xml:id="prose_1_de_t774" lemma="plusieurs" pos="PRON">plusieurs</w>
+          </seg>
+          <seg corresp="#prose_fr_t731">
+            <w xml:id="prose_1_de_t775" lemma="époque" pos="NOUN">époques</w>
+          </seg>
+          <seg corresp="#prose_fr_t736">
+            <w xml:id="prose_1_de_t777" lemma="Barthes" pos="PROPN">Barthes</w>
+          </seg>
+          <seg corresp="#prose_fr_t737">
+            <w xml:id="prose_1_de_t778" lemma="affirmer" pos="VERB">affirmait</w>
+          </seg>
+          <seg corresp="#prose_fr_t739">
+            <w xml:id="prose_1_de_t779" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t780" lemma="juste" pos="ADJ">juste</w>
+            <w xml:id="prose_1_de_t781" lemma="titre" pos="NOUN">titre</w>
+          </seg>
+          <seg corresp="#prose_fr_t740">
+            <w xml:id="prose_1_de_t782" lemma="que" pos="CCONJ">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t741">
+            <w xml:id="prose_1_de_t783" lemma="nombreux" pos="ADJ">nombreux</w>
+          </seg>
+          <seg corresp="#prose_fr_t742 #prose_fr_t743 #prose_fr_t744">
+            <w xml:id="prose_1_de_t785" lemma="parmi" pos="ADP">parmi</w>
+            <w xml:id="prose_1_de_t786" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t745">
+            <w xml:id="prose_1_de_t789" lemma="avoir" pos="VERB">ont</w>
+          </seg>
+          <seg corresp="#prose_fr_t746">
+            <w xml:id="prose_1_de_t790" lemma="encore" pos="ADV">encore</w>
+          </seg>
+          <seg corresp="#prose_fr_t747">
+            <w xml:id="prose_1_de_t791" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t748">
+            <w xml:id="prose_1_de_t793" lemma="mentalité" pos="NOUN">mentalité</w>
+          </seg>
+          <seg corresp="#prose_fr_t750">
+            <w xml:id="prose_1_de_t797" lemma="de" pos="ADP">d'</w>
+            <w xml:id="prose_1_de_t798" lemma="avant" pos="ADP">avant</w>
+            <w xml:id="prose_1_de_t799" lemma="Voltaire" pos="PROPN">Voltaire</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s26">
+          <seg corresp="#prose_fr_t753">
+            <w xml:id="prose_1_de_t802" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg corresp="#prose_fr_t754">
+            <w xml:id="prose_1_de_t803" lemma="rapport" pos="NOUN">rapport</w>
+          </seg>
+          <seg corresp="#prose_fr_t755">
+            <w xml:id="prose_1_de_t804" lemma="magique" pos="ADJ">magique</w>
+          </seg>
+          <seg corresp="#prose_fr_t756">
+            <w xml:id="prose_1_de_t805" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t757">
+            <w xml:id="prose_1_de_t806" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t758">
+            <w xml:id="prose_1_de_t807" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t759">
+            <w xml:id="prose_1_de_t808" lemma="continuer" pos="VERB">continue</w>
+            <w xml:id="prose_1_de_t809" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t810" lemma="exister" pos="VERB">exister</w>
+          </seg>
+          <seg corresp="#prose_fr_t761">
+            <w xml:id="prose_1_de_t811" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t762">
+            <w xml:id="prose_1_de_t812" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t763">
+            <w xml:id="prose_1_de_t813" lemma="crainte" pos="NOUN">crainte</w>
+          </seg>
+          <seg corresp="#prose_fr_t764">
+            <w xml:id="prose_1_de_t814" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t765">
+            <w xml:id="prose_1_de_t815" lemma="le" pos="PRON">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t766">
+            <w xml:id="prose_1_de_t817" lemma="disparaître" pos="VERB">disparaître</w>
+          </seg>
+          <seg corresp="#prose_fr_t768">
+            <w xml:id="prose_1_de_t818" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg corresp="#prose_fr_t767">
+            <w xml:id="prose_1_de_t819" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t768">
+            <w xml:id="prose_1_de_t820" lemma="laisser" pos="VERB">laisse</w>
+            <w xml:id="prose_1_de_t821" lemma="aucun" pos="PRON">aucun</w>
+            <w xml:id="prose_1_de_t822" lemma="répit" pos="NOUN">répit</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s27">
+          <seg corresp="#prose_fr_t770">
+            <w xml:id="prose_1_de_t824" lemma="en" pos="ADP">En</w>
+          </seg>
+          <seg corresp="#prose_fr_t771">
+            <w xml:id="prose_1_de_t825" lemma="Afrique" pos="PROPN">Afrique</w>
+          </seg>
+          <seg corresp="#prose_fr_t772">
+            <w xml:id="prose_1_de_t827" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg corresp="#prose_fr_t773">
+            <w xml:id="prose_1_de_t828" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t774">
+            <w xml:id="prose_1_de_t829" lemma="système" pos="NOUN">système</w>
+            <w xml:id="prose_1_de_t830" lemma="scolaire" pos="ADJ">scolaire</w>
+          </seg>
+          <seg corresp="#prose_fr_t775 #prose_fr_t776">
+            <w xml:id="prose_1_de_t831" lemma="avoir" pos="VERB">a</w>
+            <w xml:id="prose_1_de_t832" lemma="transformer" pos="VERB">transformé</w>
+          </seg>
+          <seg corresp="#prose_fr_t777">
+            <w xml:id="prose_1_de_t833" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t778">
+            <w xml:id="prose_1_de_t834" lemma="rapport" pos="NOUN">rapport</w>
+          </seg>
+          <seg corresp="#prose_fr_t779">
+            <w xml:id="prose_1_de_t835" lemma="au" pos="ADP">aux</w>
+          </seg>
+          <seg corresp="#prose_fr_t780">
+            <w xml:id="prose_1_de_t836" lemma="signe" pos="NOUN">signes</w>
+            <w xml:id="prose_1_de_t838" lemma="écrire" pos="VERB">écrits</w>
+          </seg>
+          <seg corresp="#prose_fr_t782">
+            <w xml:id="prose_1_de_t841" lemma="il" pos="PRON">il</w>
+          </seg>
+          <seg corresp="#prose_fr_t783">
+            <w xml:id="prose_1_de_t842" lemma="rester" pos="VERB">reste</w>
+          </seg>
+          <seg corresp="#prose_fr_t784 #prose_fr_t785">
+            <w xml:id="prose_1_de_t843" lemma="quelque" pos="PRON">quelque</w>
+            <w xml:id="prose_1_de_t844" lemma="chose" pos="NOUN">chose</w>
+          </seg>
+          <seg corresp="#prose_fr_t786">
+            <w xml:id="prose_1_de_t845" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t787">
+            <w xml:id="prose_1_de_t846" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t788">
+            <w xml:id="prose_1_de_t847" lemma="initiation" pos="NOUN">initiation</w>
+          </seg>
+          <seg corresp="#prose_fr_t789">
+            <w xml:id="prose_1_de_t848" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t790">
+            <w xml:id="prose_1_de_t849" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t791">
+            <w xml:id="prose_1_de_t850" lemma="secret" pos="NOUN">secret</w>
+          </seg>
+          <seg corresp="#prose_fr_t793">
+            <w xml:id="prose_1_de_t851" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t794 #prose_fr_t797">
+            <w xml:id="prose_1_de_t852" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg corresp="#prose_fr_t795">
+            <w xml:id="prose_1_de_t853" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t796">
+            <w xml:id="prose_1_de_t854" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t794 #prose_fr_t797">
+            <w xml:id="prose_1_de_t855" lemma="pas" pos="ADV">pas</w>
+          </seg>
+          <seg corresp="#prose_fr_t798 #prose_fr_t799 #prose_fr_t800">
+            <w xml:id="prose_1_de_t856" lemma="totalement" pos="ADV">totalement</w>
+          </seg>
+          <seg corresp="#prose_fr_t801">
+            <w xml:id="prose_1_de_t857" lemma="étranger" pos="ADJ">étranger</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s28">
+          <seg corresp="#prose_fr_t803">
+            <w xml:id="prose_1_de_t859" lemma="si" pos="CCONJ">Si</w>
+          </seg>
+          <seg corresp="#prose_fr_t804">
+            <w xml:id="prose_1_de_t860" lemma="la|le" pos="PRON">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t805">
+            <w xml:id="prose_1_de_t861" lemma="on" pos="PRON">on</w>
+          </seg>
+          <seg corresp="#prose_fr_t806">
+            <w xml:id="prose_1_de_t862" lemma="préférer" pos="VERB">préfère</w>
+          </seg>
+          <seg corresp="#prose_fr_t807">
+            <w xml:id="prose_1_de_t863" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t808">
+            <w xml:id="prose_1_de_t864" lemma="mot" pos="NOUN">mots</w>
+            <w xml:id="prose_1_de_t865" lemma="dire" pos="VERB">dits</w>
+          </seg>
+          <seg corresp="#prose_fr_t810 #prose_fr_t811">
+            <w xml:id="prose_1_de_t867" lemma="ce" pos="PRON">c'</w>
+            <w xml:id="prose_1_de_t868" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t812">
+            <w xml:id="prose_1_de_t869" lemma="parce" pos="CCONJ">parce</w>
+            <w xml:id="prose_1_de_t870" lemma="que" pos="PRON">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t827">
+            <w xml:id="prose_1_de_t872" lemma="pouvoir" pos="VERB">peut</w>
+          </seg>
+          <seg corresp="#prose_fr_t813">
+            <w xml:id="prose_1_de_t873" lemma="choisir" pos="VERB">choisir</w>
+          </seg>
+          <seg corresp="#prose_fr_t814 #prose_fr_t815 #prose_fr_t816 #prose_fr_t817 #prose_fr_t818 #prose_fr_t819 #prose_fr_t820">
+            <w xml:id="prose_1_de_t874" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t875" lemma="qui" pos="PRON">qui</w>
+            <w xml:id="prose_1_de_t876" lemma="on" pos="PRON">on</w>
+            <w xml:id="prose_1_de_t877" lemma="la|le" pos="PRON">les</w>
+            <w xml:id="prose_1_de_t878" lemma="adresser" pos="VERB">adresse</w>
+          </seg>
+          <seg corresp="#prose_fr_t822 #prose_fr_t823">
+            <w xml:id="prose_1_de_t880" lemma="tandis" pos="CCONJ">tandis</w>
+            <w xml:id="prose_1_de_t881" lemma="que" pos="CCONJ">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t824">
+            <w xml:id="prose_1_de_t882" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t825">
+            <w xml:id="prose_1_de_t883" lemma="document" pos="NOUN">document</w>
+          </seg>
+          <seg corresp="#prose_fr_t826">
+            <w xml:id="prose_1_de_t884" lemma="écrire" pos="VERB">écrit</w>
+          </seg>
+          <seg corresp="#prose_fr_t828">
+            <w xml:id="prose_1_de_t886" lemma="tomber" pos="VERB">tomber</w>
+          </seg>
+          <seg corresp="#prose_fr_t829">
+            <w xml:id="prose_1_de_t887" lemma="entre" pos="ADP">entre</w>
+          </seg>
+          <seg corresp="#prose_fr_t831">
+            <w xml:id="prose_1_de_t888" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t832">
+            <w xml:id="prose_1_de_t889" lemma="main" pos="NOUN">mains</w>
+          </seg>
+          <seg corresp="#prose_fr_t830">
+            <w xml:id="prose_1_de_t890" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t891" lemma="ne" pos="ADV">n'</w>
+            <w xml:id="prose_1_de_t892" lemma="importer" pos="VERB">importe</w>
+            <w xml:id="prose_1_de_t893" lemma="qui" pos="PRON">qui</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s29">
+          <seg corresp="#prose_fr_t834">
+            <w xml:id="prose_1_de_t895" lemma="avec" pos="ADP">Avec</w>
+          </seg>
+          <seg corresp="#prose_fr_t835">
+            <w xml:id="prose_1_de_t896" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t836">
+            <w xml:id="prose_1_de_t897" lemma="mot" pos="NOUN">mots</w>
+            <w xml:id="prose_1_de_t898" lemma="dire" pos="VERB">dits</w>
+          </seg>
+          <seg corresp="#prose_fr_t837">
+            <w xml:id="prose_1_de_t900" lemma="on" pos="PRON">on</w>
+          </seg>
+          <seg corresp="#prose_fr_t838">
+            <w xml:id="prose_1_de_t901" lemma="pouvoir" pos="VERB">peut</w>
+          </seg>
+          <seg corresp="#prose_fr_t839">
+            <w xml:id="prose_1_de_t902" lemma="rester" pos="VERB">rester</w>
+          </seg>
+          <seg corresp="#prose_fr_t840 #prose_fr_t841">
+            <w xml:id="prose_1_de_t903" lemma="entre" pos="ADP">entre</w>
+            <w xml:id="prose_1_de_t904" lemma="soi" pos="PRON">soi</w>
+          </seg>
+          <seg corresp="#prose_fr_t843">
+            <w xml:id="prose_1_de_t908" lemma="avec" pos="ADP">avec</w>
+          </seg>
+          <seg corresp="#prose_fr_t844">
+            <w xml:id="prose_1_de_t909" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t845">
+            <w xml:id="prose_1_de_t910" lemma="écriture" pos="NOUN">écriture</w>
+          </seg>
+          <seg corresp="#prose_fr_t846">
+            <w xml:id="prose_1_de_t911" lemma="on" pos="PRON">on</w>
+          </seg>
+          <seg corresp="#prose_fr_t864">
+            <w xml:id="prose_1_de_t912" lemma="pouvoir" pos="VERB">peut</w>
+          </seg>
+          <seg corresp="#prose_fr_t847">
+            <w xml:id="prose_1_de_t914" lemma="porter" pos="VERB">porter</w>
+          </seg>
+          <seg corresp="#prose_fr_t848">
+            <w xml:id="prose_1_de_t915" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t849">
+            <w xml:id="prose_1_de_t916" lemma="loi" pos="NOUN">loi</w>
+          </seg>
+          <seg corresp="#prose_fr_t850 #prose_fr_t851">
+            <w xml:id="prose_1_de_t917" lemma="au" pos="ADP">au</w>
+            <w xml:id="prose_1_de_t918" lemma="loin" pos="ADV">loin</w>
+          </seg>
+          <seg corresp="#prose_fr_t852">
+            <w xml:id="prose_1_de_t919" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t855">
+            <w xml:id="prose_1_de_t920" lemma="repousser" pos="VERB">repousser</w>
+          </seg>
+          <seg corresp="#prose_fr_t856">
+            <w xml:id="prose_1_de_t921" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t857">
+            <w xml:id="prose_1_de_t922" lemma="frontière" pos="NOUN">frontières</w>
+          </seg>
+          <seg corresp="#prose_fr_t858">
+            <w xml:id="prose_1_de_t923" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t859">
+            <w xml:id="prose_1_de_t924" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t860">
+            <w xml:id="prose_1_de_t925" lemma="empire" pos="NOUN">empire</w>
+          </seg>
+          <seg corresp="#prose_fr_t862">
+            <w xml:id="prose_1_de_t927" lemma="mais" pos="CCONJ">mais</w>
+          </seg>
+          <seg corresp="#prose_fr_t863">
+            <w xml:id="prose_1_de_t928" lemma="on" pos="PRON">on</w>
+          </seg>
+          <seg corresp="#prose_fr_t865">
+            <w xml:id="prose_1_de_t930" lemma="également" pos="ADV">également</w>
+          </seg>
+          <seg corresp="#prose_fr_t866">
+            <w xml:id="prose_1_de_t931" lemma="précipiter" pos="VERB">précipiter</w>
+          </seg>
+          <seg corresp="#prose_fr_t867">
+            <w xml:id="prose_1_de_t932" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#prose_fr_t868">
+            <w xml:id="prose_1_de_t933" lemma="chute" pos="NOUN">chute</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s30">
+          <seg corresp="#prose_fr_t870">
+            <w xml:id="prose_1_de_t935" lemma="le" pos="DET">Les</w>
+          </seg>
+          <seg corresp="#prose_fr_t871">
+            <w xml:id="prose_1_de_t936" lemma="résistant" pos="NOUN">résistants</w>
+          </seg>
+          <seg corresp="#prose_fr_t873">
+            <w xml:id="prose_1_de_t938" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t874">
+            <w xml:id="prose_1_de_t939" lemma="clandestin" pos="NOUN">clandestins</w>
+          </seg>
+          <seg corresp="#prose_fr_t876">
+            <w xml:id="prose_1_de_t941" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t877">
+            <w xml:id="prose_1_de_t942" lemma="personne" pos="NOUN">personnes</w>
+          </seg>
+          <seg corresp="#prose_fr_t878">
+            <w xml:id="prose_1_de_t943" lemma="persécuter" pos="VERB">persécutées</w>
+          </seg>
+          <seg corresp="#prose_fr_t879 #prose_fr_t880 #prose_fr_t881 #prose_fr_t882">
+            <w xml:id="prose_1_de_t944" lemma="décider" pos="VERB">décidaient</w>
+            <w xml:id="prose_1_de_t946" lemma="pour" pos="ADP">pour</w>
+            <w xml:id="prose_1_de_t947" lemma="du" pos="ADP">des</w>
+            <w xml:id="prose_1_de_t948" lemma="raison" pos="NOUN">raisons</w>
+            <w xml:id="prose_1_de_t949" lemma="de" pos="ADP">de</w>
+            <w xml:id="prose_1_de_t950" lemma="sécurité" pos="NOUN">sécurité</w>
+            <w xml:id="prose_1_de_t952" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t883">
+            <w xml:id="prose_1_de_t953" lemma="avaler" pos="VERB">avaler</w>
+          </seg>
+          <seg corresp="#prose_fr_t884">
+            <w xml:id="prose_1_de_t954" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t885">
+            <w xml:id="prose_1_de_t955" lemma="document" pos="NOUN">documents</w>
+          </seg>
+          <seg corresp="#prose_fr_t886">
+            <w xml:id="prose_1_de_t956" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t887 #prose_fr_t888">
+            <w xml:id="prose_1_de_t957" lemma="avoir" pos="VERB">auraient</w>
+            <w xml:id="prose_1_de_t958" lemma="pouvoir" pos="VERB">pu</w>
+          </seg>
+          <seg corresp="#prose_fr_t889">
+            <w xml:id="prose_1_de_t959" lemma="la|le" pos="PRON">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t890">
+            <w xml:id="prose_1_de_t960" lemma="compromettre" pos="VERB">compromettre</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s31">
+          <seg corresp="#prose_fr_t892 #prose_fr_t893">
+            <w xml:id="prose_1_de_t962" lemma="ce" pos="PRON">Ce</w>
+            <w xml:id="prose_1_de_t963" lemma="que" pos="PRON">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t894">
+            <w xml:id="prose_1_de_t965" lemma="on" pos="PRON">on</w>
+          </seg>
+          <seg corresp="#prose_fr_t895">
+            <w xml:id="prose_1_de_t966" lemma="savoir" pos="VERB">sait</w>
+          </seg>
+          <seg corresp="#prose_fr_t896 #prose_fr_t897">
+            <w xml:id="prose_1_de_t967" lemma="par" pos="ADP">par</w>
+            <w xml:id="prose_1_de_t968" lemma="cœur" pos="NOUN">cœur</w>
+          </seg>
+          <seg corresp="#prose_fr_t898">
+            <w xml:id="prose_1_de_t969" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t899">
+            <w xml:id="prose_1_de_t970" lemma="invisible" pos="ADJ">invisible</w>
+          </seg>
+          <seg corresp="#prose_fr_t903">
+            <w xml:id="prose_1_de_t971" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t901">
+            <w xml:id="prose_1_de_t972" lemma="intangible" pos="ADJ">intangible</w>
+          </seg>
+          <seg corresp="#prose_fr_t904 #prose_fr_t905 #prose_fr_t908">
+            <w xml:id="prose_1_de_t975" lemma="combien" pos="ADV">combien</w>
+            <w xml:id="prose_1_de_t976" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t906">
+            <w xml:id="prose_1_de_t977" lemma="prisonnier" pos="NOUN">prisonniers</w>
+          </seg>
+          <seg corresp="#prose_fr_t904 #prose_fr_t905 #prose_fr_t908">
+            <w xml:id="prose_1_de_t979" lemma="combien" pos="ADV">combien</w>
+            <w xml:id="prose_1_de_t980" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t909">
+            <w xml:id="prose_1_de_t981" lemma="poète" pos="NOUN">poètes</w>
+          </seg>
+          <seg corresp="#prose_fr_t910 #prose_fr_t911">
+            <w xml:id="prose_1_de_t982" lemma="avoir" pos="VERB">ont</w>
+            <w xml:id="prose_1_de_t983" lemma="confier" pos="VERB">confié</w>
+          </seg>
+          <seg corresp="#prose_fr_t912">
+            <w xml:id="prose_1_de_t984" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t913">
+            <w xml:id="prose_1_de_t985" lemma="leur" pos="DET">leur</w>
+          </seg>
+          <seg corresp="#prose_fr_t914">
+            <w xml:id="prose_1_de_t986" lemma="mémoire" pos="NOUN">mémoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t916">
+            <w xml:id="prose_1_de_t988" lemma="ou" pos="CCONJ">ou</w>
+          </seg>
+          <seg corresp="#prose_fr_t917">
+            <w xml:id="prose_1_de_t989" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t918">
+            <w xml:id="prose_1_de_t990" lemma="celui" pos="PRON">celle</w>
+          </seg>
+          <seg corresp="#prose_fr_t919">
+            <w xml:id="prose_1_de_t991" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t920">
+            <w xml:id="prose_1_de_t992" lemma="leur" pos="DET">leurs</w>
+          </seg>
+          <seg corresp="#prose_fr_t921">
+            <w xml:id="prose_1_de_t993" lemma="proche" pos="NOUN">proches</w>
+          </seg>
+          <seg corresp="#prose_fr_t923 #prose_fr_t924">
+            <w xml:id="prose_1_de_t996" lemma="ce" pos="PRON">ce</w>
+            <w xml:id="prose_1_de_t997" lemma="que" pos="PRON">qu'</w>
+          </seg>
+          <seg corresp="#prose_fr_t926">
+            <w xml:id="prose_1_de_t998" lemma="il" pos="PRON">ils</w>
+          </seg>
+          <seg corresp="#prose_fr_t925">
+            <w xml:id="prose_1_de_t999" lemma="devoir" pos="VERB">devaient</w>
+          </seg>
+          <seg corresp="#prose_fr_t927">
+            <w xml:id="prose_1_de_t1000" lemma="faire" pos="VERB">faire</w>
+          </seg>
+          <seg corresp="#prose_fr_t928">
+            <w xml:id="prose_1_de_t1001" lemma="vivre" pos="VERB">vivre</w>
+          </seg>
+          <seg corresp="#prose_fr_t929">
+            <w xml:id="prose_1_de_t1002" lemma="ou" pos="CCONJ">ou</w>
+          </seg>
+          <seg corresp="#prose_fr_t930">
+            <w xml:id="prose_1_de_t1003" lemma="survivre" pos="VERB">survivre</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s32">
+          <seg corresp="#prose_fr_t932">
+            <w xml:id="prose_1_de_t1005" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg corresp="#prose_fr_t933">
+            <w xml:id="prose_1_de_t1006" lemma="hasard" pos="NOUN">hasard</w>
+          </seg>
+          <seg corresp="#prose_fr_t935">
+            <w xml:id="prose_1_de_t1008" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t937">
+            <w xml:id="prose_1_de_t1009" lemma="sembler" pos="VERB">semble</w>
+            <w xml:id="prose_1_de_t1010" lemma="être" pos="VERB">être</w>
+          </seg>
+          <seg corresp="#prose_fr_t938">
+            <w xml:id="prose_1_de_t1011" lemma="guider" pos="VERB">guidé</w>
+          </seg>
+          <seg corresp="#prose_fr_t939">
+            <w xml:id="prose_1_de_t1012" lemma="par" pos="ADP">par</w>
+          </seg>
+          <seg corresp="#prose_fr_t940">
+            <w xml:id="prose_1_de_t1013" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t941">
+            <w xml:id="prose_1_de_t1014" lemma="main" pos="NOUN">main</w>
+          </seg>
+          <seg corresp="#prose_fr_t942">
+            <w xml:id="prose_1_de_t1015" lemma="bienveillant" pos="ADJ">bienveillante</w>
+          </seg>
+          <seg corresp="#prose_fr_t946 #prose_fr_t947 #prose_fr_t948 #prose_fr_t949">
+            <w xml:id="prose_1_de_t1017" lemma="me" pos="PRON">m'</w>
+            <w xml:id="prose_1_de_t1018" lemma="avoir" pos="VERB">a</w>
+            <w xml:id="prose_1_de_t1019" lemma="rapporter" pos="VERB">rapporté</w>
+          </seg>
+          <seg corresp="#prose_fr_t950">
+            <w xml:id="prose_1_de_t1020" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t951">
+            <w xml:id="prose_1_de_t1021" lemma="fable" pos="NOUN">fable</w>
+          </seg>
+          <seg corresp="#prose_fr_t952">
+            <w xml:id="prose_1_de_t1022" lemma="suivant" pos="ADJ">suivante</w>
+          </seg>
+          <seg corresp="#prose_fr_t954">
+            <w xml:id="prose_1_de_t1023" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t955 #prose_fr_t956">
+            <w xml:id="prose_1_de_t1024" lemma="Pierre" pos="PROPN">Pierre</w>
+            <w xml:id="prose_1_de_t1025" lemma="Bettencourt" pos="PROPN">Bettencourt</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s33">
+          <seg corresp="#prose_fr_t959">
+            <w xml:id="prose_1_de_t1028" lemma="J'" pos="NOUN">J'</w>
+          </seg>
+          <seg corresp="#prose_fr_t960 #prose_fr_t961">
+            <w xml:id="prose_1_de_t1029" lemma="avoir" pos="VERB">avais</w>
+            <w xml:id="prose_1_de_t1030" lemma="mettre" pos="VERB">mis</w>
+          </seg>
+          <seg corresp="#prose_fr_t967">
+            <w xml:id="prose_1_de_t1031" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t968">
+            <w xml:id="prose_1_de_t1032" lemma="dernier" pos="ADJ">dernières</w>
+          </seg>
+          <seg corresp="#prose_fr_t969">
+            <w xml:id="prose_1_de_t1033" lemma="parole" pos="NOUN">paroles</w>
+          </seg>
+          <seg corresp="#prose_fr_t970">
+            <w xml:id="prose_1_de_t1034" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t971">
+            <w xml:id="prose_1_de_t1035" lemma="mon" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#prose_fr_t972">
+            <w xml:id="prose_1_de_t1036" lemma="femme" pos="NOUN">femme</w>
+          </seg>
+          <seg corresp="#prose_fr_t962">
+            <w xml:id="prose_1_de_t1037" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t963">
+            <w xml:id="prose_1_de_t1038" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t964">
+            <w xml:id="prose_1_de_t1039" lemma="bouteille" pos="NOUN">bouteille</w>
+          </seg>
+          <seg corresp="#prose_fr_t965">
+            <w xml:id="prose_1_de_t1040" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t966">
+            <w xml:id="prose_1_de_t1041" lemma="eau" pos="NOUN">eau</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s34">
+          <seg corresp="#prose_fr_t974">
+            <w xml:id="prose_1_de_t1043" lemma="le" pos="DET">Les</w>
+          </seg>
+          <seg corresp="#prose_fr_t975">
+            <w xml:id="prose_1_de_t1044" lemma="caractère" pos="NOUN">caractères</w>
+          </seg>
+          <seg corresp="#prose_fr_t976">
+            <w xml:id="prose_1_de_t1045" lemma="noir" pos="ADJ">noirs</w>
+          </seg>
+          <seg corresp="#prose_fr_t977 #prose_fr_t978">
+            <w xml:id="prose_1_de_t1046" lemma="se" pos="PRON">se</w>
+            <w xml:id="prose_1_de_t1047" lemma="être" pos="VERB">sont</w>
+          </seg>
+          <seg corresp="#prose_fr_t979">
+            <w xml:id="prose_1_de_t1048" lemma="rapidement" pos="ADV">rapidement</w>
+          </seg>
+          <seg corresp="#prose_fr_t977 #prose_fr_t978">
+            <w xml:id="prose_1_de_t1049" lemma="dissoudre" pos="VERB">dissous</w>
+          </seg>
+          <seg corresp="#prose_fr_t981">
+            <w xml:id="prose_1_de_t1050" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t982">
+            <w xml:id="prose_1_de_t1051" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t983">
+            <w xml:id="prose_1_de_t1052" lemma="eau" pos="NOUN">eau</w>
+          </seg>
+          <seg corresp="#prose_fr_t984">
+            <w xml:id="prose_1_de_t1053" lemma="avoir" pos="VERB">a</w>
+            <w xml:id="prose_1_de_t1054" lemma="prendre" pos="VERB">pris</w>
+          </seg>
+          <seg corresp="#prose_fr_t985">
+            <w xml:id="prose_1_de_t1055" lemma="un" pos="DET">une</w>
+            <w xml:id="prose_1_de_t1056" lemma="couleur" pos="NOUN">couleur</w>
+          </seg>
+          <seg corresp="#prose_fr_t986 #prose_fr_t987">
+            <w xml:id="prose_1_de_t1057" lemma="trouble" pos="ADJ">trouble</w>
+          </seg>
+        </s>
+        <s xml:id="prose_1_de_s35">
+          <seg corresp="#prose_fr_t994">
+            <w xml:id="prose_1_de_t1061" lemma="la|le" pos="PRON">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t995">
+            <w xml:id="prose_1_de_t1062" lemma="avoir" pos="VERB">ai</w>
+            <w xml:id="prose_1_de_t1063" lemma="retrouver" pos="VERB">retrouvée</w>
+          </seg>
+          <seg corresp="#prose_fr_t989">
+            <w xml:id="prose_1_de_t1064" lemma="quelque" pos="PRON">quelques</w>
+          </seg>
+          <seg corresp="#prose_fr_t990">
+            <w xml:id="prose_1_de_t1065" lemma="année" pos="NOUN">années</w>
+          </seg>
+          <seg corresp="#prose_fr_t991 #prose_fr_t992">
+            <w xml:id="prose_1_de_t1066" lemma="plus" pos="ADV">plus</w>
+            <w xml:id="prose_1_de_t1067" lemma="tard" pos="ADV">tard</w>
+          </seg>
+          <seg corresp="#prose_fr_t996">
+            <w xml:id="prose_1_de_t1068" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg corresp="#prose_fr_t997">
+            <w xml:id="prose_1_de_t1069" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#prose_fr_t998">
+            <w xml:id="prose_1_de_t1070" lemma="armoire" pos="NOUN">armoire</w>
+          </seg>
+          <seg corresp="#prose_fr_t1000">
+            <w xml:id="prose_1_de_t1072" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t1001">
+            <w xml:id="prose_1_de_t1073" lemma="eau" pos="NOUN">eau</w>
+          </seg>
+          <seg corresp="#prose_fr_t1002 #prose_fr_t1003 #prose_fr_t1004">
+            <w xml:id="prose_1_de_t1074" lemma="se" pos="PRON">s'</w>
+            <w xml:id="prose_1_de_t1075" lemma="être" pos="VERB">était</w>
+            <w xml:id="prose_1_de_t1076" lemma="évaporer" pos="VERB">évaporée</w>
+          </seg>
+          <seg corresp="#prose_fr_t1006">
+            <w xml:id="prose_1_de_t1077" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#prose_fr_t1007">
+            <w xml:id="prose_1_de_t1078" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg corresp="#prose_fr_t1008">
+            <w xml:id="prose_1_de_t1079" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#prose_fr_t1009">
+            <w xml:id="prose_1_de_t1080" lemma="fond" pos="NOUN">fond</w>
+          </seg>
+          <seg corresp="#prose_fr_t1010">
+            <w xml:id="prose_1_de_t1081" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t1011">
+            <w xml:id="prose_1_de_t1082" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#prose_fr_t1012">
+            <w xml:id="prose_1_de_t1083" lemma="bouteille" pos="NOUN">bouteille</w>
+          </seg>
+          <seg corresp="#prose_fr_t1013">
+            <w xml:id="prose_1_de_t1084" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#prose_fr_t1014">
+            <w xml:id="prose_1_de_t1085" lemma="caractère" pos="NOUN">caractères</w>
+          </seg>
+          <seg corresp="#prose_fr_t1015 #prose_fr_t1016 #prose_fr_t1017 #prose_fr_t1018">
+            <w xml:id="prose_1_de_t1086" lemma="avoir" pos="VERB">avaient</w>
+            <w xml:id="prose_1_de_t1087" lemma="reprendre" pos="VERB">repris</w>
+            <w xml:id="prose_1_de_t1088" lemma="leur" pos="DET">leur</w>
+            <w xml:id="prose_1_de_t1089" lemma="forme" pos="NOUN">forme</w>
+          </seg>
+        </s>
+      </p>
+      <p>
+        <s xml:id="prose_1_de_s36">
+          <seg corresp="#prose_fr_t1021">
+            <w xml:id="prose_1_de_t1092" lemma="Bettencourt" pos="PROPN">Bettencourt</w>
+          </seg>
+          <seg corresp="#prose_fr_t1022 #prose_fr_t1024">
+            <w xml:id="prose_1_de_t1093" lemma="ne" pos="ADV">n'</w>
+          </seg>
+          <seg corresp="#prose_fr_t1023 #prose_fr_t1025">
+            <w xml:id="prose_1_de_t1094" lemma="avoir" pos="VERB">avait</w>
+          </seg>
+          <seg corresp="#prose_fr_t1022 #prose_fr_t1024">
+            <w xml:id="prose_1_de_t1095" lemma="aucunement" pos="ADV">aucunement</w>
+          </seg>
+          <seg corresp="#prose_fr_t1023 #prose_fr_t1025">
+            <w xml:id="prose_1_de_t1096" lemma="entendre" pos="VERB">entendu</w>
+          </seg>
+          <seg corresp="#prose_fr_t1026">
+            <w xml:id="prose_1_de_t1097" lemma="parler" pos="VERB">parler</w>
+          </seg>
+          <seg corresp="#prose_fr_t1027">
+            <w xml:id="prose_1_de_t1098" lemma="du" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#prose_fr_t1028">
+            <w xml:id="prose_1_de_t1099" lemma="sultan" pos="NOUN">sultan</w>
+          </seg>
+          <seg corresp="#prose_fr_t1029">
+            <w xml:id="prose_1_de_t1100" lemma="Njoya" pos="PROPN">Njoya</w>
+          </seg>
+          <seg corresp="#prose_fr_t1031">
+            <w xml:id="prose_1_de_t1102" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#prose_fr_t1032 #prose_fr_t1034">
+            <w xml:id="prose_1_de_t1104" lemma="ne" pos="ADV">n'</w>
+          </seg>
+          <seg corresp="#prose_fr_t1033 #prose_fr_t1035">
+            <w xml:id="prose_1_de_t1105" lemma="avoir" pos="VERB">avait</w>
+          </seg>
+          <seg corresp="#prose_fr_t1032 #prose_fr_t1034">
+            <w xml:id="prose_1_de_t1106" lemma="pas" pos="ADV">pas</w>
+          </seg>
+          <seg corresp="#prose_fr_t1033 #prose_fr_t1035">
+            <w xml:id="prose_1_de_t1107" lemma="prédire" pos="VERB">prédit</w>
+          </seg>
+          <seg corresp="#prose_fr_t1036">
+            <w xml:id="prose_1_de_t1108" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t1037">
+            <w xml:id="prose_1_de_t1109" lemma="existence" pos="NOUN">existence</w>
+          </seg>
+          <seg corresp="#prose_fr_t1038">
+            <w xml:id="prose_1_de_t1110" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t1039">
+            <w xml:id="prose_1_de_t1111" lemma="Bettencourt" pos="PROPN">Bettencourt</w>
+          </seg>
+          <seg corresp="#prose_fr_t1041">
+            <w xml:id="prose_1_de_t1113" lemma="pourtant" pos="ADV">pourtant</w>
+          </seg>
+          <seg corresp="#prose_fr_t1042 #prose_fr_t1043 #prose_fr_t1050">
+            <w xml:id="prose_1_de_t1115" lemma="ce" pos="PRON">c'</w>
+            <w xml:id="prose_1_de_t1116" lemma="être" pos="VERB">est</w>
+          </seg>
+          <seg corresp="#prose_fr_t1044">
+            <w xml:id="prose_1_de_t1117" lemma="également" pos="ADV">également</w>
+          </seg>
+          <seg corresp="#prose_fr_t1045 #prose_fr_t1046">
+            <w xml:id="prose_1_de_t1118" lemma="grâce" pos="NOUN">grâce</w>
+            <w xml:id="prose_1_de_t1119" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg corresp="#prose_fr_t1047">
+            <w xml:id="prose_1_de_t1120" lemma="ce" pos="PRON">cet</w>
+          </seg>
+          <seg corresp="#prose_fr_t1048">
+            <w xml:id="prose_1_de_t1121" lemma="imaginaire" pos="ADJ">imaginaire</w>
+          </seg>
+          <seg corresp="#prose_fr_t1049">
+            <w xml:id="prose_1_de_t1122" lemma="commun" pos="NOUN">commun</w>
+          </seg>
+          <seg corresp="#prose_fr_t1042 #prose_fr_t1043 #prose_fr_t1050">
+            <w xml:id="prose_1_de_t1123" lemma="que" pos="PRON">que</w>
+          </seg>
+          <seg corresp="#prose_fr_t1051">
+            <w xml:id="prose_1_de_t1124" lemma="nous" pos="PRON">nous</w>
+          </seg>
+          <seg corresp="#prose_fr_t1052">
+            <w xml:id="prose_1_de_t1125" lemma="pouvoir" pos="VERB">pouvons</w>
+          </seg>
+          <seg corresp="#prose_fr_t1053">
+            <w xml:id="prose_1_de_t1126" lemma="nous" pos="PRON">nous</w>
+            <w xml:id="prose_1_de_t1127" lemma="rapprocher" pos="VERB">rapprocher</w>
+            <w xml:id="prose_1_de_t1128" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#prose_fr_t1054">
+            <w xml:id="prose_1_de_t1129" lemma="le" pos="DET">l'</w>
+          </seg>
+          <seg corresp="#prose_fr_t1055">
+            <w xml:id="prose_1_de_t1130" lemma="Afrique" pos="PROPN">Afrique</w>
+          </seg>
+          <seg corresp="#prose_fr_t1057 #prose_fr_t1058">
+            <w xml:id="prose_1_de_t1132" lemma="à" pos="ADP">à</w>
+            <w xml:id="prose_1_de_t1133" lemma="le" pos="DET">l'</w>
+            <w xml:id="prose_1_de_t1134" lemma="instar" pos="NOUN">instar</w>
+            <w xml:id="prose_1_de_t1135" lemma="de" pos="ADP">d'</w>
+          </seg>
+          <seg corresp="#prose_fr_t1060">
+            <w xml:id="prose_1_de_t1136" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#prose_fr_t1061">
+            <w xml:id="prose_1_de_t1137" lemma="voyage" pos="NOUN">voyage</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

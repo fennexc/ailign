@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">BOJANY</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1942">1942</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_bojany_s1">
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_bojany_t1" lemma="toujours" pos="ADV">Toujours</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_bojany_t2" lemma="cher" pos="ADJ">cher</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t3" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t4" lemma="être" pos="AUX">fut</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t5" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_bojany_t6" lemma="côteau" pos="NOUN">côteau</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_bojany_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s2">
+          <seg>
+            <w xml:id="leopardi_bojany_t8" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t9" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_bojany_t10" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t11" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t12" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t13" lemma="tant" pos="ADV">tant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t14" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t15" lemma="part" pos="NOUN">parts</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s3">
+          <seg>
+            <w xml:id="leopardi_bojany_t16" lemma="de" pos="ADP">Du</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_bojany_t17" lemma="dernier" pos="ADJ">dernier</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_bojany_t18" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t19" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_bojany_t20" lemma="regard" pos="NOUN">regard</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_bojany_t21" lemma="exclure" pos="VERB">exclu</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s4">
+          <seg>
+            <w xml:id="leopardi_bojany_t22" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_bojany_t23" lemma="reposer" pos="VERB">reposant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t24" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_bojany_t25" lemma="observer" pos="VERB">observant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t26" lemma="de" pos="ADP">d’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_bojany_t27" lemma="interminable" pos="ADJ">interminables</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s5">
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_bojany_t28" lemma="espace" pos="NOUN">Espaces</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t29" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t30" lemma="delà" pos="ADV">delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t31" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t32" lemma="celui-ci" pos="PRON">celle-ci</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t33" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_bojany_t34" lemma="surhumain" pos="ADJ">surhumains</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s6">
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_bojany_t35" lemma="silence" pos="NOUN">Silences</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t36" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_bojany_t37" lemma="profond" pos="ADJ">profonde</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_bojany_t38" lemma="quiétude" pos="NOUN">quiétude</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s7">
+          <seg>
+            <w xml:id="leopardi_bojany_t39" lemma="dans" pos="ADP">Dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t40" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t39">
+            <w xml:id="leopardi_bojany_t41" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t42" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t43" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_bojany_t44" lemma="absorber" pos="VERB">absorbe</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t45" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t46" lemma="petit" pos="ADJ">petit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t47" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t48" lemma="petit" pos="ADJ">petit</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s8">
+          <seg>
+            <w xml:id="leopardi_bojany_t49" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_bojany_t50" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t51" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_bojany_t52" lemma="apaiser" pos="VERB">apaise</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t53" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t54" lemma="comme" pos="ADP">comme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t55" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_bojany_t56" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s9">
+          <seg>
+            <w xml:id="leopardi_bojany_t57" lemma="moi" pos="PRON">J’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_bojany_t58" lemma="entendre" pos="VERB">entends</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_bojany_t59" lemma="frémir" pos="VERB">frémir</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t60" lemma="entre" pos="ADP">entre</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t61" lemma="ce" pos="DET">ces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_bojany_t62" lemma="arbre" pos="NOUN">arbres</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t63" lemma="ce" pos="PRON">cet</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s10">
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_bojany_t64" lemma="infini" pos="ADJ">Infini</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_bojany_t65" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t66" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t67" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_bojany_t68" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s11">
+          <seg>
+            <w xml:id="leopardi_bojany_t69" lemma="moi" pos="PRON">Je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_bojany_t70" lemma="aller" pos="VERB">vais</w>
+            <w xml:id="leopardi_bojany_t71" lemma="confronter" pos="VERB">confrontant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t72" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t73" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_bojany_t74" lemma="souvenir" pos="VERB">souviens</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t75" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t76" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_bojany_t77" lemma="éternel" pos="NOUN">éternel</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s12">
+          <seg>
+            <w xml:id="leopardi_bojany_t78" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t79" lemma="de" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_bojany_t80" lemma="saison" pos="NOUN">saisons</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_bojany_t81" lemma="évanoui" pos="ADJ">évanouies</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t82" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t83" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t84" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_bojany_t85" lemma="présent" pos="ADJ">présente</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s13">
+          <seg>
+            <w xml:id="leopardi_bojany_t86" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_bojany_t87" lemma="vivre" pos="VERB">vivant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t88" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t89" lemma="son" pos="DET">son</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t90" lemma="souvenir" pos="NOUN">souvenir</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t91" lemma="ainsi" pos="ADV">Ainsi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t92" lemma="parmi" pos="ADP">parmi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t93" lemma="ce" pos="PRON">cette</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s14">
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_bojany_t94" lemma="immensité" pos="NOUN">Immensité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t95" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_bojany_t96" lemma="émerger" pos="VERB">émerge</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t97" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_bojany_t98" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bojany_s15">
+          <seg>
+            <w xml:id="leopardi_bojany_t99" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t100" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_bojany_t101" lemma="naufrage" pos="NOUN">naufrage</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t102" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t103" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_bojany_t104" lemma="doux" pos="ADJ">doux</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t105" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bojany_t106" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_bojany_t107" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

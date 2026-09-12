@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">BOUCHE-LECLERCQ</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1874">1874</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_bouche_leclerc_s1">
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t1" lemma="lui" pos="PRON">Elle</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t2" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t3" lemma="être" pos="AUX">fut</w>
+          </seg>
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_bouche_leclerc_t4" lemma="toujours" pos="ADV">toujours</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_bouche_leclerc_t5" lemma="cher" pos="ADJ">chère</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t6" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_bouche_leclerc_t7" lemma="colline" pos="NOUN">colline</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_bouche_leclerc_t8" lemma="désert" pos="ADJ">déserte</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t9" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t10" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_bouche_leclerc_t11" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t12" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_bouche_leclerc_t13" lemma="cacher" pos="VERB">cache</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t14" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_bouche_leclerc_t15" lemma="regard" pos="NOUN">regard</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t16" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t17" lemma="un" pos="PRON">une</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bouche_leclerc_s2">
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t18" lemma="grand" pos="ADJ">grande</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t19" lemma="étendue" pos="NOUN">étendue</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t20" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_bouche_leclerc_t21" lemma="profondeur" pos="NOUN">profondeurs</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t22" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t23" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_bouche_leclerc_t24" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t25" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_bouche_leclerc_t26" lemma="asseoir" pos="VERB">assis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t27" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t28" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_bouche_leclerc_t29" lemma="contemplation" pos="NOUN">contemplation</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t30" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t31" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_bouche_leclerc_t32" lemma="figurer" pos="VERB">figure</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bouche_leclerc_s3">
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t33" lemma="par-delà" pos="ADV">par-delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t34" lemma="de" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_bouche_leclerc_t35" lemma="espace" pos="NOUN">espaces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_bouche_leclerc_t36" lemma="illimité" pos="ADJ">illimités</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t37" lemma="un" pos="DET">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_bouche_leclerc_t38" lemma="silence" pos="NOUN">silences</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_bouche_leclerc_t39" lemma="surhumain" pos="ADJ">surhumains</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t40" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t41" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_bouche_leclerc_t42" lemma="repos" pos="NOUN">repos</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_bouche_leclerc_t43" lemma="absolu" pos="ADJ">absolu</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t44" lemma="où" pos="ADV">où</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t45" lemma="peu" pos="ADV">peu</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t46" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t47" lemma="en" pos="PRON">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t48" lemma="falloir" pos="VERB">faut</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bouche_leclerc_s4">
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t49" lemma="que" pos="SCONJ">que</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t50" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_bouche_leclerc_t51" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t52" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t53" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_bouche_leclerc_t54" lemma="épouvanter" pos="VERB">épouvante</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t55" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t56" lemma="comme" pos="SCONJ">comme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t57" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_bouche_leclerc_t58" lemma="entendre" pos="VERB">entends</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t59" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_bouche_leclerc_t60" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_bouche_leclerc_t61" lemma="frémir" pos="VERB">frémir</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t62" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t63" lemma="ce" pos="DET">ces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_bouche_leclerc_t64" lemma="broussaille" pos="NOUN">broussailles</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t65" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t66" lemma="moi" pos="PRON">me</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bouche_leclerc_s5">
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_bouche_leclerc_t67" lemma="prendre" pos="VERB">prends</w>
+            <w xml:id="leopardi_bouche_leclerc_t68" lemma="à" pos="ADP">à</w>
+            <w xml:id="leopardi_bouche_leclerc_t69" lemma="comparer" pos="VERB">comparer</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t70" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_bouche_leclerc_t71" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_bouche_leclerc_t72" lemma="infini" pos="ADJ">infini</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t73" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t74" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_bouche_leclerc_t75" lemma="murmure" pos="NOUN">murmure</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t76" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t77" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_bouche_leclerc_t78" lemma="penser" pos="VERB">pense</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t79" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t80" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_bouche_leclerc_t81" lemma="éternité" pos="NOUN">éternité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t82" lemma="à" pos="ADP">aux</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_bouche_leclerc_t83" lemma="âge" pos="NOUN">âges</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_bouche_leclerc_t84" lemma="passer" pos="VERB">passés</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t85" lemma="à" pos="ADP">à</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bouche_leclerc_s6">
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t86" lemma="celui" pos="PRON">celui</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t87" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_bouche_leclerc_t88" lemma="vivre" pos="VERB">vit</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_bouche_leclerc_t89" lemma="présentement" pos="ADV">présentement</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t90" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t91" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_bouche_leclerc_t92" lemma="bruit" pos="NOUN">bruit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t93" lemma="que" pos="PRON">qu’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t94" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t95" lemma="mener" pos="VERB">mène</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t96" lemma="ainsi" pos="ADV">Ainsi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t97" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_bouche_leclerc_t98" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t99" lemma="soi" pos="PRON">se</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_bouche_leclerc_t100" lemma="noyer" pos="VERB">noie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t101" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t102" lemma="ce" pos="PRON">cette</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bouche_leclerc_s7">
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_bouche_leclerc_t103" lemma="immensité" pos="NOUN">immensité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t104" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t105" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_bouche_leclerc_t106" lemma="naufrage" pos="NOUN">naufrage</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t107" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t108" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_bouche_leclerc_t109" lemma="doux" pos="ADJ">doux</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t110" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bouche_leclerc_t111" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_bouche_leclerc_t112" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

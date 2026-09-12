@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">ORCEL</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1979">1979</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_orcel_1979_s1">
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_orcel_1979_t1" lemma="toujours" pos="ADV">Toujours</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t2" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_orcel_1979_t3" lemma="colline" pos="NOUN">colline</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_orcel_1979_t4" lemma="écarter" pos="VERB">écartée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t5" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t6" lemma="être" pos="AUX">fut</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_orcel_1979_t7" lemma="cher" pos="ADJ">chère</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s2">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t8" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t9" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_orcel_1979_t10" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t11" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_orcel_1979_t12" lemma="dérober" pos="VERB">dérobe</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t13" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_orcel_1979_t14" lemma="regard" pos="NOUN">regard</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s3">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t15" lemma="un" pos="DET">Une</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t16" lemma="si" pos="ADV">si</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t17" lemma="grand" pos="ADJ">grande</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t18" lemma="part" pos="NOUN">part</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t19" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t20" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_orcel_1979_t21" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_orcel_1979_t22" lemma="extrême" pos="ADJ">extrême</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s4">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t23" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_orcel_1979_t24" lemma="immobile" pos="ADJ">immobile</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t25" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_orcel_1979_t26" lemma="contempler" pos="VERB">contemplant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t27" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_orcel_1979_t28" lemma="former" pos="VERB">forme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t29" lemma="au-delà" pos="ADV">au-delà</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s5">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t30" lemma="un" pos="DET">Des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_orcel_1979_t31" lemma="espace" pos="NOUN">espaces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_orcel_1979_t32" lemma="illimité" pos="ADJ">illimités</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t33" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_orcel_1979_t34" lemma="surhumains" pos="NOUN">surhumains</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s6">
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_orcel_1979_t35" lemma="silence" pos="NOUN">Silences</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t36" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_orcel_1979_t37" lemma="paix" pos="NOUN">paix</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_orcel_1979_t38" lemma="très" pos="ADV">très</w>
+            <w xml:id="leopardi_orcel_1979_t39" lemma="profond" pos="ADJ">profonde</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t40" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t41" lemma="pour" pos="ADP">pour</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t42" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t43" lemma="peu" pos="NOUN">peu</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s7">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t44" lemma="soi" pos="PRON">Se</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_orcel_1979_t45" lemma="troubler" pos="VERB">troublerait</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t46" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_orcel_1979_t47" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t48" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t49" lemma="comme" pos="SCONJ">comme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t50" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_orcel_1979_t51" lemma="entendre" pos="VERB">entends</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s8">
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_orcel_1979_t52" lemma="frémir" pos="VERB">Frémir</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t53" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_orcel_1979_t54" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t55" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t56" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_orcel_1979_t57" lemma="feuille" pos="NOUN">feuilles</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t58" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_orcel_1979_t59" lemma="aller" pos="VERB">vais</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s9">
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_orcel_1979_t60" lemma="comparer" pos="VERB">Comparant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t61" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_orcel_1979_t62" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_orcel_1979_t63" lemma="infini" pos="ADJ">infini</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s10">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t64" lemma="à" pos="ADP">À</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t65" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_orcel_1979_t66" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t67" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t68" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_orcel_1979_t69" lemma="revenir" pos="VERB">reviennent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t70" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_orcel_1979_t71" lemma="éternel" pos="NOUN">éternel</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s11">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t72" lemma="le" pos="DET">Les</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_orcel_1979_t73" lemma="saison" pos="NOUN">saisons</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_orcel_1979_t74" lemma="mort" pos="ADJ">mortes</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t75" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t76" lemma="celui" pos="PRON">celle</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t77" lemma="là" pos="ADV">-là</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t78" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_orcel_1979_t79" lemma="vivre" pos="VERB">vit</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s12">
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_orcel_1979_t80" lemma="présent" pos="ADJ">Présente</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t81" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t82" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_orcel_1979_t83" lemma="rumeur" pos="NOUN">rumeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t84" lemma="ainsi" pos="ADV">Ainsi</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s13">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t85" lemma="dans" pos="ADP">Dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t86" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_orcel_1979_t87" lemma="immensité" pos="NOUN">immensité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t88" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_orcel_1979_t89" lemma="abîmer" pos="VERB">abîme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t90" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_orcel_1979_t91" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_orcel_1979_s14">
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t92" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t93" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_orcel_1979_t94" lemma="naufrage" pos="NOUN">naufrage</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t95" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t96" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_orcel_1979_t97" lemma="doux" pos="ADJ">doux</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t98" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_orcel_1979_t99" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_orcel_1979_t100" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

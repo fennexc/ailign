@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">MONJO</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1964">1964</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_monjo_1964_s1">
+          <w xml:id="leopardi_monjo_1964_t1" lemma="moi" pos="PRON">J’</w>
+          <w xml:id="leopardi_monjo_1964_t2" lemma="avoir" pos="AUX">ai</w>
+          <w xml:id="leopardi_monjo_1964_t3" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_monjo_1964_t4" lemma="aimer" pos="VERB">aimé</w>
+          <w xml:id="leopardi_monjo_1964_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_monjo_1964_t6" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_monjo_1964_t7" lemma="désert" pos="ADJ">déserte</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s2">
+          <w xml:id="leopardi_monjo_1964_t8" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_monjo_1964_t9" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_monjo_1964_t10" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_monjo_1964_t11" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_monjo_1964_t12" lemma="sur" pos="ADP">sur</w>
+          <w xml:id="leopardi_monjo_1964_t13" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_monjo_1964_t14" lemma="long" pos="ADJ">long</w>
+          <w xml:id="leopardi_monjo_1964_t15" lemma="espace" pos="NOUN">espace</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s3">
+          <w xml:id="leopardi_monjo_1964_t16" lemma="cache" pos="NOUN">Cache</w>
+          <w xml:id="leopardi_monjo_1964_t17" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_monjo_1964_t18" lemma="regard" pos="NOUN">regard</w>
+          <w xml:id="leopardi_monjo_1964_t19" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_monjo_1964_t20" lemma="fond" pos="NOUN">fond</w>
+          <w xml:id="leopardi_monjo_1964_t21" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_monjo_1964_t22" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_monjo_1964_t23" lemma="horizon" pos="NOUN">horizon</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s4">
+          <w xml:id="leopardi_monjo_1964_t24" lemma="asseoir" pos="VERB">Assis</w>
+          <w xml:id="leopardi_monjo_1964_t25" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_monjo_1964_t26" lemma="œil" pos="NOUN">yeux</w>
+          <w xml:id="leopardi_monjo_1964_t27" lemma="fixer" pos="VERB">fixés</w>
+          <w xml:id="leopardi_monjo_1964_t28" lemma="au-delà" pos="ADV">au-delà</w>
+          <w xml:id="leopardi_monjo_1964_t29" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_monjo_1964_t30" lemma="buisson" pos="NOUN">buissons</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s5">
+          <w xml:id="leopardi_monjo_1964_t31" lemma="moi" pos="PRON">J’</w>
+          <w xml:id="leopardi_monjo_1964_t32" lemma="imaginer" pos="VERB">imagine</w>
+          <w xml:id="leopardi_monjo_1964_t33" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_monjo_1964_t34" lemma="étendue" pos="NOUN">étendues</w>
+          <w xml:id="leopardi_monjo_1964_t35" lemma="illimité" pos="ADJ">illimitées</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s6">
+          <w xml:id="leopardi_monjo_1964_t36" lemma="un" pos="DET">D’</w>
+          <w xml:id="leopardi_monjo_1964_t37" lemma="extraordinaire" pos="ADJ">extraordinaires</w>
+          <w xml:id="leopardi_monjo_1964_t38" lemma="silence" pos="NOUN">silences</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s7">
+          <w xml:id="leopardi_monjo_1964_t39" lemma="un" pos="DET">Un</w>
+          <w xml:id="leopardi_monjo_1964_t40" lemma="calme" pos="NOUN">calme</w>
+          <w xml:id="leopardi_monjo_1964_t41" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_monjo_1964_t42" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_monjo_1964_t43" lemma="tel" pos="ADJ">telle</w>
+          <w xml:id="leopardi_monjo_1964_t44" lemma="profondeur" pos="NOUN">profondeur</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s8">
+          <w xml:id="leopardi_monjo_1964_t45" lemma="que" pos="SCONJ">Que</w>
+          <w xml:id="leopardi_monjo_1964_t46" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_monjo_1964_t47" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_monjo_1964_t48" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_monjo_1964_t49" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_monjo_1964_t50" lemma="presque" pos="ADV">presque</w>
+          <w xml:id="leopardi_monjo_1964_t51" lemma="épouvanter" pos="VERB">épouvanté</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s9">
+          <w xml:id="leopardi_monjo_1964_t52" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_monjo_1964_t53" lemma="quand" pos="SCONJ">quand</w>
+          <w xml:id="leopardi_monjo_1964_t54" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_monjo_1964_t55" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_monjo_1964_t56" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_monjo_1964_t57" lemma="vent" pos="NOUN">vent</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s10">
+          <w xml:id="leopardi_monjo_1964_t58" lemma="frémir" pos="VERB">Frémissant</w>
+          <w xml:id="leopardi_monjo_1964_t59" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_monjo_1964_t60" lemma="travers" pos="NOUN">travers</w>
+          <w xml:id="leopardi_monjo_1964_t61" lemma="ce" pos="DET">ces</w>
+          <w xml:id="leopardi_monjo_1964_t62" lemma="branche" pos="NOUN">branches</w>
+          <w xml:id="leopardi_monjo_1964_t63" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_monjo_1964_t64" lemma="comparer" pos="VERB">compare</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s11">
+          <w xml:id="leopardi_monjo_1964_t65" lemma="le" pos="DET">L’</w>
+          <w xml:id="leopardi_monjo_1964_t66" lemma="infinité" pos="NOUN">infinité</w>
+          <w xml:id="leopardi_monjo_1964_t67" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_monjo_1964_t68" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_monjo_1964_t69" lemma="tel" pos="ADJ">tel</w>
+          <w xml:id="leopardi_monjo_1964_t70" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_monjo_1964_t71" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_monjo_1964_t72" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_monjo_1964_t73" lemma="voix" pos="NOUN">voix</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s12">
+          <w xml:id="leopardi_monjo_1964_t74" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_monjo_1964_t75" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_monjo_1964_t76" lemma="penser" pos="VERB">pense</w>
+          <w xml:id="leopardi_monjo_1964_t77" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_monjo_1964_t78" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_monjo_1964_t79" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_monjo_1964_t80" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_monjo_1964_t81" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_monjo_1964_t82" lemma="revoir" pos="VERB">revois</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s13">
+          <w xml:id="leopardi_monjo_1964_t83" lemma="le" pos="DET">Les</w>
+          <w xml:id="leopardi_monjo_1964_t84" lemma="saison" pos="NOUN">saisons</w>
+          <w xml:id="leopardi_monjo_1964_t85" lemma="révolu" pos="ADJ">révolues</w>
+          <w xml:id="leopardi_monjo_1964_t86" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_monjo_1964_t87" lemma="celui" pos="PRON">celle</w>
+          <w xml:id="leopardi_monjo_1964_t88" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_monjo_1964_t89" lemma="aujourd'hui" pos="ADV">aujourd’hui</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s14">
+          <w xml:id="leopardi_monjo_1964_t90" lemma="vivant" pos="ADJ">Vivante</w>
+          <w xml:id="leopardi_monjo_1964_t91" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_monjo_1964_t92" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_monjo_1964_t93" lemma="chanson" pos="NOUN">chanson</w>
+          <w xml:id="leopardi_monjo_1964_t94" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_monjo_1964_t95" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_monjo_1964_t96" lemma="immensité" pos="NOUN">immensité</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s15">
+          <w xml:id="leopardi_monjo_1964_t97" lemma="soi" pos="PRON">S’</w>
+          <w xml:id="leopardi_monjo_1964_t98" lemma="enfoncer" pos="VERB">enfonce</w>
+          <w xml:id="leopardi_monjo_1964_t99" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_monjo_1964_t100" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_monjo_1964_t101" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_monjo_1964_t102" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_monjo_1964_t103" lemma="aimer" pos="VERB">aime</w>
+          <w xml:id="leopardi_monjo_1964_t104" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_monjo_1964_t105" lemma="douceur" pos="NOUN">douceur</w>
+        </s>
+        <s xml:id="leopardi_monjo_1964_s16">
+          <w xml:id="leopardi_monjo_1964_t106" lemma="de" pos="ADP">De</w>
+          <w xml:id="leopardi_monjo_1964_t107" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_monjo_1964_t108" lemma="naufrage" pos="NOUN">naufrage</w>
+          <w xml:id="leopardi_monjo_1964_t109" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_monjo_1964_t110" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_monjo_1964_t111" lemma="tel" pos="ADJ">telle</w>
+          <w xml:id="leopardi_monjo_1964_t112" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

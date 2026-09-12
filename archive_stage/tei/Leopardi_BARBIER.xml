@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">BARBIER</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1882">1882</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_barbier_s1">
+          <w xml:id="leopardi_barbier_t1" lemma="cher" pos="ADJ">Chers</w>
+          <w xml:id="leopardi_barbier_t2" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_barbier_t3" lemma="avoir" pos="AUX">ont</w>
+          <w xml:id="leopardi_barbier_t4" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_barbier_t5" lemma="être" pos="AUX">été</w>
+          <w xml:id="leopardi_barbier_t6" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_barbier_t7" lemma="talus" pos="NOUN">talus</w>
+          <w xml:id="leopardi_barbier_t8" lemma="solitaire" pos="ADJ">solitaire</w>
+        </s>
+        <s xml:id="leopardi_barbier_s2">
+          <w xml:id="leopardi_barbier_t9" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_barbier_t10" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_barbier_t11" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_barbier_t12" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_barbier_t13" lemma="vert" pos="ADJ">verte</w>
+          <w xml:id="leopardi_barbier_t14" lemma="frondaison" pos="NOUN">frondaison</w>
+        </s>
+        <s xml:id="leopardi_barbier_s3">
+          <w xml:id="leopardi_barbier_t15" lemma="qui" pos="PRON">Qui</w>
+          <w xml:id="leopardi_barbier_t16" lemma="former" pos="VERB">formant</w>
+          <w xml:id="leopardi_barbier_t17" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_barbier_t18" lemma="obstacle" pos="NOUN">obstacle</w>
+          <w xml:id="leopardi_barbier_t19" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_barbier_t20" lemma="jeu" pos="NOUN">jeu</w>
+          <w xml:id="leopardi_barbier_t21" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_barbier_t22" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_barbier_t23" lemma="paupière" pos="NOUN">paupière</w>
+        </s>
+        <s xml:id="leopardi_barbier_s4">
+          <w xml:id="leopardi_barbier_t24" lemma="entièrement" pos="ADV">Entièrement</w>
+          <w xml:id="leopardi_barbier_t25" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_barbier_t26" lemma="cacher" pos="VERB">cachent</w>
+          <w xml:id="leopardi_barbier_t27" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_barbier_t28" lemma="horizon" pos="NOUN">horizon</w>
+        </s>
+        <s xml:id="leopardi_barbier_s5">
+          <w xml:id="leopardi_barbier_t29" lemma="asseoir" pos="VERB">Assis</w>
+          <w xml:id="leopardi_barbier_t30" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_barbier_t31" lemma="regarder" pos="VERB">regardant</w>
+          <w xml:id="leopardi_barbier_t32" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_barbier_t33" lemma="rempart" pos="NOUN">rempart</w>
+          <w xml:id="leopardi_barbier_t34" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_barbier_t35" lemma="imaginer" pos="VERB">imagine</w>
+        </s>
+        <s xml:id="leopardi_barbier_s6">
+          <w xml:id="leopardi_barbier_t36" lemma="bien" pos="ADV">Bien</w>
+          <w xml:id="leopardi_barbier_t37" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_barbier_t38" lemma="delà" pos="ADV">delà</w>
+          <w xml:id="leopardi_barbier_t39" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_barbier_t40" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_barbier_t41" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_barbier_t42" lemma="fin" pos="NOUN">fin</w>
+        </s>
+        <s xml:id="leopardi_barbier_s7">
+          <w xml:id="leopardi_barbier_t43" lemma="un" pos="DET">Des</w>
+          <w xml:id="leopardi_barbier_t44" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_barbier_t45" lemma="que" pos="PRON">que</w>
+          <w xml:id="leopardi_barbier_t46" lemma="rien" pos="PRON">rien</w>
+          <w xml:id="leopardi_barbier_t47" lemma="ne" pos="ADV">n’</w>
+          <w xml:id="leopardi_barbier_t48" lemma="interromtre" pos="VERB">interrompt</w>
+          <w xml:id="leopardi_barbier_t49" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_barbier_t50" lemma="dominer" pos="VERB">domine</w>
+        </s>
+        <s xml:id="leopardi_barbier_s8">
+          <w xml:id="leopardi_barbier_t51" lemma="un" pos="DET">Des</w>
+          <w xml:id="leopardi_barbier_t52" lemma="calme" pos="NOUN">calmes</w>
+          <w xml:id="leopardi_barbier_t53" lemma="plein" pos="ADJ">pleins</w>
+          <w xml:id="leopardi_barbier_t54" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_barbier_t55" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_barbier_t56" lemma="effroi" pos="NOUN">effroi</w>
+          <w xml:id="leopardi_barbier_t57" lemma="souverain" pos="ADJ">souverain</w>
+        </s>
+        <s xml:id="leopardi_barbier_s9">
+          <w xml:id="leopardi_barbier_t58" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_barbier_t59" lemma="tout" pos="ADV">tout</w>
+          <w xml:id="leopardi_barbier_t60" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_barbier_t61" lemma="écouter" pos="VERB">écoutant</w>
+          <w xml:id="leopardi_barbier_t62" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_barbier_t63" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_barbier_t64" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_barbier_t65" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_barbier_t66" lemma="feuillage" pos="NOUN">feuillage</w>
+        </s>
+        <s xml:id="leopardi_barbier_s10">
+          <w xml:id="leopardi_barbier_t67" lemma="pénétrer" pos="VERB">Pénétrant</w>
+          <w xml:id="leopardi_barbier_t68" lemma="fort" pos="ADJ">fort</w>
+          <w xml:id="leopardi_barbier_t69" lemma="ou" pos="CCONJ">ou</w>
+          <w xml:id="leopardi_barbier_t70" lemma="glisser" pos="VERB">glissant</w>
+          <w xml:id="leopardi_barbier_t71" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_barbier_t72" lemma="demi" pos="ADJ">demi</w>
+        </s>
+        <s xml:id="leopardi_barbier_s11">
+          <w xml:id="leopardi_barbier_t73" lemma="moi" pos="PRON">Je</w>
+          <w xml:id="leopardi_barbier_t74" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_barbier_t75" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_barbier_t76" lemma="aller" pos="VERB">vais</w>
+          <w xml:id="leopardi_barbier_t77" lemma="comparer" pos="VERB">comparant</w>
+          <w xml:id="leopardi_barbier_t78" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_barbier_t79" lemma="son" pos="DET">son</w>
+          <w xml:id="leopardi_barbier_t80" lemma="vain" pos="ADJ">vain</w>
+          <w xml:id="leopardi_barbier_t81" lemma="babillage" pos="NOUN">babillage</w>
+        </s>
+        <s xml:id="leopardi_barbier_s12">
+          <w xml:id="leopardi_barbier_t82" lemma="le" pos="DET">La</w>
+          <w xml:id="leopardi_barbier_t83" lemma="majesté" pos="NOUN">majesté</w>
+          <w xml:id="leopardi_barbier_t84" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_barbier_t85" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_barbier_t86" lemma="infini" pos="ADJ">infini</w>
+        </s>
+        <s xml:id="leopardi_barbier_s13">
+          <w xml:id="leopardi_barbier_t87" lemma="alors" pos="ADV">Alors</w>
+          <w xml:id="leopardi_barbier_t88" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_barbier_t89" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_barbier_t90" lemma="revenir" pos="VERB">revient</w>
+          <w xml:id="leopardi_barbier_t91" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_barbier_t92" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_barbier_t93" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_barbier_s14">
+          <w xml:id="leopardi_barbier_t94" lemma="avec" pos="ADP">Avec</w>
+          <w xml:id="leopardi_barbier_t95" lemma="son" pos="DET">ses</w>
+          <w xml:id="leopardi_barbier_t96" lemma="jour" pos="NOUN">jours</w>
+          <w xml:id="leopardi_barbier_t97" lemma="mort" pos="ADJ">morts</w>
+          <w xml:id="leopardi_barbier_t98" lemma="éteindre" pos="VERB">éteints</w>
+          <w xml:id="leopardi_barbier_t99" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_barbier_t100" lemma="jamais" pos="ADV">jamais</w>
+        </s>
+        <s xml:id="leopardi_barbier_s15">
+          <w xml:id="leopardi_barbier_t101" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_barbier_t102" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_barbier_t103" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_barbier_t104" lemma="dire" pos="VERB">dis</w>
+          <w xml:id="leopardi_barbier_t105" lemma="que" pos="PRON">Que</w>
+          <w xml:id="leopardi_barbier_t106" lemma="être" pos="AUX">sont</w>
+          <w xml:id="leopardi_barbier_t107" lemma="sous" pos="ADP">sous</w>
+          <w xml:id="leopardi_barbier_t108" lemma="son" pos="DET">son</w>
+          <w xml:id="leopardi_barbier_t109" lemma="onde" pos="NOUN">onde</w>
+          <w xml:id="leopardi_barbier_t110" lemma="glacer" pos="VERB">glacée</w>
+        </s>
+        <s xml:id="leopardi_barbier_s16">
+          <w xml:id="leopardi_barbier_t111" lemma="tout" pos="ADJ">Tous</w>
+          <w xml:id="leopardi_barbier_t112" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_barbier_t113" lemma="grand" pos="ADJ">grands</w>
+          <w xml:id="leopardi_barbier_t114" lemma="bruit" pos="NOUN">bruits</w>
+          <w xml:id="leopardi_barbier_t115" lemma="que" pos="PRON">que</w>
+          <w xml:id="leopardi_barbier_t116" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_barbier_t117" lemma="siècle" pos="NOUN">siècles</w>
+          <w xml:id="leopardi_barbier_t118" lemma="avoir" pos="AUX">ont</w>
+          <w xml:id="leopardi_barbier_t119" lemma="faire" pos="VERB">faits</w>
+        </s>
+        <s xml:id="leopardi_barbier_s17">
+          <w xml:id="leopardi_barbier_t120" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_barbier_t121" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_barbier_t122" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_barbier_t123" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_barbier_t124" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_barbier_t125" lemma="abîmer" pos="VERB">abîme</w>
+          <w xml:id="leopardi_barbier_t126" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_barbier_t127" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_barbier_t128" lemma="noyer" pos="VERB">noie</w>
+        </s>
+        <s xml:id="leopardi_barbier_s18">
+          <w xml:id="leopardi_barbier_t129" lemma="pour" pos="ADP">Pour</w>
+          <w xml:id="leopardi_barbier_t130" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_barbier_t131" lemma="sortir" pos="VERB">sortir</w>
+          <w xml:id="leopardi_barbier_t132" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_barbier_t133" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_barbier_t134" lemma="faire" pos="VERB">fais</w>
+          <w xml:id="leopardi_barbier_t135" lemma="nul" pos="DET">nul</w>
+          <w xml:id="leopardi_barbier_t136" lemma="effort" pos="NOUN">effort</w>
+        </s>
+        <s xml:id="leopardi_barbier_s19">
+          <w xml:id="leopardi_barbier_t137" lemma="à" pos="ADP">Au</w>
+          <w xml:id="leopardi_barbier_t138" lemma="contraire" pos="NOUN">contraire</w>
+          <w xml:id="leopardi_barbier_t139" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_barbier_t140" lemma="sentir" pos="VERB">sens</w>
+          <w xml:id="leopardi_barbier_t141" lemma="même" pos="ADV">même</w>
+          <w xml:id="leopardi_barbier_t142" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_barbier_t143" lemma="doux" pos="ADJ">douce</w>
+          <w xml:id="leopardi_barbier_t144" lemma="joie" pos="NOUN">joie</w>
+        </s>
+        <s xml:id="leopardi_barbier_s20">
+          <w xml:id="leopardi_barbier_t145" lemma="à" pos="ADP">À</w>
+          <w xml:id="leopardi_barbier_t146" lemma="naufrager" pos="VERB">naufrager</w>
+          <w xml:id="leopardi_barbier_t147" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_barbier_t148" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_barbier_t149" lemma="mer" pos="NOUN">mer</w>
+          <w xml:id="leopardi_barbier_t150" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_barbier_t151" lemma="bord" pos="NOUN">bord</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

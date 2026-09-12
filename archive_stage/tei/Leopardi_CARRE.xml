@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">CARRE</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1887">1887</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_carre_s1">
+          <w xml:id="leopardi_carre_t1" lemma="lui" pos="PRON">Elle</w>
+          <w xml:id="leopardi_carre_t2" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_carre_t3" lemma="être" pos="AUX">fut</w>
+          <w xml:id="leopardi_carre_t4" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_carre_t5" lemma="cher" pos="ADJ">chère</w>
+          <w xml:id="leopardi_carre_t6" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_carre_t7" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_carre_t8" lemma="désert" pos="ADJ">déserte</w>
+          <w xml:id="leopardi_carre_t9" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t10" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_carre_t11" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_carre_t12" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_carre_t13" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_carre_t14" lemma="tant" pos="ADV">tant</w>
+          <w xml:id="leopardi_carre_t15" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_carre_t16" lemma="côté" pos="NOUN">côtés</w>
+          <w xml:id="leopardi_carre_t17" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_carre_t18" lemma="au" pos="PRON">au</w>
+        </s>
+        <s xml:id="leopardi_carre_s2">
+          <w xml:id="leopardi_carre_t19" lemma="regard" pos="NOUN">regard</w>
+          <w xml:id="leopardi_carre_t20" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_carre_t21" lemma="lointain" pos="ADJ">lointain</w>
+          <w xml:id="leopardi_carre_t22" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_carre_t23" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_carre_t24" lemma="quand" pos="SCONJ">quand</w>
+          <w xml:id="leopardi_carre_t25" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_carre_t26" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_carre_t27" lemma="assiodre" pos="VERB">assieds</w>
+          <w xml:id="leopardi_carre_t28" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t29" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_carre_t30" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_carre_t31" lemma="contempler" pos="VERB">contemple</w>
+          <w xml:id="leopardi_carre_t32" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_carre_t33" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_carre_t34" lemma="représenter" pos="VERB">représente</w>
+        </s>
+        <s xml:id="leopardi_carre_s3">
+          <w xml:id="leopardi_carre_t35" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_carre_t36" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_carre_t37" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_carre_t38" lemma="par" pos="ADP">par</w>
+          <w xml:id="leopardi_carre_t39" lemma="delà" pos="ADV">delà</w>
+          <w xml:id="leopardi_carre_t40" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_carre_t41" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_carre_t42" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_carre_t43" lemma="interminable" pos="ADJ">interminables</w>
+          <w xml:id="leopardi_carre_t44" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_carre_t45" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_carre_t46" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_carre_t47" lemma="surhumain" pos="ADJ">surhumains</w>
+          <w xml:id="leopardi_carre_t48" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t49" lemma="le" pos="DET">le</w>
+        </s>
+        <s xml:id="leopardi_carre_s4">
+          <w xml:id="leopardi_carre_t50" lemma="calme" pos="NOUN">calme</w>
+          <w xml:id="leopardi_carre_t51" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_carre_t52" lemma="plus" pos="ADV">plus</w>
+          <w xml:id="leopardi_carre_t53" lemma="profond" pos="ADJ">profond</w>
+          <w xml:id="leopardi_carre_t54" lemma="où" pos="ADV">où</w>
+          <w xml:id="leopardi_carre_t55" lemma="peu" pos="ADV">peu</w>
+          <w xml:id="leopardi_carre_t56" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_carre_t57" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_carre_t58" lemma="falloir" pos="VERB">faut</w>
+          <w xml:id="leopardi_carre_t59" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_carre_t60" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_carre_t61" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_carre_t62" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_carre_t63" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_carre_t64" lemma="épouvanter" pos="VERB">épouvante</w>
+          <w xml:id="leopardi_carre_t65" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_carre_t66" lemma="comme" pos="SCONJ">comme</w>
+          <w xml:id="leopardi_carre_t67" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_carre_t68" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_carre_t69" lemma="le" pos="DET">le</w>
+        </s>
+        <s xml:id="leopardi_carre_s5">
+          <w xml:id="leopardi_carre_t70" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_carre_t71" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_carre_t72" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_carre_t73" lemma="travers" pos="NOUN">travers</w>
+          <w xml:id="leopardi_carre_t74" lemma="ce" pos="DET">ces</w>
+          <w xml:id="leopardi_carre_t75" lemma="broussaille" pos="NOUN">broussailles</w>
+          <w xml:id="leopardi_carre_t76" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_carre_t77" lemma="aller" pos="VERB">vais</w>
+          <w xml:id="leopardi_carre_t78" lemma="comparer" pos="VERB">comparant</w>
+          <w xml:id="leopardi_carre_t79" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_carre_t80" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_carre_t81" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_carre_t82" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_carre_t83" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_carre_t84" lemma="murmure" pos="NOUN">murmure</w>
+          <w xml:id="leopardi_carre_t85" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t86" lemma="moi" pos="PRON">je</w>
+        </s>
+        <s xml:id="leopardi_carre_s6">
+          <w xml:id="leopardi_carre_t87" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_carre_t88" lemma="souvenir" pos="VERB">souviens</w>
+          <w xml:id="leopardi_carre_t89" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_carre_t90" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_carre_t91" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_carre_t92" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_carre_t93" lemma="âge" pos="NOUN">âges</w>
+          <w xml:id="leopardi_carre_t94" lemma="mort" pos="ADJ">morts</w>
+          <w xml:id="leopardi_carre_t95" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_carre_t96" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_carre_t97" lemma="âge" pos="NOUN">âge</w>
+          <w xml:id="leopardi_carre_t98" lemma="présent" pos="ADJ">présent</w>
+          <w xml:id="leopardi_carre_t99" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t100" lemma="vivant" pos="ADJ">vivant</w>
+          <w xml:id="leopardi_carre_t101" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t102" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_carre_t103" lemma="bruit" pos="NOUN">bruit</w>
+          <w xml:id="leopardi_carre_t104" lemma="que" pos="PRON">qu’</w>
+          <w xml:id="leopardi_carre_t105" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_carre_t106" lemma="faire" pos="VERB">fait</w>
+        </s>
+        <s xml:id="leopardi_carre_s7">
+          <w xml:id="leopardi_carre_t107" lemma="ainsi" pos="ADV">Ainsi</w>
+          <w xml:id="leopardi_carre_t108" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_carre_t109" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_carre_t110" lemma="soi" pos="PRON">se</w>
+          <w xml:id="leopardi_carre_t111" lemma="noyer" pos="VERB">noie</w>
+          <w xml:id="leopardi_carre_t112" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_carre_t113" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_carre_t114" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_carre_t115" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_carre_t116" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_carre_t117" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_carre_t118" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_carre_t119" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_carre_t120" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_carre_t121" lemma="faire" pos="VERB">faire</w>
+          <w xml:id="leopardi_carre_t122" lemma="naufrage" pos="NOUN">naufrage</w>
+          <w xml:id="leopardi_carre_t123" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_carre_t124" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_carre_t125" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

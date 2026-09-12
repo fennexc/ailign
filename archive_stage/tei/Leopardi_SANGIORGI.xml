@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">SANGIORGI</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1895">1895</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_sangiorgi_s1">
+          <w xml:id="leopardi_sangiorgi_t1" lemma="moi" pos="PRON">J’</w>
+          <w xml:id="leopardi_sangiorgi_t2" lemma="avoir" pos="AUX">ai</w>
+          <w xml:id="leopardi_sangiorgi_t3" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_sangiorgi_t4" lemma="chérir" pos="VERB">chéri</w>
+          <w xml:id="leopardi_sangiorgi_t5" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_sangiorgi_t6" lemma="coteau" pos="NOUN">coteau</w>
+          <w xml:id="leopardi_sangiorgi_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+          <w xml:id="leopardi_sangiorgi_t8" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_sangiorgi_t9" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_sangiorgi_t10" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_sangiorgi_t11" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_sangiorgi_t12" lemma="cacher" pos="VERB">cache</w>
+          <w xml:id="leopardi_sangiorgi_t13" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_sangiorgi_t14" lemma="son" pos="DET">mes</w>
+          <w xml:id="leopardi_sangiorgi_t15" lemma="œil" pos="NOUN">yeux</w>
+          <w xml:id="leopardi_sangiorgi_t16" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_sangiorgi_t17" lemma="si" pos="ADV">si</w>
+          <w xml:id="leopardi_sangiorgi_t18" lemma="grand" pos="ADJ">grande</w>
+          <w xml:id="leopardi_sangiorgi_t19" lemma="partie" pos="NOUN">partie</w>
+        </s>
+        <s xml:id="leopardi_sangiorgi_s2">
+          <w xml:id="leopardi_sangiorgi_t20" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_sangiorgi_t21" lemma="lointain" pos="ADJ">lointain</w>
+          <w xml:id="leopardi_sangiorgi_t22" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_sangiorgi_t23" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_sangiorgi_t24" lemma="lorsque" pos="SCONJ">lorsque</w>
+          <w xml:id="leopardi_sangiorgi_t25" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_sangiorgi_t26" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_sangiorgi_t27" lemma="assiodre" pos="VERB">assieds</w>
+          <w xml:id="leopardi_sangiorgi_t28" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_sangiorgi_t29" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_sangiorgi_t30" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_sangiorgi_t31" lemma="regarder" pos="VERB">regarde</w>
+          <w xml:id="leopardi_sangiorgi_t32" lemma="autour" pos="ADV">autour</w>
+          <w xml:id="leopardi_sangiorgi_t33" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_sangiorgi_t34" lemma="moi" pos="PRON">moi</w>
+          <w xml:id="leopardi_sangiorgi_t35" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_sangiorgi_t36" lemma="esprit" pos="NOUN">esprit</w>
+          <w xml:id="leopardi_sangiorgi_t37" lemma="soi" pos="PRON">se</w>
+        </s>
+        <s xml:id="leopardi_sangiorgi_s3">
+          <w xml:id="leopardi_sangiorgi_t38" lemma="représenter" pos="VERB">représente</w>
+          <w xml:id="leopardi_sangiorgi_t39" lemma="au-delà" pos="ADV">au-delà</w>
+          <w xml:id="leopardi_sangiorgi_t40" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_sangiorgi_t41" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_sangiorgi_t42" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_sangiorgi_t43" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_sangiorgi_t44" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_sangiorgi_t45" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_sangiorgi_t46" lemma="borne" pos="NOUN">bornes</w>
+          <w xml:id="leopardi_sangiorgi_t47" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_sangiorgi_t48" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_sangiorgi_t49" lemma="surhumain" pos="ADJ">surhumains</w>
+          <w xml:id="leopardi_sangiorgi_t50" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_sangiorgi_t51" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_sangiorgi_t52" lemma="calme" pos="NOUN">calme</w>
+        </s>
+        <s xml:id="leopardi_sangiorgi_s4">
+          <w xml:id="leopardi_sangiorgi_t53" lemma="profond" pos="ADJ">profond</w>
+          <w xml:id="leopardi_sangiorgi_t54" lemma="si" pos="ADV">si</w>
+          <w xml:id="leopardi_sangiorgi_t55" lemma="bien" pos="ADV">bien</w>
+          <w xml:id="leopardi_sangiorgi_t56" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_sangiorgi_t57" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_sangiorgi_t58" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_sangiorgi_t59" lemma="être" pos="AUX">suis</w>
+          <w xml:id="leopardi_sangiorgi_t60" lemma="presque" pos="ADV">presque</w>
+          <w xml:id="leopardi_sangiorgi_t61" lemma="effrayer" pos="VERB">effrayé</w>
+          <w xml:id="leopardi_sangiorgi_t62" lemma="dès" pos="ADP">Dès</w>
+          <w xml:id="leopardi_sangiorgi_t63" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_sangiorgi_t64" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_sangiorgi_t65" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_sangiorgi_t66" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_sangiorgi_t67" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_sangiorgi_t68" lemma="murmurer" pos="VERB">murmurer</w>
+          <w xml:id="leopardi_sangiorgi_t69" lemma="parmi" pos="ADP">parmi</w>
+          <w xml:id="leopardi_sangiorgi_t70" lemma="ce" pos="DET">ces</w>
+        </s>
+        <s xml:id="leopardi_sangiorgi_s5">
+          <w xml:id="leopardi_sangiorgi_t71" lemma="plante" pos="NOUN">plantes</w>
+          <w xml:id="leopardi_sangiorgi_t72" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_sangiorgi_t73" lemma="comparer" pos="VERB">compare</w>
+          <w xml:id="leopardi_sangiorgi_t74" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_sangiorgi_t75" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_sangiorgi_t76" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_sangiorgi_t77" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_sangiorgi_t78" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_sangiorgi_t79" lemma="murmure" pos="NOUN">murmure</w>
+          <w xml:id="leopardi_sangiorgi_t80" lemma="alors" pos="ADV">alors</w>
+          <w xml:id="leopardi_sangiorgi_t81" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_sangiorgi_t82" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_sangiorgi_t83" lemma="rappeler" pos="VERB">rappelle</w>
+          <w xml:id="leopardi_sangiorgi_t84" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_sangiorgi_t85" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_sangiorgi_t86" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_sangiorgi_t87" lemma="temps" pos="NOUN">temps</w>
+        </s>
+        <s xml:id="leopardi_sangiorgi_s6">
+          <w xml:id="leopardi_sangiorgi_t88" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_sangiorgi_t89" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_sangiorgi_t90" lemma="être" pos="AUX">sont</w>
+          <w xml:id="leopardi_sangiorgi_t91" lemma="plus" pos="ADV">plus</w>
+          <w xml:id="leopardi_sangiorgi_t92" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_sangiorgi_t93" lemma="temps" pos="NOUN">temps</w>
+          <w xml:id="leopardi_sangiorgi_t94" lemma="présent" pos="ADJ">présent</w>
+          <w xml:id="leopardi_sangiorgi_t95" lemma="si" pos="ADV">si</w>
+          <w xml:id="leopardi_sangiorgi_t96" lemma="animer" pos="VERB">animé</w>
+          <w xml:id="leopardi_sangiorgi_t97" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_sangiorgi_t98" lemma="si" pos="ADV">si</w>
+          <w xml:id="leopardi_sangiorgi_t99" lemma="bruyant" pos="ADJ">bruyant</w>
+          <w xml:id="leopardi_sangiorgi_t100" lemma="ainsi" pos="ADV">Ainsi</w>
+          <w xml:id="leopardi_sangiorgi_t101" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_sangiorgi_t102" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_sangiorgi_t103" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_sangiorgi_t104" lemma="abîmer" pos="VERB">abîme</w>
+          <w xml:id="leopardi_sangiorgi_t105" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_sangiorgi_t106" lemma="milieu" pos="NOUN">milieu</w>
+        </s>
+        <s xml:id="leopardi_sangiorgi_s7">
+          <w xml:id="leopardi_sangiorgi_t107" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_sangiorgi_t108" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_sangiorgi_t109" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_sangiorgi_t110" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_sangiorgi_t111" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_sangiorgi_t112" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_sangiorgi_t113" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_sangiorgi_t114" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_sangiorgi_t115" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_sangiorgi_t116" lemma="sombrer" pos="VERB">sombrer</w>
+          <w xml:id="leopardi_sangiorgi_t117" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_sangiorgi_t118" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_sangiorgi_t119" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

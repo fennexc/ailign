@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">VERNIER</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1867">1867</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_vernier_s1">
+          <w xml:id="leopardi_vernier_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_vernier_t2" lemma="eux" pos="PRON">elles</w>
+          <w xml:id="leopardi_vernier_t3" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_vernier_t4" lemma="être" pos="AUX">furent</w>
+          <w xml:id="leopardi_vernier_t5" lemma="cher" pos="ADJ">chères</w>
+          <w xml:id="leopardi_vernier_t6" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_vernier_t7" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_vernier_t8" lemma="solitaire" pos="ADJ">solitaire</w>
+          <w xml:id="leopardi_vernier_t9" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_vernier_t10" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_vernier_t11" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_vernier_t12" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_vernier_t13" lemma="sur" pos="ADP">sur</w>
+          <w xml:id="leopardi_vernier_t14" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_vernier_t15" lemma="si" pos="ADV">si</w>
+          <w xml:id="leopardi_vernier_t16" lemma="long" pos="ADJ">long</w>
+          <w xml:id="leopardi_vernier_t17" lemma="espace" pos="NOUN">espace</w>
+        </s>
+        <s xml:id="leopardi_vernier_s2">
+          <w xml:id="leopardi_vernier_t18" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_vernier_t19" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_vernier_t20" lemma="son" pos="DET">mes</w>
+          <w xml:id="leopardi_vernier_t21" lemma="œil" pos="NOUN">yeux</w>
+          <w xml:id="leopardi_vernier_t22" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_vernier_t23" lemma="extrême" pos="ADJ">extrême</w>
+          <w xml:id="leopardi_vernier_t24" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_vernier_t25" lemma="asseoir" pos="VERB">Assis</w>
+          <w xml:id="leopardi_vernier_t26" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_vernier_t27" lemma="regarder" pos="VERB">regardant</w>
+          <w xml:id="leopardi_vernier_t28" lemma="fixement" pos="NOUN">fixement</w>
+          <w xml:id="leopardi_vernier_t29" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_vernier_t30" lemma="imaginer" pos="VERB">imagine</w>
+          <w xml:id="leopardi_vernier_t31" lemma="au-delà" pos="ADV">au-delà</w>
+          <w xml:id="leopardi_vernier_t32" lemma="de" pos="ADP">de</w>
+        </s>
+        <s xml:id="leopardi_vernier_s3">
+          <w xml:id="leopardi_vernier_t33" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_vernier_t34" lemma="clôture" pos="NOUN">clôture</w>
+          <w xml:id="leopardi_vernier_t35" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_vernier_t36" lemma="étendue" pos="NOUN">étendues</w>
+          <w xml:id="leopardi_vernier_t37" lemma="infini" pos="ADJ">infinies</w>
+          <w xml:id="leopardi_vernier_t38" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_vernier_t39" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_vernier_t40" lemma="surhumain" pos="ADJ">surhumains</w>
+          <w xml:id="leopardi_vernier_t41" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_vernier_t42" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_vernier_t43" lemma="calme" pos="NOUN">calme</w>
+          <w xml:id="leopardi_vernier_t44" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_vernier_t45" lemma="plus" pos="ADV">plus</w>
+          <w xml:id="leopardi_vernier_t46" lemma="profond" pos="ADJ">profond</w>
+          <w xml:id="leopardi_vernier_t47" lemma="dont" pos="CCONJ">dont</w>
+        </s>
+        <s xml:id="leopardi_vernier_s4">
+          <w xml:id="leopardi_vernier_t48" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_vernier_t49" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_vernier_t50" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_vernier_t51" lemma="épouvanter" pos="VERB">épouvante</w>
+          <w xml:id="leopardi_vernier_t52" lemma="non" pos="ADV">non</w>
+          <w xml:id="leopardi_vernier_t53" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_vernier_t54" lemma="raison" pos="NOUN">raison</w>
+          <w xml:id="leopardi_vernier_t55" lemma="écouter" pos="VERB">Écoutant</w>
+          <w xml:id="leopardi_vernier_t56" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_vernier_t57" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_vernier_t58" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_vernier_t59" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_vernier_t60" lemma="ce" pos="DET">ces</w>
+          <w xml:id="leopardi_vernier_t61" lemma="arbre" pos="NOUN">arbres</w>
+          <w xml:id="leopardi_vernier_t62" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_vernier_t63" lemma="aller" pos="VERB">vais</w>
+        </s>
+        <s xml:id="leopardi_vernier_s5">
+          <w xml:id="leopardi_vernier_t64" lemma="comparer" pos="VERB">comparant</w>
+          <w xml:id="leopardi_vernier_t65" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_vernier_t66" lemma="son" pos="DET">leurs</w>
+          <w xml:id="leopardi_vernier_t67" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_vernier_t68" lemma="ce" pos="DET">cet</w>
+          <w xml:id="leopardi_vernier_t69" lemma="infini" pos="NOUN">infini</w>
+          <w xml:id="leopardi_vernier_t70" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_vernier_t71" lemma="ainsi" pos="ADV">ainsi</w>
+          <w xml:id="leopardi_vernier_t72" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_vernier_t73" lemma="souvenir" pos="VERB">souvenant</w>
+          <w xml:id="leopardi_vernier_t74" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_vernier_t75" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_vernier_t76" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_vernier_t77" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_vernier_t78" lemma="comparer" pos="VERB">compare</w>
+          <w xml:id="leopardi_vernier_t79" lemma="à" pos="ADP">aux</w>
+        </s>
+        <s xml:id="leopardi_vernier_s6">
+          <w xml:id="leopardi_vernier_t80" lemma="époque" pos="NOUN">époques</w>
+          <w xml:id="leopardi_vernier_t81" lemma="disparu" pos="ADJ">disparues</w>
+          <w xml:id="leopardi_vernier_t82" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_vernier_t83" lemma="époque" pos="NOUN">époque</w>
+          <w xml:id="leopardi_vernier_t84" lemma="présent" pos="ADJ">présente</w>
+          <w xml:id="leopardi_vernier_t85" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_vernier_t86" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_vernier_t87" lemma="bruit" pos="NOUN">bruit</w>
+          <w xml:id="leopardi_vernier_t88" lemma="que" pos="PRON">qu’</w>
+          <w xml:id="leopardi_vernier_t89" lemma="lui" pos="PRON">elle</w>
+          <w xml:id="leopardi_vernier_t90" lemma="faire" pos="VERB">fait</w>
+          <w xml:id="leopardi_vernier_t91" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_vernier_t92" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_vernier_t93" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_vernier_t94" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_vernier_t95" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_vernier_s7">
+          <w xml:id="leopardi_vernier_t96" lemma="soi" pos="PRON">se</w>
+          <w xml:id="leopardi_vernier_t97" lemma="noyer" pos="VERB">noie</w>
+          <w xml:id="leopardi_vernier_t98" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_vernier_t99" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_vernier_t100" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_vernier_t101" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_vernier_t102" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_vernier_t103" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_vernier_t104" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_vernier_t105" lemma="anéantir" pos="VERB">anéantir</w>
+          <w xml:id="leopardi_vernier_t106" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_vernier_t107" lemma="ce" pos="DET">cet</w>
+          <w xml:id="leopardi_vernier_t108" lemma="océan" pos="NOUN">océan</w>
+          <w xml:id="leopardi_vernier_t109" lemma="profond" pos="ADJ">profond</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">BEDARIDA</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1950">1950</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_bedarida_s1">
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_bedarida_t1" lemma="toujours" pos="ADV">Toujours</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t2" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t3" lemma="avoir" pos="AUX">ai</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_bedarida_t4" lemma="aimer" pos="VERB">aimé</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t5" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_bedarida_t6" lemma="coteau" pos="NOUN">coteau</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_bedarida_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s2">
+          <seg>
+            <w xml:id="leopardi_bedarida_t8" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t9" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_bedarida_t10" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t11" lemma="par" pos="ADP">par</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t12" lemma="quoi" pos="PRON">quoi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t13" lemma="tout" pos="ADJ">toute</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t14" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t15" lemma="partie" pos="NOUN">partie</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s3">
+          <seg>
+            <w xml:id="leopardi_bedarida_t16" lemma="de" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_bedarida_t17" lemma="lointain" pos="ADJ">lointain</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_bedarida_t18" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t19" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_bedarida_t20" lemma="soustraire" pos="VERB">soustraite</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t21" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t22" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_bedarida_t23" lemma="vue" pos="NOUN">vue</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s4">
+          <seg>
+            <w xml:id="leopardi_bedarida_t24" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_bedarida_t25" lemma="asseoir" pos="VERB">assis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t26" lemma="là" pos="ADV">là</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t27" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_bedarida_t28" lemma="regarder" pos="VERB">regardant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t29" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_bedarida_t30" lemma="imaginer" pos="VERB">imagine</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s5">
+          <seg>
+            <w xml:id="leopardi_bedarida_t31" lemma="par-delà" pos="ADP">par-delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t32" lemma="un" pos="DET">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_bedarida_t33" lemma="espace" pos="NOUN">espaces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_bedarida_t34" lemma="sans" pos="ADP">sans</w>
+            <w xml:id="leopardi_bedarida_t35" lemma="borne" pos="NOUN">bornes</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t36" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_bedarida_t37" lemma="surhumains" pos="NOUN">surhumains</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s6">
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_bedarida_t38" lemma="silence" pos="NOUN">silences</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t39" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_bedarida_t40" lemma="insondable" pos="ADJ">insondable</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_bedarida_t41" lemma="calme" pos="NOUN">calme</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s7">
+          <seg>
+            <w xml:id="leopardi_bedarida_t42" lemma="dans" pos="ADP">Dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t43" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t44" lemma="paix" pos="NOUN">paix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t45" lemma="que" pos="PRON">que</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t46" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t47" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t48" lemma="forger" pos="VERB">forge</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t49" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t50" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t51" lemma="en" pos="PRON">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t52" lemma="falloir" pos="VERB">faut</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t53" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t54" lemma="peu" pos="ADV">peu</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s8">
+          <seg>
+            <w xml:id="leopardi_bedarida_t55" lemma="que" pos="SCONJ">que</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t56" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_bedarida_t57" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t58" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t59" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_bedarida_t60" lemma="épouvanter" pos="VERB">épouvante</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t61" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t62" lemma="quand" pos="SCONJ">quand</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t63" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_bedarida_t64" lemma="entendre" pos="VERB">entends</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s9">
+          <seg>
+            <w xml:id="leopardi_bedarida_t65" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_bedarida_t66" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_bedarida_t67" lemma="bruire" pos="VERB">bruire</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t68" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t69" lemma="travers" pos="NOUN">travers</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t70" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_bedarida_t71" lemma="ramure" pos="NOUN">ramures</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s10">
+          <seg>
+            <w xml:id="leopardi_bedarida_t72" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_bedarida_t73" lemma="aller" pos="VERB">vais</w>
+            <w xml:id="leopardi_bedarida_t74" lemma="comparer" pos="VERB">comparant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t75" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_bedarida_t76" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_bedarida_t77" lemma="infini" pos="ADJ">infini</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s11">
+          <seg>
+            <w xml:id="leopardi_bedarida_t78" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t79" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_bedarida_t80" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t81" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t82" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_bedarida_t83" lemma="repenser" pos="VERB">repense</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t84" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t85" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_bedarida_t86" lemma="éternité" pos="NOUN">éternité</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s12">
+          <seg>
+            <w xml:id="leopardi_bedarida_t87" lemma="à" pos="ADP">aux</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_bedarida_t88" lemma="âge" pos="NOUN">âges</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_bedarida_t89" lemma="défunt" pos="ADJ">défunts</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t90" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t91" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t92" lemma="âge" pos="NOUN">âge</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_bedarida_t93" lemma="présent" pos="ADJ">présent</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s13">
+          <seg>
+            <w xml:id="leopardi_bedarida_t94" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_bedarida_t95" lemma="vivre" pos="VERB">vivant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t96" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t97" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_bedarida_t98" lemma="bruit" pos="NOUN">bruit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t99" lemma="que" pos="PRON">qu’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t100" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t101" lemma="faire" pos="VERB">fait</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t102" lemma="alors" pos="ADV">Alors</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s14">
+          <seg>
+            <w xml:id="leopardi_bedarida_t103" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t104" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_bedarida_t105" lemma="immensité" pos="NOUN">immensité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t106" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_bedarida_t107" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t108" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_bedarida_t109" lemma="engloutir" pos="VERB">engloutit</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_bedarida_s15">
+          <seg>
+            <w xml:id="leopardi_bedarida_t110" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t111" lemma="pour" pos="ADP">pour</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t112" lemma="moi" pos="PRON">moi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t113" lemma="ce" pos="PRON">c’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t114" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t115" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_bedarida_t116" lemma="douceur" pos="NOUN">douceur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t117" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_bedarida_t118" lemma="naufrager" pos="VERB">naufrager</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t119" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_bedarida_t120" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_bedarida_t121" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">VERDEIL</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1934">1934</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_verdeil_s1">
+          <w xml:id="leopardi_verdeil_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_verdeil_t2" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_verdeil_t3" lemma="être" pos="AUX">fut</w>
+          <w xml:id="leopardi_verdeil_t4" lemma="cher" pos="ADJ">chère</w>
+          <w xml:id="leopardi_verdeil_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_verdeil_t6" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_verdeil_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+          <w xml:id="leopardi_verdeil_t8" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_verdeil_t9" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_verdeil_t10" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_verdeil_t11" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_verdeil_t12" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_verdeil_t13" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_verdeil_t14" lemma="regard" pos="NOUN">regard</w>
+          <w xml:id="leopardi_verdeil_t15" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_verdeil_t16" lemma="si" pos="ADV">si</w>
+          <w xml:id="leopardi_verdeil_t17" lemma="grand" pos="ADJ">grande</w>
+          <w xml:id="leopardi_verdeil_t18" lemma="part" pos="NOUN">part</w>
+        </s>
+        <s xml:id="leopardi_verdeil_s2">
+          <w xml:id="leopardi_verdeil_t19" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_verdeil_t20" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_verdeil_t21" lemma="extrême" pos="ADJ">extrême</w>
+          <w xml:id="leopardi_verdeil_t22" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_verdeil_t23" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_verdeil_t24" lemma="pendant" pos="ADP">pendant</w>
+          <w xml:id="leopardi_verdeil_t25" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_verdeil_t26" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_verdeil_t27" lemma="rester" pos="VERB">reste</w>
+          <w xml:id="leopardi_verdeil_t28" lemma="asseoir" pos="VERB">assis</w>
+          <w xml:id="leopardi_verdeil_t29" lemma="laisser" pos="VERB">laissant</w>
+          <w xml:id="leopardi_verdeil_t30" lemma="errer" pos="VERB">errer</w>
+          <w xml:id="leopardi_verdeil_t31" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_verdeil_t32" lemma="vue" pos="NOUN">vue</w>
+          <w xml:id="leopardi_verdeil_t33" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_verdeil_t34" lemma="delà" pos="ADV">delà</w>
+          <w xml:id="leopardi_verdeil_t35" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_verdeil_t36" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_verdeil_t37" lemma="haie" pos="NOUN">haie</w>
+        </s>
+        <s xml:id="leopardi_verdeil_s3">
+          <w xml:id="leopardi_verdeil_t38" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_verdeil_t39" lemma="esprit" pos="NOUN">esprit</w>
+          <w xml:id="leopardi_verdeil_t40" lemma="imaginer" pos="VERB">imagine</w>
+          <w xml:id="leopardi_verdeil_t41" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_verdeil_t42" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_verdeil_t43" lemma="infini" pos="ADJ">infinis</w>
+          <w xml:id="leopardi_verdeil_t44" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_verdeil_t45" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_verdeil_t46" lemma="surhumain" pos="ADJ">surhumains</w>
+          <w xml:id="leopardi_verdeil_t47" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_verdeil_t48" lemma="paix" pos="NOUN">paix</w>
+          <w xml:id="leopardi_verdeil_t49" lemma="profond" pos="ADJ">profonde</w>
+          <w xml:id="leopardi_verdeil_t50" lemma="où" pos="ADV">où</w>
+          <w xml:id="leopardi_verdeil_t51" lemma="peu" pos="ADV">peu</w>
+        </s>
+        <s xml:id="leopardi_verdeil_s4">
+          <w xml:id="leopardi_verdeil_t52" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_verdeil_t53" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_verdeil_t54" lemma="falloir" pos="VERB">faut</w>
+          <w xml:id="leopardi_verdeil_t55" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_verdeil_t56" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_verdeil_t57" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_verdeil_t58" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_verdeil_t59" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_verdeil_t60" lemma="effrayer" pos="VERB">effraie</w>
+          <w xml:id="leopardi_verdeil_t61" lemma="lorsque" pos="SCONJ">Lorsque</w>
+          <w xml:id="leopardi_verdeil_t62" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_verdeil_t63" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_verdeil_t64" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_verdeil_t65" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_verdeil_t66" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_verdeil_t67" lemma="entre" pos="ADP">entre</w>
+          <w xml:id="leopardi_verdeil_t68" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_verdeil_t69" lemma="plante" pos="NOUN">plantes</w>
+          <w xml:id="leopardi_verdeil_t70" lemma="qui" pos="PRON">qui</w>
+        </s>
+        <s xml:id="leopardi_verdeil_s5">
+          <w xml:id="leopardi_verdeil_t71" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_verdeil_t72" lemma="entourer" pos="VERB">entourent</w>
+          <w xml:id="leopardi_verdeil_t73" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_verdeil_t74" lemma="comparer" pos="VERB">compare</w>
+          <w xml:id="leopardi_verdeil_t75" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_verdeil_t76" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_verdeil_t77" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_verdeil_t78" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_verdeil_t79" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_verdeil_t80" lemma="rêve" pos="NOUN">rêve</w>
+          <w xml:id="leopardi_verdeil_t81" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_verdeil_t82" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_verdeil_t83" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_verdeil_t84" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_verdeil_t85" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_verdeil_t86" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_verdeil_t87" lemma="siècle" pos="NOUN">siècles</w>
+        </s>
+        <s xml:id="leopardi_verdeil_s6">
+          <w xml:id="leopardi_verdeil_t88" lemma="révolu" pos="NOUN">révolus</w>
+          <w xml:id="leopardi_verdeil_t89" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_verdeil_t90" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_verdeil_t91" lemma="nôtre" pos="PRON">nôtre</w>
+          <w xml:id="leopardi_verdeil_t92" lemma="présent" pos="ADJ">présent</w>
+          <w xml:id="leopardi_verdeil_t93" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_verdeil_t94" lemma="vivant" pos="ADJ">vivant</w>
+          <w xml:id="leopardi_verdeil_t95" lemma="avec" pos="ADP">avec</w>
+          <w xml:id="leopardi_verdeil_t96" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_verdeil_t97" lemma="son" pos="NOUN">son</w>
+          <w xml:id="leopardi_verdeil_t98" lemma="que" pos="PRON">qu’</w>
+          <w xml:id="leopardi_verdeil_t99" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_verdeil_t100" lemma="rendre" pos="VERB">rend</w>
+          <w xml:id="leopardi_verdeil_t101" lemma="défiler" pos="VERB">défilent</w>
+          <w xml:id="leopardi_verdeil_t102" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_verdeil_t103" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_verdeil_t104" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_verdeil_t105" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_verdeil_t106" lemma="soi" pos="PRON">se</w>
+        </s>
+        <s xml:id="leopardi_verdeil_s7">
+          <w xml:id="leopardi_verdeil_t107" lemma="perdre" pos="VERB">perd</w>
+          <w xml:id="leopardi_verdeil_t108" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_verdeil_t109" lemma="soi" pos="PRON">se</w>
+          <w xml:id="leopardi_verdeil_t110" lemma="noyer" pos="VERB">noie</w>
+          <w xml:id="leopardi_verdeil_t111" lemma="ainsi" pos="ADV">ainsi</w>
+          <w xml:id="leopardi_verdeil_t112" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_verdeil_t113" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_verdeil_t114" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_verdeil_t115" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_verdeil_t116" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_verdeil_t117" lemma="naufrage" pos="NOUN">naufrage</w>
+          <w xml:id="leopardi_verdeil_t118" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_verdeil_t119" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_verdeil_t120" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_verdeil_t121" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_verdeil_t122" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_verdeil_t123" lemma="tel" pos="ADJ">telle</w>
+          <w xml:id="leopardi_verdeil_t124" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

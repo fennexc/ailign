@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">MONTLAUR</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1846">1846</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_montlaur_s1">
+          <w xml:id="leopardi_montlaur_t1" lemma="moi" pos="PRON">J’</w>
+          <w xml:id="leopardi_montlaur_t2" lemma="aimer" pos="VERB">aime</w>
+          <w xml:id="leopardi_montlaur_t3" lemma="depuis" pos="ADP">depuis</w>
+          <w xml:id="leopardi_montlaur_t4" lemma="longtemps" pos="ADV">longtemps</w>
+          <w xml:id="leopardi_montlaur_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_montlaur_t6" lemma="vert" pos="ADJ">verte</w>
+          <w xml:id="leopardi_montlaur_t7" lemma="colline" pos="NOUN">colline</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s2">
+          <w xml:id="leopardi_montlaur_t8" lemma="ce" pos="DET">Cette</w>
+          <w xml:id="leopardi_montlaur_t9" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_montlaur_t10" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_montlaur_t11" lemma="sommet" pos="NOUN">sommet</w>
+          <w xml:id="leopardi_montlaur_t12" lemma="dont" pos="PRON">dont</w>
+          <w xml:id="leopardi_montlaur_t13" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_montlaur_t14" lemma="frais" pos="ADJ">fraîche</w>
+          <w xml:id="leopardi_montlaur_t15" lemma="aubépine" pos="NOUN">aubépine</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s3">
+          <w xml:id="leopardi_montlaur_t16" lemma="encensoir" pos="NOUN">Encensoir</w>
+          <w xml:id="leopardi_montlaur_t17" lemma="parfumer" pos="VERB">parfumé</w>
+          <w xml:id="leopardi_montlaur_t18" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_montlaur_t19" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_montlaur_t20" lemma="chaud" pos="ADJ">chaude</w>
+          <w xml:id="leopardi_montlaur_t21" lemma="saison" pos="NOUN">saison</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s4">
+          <w xml:id="leopardi_montlaur_t22" lemma="Me" pos="PRON">Me</w>
+          <w xml:id="leopardi_montlaur_t23" lemma="cacher" pos="VERB">cache</w>
+          <w xml:id="leopardi_montlaur_t24" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_montlaur_t25" lemma="moitié" pos="NOUN">moitié</w>
+          <w xml:id="leopardi_montlaur_t26" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_montlaur_t27" lemma="lointain" pos="ADJ">lointain</w>
+          <w xml:id="leopardi_montlaur_t28" lemma="horizon" pos="NOUN">horizon</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s5">
+          <w xml:id="leopardi_montlaur_t29" lemma="asseoir" pos="VERB">Assis</w>
+          <w xml:id="leopardi_montlaur_t30" lemma="là" pos="ADV">là</w>
+          <w xml:id="leopardi_montlaur_t31" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_montlaur_t32" lemma="regarder" pos="VERB">regarde</w>
+          <w xml:id="leopardi_montlaur_t33" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_montlaur_t34" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_montlaur_t35" lemma="écouter" pos="VERB">écoute</w>
+          <w xml:id="leopardi_montlaur_t36" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_montlaur_t37" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_montlaur_t38" lemma="penser" pos="VERB">pense</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s6">
+          <w xml:id="leopardi_montlaur_t39" lemma="à" pos="ADP">Aux</w>
+          <w xml:id="leopardi_montlaur_t40" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_montlaur_t41" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_montlaur_t42" lemma="fin" pos="NOUN">fin</w>
+          <w xml:id="leopardi_montlaur_t43" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_montlaur_t44" lemma="souverain" pos="NOUN">souverain</w>
+          <w xml:id="leopardi_montlaur_t45" lemma="silence" pos="NOUN">silence</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s7">
+          <w xml:id="leopardi_montlaur_t46" lemma="à" pos="ADP">À</w>
+          <w xml:id="leopardi_montlaur_t47" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_montlaur_t48" lemma="calme" pos="NOUN">calme</w>
+          <w xml:id="leopardi_montlaur_t49" lemma="profond" pos="ADJ">profond</w>
+          <w xml:id="leopardi_montlaur_t50" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_montlaur_t51" lemma="nous" pos="PRON">nous</w>
+          <w xml:id="leopardi_montlaur_t52" lemma="bercer" pos="VERB">berce</w>
+          <w xml:id="leopardi_montlaur_t53" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_montlaur_t54" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_montlaur_t55" lemma="coeur" pos="NOUN">coeur</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s8">
+          <w xml:id="leopardi_montlaur_t56" lemma="soi" pos="PRON">S’</w>
+          <w xml:id="leopardi_montlaur_t57" lemma="emplir" pos="VERB">emplit</w>
+          <w xml:id="leopardi_montlaur_t58" lemma="tout" pos="ADV">tout</w>
+          <w xml:id="leopardi_montlaur_t59" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_montlaur_t60" lemma="rêver" pos="VERB">rêvant</w>
+          <w xml:id="leopardi_montlaur_t61" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_montlaur_t62" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_montlaur_t63" lemma="vague" pos="NOUN">vague</w>
+          <w xml:id="leopardi_montlaur_t64" lemma="terreur" pos="NOUN">terreur</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s9">
+          <w xml:id="leopardi_montlaur_t65" lemma="puis" pos="CCONJ">Puis</w>
+          <w xml:id="leopardi_montlaur_t66" lemma="pendant" pos="ADP">pendant</w>
+          <w xml:id="leopardi_montlaur_t67" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_montlaur_t68" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_montlaur_t69" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_montlaur_t70" lemma="siffler" pos="VERB">siffle</w>
+          <w xml:id="leopardi_montlaur_t71" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_montlaur_t72" lemma="travers" pos="NOUN">travers</w>
+          <w xml:id="leopardi_montlaur_t73" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_montlaur_t74" lemma="chêne" pos="NOUN">chênes</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s10">
+          <w xml:id="leopardi_montlaur_t75" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_montlaur_t76" lemma="on" pos="PRON">l’on</w>
+          <w xml:id="leopardi_montlaur_t77" lemma="dire" pos="VERB">dirait</w>
+          <w xml:id="leopardi_montlaur_t78" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_montlaur_t79" lemma="loin" pos="ADV">loin</w>
+          <w xml:id="leopardi_montlaur_t80" lemma="comme" pos="ADP">comme</w>
+          <w xml:id="leopardi_montlaur_t81" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_montlaur_t82" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_montlaur_t83" lemma="humain" pos="ADJ">humaines</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s11">
+          <w xml:id="leopardi_montlaur_t84" lemma="à" pos="ADP">Au</w>
+          <w xml:id="leopardi_montlaur_t85" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_montlaur_t86" lemma="éternel" pos="ADJ">éternel</w>
+          <w xml:id="leopardi_montlaur_t87" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_montlaur_t88" lemma="comparer" pos="VERB">compare</w>
+          <w xml:id="leopardi_montlaur_t89" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_montlaur_t90" lemma="voix" pos="NOUN">voix</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s12">
+          <w xml:id="leopardi_montlaur_t91" lemma="moi" pos="PRON">Je</w>
+          <w xml:id="leopardi_montlaur_t92" lemma="songer" pos="VERB">songe</w>
+          <w xml:id="leopardi_montlaur_t93" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_montlaur_t94" lemma="temps" pos="NOUN">temps</w>
+          <w xml:id="leopardi_montlaur_t95" lemma="présent" pos="ADJ">présent</w>
+          <w xml:id="leopardi_montlaur_t96" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_montlaur_t97" lemma="celui" pos="PRON">celui</w>
+          <w xml:id="leopardi_montlaur_t98" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_montlaur_t99" lemma="autrefois" pos="ADV">autrefois</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s13">
+          <w xml:id="leopardi_montlaur_t100" lemma="à" pos="ADP">Au</w>
+          <w xml:id="leopardi_montlaur_t101" lemma="bruit" pos="NOUN">bruit</w>
+          <w xml:id="leopardi_montlaur_t102" lemma="que" pos="PRON">qu’</w>
+          <w xml:id="leopardi_montlaur_t103" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_montlaur_t104" lemma="rendre" pos="VERB">rend</w>
+          <w xml:id="leopardi_montlaur_t105" lemma="le" pos="DET">Le</w>
+          <w xml:id="leopardi_montlaur_t106" lemma="flot" pos="NOUN">flot</w>
+          <w xml:id="leopardi_montlaur_t107" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_montlaur_t108" lemma="monter" pos="VERB">monte</w>
+          <w xml:id="leopardi_montlaur_t109" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_montlaur_t110" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_montlaur_t111" lemma="inonder" pos="VERB">inonde</w>
+        </s>
+        <s xml:id="leopardi_montlaur_s14">
+          <w xml:id="leopardi_montlaur_t112" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_montlaur_t113" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_montlaur_t114" lemma="naufrage" pos="NOUN">naufrage</w>
+          <w xml:id="leopardi_montlaur_t115" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_montlaur_t116" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_montlaur_t117" lemma="sur" pos="ADP">sur</w>
+          <w xml:id="leopardi_montlaur_t118" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_montlaur_t119" lemma="mer" pos="NOUN">mer</w>
+          <w xml:id="leopardi_montlaur_t120" lemma="profond" pos="ADJ">profonde</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

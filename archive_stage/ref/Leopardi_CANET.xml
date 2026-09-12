@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">CANET</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1937">1937</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_canet_s1">
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_canet_t1" lemma="toujours" pos="ADV">Toujours</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t2" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t3" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t4" lemma="être" pos="AUX">fut</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_canet_t5" lemma="cher" pos="ADJ">cher</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t6" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_canet_t7" lemma="coteau" pos="NOUN">coteau</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_canet_t8" lemma="solitaire" pos="ADJ">solitaire</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t9" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t10" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_canet_t11" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t12" lemma="aussi" pos="ADV">aussi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t13" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_canet_t14" lemma="dérober" pos="VERB">dérobe</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t15" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t16" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_canet_t17" lemma="vue" pos="NOUN">vue</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t18" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t19" lemma="plus" pos="ADV">plus</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_canet_s2">
+          <seg>
+            <w xml:id="leopardi_canet_t20" lemma="grand" pos="ADJ">grande</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t21" lemma="partie" pos="NOUN">partie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t22" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t23" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_canet_t24" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_canet_t25" lemma="lointain" pos="ADJ">lointain</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t26" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_canet_t27" lemma="asseoir" pos="VERB">assis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t28" lemma="là" pos="ADV">là</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t29" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_canet_t30" lemma="regarder" pos="VERB">regardant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t31" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_canet_t32" lemma="imaginer" pos="VERB">imagine</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t33" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t34" lemma="delà" pos="ADV">delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t35" lemma="un" pos="DET">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_canet_t36" lemma="espace" pos="NOUN">espaces</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_canet_s3">
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_canet_t37" lemma="sans" pos="ADP">sans</w>
+            <w xml:id="leopardi_canet_t38" lemma="borne" pos="NOUN">bornes</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t39" lemma="un" pos="DET">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_canet_t40" lemma="prodigieux" pos="ADJ">prodigieux</w>
+          </seg>
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_canet_t41" lemma="silence" pos="NOUN">silences</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t42" lemma="un" pos="DET">une</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_canet_t43" lemma="insondable" pos="ADJ">insondable</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_canet_t44" lemma="paix" pos="NOUN">paix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t45" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t46" lemma="peu" pos="ADV">peu</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t47" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t48" lemma="en" pos="PRON">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t49" lemma="falloir" pos="VERB">faut</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t50" lemma="alors" pos="ADV">alors</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t51" lemma="que" pos="SCONJ">que</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t52" lemma="son" pos="DET">mon</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_canet_s4">
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_canet_t53" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t54" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t55" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_canet_t56" lemma="effrayer" pos="VERB">effraye</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t57" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t58" lemma="quand" pos="SCONJ">quand</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t59" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_canet_t60" lemma="entendre" pos="VERB">entends</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t61" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_canet_t62" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_canet_t63" lemma="bruire" pos="VERB">bruire</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t64" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t65" lemma="travers" pos="NOUN">travers</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t66" lemma="ce" pos="DET">ces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_canet_t67" lemma="branche" pos="NOUN">branches</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t68" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t69" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_canet_t70" lemma="en" pos="PRON">en</w>
+            <w xml:id="leopardi_canet_t71" lemma="aller" pos="VERB">vais</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_canet_s5">
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_canet_t72" lemma="comparer" pos="VERB">comparant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t73" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_canet_t74" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_canet_t75" lemma="infini" pos="ADJ">infini</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t76" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t77" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_canet_t78" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t79" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t80" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_canet_t81" lemma="songer" pos="VERB">songe</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t82" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t83" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_canet_t84" lemma="éternité" pos="NOUN">éternité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t85" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t86" lemma="à" pos="ADP">aux</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_canet_t87" lemma="âge" pos="NOUN">âges</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_canet_t88" lemma="mort" pos="ADJ">morts</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t89" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t90" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t91" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t92" lemma="âge" pos="NOUN">âge</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_canet_s6">
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_canet_t93" lemma="présent" pos="ADJ">présent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t94" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_canet_t95" lemma="vivant" pos="ADJ">vivant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t96" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t97" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_canet_t98" lemma="bruit" pos="NOUN">bruit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t99" lemma="que" pos="PRON">qu’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t100" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t101" lemma="faire" pos="VERB">fait</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t102" lemma="alors" pos="ADV">Alors</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t103" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t104" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_canet_t105" lemma="immensité" pos="NOUN">immensité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t106" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_canet_t107" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t108" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_canet_t109" lemma="engloutir" pos="VERB">engloutit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t110" lemma="et" pos="CCONJ">et</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_canet_s7">
+          <seg>
+            <w xml:id="leopardi_canet_t111" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t112" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t113" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_canet_t114" lemma="doux" pos="ADJ">doux</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t115" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_canet_t116" lemma="naufrager" pos="VERB">naufrager</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t117" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_canet_t118" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_canet_t119" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

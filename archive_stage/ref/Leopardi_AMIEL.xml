@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">AMIEL</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1876">1876</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_amiel_s1">
+          <seg>
+            <w xml:id="leopardi_amiel_t1" lemma="moi" pos="PRON">J’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_amiel_t2" lemma="aimer" pos="VERB">aime</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t3" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_amiel_t4" lemma="colline" pos="NOUN">colline</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_amiel_t5" lemma="ardu" pos="ADJ">ardue</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t6" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_amiel_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s2">
+          <seg>
+            <w xml:id="leopardi_amiel_t8" lemma="couronner" pos="VERB">Couronnée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t9" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t10" lemma="sommet" pos="NOUN">sommet</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t11" lemma="par" pos="ADP">par</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t12" lemma="un" pos="DET">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_amiel_t13" lemma="buisson" pos="NOUN">buissons</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t14" lemma="épars" pos="ADJ">épars</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s3">
+          <seg>
+            <w xml:id="leopardi_amiel_t15" lemma="qui" pos="PRON">Qui</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t16" lemma="de" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_amiel_t17" lemma="vaste" pos="ADJ">vaste</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_amiel_t18" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t19" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_amiel_t20" lemma="cacher" pos="VERB">cachent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t21" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t22" lemma="trois" pos="NUM">trois</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t23" lemma="part" pos="NOUN">parts</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s4">
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_amiel_t24" lemma="asseoir" pos="VERB">Assis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t25" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t26" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t27" lemma="y" pos="PRON">y</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_amiel_t28" lemma="recueillir" pos="VERB">recueille</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t29" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t30" lemma="de" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_amiel_t31" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_amiel_t32" lemma="austère" pos="ADJ">austère</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s5">
+          <seg>
+            <w xml:id="leopardi_amiel_t33" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_amiel_t34" lemma="calme" pos="NOUN">calme</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_amiel_t35" lemma="surhumain" pos="ADJ">surhumain</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t36" lemma="verser" pos="VERB">verse</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t37" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t38" lemma="baume" pos="NOUN">baume</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t39" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t40" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_amiel_t41" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s6">
+          <seg>
+            <w xml:id="leopardi_amiel_t42" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t43" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_amiel_t44" lemma="espace" pos="NOUN">espace</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_amiel_t45" lemma="insondable" pos="ADJ">insondable</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t46" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t47" lemma="delà" pos="ADV">delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t48" lemma="de" pos="ADP">des</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t49" lemma="ramure" pos="NOUN">ramures</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s7">
+          <seg>
+            <w xml:id="leopardi_amiel_t50" lemma="Me" pos="PRON">Me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t51" lemma="donner" pos="VERB">donne</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t52" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_amiel_t53" lemma="frisson" pos="NOUN">frisson</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t54" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t55" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t56" lemma="abîme" pos="NOUN">abîme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t57" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t58" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t59" lemma="avoir" pos="VERB">ai</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t60" lemma="peur" pos="NOUN">peur</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s8">
+          <seg>
+            <w xml:id="leopardi_amiel_t61" lemma="puis" pos="CCONJ">Puis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t62" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_amiel_t63" lemma="écouter" pos="VERB">écoute</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t64" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_amiel_t65" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_amiel_t66" lemma="gémir" pos="ADJ">gémir</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t67" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t68" lemma="son" pos="DET">ses</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t69" lemma="murmure" pos="NOUN">murmures</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s9">
+          <seg>
+            <w xml:id="leopardi_amiel_t70" lemma="Broder" pos="PROPN">Broder</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t71" lemma="son" pos="DET">leur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t72" lemma="vain" pos="ADJ">vain</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_amiel_t73" lemma="babil" pos="NOUN">babil</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t74" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t75" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_amiel_t76" lemma="infini" pos="NOUN">infini</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_amiel_t77" lemma="muet" pos="ADJ">muet</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s10">
+          <seg>
+            <w xml:id="leopardi_amiel_t78" lemma="alors" pos="ADV">Alors</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t79" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t80" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_amiel_t81" lemma="souvenir" pos="VERB">souviens</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t82" lemma="un" pos="DET">des</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t83" lemma="chose" pos="NOUN">choses</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_amiel_t84" lemma="éternel" pos="ADJ">éternelles</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s11">
+          <seg>
+            <w xml:id="leopardi_amiel_t85" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t86" lemma="de" pos="ADP">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_amiel_t87" lemma="jour" pos="NOUN">jours</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_amiel_t88" lemma="révolu" pos="VERB">révolus</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t89" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_amiel_t90" lemma="présent" pos="NOUN">présent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t91" lemma="à" pos="ADP">aux</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_amiel_t92" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t93" lemma="grêle" pos="ADJ">grêles</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s12">
+          <seg>
+            <w xml:id="leopardi_amiel_t94" lemma="dans" pos="ADP">Dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t95" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_amiel_t96" lemma="azur" pos="NOUN">azur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t97" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_amiel_t98" lemma="engloutir" pos="VERB">engloutit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t99" lemma="ce" pos="PRON">Ce</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t100" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t101" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t102" lemma="remuer" pos="VERB">remuait</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s13">
+          <seg>
+            <w xml:id="leopardi_amiel_t103" lemma="ne" pos="ADV">N’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t104" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t105" lemma="plus" pos="ADV">plus</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t106" lemma="son" pos="DET">Mon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_amiel_t107" lemma="âme" pos="NOUN">âme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t108" lemma="échapper" pos="VERB">échappe</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t109" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t110" lemma="son" pos="DET">ses</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t111" lemma="langueur" pos="NOUN">langueurs</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t112" lemma="mortel" pos="ADJ">mortelles</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_amiel_s14">
+          <seg>
+            <w xml:id="leopardi_amiel_t113" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t114" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t115" lemma="ce" pos="DET">cet</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_amiel_t116" lemma="Océan" pos="PROPN">Océan</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t117" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_amiel_t118" lemma="naufrage" pos="NOUN">naufrage</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_amiel_t119" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_amiel_t120" lemma="plaire" pos="VERB">plaît</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">SAINTE-BEUVE</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1944">1944</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_sainte_beuve_s1">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t1" lemma="moi" pos="PRON">J’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_sainte_beuve_t2" lemma="aimer" pos="VERB">aimai</w>
+          </seg>
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_sainte_beuve_t3" lemma="toujours" pos="ADV">toujours</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t4" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t5" lemma="point" pos="NOUN">point</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t6" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_sainte_beuve_t7" lemma="colline" pos="NOUN">colline</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_sainte_beuve_t8" lemma="désert" pos="ADJ">déserte</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s2">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t9" lemma="avec" pos="ADP">Avec</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t10" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_sainte_beuve_t11" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t12" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t13" lemma="bord" pos="NOUN">bord</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t14" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t15" lemma="clore" pos="VERB">clôt</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t16" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_sainte_beuve_t17" lemma="vue" pos="NOUN">vue</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t18" lemma="ouvrir" pos="VERB">ouverte</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s3">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t19" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t20" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_sainte_beuve_t21" lemma="empêcher" pos="VERB">empêche</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t22" lemma="de" pos="ADP">d’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t23" lemma="atteindre" pos="VERB">atteindre</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t24" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t25" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_sainte_beuve_t26" lemma="extrême" pos="ADJ">extrême</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_sainte_beuve_t27" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s4">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t28" lemma="moi" pos="PRON">Je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t29" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_sainte_beuve_t30" lemma="assiodre" pos="VERB">assieds</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t31" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_sainte_beuve_t32" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t33" lemma="avoir" pos="AUX">a</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t34" lemma="franchir" pos="VERB">franchi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t35" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t36" lemma="buisson" pos="NOUN">buisson</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s5">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t37" lemma="le" pos="DET">L’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_sainte_beuve_t38" lemma="espace" pos="NOUN">espace</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t39" lemma="de" pos="ADP">d’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t40" lemma="au-delà" pos="ADV">au-delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t41" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t42" lemma="en" pos="PRON">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t43" lemma="devenir" pos="VERB">devient</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t44" lemma="plus" pos="ADV">plus</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_sainte_beuve_t45" lemma="immense" pos="ADJ">immense</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s6">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t46" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t47" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_sainte_beuve_t48" lemma="calme" pos="NOUN">calme</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_sainte_beuve_t49" lemma="profond" pos="ADJ">profond</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t50" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t51" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_sainte_beuve_t52" lemma="infini" pos="ADJ">infini</w>
+          </seg>
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_sainte_beuve_t53" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s7">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t54" lemma="Me" pos="PRON">Me</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t55" lemma="être" pos="VERB">sont</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t56" lemma="comme" pos="ADP">comme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t57" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t58" lemma="abîme" pos="NOUN">abîme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t59" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t60" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_sainte_beuve_t61" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t62" lemma="bien" pos="ADV">bien</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t63" lemma="souvent" pos="ADV">souvent</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s8">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t64" lemma="en" pos="ADP">En</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_sainte_beuve_t65" lemma="frissonner" pos="VERB">frissonne</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t66" lemma="tout" pos="ADV">tout</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t67" lemma="bas" pos="ADJ">bas</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t68" lemma="puis" pos="CCONJ">Puis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t69" lemma="comme" pos="SCONJ">comme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t70" lemma="aussi" pos="ADV">aussi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t71" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_sainte_beuve_t72" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s9">
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_sainte_beuve_t73" lemma="faire" pos="VERB">Fait</w>
+            <w xml:id="leopardi_sainte_beuve_t74" lemma="bruit" pos="NOUN">bruit</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t75" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t76" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_sainte_beuve_t77" lemma="feuillage" pos="NOUN">feuillage</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t78" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t79" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t80" lemma="gré" pos="NOUN">gré</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t81" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_sainte_beuve_t82" lemma="ramener" pos="VERB">ramène</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s10">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t83" lemma="ce" pos="DET">Ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_sainte_beuve_t84" lemma="lointain" pos="ADJ">lointain</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t85" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_sainte_beuve_t86" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t87" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t88" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_sainte_beuve_t89" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t90" lemma="prochain" pos="ADJ">prochaine</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s11">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t91" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t92" lemma="grand" pos="ADJ">grand</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t93" lemma="âge" pos="NOUN">âge</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_sainte_beuve_t94" lemma="éternel" pos="ADJ">éternel</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t95" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_sainte_beuve_t96" lemma="apparaître" pos="VERB">apparaît</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t97" lemma="avec" pos="ADP">avec</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t98" lemma="lui" pos="PRON">lui</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s12">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t99" lemma="tant" pos="ADV">Tant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t100" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_sainte_beuve_t101" lemma="mort" pos="NOUN">mortes</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_sainte_beuve_t102" lemma="saison" pos="NOUN">saisons</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t103" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t104" lemma="celui" pos="PRON">celle</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t105" lemma="de" pos="ADP">d’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_sainte_beuve_t106" lemma="aujourd'hui" pos="ADV">aujourd’hui</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s13">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t107" lemma="vague" pos="NOUN">Vague</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_sainte_beuve_t108" lemma="écho" pos="NOUN">écho</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t109" lemma="son" pos="DET">Ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t39">
+            <w xml:id="leopardi_sainte_beuve_t110" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t111" lemma="ainsi" pos="ADV">ainsi</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_sainte_beuve_t112" lemma="plonger" pos="VERB">plonge</w>
+            <w xml:id="leopardi_sainte_beuve_t113" lemma="à" pos="ADP">à</w>
+            <w xml:id="leopardi_sainte_beuve_t114" lemma="le" pos="DET">la</w>
+            <w xml:id="leopardi_sainte_beuve_t115" lemma="nage" pos="NOUN">nage</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_sainte_beuve_s14">
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t116" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t117" lemma="sur" pos="ADP">sur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t118" lemma="ce" pos="DET">ces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_sainte_beuve_t119" lemma="mer" pos="NOUN">mers</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_sainte_beuve_t120" lemma="sans" pos="ADP">sans</w>
+            <w xml:id="leopardi_sainte_beuve_t121" lemma="fin" pos="NOUN">fin</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t122" lemma="moi" pos="PRON">j’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_sainte_beuve_t123" lemma="aimer" pos="VERB">aime</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t124" lemma="jusque" pos="ADP">jusqu’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_sainte_beuve_t125" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_sainte_beuve_t126" lemma="naufrage" pos="NOUN">naufrage</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

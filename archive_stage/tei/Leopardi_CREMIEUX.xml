@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">CREMIEUX</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1925">1925</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_cremieux_s1">
+          <w xml:id="leopardi_cremieux_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_cremieux_t2" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_cremieux_t3" lemma="aimer" pos="VERB">aimai</w>
+          <w xml:id="leopardi_cremieux_t4" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_cremieux_t5" lemma="coteau" pos="NOUN">coteau</w>
+          <w xml:id="leopardi_cremieux_t6" lemma="solitaire" pos="ADJ">solitaire</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s2">
+          <w xml:id="leopardi_cremieux_t7" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_cremieux_t8" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_cremieux_t9" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_cremieux_t10" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_cremieux_t11" lemma="fermer" pos="VERB">ferme</w>
+          <w xml:id="leopardi_cremieux_t12" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_cremieux_t13" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_cremieux_t14" lemma="regard" pos="NOUN">regard</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s3">
+          <w xml:id="leopardi_cremieux_t15" lemma="tout" pos="ADJ">Tout</w>
+          <w xml:id="leopardi_cremieux_t16" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_cremieux_t17" lemma="côté" pos="NOUN">côté</w>
+          <w xml:id="leopardi_cremieux_t18" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_cremieux_t19" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_cremieux_t20" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_cremieux_t21" lemma="lointain" pos="ADJ">lointain</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s4">
+          <w xml:id="leopardi_cremieux_t22" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_cremieux_t23" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_cremieux_t24" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_cremieux_t25" lemma="assiodre" pos="VERB">assieds</w>
+          <w xml:id="leopardi_cremieux_t26" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_cremieux_t27" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_cremieux_t28" lemma="regarder" pos="VERB">regarde</w>
+          <w xml:id="leopardi_cremieux_t29" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_cremieux_t30" lemma="espace" pos="NOUN">espaces</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s5">
+          <w xml:id="leopardi_cremieux_t31" lemma="sans" pos="ADP">Sans</w>
+          <w xml:id="leopardi_cremieux_t32" lemma="limite" pos="NOUN">limite</w>
+          <w xml:id="leopardi_cremieux_t33" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_cremieux_t34" lemma="naître" pos="VERB">naissent</w>
+          <w xml:id="leopardi_cremieux_t35" lemma="là" pos="ADV">là</w>
+          <w xml:id="leopardi_cremieux_t36" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_cremieux_t37" lemma="surhumains" pos="NOUN">surhumains</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s6">
+          <w xml:id="leopardi_cremieux_t38" lemma="silence" pos="NOUN">Silences</w>
+          <w xml:id="leopardi_cremieux_t39" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_cremieux_t40" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_cremieux_t41" lemma="calme" pos="NOUN">calme</w>
+          <w xml:id="leopardi_cremieux_t42" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_cremieux_t43" lemma="plus" pos="ADV">plus</w>
+          <w xml:id="leopardi_cremieux_t44" lemma="profond" pos="ADJ">profond</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s7">
+          <w xml:id="leopardi_cremieux_t45" lemma="son" pos="DET">Mon</w>
+          <w xml:id="leopardi_cremieux_t46" lemma="esprit" pos="NOUN">esprit</w>
+          <w xml:id="leopardi_cremieux_t47" lemma="imaginer" pos="VERB">imagine</w>
+          <w xml:id="leopardi_cremieux_t48" lemma="tout" pos="PRON">tout</w>
+          <w xml:id="leopardi_cremieux_t49" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_cremieux_t50" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_cremieux_t51" lemma="épouvante" pos="NOUN">épouvante</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s8">
+          <w xml:id="leopardi_cremieux_t52" lemma="approche" pos="NOUN">Approche</w>
+          <w xml:id="leopardi_cremieux_t53" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_cremieux_t54" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_cremieux_t55" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_cremieux_t56" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_cremieux_t57" lemma="si" pos="SCONJ">si</w>
+          <w xml:id="leopardi_cremieux_t58" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_cremieux_t59" lemma="écouter" pos="VERB">écoute</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s9">
+          <w xml:id="leopardi_cremieux_t60" lemma="le" pos="DET">Le</w>
+          <w xml:id="leopardi_cremieux_t61" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_cremieux_t62" lemma="gémir" pos="VERB">gémir</w>
+          <w xml:id="leopardi_cremieux_t63" lemma="parmi" pos="ADP">parmi</w>
+          <w xml:id="leopardi_cremieux_t64" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_cremieux_t65" lemma="arbre" pos="NOUN">arbres</w>
+          <w xml:id="leopardi_cremieux_t66" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_cremieux_t67" lemma="comparer" pos="VERB">compare</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s10">
+          <w xml:id="leopardi_cremieux_t68" lemma="le" pos="DET">Le</w>
+          <w xml:id="leopardi_cremieux_t69" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_cremieux_t70" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_cremieux_t71" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_cremieux_t72" lemma="infini" pos="NOUN">infini</w>
+          <w xml:id="leopardi_cremieux_t73" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_cremieux_t74" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_cremieux_t75" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_cremieux_t76" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_cremieux_t77" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_cremieux_t78" lemma="éternel" pos="NOUN">éternel</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s11">
+          <w xml:id="leopardi_cremieux_t79" lemma="venir" pos="VERB">Vient</w>
+          <w xml:id="leopardi_cremieux_t80" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_cremieux_t81" lemma="hanter" pos="VERB">hanter</w>
+          <w xml:id="leopardi_cremieux_t82" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_cremieux_t83" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_cremieux_t84" lemma="année" pos="NOUN">années</w>
+          <w xml:id="leopardi_cremieux_t85" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_cremieux_t86" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_cremieux_t87" lemma="être" pos="VERB">sont</w>
+          <w xml:id="leopardi_cremieux_t88" lemma="plus" pos="ADV">plus</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s12">
+          <w xml:id="leopardi_cremieux_t89" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_cremieux_t90" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_cremieux_t91" lemma="année" pos="NOUN">année</w>
+          <w xml:id="leopardi_cremieux_t92" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_cremieux_t93" lemma="vivre" pos="VERB">vit</w>
+          <w xml:id="leopardi_cremieux_t94" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_cremieux_t95" lemma="son" pos="NOUN">son</w>
+          <w xml:id="leopardi_cremieux_t96" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_cremieux_t97" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_cremieux_t98" lemma="année" pos="NOUN">année</w>
+          <w xml:id="leopardi_cremieux_t99" lemma="alors" pos="ADV">Alors</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s13">
+          <w xml:id="leopardi_cremieux_t100" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_cremieux_t101" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_cremieux_t102" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_cremieux_t103" lemma="tout" pos="ADJ">tout</w>
+          <w xml:id="leopardi_cremieux_t104" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_cremieux_t105" lemma="esprit" pos="NOUN">esprit</w>
+          <w xml:id="leopardi_cremieux_t106" lemma="naufrage" pos="NOUN">naufrage</w>
+        </s>
+        <s xml:id="leopardi_cremieux_s14">
+          <w xml:id="leopardi_cremieux_t107" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_cremieux_t108" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_cremieux_t109" lemma="noyer" pos="VERB">noyer</w>
+          <w xml:id="leopardi_cremieux_t110" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_cremieux_t111" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_cremieux_t112" lemma="mer" pos="NOUN">mer</w>
+          <w xml:id="leopardi_cremieux_t113" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_cremieux_t114" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_cremieux_t115" lemma="doux" pos="ADJ">doux</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

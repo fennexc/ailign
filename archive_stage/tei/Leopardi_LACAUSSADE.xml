@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">LACAUSSADE</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1889">1889</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_lacaussade_s1">
+          <w xml:id="leopardi_lacaussade_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_lacaussade_t2" lemma="toi" pos="PRON">tu</w>
+          <w xml:id="leopardi_lacaussade_t3" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_lacaussade_t4" lemma="être" pos="AUX">fus</w>
+          <w xml:id="leopardi_lacaussade_t5" lemma="cher" pos="ADJ">chère</w>
+          <w xml:id="leopardi_lacaussade_t6" lemma="ô" pos="X">ô</w>
+          <w xml:id="leopardi_lacaussade_t7" lemma="désert" pos="NOUN">déserte</w>
+          <w xml:id="leopardi_lacaussade_t8" lemma="colline" pos="NOUN">colline</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s2">
+          <w xml:id="leopardi_lacaussade_t9" lemma="où" pos="PRON">Où</w>
+          <w xml:id="leopardi_lacaussade_t10" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_lacaussade_t11" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_lacaussade_t12" lemma="épineux" pos="ADJ">épineuse</w>
+          <w xml:id="leopardi_lacaussade_t13" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_lacaussade_t14" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_lacaussade_t15" lemma="âpre" pos="ADJ">âpre</w>
+          <w xml:id="leopardi_lacaussade_t16" lemma="floraison" pos="NOUN">floraison</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s3">
+          <w xml:id="leopardi_lacaussade_t17" lemma="cache" pos="NOUN">Cache</w>
+          <w xml:id="leopardi_lacaussade_t18" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_lacaussade_t19" lemma="regard" pos="NOUN">regard</w>
+          <w xml:id="leopardi_lacaussade_t20" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_lacaussade_t21" lemma="espace" pos="NOUN">espace</w>
+          <w xml:id="leopardi_lacaussade_t22" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_lacaussade_t23" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_lacaussade_t24" lemma="extrême" pos="ADJ">extrême</w>
+          <w xml:id="leopardi_lacaussade_t25" lemma="horizon" pos="NOUN">horizon</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s4">
+          <w xml:id="leopardi_lacaussade_t26" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_lacaussade_t27" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_lacaussade_t28" lemma="herbe" pos="NOUN">herbe</w>
+          <w xml:id="leopardi_lacaussade_t29" lemma="asseoir" pos="VERB">assis</w>
+          <w xml:id="leopardi_lacaussade_t30" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_lacaussade_t31" lemma="évoquer" pos="VERB">évoque</w>
+          <w xml:id="leopardi_lacaussade_t32" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_lacaussade_t33" lemma="rêve" pos="NOUN">rêve</w>
+          <w xml:id="leopardi_lacaussade_t34" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_lacaussade_t35" lemma="imaginer" pos="VERB">imagine</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s5">
+          <w xml:id="leopardi_lacaussade_t36" lemma="derrière" pos="ADP">Derrière</w>
+          <w xml:id="leopardi_lacaussade_t37" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_lacaussade_t38" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_lacaussade_t39" lemma="où" pos="PRON">où</w>
+          <w xml:id="leopardi_lacaussade_t40" lemma="verdre" pos="VERB">verdit</w>
+          <w xml:id="leopardi_lacaussade_t41" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_lacaussade_t42" lemma="gazon" pos="NOUN">gazon</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s6">
+          <w xml:id="leopardi_lacaussade_t43" lemma="un" pos="DET">Des</w>
+          <w xml:id="leopardi_lacaussade_t44" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_lacaussade_t45" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_lacaussade_t46" lemma="borne" pos="NOUN">borne</w>
+          <w xml:id="leopardi_lacaussade_t47" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_lacaussade_t48" lemma="surhumain" pos="NOUN">surhumain</w>
+          <w xml:id="leopardi_lacaussade_t49" lemma="silence" pos="NOUN">silence</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s7">
+          <w xml:id="leopardi_lacaussade_t50" lemma="de" pos="ADP">De</w>
+          <w xml:id="leopardi_lacaussade_t51" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_lacaussade_t52" lemma="absolu" pos="ADJ">absolu</w>
+          <w xml:id="leopardi_lacaussade_t53" lemma="repos" pos="NOUN">repos</w>
+          <w xml:id="leopardi_lacaussade_t54" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_lacaussade_t55" lemma="morne" pos="NOUN">morne</w>
+          <w xml:id="leopardi_lacaussade_t56" lemma="somnolence" pos="NOUN">somnolence</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s8">
+          <w xml:id="leopardi_lacaussade_t57" lemma="le" pos="DET">Le</w>
+          <w xml:id="leopardi_lacaussade_t58" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_lacaussade_t59" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_lacaussade_t60" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_lacaussade_t61" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_lacaussade_t62" lemma="immensité" pos="NOUN">immensité</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s9">
+          <w xml:id="leopardi_lacaussade_t63" lemma="verse" pos="INTJ">Verse</w>
+          <w xml:id="leopardi_lacaussade_t64" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_lacaussade_t65" lemma="moi" pos="PRON">moi</w>
+          <w xml:id="leopardi_lacaussade_t66" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_lacaussade_t67" lemma="stupeur" pos="NOUN">stupeurs</w>
+          <w xml:id="leopardi_lacaussade_t68" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_lacaussade_t69" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_lacaussade_t70" lemma="sérénité" pos="NOUN">sérénité</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s10">
+          <w xml:id="leopardi_lacaussade_t71" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_lacaussade_t72" lemma="percevoir" pos="VERB">percevant</w>
+          <w xml:id="leopardi_lacaussade_t73" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_lacaussade_t74" lemma="bruit" pos="NOUN">bruit</w>
+          <w xml:id="leopardi_lacaussade_t75" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_lacaussade_t76" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_lacaussade_t77" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_lacaussade_t78" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_lacaussade_t79" lemma="feuillage" pos="NOUN">feuillages</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s11">
+          <w xml:id="leopardi_lacaussade_t80" lemma="moi" pos="PRON">J’</w>
+          <w xml:id="leopardi_lacaussade_t81" lemma="opposer" pos="VERB">oppose</w>
+          <w xml:id="leopardi_lacaussade_t82" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_lacaussade_t83" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_lacaussade_t84" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_lacaussade_t85" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_lacaussade_t86" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_lacaussade_t87" lemma="éternel" pos="ADJ">éternel</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s12">
+          <w xml:id="leopardi_lacaussade_t88" lemma="ô" pos="INTJ">Ô</w>
+          <w xml:id="leopardi_lacaussade_t89" lemma="vide" pos="NOUN">vide</w>
+          <w xml:id="leopardi_lacaussade_t90" lemma="immesurable" pos="ADJ">immesurable</w>
+          <w xml:id="leopardi_lacaussade_t91" lemma="où" pos="PRON">où</w>
+          <w xml:id="leopardi_lacaussade_t92" lemma="rouler" pos="VERB">roule</w>
+          <w xml:id="leopardi_lacaussade_t93" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_lacaussade_t94" lemma="paix" pos="NOUN">paix</w>
+          <w xml:id="leopardi_lacaussade_t95" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_lacaussade_t96" lemma="ciel" pos="NOUN">ciel</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s13">
+          <w xml:id="leopardi_lacaussade_t97" lemma="alors" pos="ADV">Alors</w>
+          <w xml:id="leopardi_lacaussade_t98" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_lacaussade_t99" lemma="souvenir" pos="VERB">souvenant</w>
+          <w xml:id="leopardi_lacaussade_t100" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_lacaussade_t101" lemma="siècle" pos="NOUN">siècles</w>
+          <w xml:id="leopardi_lacaussade_t102" lemma="mort" pos="ADJ">morts</w>
+          <w xml:id="leopardi_lacaussade_t103" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_lacaussade_t104" lemma="âge" pos="NOUN">âges</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s14">
+          <w xml:id="leopardi_lacaussade_t105" lemma="disparu" pos="ADJ">Disparus</w>
+          <w xml:id="leopardi_lacaussade_t106" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_lacaussade_t107" lemma="comparer" pos="VERB">compare</w>
+          <w xml:id="leopardi_lacaussade_t108" lemma="à" pos="ADP">aux</w>
+          <w xml:id="leopardi_lacaussade_t109" lemma="stérile" pos="NOUN">stériles</w>
+          <w xml:id="leopardi_lacaussade_t110" lemma="effort" pos="NOUN">efforts</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s15">
+          <w xml:id="leopardi_lacaussade_t111" lemma="à" pos="ADP">Aux</w>
+          <w xml:id="leopardi_lacaussade_t112" lemma="vain" pos="ADJ">vains</w>
+          <w xml:id="leopardi_lacaussade_t113" lemma="bruit" pos="NOUN">bruits</w>
+          <w xml:id="leopardi_lacaussade_t114" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_lacaussade_t115" lemma="vivant" pos="NOUN">vivants</w>
+          <w xml:id="leopardi_lacaussade_t116" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_lacaussade_t117" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_lacaussade_t118" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_lacaussade_t119" lemma="mort" pos="NOUN">morts</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s16">
+          <w xml:id="leopardi_lacaussade_t120" lemma="de" pos="ADP">D’</w>
+          <w xml:id="leopardi_lacaussade_t121" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_lacaussade_t122" lemma="ineffable" pos="NOUN">ineffable</w>
+          <w xml:id="leopardi_lacaussade_t123" lemma="émoi" pos="NOUN">émoi</w>
+          <w xml:id="leopardi_lacaussade_t124" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_lacaussade_t125" lemma="âme" pos="NOUN">âme</w>
+          <w xml:id="leopardi_lacaussade_t126" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_lacaussade_t127" lemma="oppresser" pos="VERB">oppressée</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s17">
+          <w xml:id="leopardi_lacaussade_t128" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_lacaussade_t129" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_lacaussade_t130" lemma="néant" pos="NOUN">néant</w>
+          <w xml:id="leopardi_lacaussade_t131" lemma="humain" pos="ADJ">humain</w>
+          <w xml:id="leopardi_lacaussade_t132" lemma="sonder" pos="VERB">sondant</w>
+          <w xml:id="leopardi_lacaussade_t133" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_lacaussade_t134" lemma="gouffre" pos="NOUN">gouffre</w>
+          <w xml:id="leopardi_lacaussade_t135" lemma="amer" pos="ADJ">amer</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s18">
+          <w xml:id="leopardi_lacaussade_t136" lemma="dans" pos="ADP">Dans</w>
+          <w xml:id="leopardi_lacaussade_t137" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_lacaussade_t138" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_lacaussade_t139" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_lacaussade_t140" lemma="abîmer" pos="VERB">abîme</w>
+          <w xml:id="leopardi_lacaussade_t141" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_lacaussade_t142" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_lacaussade_s19">
+          <w xml:id="leopardi_lacaussade_t143" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_lacaussade_t144" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_lacaussade_t145" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_lacaussade_t146" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_lacaussade_t147" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_lacaussade_t148" lemma="naufrage" pos="NOUN">naufrage</w>
+          <w xml:id="leopardi_lacaussade_t149" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_lacaussade_t150" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_lacaussade_t151" lemma="tel" pos="ADJ">telle</w>
+          <w xml:id="leopardi_lacaussade_t152" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

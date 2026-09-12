@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">CHAR et ROUX</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1966">1966</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_char_roux_s1">
+          <w xml:id="leopardi_char_roux_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_char_roux_t2" lemma="cher" pos="ADJ">chère</w>
+          <w xml:id="leopardi_char_roux_t3" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_char_roux_t4" lemma="être" pos="AUX">fut</w>
+          <w xml:id="leopardi_char_roux_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_char_roux_t6" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_char_roux_t7" lemma="si" pos="SCONJ">si</w>
+          <w xml:id="leopardi_char_roux_t8" lemma="seul" pos="ADJ">seule</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s2">
+          <w xml:id="leopardi_char_roux_t9" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_char_roux_t10" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_char_roux_t11" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_char_roux_t12" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_char_roux_t13" lemma="par" pos="ADP">par</w>
+          <w xml:id="leopardi_char_roux_t14" lemma="tant" pos="ADV">tant</w>
+          <w xml:id="leopardi_char_roux_t15" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_char_roux_t16" lemma="longueur" pos="NOUN">longueurs</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s3">
+          <w xml:id="leopardi_char_roux_t17" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_char_roux_t18" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_char_roux_t19" lemma="regard" pos="NOUN">regard</w>
+          <w xml:id="leopardi_char_roux_t20" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_char_roux_t21" lemma="dernier" pos="ADJ">dernier</w>
+          <w xml:id="leopardi_char_roux_t22" lemma="horizon" pos="NOUN">horizon</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s4">
+          <w xml:id="leopardi_char_roux_t23" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_char_roux_t24" lemma="quand" pos="SCONJ">quand</w>
+          <w xml:id="leopardi_char_roux_t25" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_char_roux_t26" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_char_roux_t27" lemma="assiodre" pos="VERB">assieds</w>
+          <w xml:id="leopardi_char_roux_t28" lemma="pour" pos="ADP">pour</w>
+          <w xml:id="leopardi_char_roux_t29" lemma="lui" pos="PRON">la</w>
+          <w xml:id="leopardi_char_roux_t30" lemma="regarder" pos="VERB">regarder</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s5">
+          <w xml:id="leopardi_char_roux_t31" lemma="par" pos="ADP">par</w>
+          <w xml:id="leopardi_char_roux_t32" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_char_roux_t33" lemma="pensée" pos="NOUN">pensée</w>
+          <w xml:id="leopardi_char_roux_t34" lemma="soi" pos="PRON">se</w>
+          <w xml:id="leopardi_char_roux_t35" lemma="créer" pos="VERB">créent</w>
+          <w xml:id="leopardi_char_roux_t36" lemma="au-delà" pos="ADV">au-delà</w>
+          <w xml:id="leopardi_char_roux_t37" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_char_roux_t38" lemma="lui" pos="PRON">elle</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s6">
+          <w xml:id="leopardi_char_roux_t39" lemma="un" pos="DET">d’</w>
+          <w xml:id="leopardi_char_roux_t40" lemma="interminable" pos="ADJ">interminables</w>
+          <w xml:id="leopardi_char_roux_t41" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_char_roux_t42" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_char_roux_t43" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_char_roux_t44" lemma="surhumain" pos="ADJ">surhumains</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s7">
+          <w xml:id="leopardi_char_roux_t45" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_char_roux_t46" lemma="paix" pos="NOUN">paix</w>
+          <w xml:id="leopardi_char_roux_t47" lemma="très" pos="ADV">très</w>
+          <w xml:id="leopardi_char_roux_t48" lemma="profond" pos="ADJ">profonde</w>
+          <w xml:id="leopardi_char_roux_t49" lemma="où" pos="ADV">où</w>
+          <w xml:id="leopardi_char_roux_t50" lemma="peu" pos="ADV">peu</w>
+          <w xml:id="leopardi_char_roux_t51" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_char_roux_t52" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_char_roux_t53" lemma="falloir" pos="VERB">faut</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s8">
+          <w xml:id="leopardi_char_roux_t54" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_char_roux_t55" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_char_roux_t56" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_char_roux_t57" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_char_roux_t58" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_char_roux_t59" lemma="effrayer" pos="VERB">effraie</w>
+          <w xml:id="leopardi_char_roux_t60" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_char_roux_t61" lemma="lorsque" pos="SCONJ">lorsque</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s9">
+          <w xml:id="leopardi_char_roux_t62" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_char_roux_t63" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_char_roux_t64" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_char_roux_t65" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_char_roux_t66" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_char_roux_t67" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_char_roux_t68" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_char_roux_t69" lemma="plante" pos="NOUN">plantes</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s10">
+          <w xml:id="leopardi_char_roux_t70" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_char_roux_t71" lemma="aller" pos="VERB">vais</w>
+          <w xml:id="leopardi_char_roux_t72" lemma="comparer" pos="VERB">comparant</w>
+          <w xml:id="leopardi_char_roux_t73" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_char_roux_t74" lemma="infini" pos="NOUN">infini</w>
+          <w xml:id="leopardi_char_roux_t75" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_char_roux_t76" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_char_roux_t77" lemma="silence" pos="NOUN">silence</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s11">
+          <w xml:id="leopardi_char_roux_t78" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_char_roux_t79" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_char_roux_t80" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_char_roux_t81" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_char_roux_t82" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_char_roux_t83" lemma="souvenir" pos="VERB">souviens</w>
+          <w xml:id="leopardi_char_roux_t84" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_char_roux_t85" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_char_roux_t86" lemma="éternel" pos="NOUN">éternel</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s12">
+          <w xml:id="leopardi_char_roux_t87" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_char_roux_t88" lemma="saison" pos="NOUN">saisons</w>
+          <w xml:id="leopardi_char_roux_t89" lemma="mort" pos="ADJ">mortes</w>
+          <w xml:id="leopardi_char_roux_t90" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_char_roux_t91" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_char_roux_t92" lemma="celui" pos="PRON">celle</w>
+          <w xml:id="leopardi_char_roux_t93" lemma="présent" pos="ADJ">présente</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s13">
+          <w xml:id="leopardi_char_roux_t94" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_char_roux_t95" lemma="vivant" pos="ADJ">vivante</w>
+          <w xml:id="leopardi_char_roux_t96" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_char_roux_t97" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_char_roux_t98" lemma="son" pos="DET">son</w>
+          <w xml:id="leopardi_char_roux_t99" lemma="bruissement" pos="NOUN">bruissement</w>
+          <w xml:id="leopardi_char_roux_t100" lemma="ainsi" pos="ADV">Ainsi</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s14">
+          <w xml:id="leopardi_char_roux_t101" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_char_roux_t102" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_char_roux_t103" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_char_roux_t104" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_char_roux_t105" lemma="anéantir" pos="VERB">anéantit</w>
+          <w xml:id="leopardi_char_roux_t106" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_char_roux_t107" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_char_roux_s15">
+          <w xml:id="leopardi_char_roux_t108" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_char_roux_t109" lemma="naufrager" pos="INTJ">naufrager</w>
+          <w xml:id="leopardi_char_roux_t110" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_char_roux_t111" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_char_roux_t112" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_char_roux_t113" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_char_roux_t114" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_char_roux_t115" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

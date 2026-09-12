@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">GAYRAUD</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="2011">2011</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_gayraud_s1">
+          <w xml:id="leopardi_gayraud_t1" lemma="oui" pos="INTJ">Oui</w>
+          <w xml:id="leopardi_gayraud_t2" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_gayraud_t3" lemma="avoir" pos="AUX">ai</w>
+          <w xml:id="leopardi_gayraud_t4" lemma="toujours" pos="ADV">toujours</w>
+          <w xml:id="leopardi_gayraud_t5" lemma="aimer" pos="VERB">aimé</w>
+          <w xml:id="leopardi_gayraud_t6" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_gayraud_t7" lemma="coteau" pos="NOUN">coteau</w>
+          <w xml:id="leopardi_gayraud_t8" lemma="solitaire" pos="ADJ">solitaire</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s2">
+          <w xml:id="leopardi_gayraud_t9" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_gayraud_t10" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_gayraud_t11" lemma="vif" pos="ADJ">vive</w>
+          <w xml:id="leopardi_gayraud_t12" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_gayraud_t13" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_gayraud_t14" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_gayraud_t15" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_gayraud_t16" lemma="le" pos="DET">la</w>
+          <w xml:id="leopardi_gayraud_t17" lemma="vue" pos="NOUN">vue</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s3">
+          <w xml:id="leopardi_gayraud_t18" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_gayraud_t19" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_gayraud_t20" lemma="extrême" pos="ADJ">extrême</w>
+          <w xml:id="leopardi_gayraud_t21" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_gayraud_t22" lemma="presque" pos="ADV">presque</w>
+          <w xml:id="leopardi_gayraud_t23" lemma="tout" pos="ADJ">tout</w>
+          <w xml:id="leopardi_gayraud_t24" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_gayraud_t25" lemma="orbe" pos="NOUN">orbe</w>
+          <w xml:id="leopardi_gayraud_t26" lemma="immense" pos="ADJ">immense</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s4">
+          <w xml:id="leopardi_gayraud_t27" lemma="ce" pos="PRON">C’</w>
+          <w xml:id="leopardi_gayraud_t28" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_gayraud_t29" lemma="là" pos="ADV">là</w>
+          <w xml:id="leopardi_gayraud_t30" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_gayraud_t31" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_gayraud_t32" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_gayraud_t33" lemma="tenir" pos="VERB">tiens</w>
+          <w xml:id="leopardi_gayraud_t34" lemma="regarder" pos="VERB">regardant</w>
+          <w xml:id="leopardi_gayraud_t35" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_gayraud_t36" lemma="moi-même" pos="PRON">moi-même</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s5">
+          <w xml:id="leopardi_gayraud_t37" lemma="que" pos="SCONJ">qu’</w>
+          <w xml:id="leopardi_gayraud_t38" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_gayraud_t39" lemma="esprit" pos="NOUN">esprit</w>
+          <w xml:id="leopardi_gayraud_t40" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_gayraud_t41" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_gayraud_t42" lemma="créer" pos="VERB">crée</w>
+          <w xml:id="leopardi_gayraud_t43" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_gayraud_t44" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_gayraud_t45" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_gayraud_t46" lemma="borne" pos="NOUN">bornes</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s6">
+          <w xml:id="leopardi_gayraud_t47" lemma="un" pos="DET">de</w>
+          <w xml:id="leopardi_gayraud_t48" lemma="surhumain" pos="ADJ">surhumains</w>
+          <w xml:id="leopardi_gayraud_t49" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_gayraud_t50" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_gayraud_t51" lemma="gouffre" pos="NOUN">gouffres</w>
+          <w xml:id="leopardi_gayraud_t52" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_gayraud_t53" lemma="paix" pos="NOUN">paix</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s7">
+          <w xml:id="leopardi_gayraud_t54" lemma="là" pos="ADV">là</w>
+          <w xml:id="leopardi_gayraud_t55" lemma="son" pos="DET">mon</w>
+          <w xml:id="leopardi_gayraud_t56" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_gayraud_t57" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_gayraud_t58" lemma="bien" pos="ADV">bien</w>
+          <w xml:id="leopardi_gayraud_t59" lemma="près" pos="ADV">près</w>
+          <w xml:id="leopardi_gayraud_t60" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_gayraud_t61" lemma="céder" pos="VERB">céder</w>
+          <w xml:id="leopardi_gayraud_t62" lemma="à" pos="ADP">aux</w>
+          <w xml:id="leopardi_gayraud_t63" lemma="effroi" pos="NOUN">effrois</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s8">
+          <w xml:id="leopardi_gayraud_t64" lemma="lorsque" pos="SCONJ">Lorsque</w>
+          <w xml:id="leopardi_gayraud_t65" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_gayraud_t66" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_gayraud_t67" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_gayraud_t68" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_gayraud_t69" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_gayraud_t70" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_gayraud_t71" lemma="feuillage" pos="NOUN">feuillage</w>
+          <w xml:id="leopardi_gayraud_t72" lemma="bruire" pos="VERB">bruire</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s9">
+          <w xml:id="leopardi_gayraud_t73" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_gayraud_t74" lemma="mesurer" pos="VERB">mesure</w>
+          <w xml:id="leopardi_gayraud_t75" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_gayraud_t76" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_gayraud_t77" lemma="voix" pos="NOUN">voix</w>
+          <w xml:id="leopardi_gayraud_t78" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_gayraud_t79" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_gayraud_t80" lemma="infini" pos="ADJ">infini</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s10">
+          <w xml:id="leopardi_gayraud_t81" lemma="alors" pos="ADV">alors</w>
+          <w xml:id="leopardi_gayraud_t82" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_gayraud_t83" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_gayraud_t84" lemma="venir" pos="VERB">vient</w>
+          <w xml:id="leopardi_gayraud_t85" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_gayraud_t86" lemma="moi" pos="PRON">moi</w>
+          <w xml:id="leopardi_gayraud_t87" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_gayraud_t88" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_gayraud_t89" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_gayraud_t90" lemma="jour" pos="NOUN">jours</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s11">
+          <w xml:id="leopardi_gayraud_t91" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_gayraud_t92" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_gayraud_t93" lemma="temps" pos="NOUN">temps</w>
+          <w xml:id="leopardi_gayraud_t94" lemma="révolu" pos="VERB">révolus</w>
+          <w xml:id="leopardi_gayraud_t95" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_gayraud_t96" lemma="ce" pos="DET">cet</w>
+          <w xml:id="leopardi_gayraud_t97" lemma="âge" pos="NOUN">âge</w>
+          <w xml:id="leopardi_gayraud_t98" lemma="présent" pos="ADJ">présent</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s12">
+          <w xml:id="leopardi_gayraud_t99" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_gayraud_t100" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_gayraud_t101" lemma="vif" pos="ADJ">vive</w>
+          <w xml:id="leopardi_gayraud_t102" lemma="rumeur" pos="NOUN">rumeur</w>
+          <w xml:id="leopardi_gayraud_t103" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_gayraud_t104" lemma="ainsi" pos="ADV">ainsi</w>
+          <w xml:id="leopardi_gayraud_t105" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_gayraud_t106" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s13">
+          <w xml:id="leopardi_gayraud_t107" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_gayraud_t108" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_gayraud_t109" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_gayraud_t110" lemma="venir" pos="VERB">vient</w>
+          <w xml:id="leopardi_gayraud_t111" lemma="soi" pos="PRON">se</w>
+          <w xml:id="leopardi_gayraud_t112" lemma="noyer" pos="VERB">noyer</w>
+          <w xml:id="leopardi_gayraud_t113" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_gayraud_t114" lemma="ne" pos="ADV">n’</w>
+          <w xml:id="leopardi_gayraud_t115" lemma="être" pos="AUX">est</w>
+        </s>
+        <s xml:id="leopardi_gayraud_s14">
+          <w xml:id="leopardi_gayraud_t116" lemma="rien" pos="PRON">rien</w>
+          <w xml:id="leopardi_gayraud_t117" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_gayraud_t118" lemma="plus" pos="ADV">plus</w>
+          <w xml:id="leopardi_gayraud_t119" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_gayraud_t120" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_gayraud_t121" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_gayraud_t122" lemma="abîmer" pos="VERB">abîmer</w>
+          <w xml:id="leopardi_gayraud_t123" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_gayraud_t124" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_gayraud_t125" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

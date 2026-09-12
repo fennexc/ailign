@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1819">1819</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="it" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_it_s1">
+          <w xml:id="leopardi_it_t1" lemma="sempre" pos="ADV">Sempre</w>
+          <w xml:id="leopardi_it_t2" lemma="caro" pos="ADJ">caro</w>
+          <w xml:id="leopardi_it_t3" lemma="mi" pos="PRON">mi</w>
+          <w xml:id="leopardi_it_t4" lemma="essere" pos="VERB">fu</w>
+          <w xml:id="leopardi_it_t5" lemma="questo" pos="DET">quest’</w>
+          <w xml:id="leopardi_it_t6" lemma="ermo" pos="NOUN">ermo</w>
+          <w xml:id="leopardi_it_t7" lemma="collo" pos="ADJ">colle</w>
+        </s>
+        <s xml:id="leopardi_it_s2">
+          <w xml:id="leopardi_it_t8" lemma="e" pos="CCONJ">E</w>
+          <w xml:id="leopardi_it_t9" lemma="questo" pos="DET">questa</w>
+          <w xml:id="leopardi_it_t10" lemma="siepe" pos="NOUN">siepe</w>
+          <w xml:id="leopardi_it_t11" lemma="che" pos="PRON">che</w>
+          <w xml:id="leopardi_it_t12" lemma="da" pos="ADP">da</w>
+          <w xml:id="leopardi_it_t13" lemma="tanto" pos="DET">tanta</w>
+          <w xml:id="leopardi_it_t14" lemma="parte" pos="NOUN">parte</w>
+        </s>
+        <s xml:id="leopardi_it_s3">
+          <w xml:id="leopardi_it_t15" lemma="di" pos="ADP">Dell’</w>
+          <w xml:id="leopardi_it_t16" lemma="ultimo" pos="ADJ">ultimo</w>
+          <w xml:id="leopardi_it_t17" lemma="orizzonte" pos="NOUN">orizzonte</w>
+          <w xml:id="leopardi_it_t18" lemma="il" pos="DET">il</w>
+          <w xml:id="leopardi_it_t19" lemma="guardare" pos="NOUN">guardo</w>
+          <w xml:id="leopardi_it_t20" lemma="escludere" pos="VERB">esclude</w>
+        </s>
+        <s xml:id="leopardi_it_s4">
+          <w xml:id="leopardi_it_t21" lemma="ma" pos="CCONJ">Ma</w>
+          <w xml:id="leopardi_it_t22" lemma="sedere" pos="VERB">sedendo</w>
+          <w xml:id="leopardi_it_t23" lemma="e" pos="CCONJ">e</w>
+          <w xml:id="leopardi_it_t24" lemma="mirare" pos="VERB">mirando</w>
+          <w xml:id="leopardi_it_t25" lemma="interminato" pos="ADJ">interminati</w>
+        </s>
+        <s xml:id="leopardi_it_s5">
+          <w xml:id="leopardi_it_t26" lemma="spazio" pos="NOUN">Spazi</w>
+          <w xml:id="leopardi_it_t27" lemma="di" pos="ADP">di</w>
+          <w xml:id="leopardi_it_t28" lemma="là" pos="ADV">là</w>
+          <w xml:id="leopardi_it_t29" lemma="da" pos="ADP">da</w>
+          <w xml:id="leopardi_it_t30" lemma="quello" pos="PRON">quella</w>
+          <w xml:id="leopardi_it_t31" lemma="e" pos="CCONJ">e</w>
+          <w xml:id="leopardi_it_t32" lemma="sovrumano" pos="ADJ">sovrumani</w>
+        </s>
+        <s xml:id="leopardi_it_s6">
+          <w xml:id="leopardi_it_t33" lemma="silenzio" pos="NOUN">Silenzi</w>
+          <w xml:id="leopardi_it_t34" lemma="e" pos="CCONJ">e</w>
+          <w xml:id="leopardi_it_t35" lemma="profondo" pos="ADJ">profondissima</w>
+          <w xml:id="leopardi_it_t36" lemma="quieto" pos="NOUN">quiete</w>
+        </s>
+        <s xml:id="leopardi_it_s7">
+          <w xml:id="leopardi_it_t37" lemma="io" pos="PRON">Io</w>
+          <w xml:id="leopardi_it_t38" lemma="in" pos="ADP">nel</w>
+          <w xml:id="leopardi_it_t39" lemma="pensier" pos="NOUN">pensier</w>
+          <w xml:id="leopardi_it_t40" lemma="mi" pos="PRON">mi</w>
+          <w xml:id="leopardi_it_t41" lemma="fingere" pos="VERB">fingo</w>
+          <w xml:id="leopardi_it_t42" lemma="ove" pos="SCONJ">ove</w>
+          <w xml:id="leopardi_it_t43" lemma="per" pos="ADP">per</w>
+          <w xml:id="leopardi_it_t44" lemma="poco" pos="ADV">poco</w>
+        </s>
+        <s xml:id="leopardi_it_s8">
+          <w xml:id="leopardi_it_t45" lemma="il" pos="DET">Il</w>
+          <w xml:id="leopardi_it_t46" lemma="cor" pos="NOUN">cor</w>
+          <w xml:id="leopardi_it_t47" lemma="non" pos="ADV">non</w>
+          <w xml:id="leopardi_it_t48" lemma="si" pos="PRON">si</w>
+          <w xml:id="leopardi_it_t49" lemma="spaurare" pos="VERB">spaura</w>
+          <w xml:id="leopardi_it_t50" lemma="e" pos="CCONJ">E</w>
+          <w xml:id="leopardi_it_t51" lemma="come" pos="ADP">come</w>
+          <w xml:id="leopardi_it_t52" lemma="il" pos="DET">il</w>
+          <w xml:id="leopardi_it_t53" lemma="vento" pos="NOUN">vento</w>
+        </s>
+        <s xml:id="leopardi_it_s9">
+          <w xml:id="leopardi_it_t54" lemma="Odo" pos="PROPN">Odo</w>
+          <w xml:id="leopardi_it_t55" lemma="stormir" pos="NOUN">stormir</w>
+          <w xml:id="leopardi_it_t56" lemma="tra" pos="ADP">tra</w>
+          <w xml:id="leopardi_it_t57" lemma="questo" pos="DET">queste</w>
+          <w xml:id="leopardi_it_t58" lemma="pianta" pos="NOUN">piante</w>
+          <w xml:id="leopardi_it_t59" lemma="io" pos="PRON">io</w>
+          <w xml:id="leopardi_it_t60" lemma="quello" pos="PRON">quello</w>
+        </s>
+        <s xml:id="leopardi_it_s10">
+          <w xml:id="leopardi_it_t61" lemma="infinito" pos="ADJ">Infinito</w>
+          <w xml:id="leopardi_it_t62" lemma="silenzio" pos="NOUN">silenzio</w>
+          <w xml:id="leopardi_it_t63" lemma="a" pos="ADP">a</w>
+          <w xml:id="leopardi_it_t64" lemma="questo" pos="DET">questa</w>
+          <w xml:id="leopardi_it_t65" lemma="voce" pos="NOUN">voce</w>
+        </s>
+        <s xml:id="leopardi_it_s11">
+          <w xml:id="leopardi_it_t66" lemma="avere" pos="AUX">Vo</w>
+          <w xml:id="leopardi_it_t67" lemma="comparare" pos="VERB">comparando</w>
+          <w xml:id="leopardi_it_t68" lemma="e" pos="CCONJ">e</w>
+          <w xml:id="leopardi_it_t69" lemma="mi" pos="PRON">mi</w>
+          <w xml:id="leopardi_it_t70" lemma="sovviere" pos="VERB">sovvien</w>
+          <w xml:id="leopardi_it_t71" lemma="il" pos="DET">l’</w>
+          <w xml:id="leopardi_it_t72" lemma="eterno" pos="NOUN">eterno</w>
+        </s>
+        <s xml:id="leopardi_it_s12">
+          <w xml:id="leopardi_it_t73" lemma="e" pos="CCONJ">E</w>
+          <w xml:id="leopardi_it_t74" lemma="il" pos="DET">le</w>
+          <w xml:id="leopardi_it_t75" lemma="morte" pos="NOUN">morte</w>
+          <w xml:id="leopardi_it_t76" lemma="stagione" pos="NOUN">stagioni</w>
+          <w xml:id="leopardi_it_t77" lemma="e" pos="CCONJ">e</w>
+          <w xml:id="leopardi_it_t78" lemma="il" pos="DET">la</w>
+          <w xml:id="leopardi_it_t79" lemma="presente" pos="ADJ">presente</w>
+        </s>
+        <s xml:id="leopardi_it_s13">
+          <w xml:id="leopardi_it_t80" lemma="e" pos="CCONJ">E</w>
+          <w xml:id="leopardi_it_t81" lemma="vivo" pos="ADJ">viva</w>
+          <w xml:id="leopardi_it_t82" lemma="e" pos="CCONJ">e</w>
+          <w xml:id="leopardi_it_t83" lemma="il" pos="DET">il</w>
+          <w xml:id="leopardi_it_t84" lemma="suon" pos="NOUN">suon</w>
+          <w xml:id="leopardi_it_t85" lemma="di" pos="ADP">di</w>
+          <w xml:id="leopardi_it_t86" lemma="lei" pos="PRON">lei</w>
+          <w xml:id="leopardi_it_t87" lemma="così" pos="ADV">Così</w>
+          <w xml:id="leopardi_it_t88" lemma="tra" pos="ADP">tra</w>
+          <w xml:id="leopardi_it_t89" lemma="questo" pos="PRON">questa</w>
+        </s>
+        <s xml:id="leopardi_it_s14">
+          <w xml:id="leopardi_it_t90" lemma="immensità" pos="NOUN">Immensità</w>
+          <w xml:id="leopardi_it_t91" lemma="si" pos="PRON">s’</w>
+          <w xml:id="leopardi_it_t92" lemma="annegare" pos="VERB">annega</w>
+          <w xml:id="leopardi_it_t93" lemma="il" pos="DET">il</w>
+          <w xml:id="leopardi_it_t94" lemma="pensier" pos="NOUN">pensier</w>
+          <w xml:id="leopardi_it_t95" lemma="mio" pos="DET">mio</w>
+        </s>
+        <s xml:id="leopardi_it_s15">
+          <w xml:id="leopardi_it_t96" lemma="e" pos="CCONJ">E</w>
+          <w xml:id="leopardi_it_t97" lemma="il" pos="DET">il</w>
+          <w xml:id="leopardi_it_t98" lemma="naufragar" pos="NOUN">naufragar</w>
+          <w xml:id="leopardi_it_t99" lemma="mi" pos="PRON">m’</w>
+          <w xml:id="leopardi_it_t100" lemma="essere" pos="AUX">è</w>
+          <w xml:id="leopardi_it_t101" lemma="dolce" pos="ADJ">dolce</w>
+          <w xml:id="leopardi_it_t102" lemma="in" pos="ADP">in</w>
+          <w xml:id="leopardi_it_t103" lemma="questo" pos="DET">questo</w>
+          <w xml:id="leopardi_it_t104" lemma="mare" pos="NOUN">mare</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

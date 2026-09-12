@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">ORBAN</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1910">1910</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_orban_s1">
+          <w xml:id="leopardi_orban_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_orban_t2" lemma="cher" pos="ADJ">chères</w>
+          <w xml:id="leopardi_orban_t3" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_orban_t4" lemma="être" pos="AUX">furent</w>
+          <w xml:id="leopardi_orban_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_orban_t6" lemma="colline" pos="NOUN">colline</w>
+          <w xml:id="leopardi_orban_t7" lemma="désert" pos="ADJ">déserte</w>
+          <w xml:id="leopardi_orban_t8" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t9" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_orban_t10" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_orban_t11" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_orban_t12" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_orban_t13" lemma="tant" pos="ADV">tant</w>
+          <w xml:id="leopardi_orban_t14" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_orban_t15" lemma="côté" pos="NOUN">côtés</w>
+          <w xml:id="leopardi_orban_t16" lemma="dérober" pos="VERB">dérobe</w>
+          <w xml:id="leopardi_orban_t17" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_orban_t18" lemma="regard" pos="NOUN">regard</w>
+        </s>
+        <s xml:id="leopardi_orban_s2">
+          <w xml:id="leopardi_orban_t19" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_orban_t20" lemma="lointain" pos="ADJ">lointain</w>
+          <w xml:id="leopardi_orban_t21" lemma="horizon" pos="NOUN">horizon</w>
+          <w xml:id="leopardi_orban_t22" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_orban_t23" lemma="quand" pos="SCONJ">quand</w>
+          <w xml:id="leopardi_orban_t24" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_orban_t25" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_orban_t26" lemma="assiodre" pos="VERB">assieds</w>
+          <w xml:id="leopardi_orban_t27" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t28" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_orban_t29" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_orban_t30" lemma="contempler" pos="VERB">contemple</w>
+          <w xml:id="leopardi_orban_t31" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_orban_t32" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_orban_t33" lemma="représenter" pos="VERB">représente</w>
+          <w xml:id="leopardi_orban_t34" lemma="par" pos="ADP">par</w>
+        </s>
+        <s xml:id="leopardi_orban_s3">
+          <w xml:id="leopardi_orban_t35" lemma="delà" pos="ADV">delà</w>
+          <w xml:id="leopardi_orban_t36" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_orban_t37" lemma="haie" pos="NOUN">haie</w>
+          <w xml:id="leopardi_orban_t38" lemma="un" pos="DET">d’</w>
+          <w xml:id="leopardi_orban_t39" lemma="interminable" pos="ADJ">interminables</w>
+          <w xml:id="leopardi_orban_t40" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_orban_t41" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t42" lemma="un" pos="DET">des</w>
+          <w xml:id="leopardi_orban_t43" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_orban_t44" lemma="surhumain" pos="ADJ">surhumains</w>
+          <w xml:id="leopardi_orban_t45" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t46" lemma="un" pos="DET">un</w>
+          <w xml:id="leopardi_orban_t47" lemma="très" pos="ADV">très</w>
+          <w xml:id="leopardi_orban_t48" lemma="profond" pos="ADJ">profond</w>
+          <w xml:id="leopardi_orban_t49" lemma="repos" pos="NOUN">repos</w>
+        </s>
+        <s xml:id="leopardi_orban_s4">
+          <w xml:id="leopardi_orban_t50" lemma="où" pos="ADV">où</w>
+          <w xml:id="leopardi_orban_t51" lemma="peu" pos="ADV">peu</w>
+          <w xml:id="leopardi_orban_t52" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_orban_t53" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_orban_t54" lemma="falloir" pos="VERB">faut</w>
+          <w xml:id="leopardi_orban_t55" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_orban_t56" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_orban_t57" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_orban_t58" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_orban_t59" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_orban_t60" lemma="épouvanter" pos="VERB">épouvante</w>
+          <w xml:id="leopardi_orban_t61" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_orban_t62" lemma="comme" pos="SCONJ">comme</w>
+          <w xml:id="leopardi_orban_t63" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_orban_t64" lemma="entendre" pos="VERB">entends</w>
+          <w xml:id="leopardi_orban_t65" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_orban_t66" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_orban_t67" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_orban_t68" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_orban_t69" lemma="travers" pos="NOUN">travers</w>
+          <w xml:id="leopardi_orban_t70" lemma="ce" pos="DET">ces</w>
+        </s>
+        <s xml:id="leopardi_orban_s5">
+          <w xml:id="leopardi_orban_t71" lemma="arbuste" pos="NOUN">arbustes</w>
+          <w xml:id="leopardi_orban_t72" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_orban_t73" lemma="aller" pos="VERB">vais</w>
+          <w xml:id="leopardi_orban_t74" lemma="comparer" pos="VERB">comparant</w>
+          <w xml:id="leopardi_orban_t75" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_orban_t76" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_orban_t77" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_orban_t78" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_orban_t79" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_orban_t80" lemma="murmure" pos="NOUN">murmure</w>
+          <w xml:id="leopardi_orban_t81" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t82" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_orban_t83" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_orban_t84" lemma="souvenir" pos="VERB">souviens</w>
+          <w xml:id="leopardi_orban_t85" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_orban_t86" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_orban_t87" lemma="éternité" pos="NOUN">éternité</w>
+          <w xml:id="leopardi_orban_t88" lemma="et" pos="CCONJ">et</w>
+        </s>
+        <s xml:id="leopardi_orban_s6">
+          <w xml:id="leopardi_orban_t89" lemma="de" pos="ADP">des</w>
+          <w xml:id="leopardi_orban_t90" lemma="saison" pos="NOUN">saisons</w>
+          <w xml:id="leopardi_orban_t91" lemma="défunt" pos="ADJ">défuntes</w>
+          <w xml:id="leopardi_orban_t92" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t93" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_orban_t94" lemma="siècle" pos="NOUN">siècle</w>
+          <w xml:id="leopardi_orban_t95" lemma="présent" pos="ADJ">présent</w>
+          <w xml:id="leopardi_orban_t96" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t97" lemma="vivant" pos="ADJ">vivant</w>
+          <w xml:id="leopardi_orban_t98" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t99" lemma="de" pos="ADP">du</w>
+          <w xml:id="leopardi_orban_t100" lemma="bruit" pos="NOUN">bruit</w>
+          <w xml:id="leopardi_orban_t101" lemma="que" pos="PRON">qu’</w>
+          <w xml:id="leopardi_orban_t102" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_orban_t103" lemma="faire" pos="VERB">fait</w>
+          <w xml:id="leopardi_orban_t104" lemma="ainsi" pos="ADV">Ainsi</w>
+          <w xml:id="leopardi_orban_t105" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_orban_t106" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_orban_s7">
+          <w xml:id="leopardi_orban_t107" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_orban_t108" lemma="anéantir" pos="VERB">anéantit</w>
+          <w xml:id="leopardi_orban_t109" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_orban_t110" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_orban_t111" lemma="immensité" pos="NOUN">immensité</w>
+          <w xml:id="leopardi_orban_t112" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_orban_t113" lemma="lui" pos="PRON">il</w>
+          <w xml:id="leopardi_orban_t114" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_orban_t115" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_orban_t116" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_orban_t117" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_orban_t118" lemma="faire" pos="VERB">faire</w>
+          <w xml:id="leopardi_orban_t119" lemma="naufrage" pos="NOUN">naufrage</w>
+          <w xml:id="leopardi_orban_t120" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_orban_t121" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_orban_t122" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

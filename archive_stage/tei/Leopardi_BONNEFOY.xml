@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">BONNEFOY</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="2000">2000</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_bonnefoy_s1">
+          <w xml:id="leopardi_bonnefoy_t1" lemma="toujours" pos="ADV">Toujours</w>
+          <w xml:id="leopardi_bonnefoy_t2" lemma="cher" pos="ADJ">chère</w>
+          <w xml:id="leopardi_bonnefoy_t3" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_bonnefoy_t4" lemma="être" pos="AUX">fut</w>
+          <w xml:id="leopardi_bonnefoy_t5" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_bonnefoy_t6" lemma="colline" pos="NOUN">colline</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s2">
+          <w xml:id="leopardi_bonnefoy_t7" lemma="Solitaire" pos="NOUN">Solitaire</w>
+          <w xml:id="leopardi_bonnefoy_t8" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_bonnefoy_t9" lemma="cher" pos="ADJ">chère</w>
+          <w xml:id="leopardi_bonnefoy_t10" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_bonnefoy_t11" lemma="haie" pos="NOUN">haie</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s3">
+          <w xml:id="leopardi_bonnefoy_t12" lemma="qui" pos="PRON">Qui</w>
+          <w xml:id="leopardi_bonnefoy_t13" lemma="refuser" pos="VERB">refuse</w>
+          <w xml:id="leopardi_bonnefoy_t14" lemma="à" pos="ADP">au</w>
+          <w xml:id="leopardi_bonnefoy_t15" lemma="regard" pos="NOUN">regard</w>
+          <w xml:id="leopardi_bonnefoy_t16" lemma="tant" pos="ADV">tant</w>
+          <w xml:id="leopardi_bonnefoy_t17" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_bonnefoy_t18" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_bonnefoy_t19" lemma="ultime" pos="NOUN">ultime</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s4">
+          <w xml:id="leopardi_bonnefoy_t20" lemma="Horizon" pos="PROPN">Horizon</w>
+          <w xml:id="leopardi_bonnefoy_t21" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_bonnefoy_t22" lemma="ce" pos="DET">ce</w>
+          <w xml:id="leopardi_bonnefoy_t23" lemma="monde" pos="NOUN">monde</w>
+          <w xml:id="leopardi_bonnefoy_t24" lemma="mais" pos="CCONJ">Mais</w>
+          <w xml:id="leopardi_bonnefoy_t25" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_bonnefoy_t26" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_bonnefoy_t27" lemma="assiodre" pos="VERB">assieds</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s5">
+          <w xml:id="leopardi_bonnefoy_t28" lemma="moi" pos="PRON">Je</w>
+          <w xml:id="leopardi_bonnefoy_t29" lemma="laisser" pos="VERB">laisse</w>
+          <w xml:id="leopardi_bonnefoy_t30" lemma="aller" pos="VERB">aller</w>
+          <w xml:id="leopardi_bonnefoy_t31" lemma="son" pos="DET">mes</w>
+          <w xml:id="leopardi_bonnefoy_t32" lemma="œil" pos="NOUN">yeux</w>
+          <w xml:id="leopardi_bonnefoy_t33" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_bonnefoy_t34" lemma="façonner" pos="VERB">façonne</w>
+          <w xml:id="leopardi_bonnefoy_t35" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_bonnefoy_t36" lemma="esprit" pos="NOUN">esprit</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s6">
+          <w xml:id="leopardi_bonnefoy_t37" lemma="un" pos="DET">Des</w>
+          <w xml:id="leopardi_bonnefoy_t38" lemma="espace" pos="NOUN">espaces</w>
+          <w xml:id="leopardi_bonnefoy_t39" lemma="sans" pos="ADP">sans</w>
+          <w xml:id="leopardi_bonnefoy_t40" lemma="fin" pos="NOUN">fin</w>
+          <w xml:id="leopardi_bonnefoy_t41" lemma="au-delà" pos="ADV">au-delà</w>
+          <w xml:id="leopardi_bonnefoy_t42" lemma="de" pos="ADP">d’</w>
+          <w xml:id="leopardi_bonnefoy_t43" lemma="lui" pos="PRON">elle</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s7">
+          <w xml:id="leopardi_bonnefoy_t44" lemma="un" pos="DET">Des</w>
+          <w xml:id="leopardi_bonnefoy_t45" lemma="silence" pos="NOUN">silences</w>
+          <w xml:id="leopardi_bonnefoy_t46" lemma="aussi" pos="ADV">aussi</w>
+          <w xml:id="leopardi_bonnefoy_t47" lemma="comme" pos="ADP">comme</w>
+          <w xml:id="leopardi_bonnefoy_t48" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_bonnefoy_t49" lemma="humain" pos="NOUN">humain</w>
+          <w xml:id="leopardi_bonnefoy_t50" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_bonnefoy_t51" lemma="nous" pos="PRON">nous</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s8">
+          <w xml:id="leopardi_bonnefoy_t52" lemma="ne" pos="ADV">N’</w>
+          <w xml:id="leopardi_bonnefoy_t53" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_bonnefoy_t54" lemma="connaître" pos="VERB">connaît</w>
+          <w xml:id="leopardi_bonnefoy_t55" lemma="pas" pos="ADV">pas</w>
+          <w xml:id="leopardi_bonnefoy_t56" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_bonnefoy_t57" lemma="ce" pos="PRON">c’</w>
+          <w xml:id="leopardi_bonnefoy_t58" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_bonnefoy_t59" lemma="un" pos="DET">une</w>
+          <w xml:id="leopardi_bonnefoy_t60" lemma="quiétude" pos="NOUN">quiétude</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s9">
+          <w xml:id="leopardi_bonnefoy_t61" lemma="on" pos="PRON">On</w>
+          <w xml:id="leopardi_bonnefoy_t62" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_bonnefoy_t63" lemma="pouvoir" pos="VERB">peut</w>
+          <w xml:id="leopardi_bonnefoy_t64" lemma="plus" pos="ADV">plus</w>
+          <w xml:id="leopardi_bonnefoy_t65" lemma="profond" pos="ADJ">profonde</w>
+          <w xml:id="leopardi_bonnefoy_t66" lemma="un" pos="PRON">un</w>
+          <w xml:id="leopardi_bonnefoy_t67" lemma="de" pos="ADP">de</w>
+          <w xml:id="leopardi_bonnefoy_t68" lemma="ce" pos="DET">ces</w>
+          <w xml:id="leopardi_bonnefoy_t69" lemma="instant" pos="NOUN">instants</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s10">
+          <w xml:id="leopardi_bonnefoy_t70" lemma="où" pos="PRON">Où</w>
+          <w xml:id="leopardi_bonnefoy_t71" lemma="peu" pos="ADV">peu</w>
+          <w xml:id="leopardi_bonnefoy_t72" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_bonnefoy_t73" lemma="en" pos="PRON">en</w>
+          <w xml:id="leopardi_bonnefoy_t74" lemma="falloir" pos="VERB">faut</w>
+          <w xml:id="leopardi_bonnefoy_t75" lemma="que" pos="SCONJ">que</w>
+          <w xml:id="leopardi_bonnefoy_t76" lemma="le" pos="DET">le</w>
+          <w xml:id="leopardi_bonnefoy_t77" lemma="coeur" pos="NOUN">coeur</w>
+          <w xml:id="leopardi_bonnefoy_t78" lemma="ne" pos="ADV">ne</w>
+          <w xml:id="leopardi_bonnefoy_t79" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_bonnefoy_t80" lemma="effrayer" pos="VERB">effraie</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s11">
+          <w xml:id="leopardi_bonnefoy_t81" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_bonnefoy_t82" lemma="comme" pos="SCONJ">comme</w>
+          <w xml:id="leopardi_bonnefoy_t83" lemma="alors" pos="ADV">alors</w>
+          <w xml:id="leopardi_bonnefoy_t84" lemma="moi" pos="PRON">j’</w>
+          <w xml:id="leopardi_bonnefoy_t85" lemma="entendre" pos="VERB">entends</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s12">
+          <w xml:id="leopardi_bonnefoy_t86" lemma="le" pos="DET">Le</w>
+          <w xml:id="leopardi_bonnefoy_t87" lemma="vent" pos="NOUN">vent</w>
+          <w xml:id="leopardi_bonnefoy_t88" lemma="bruire" pos="VERB">bruire</w>
+          <w xml:id="leopardi_bonnefoy_t89" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_bonnefoy_t90" lemma="ce" pos="DET">ces</w>
+          <w xml:id="leopardi_bonnefoy_t91" lemma="feuillage" pos="NOUN">feuillages</w>
+          <w xml:id="leopardi_bonnefoy_t92" lemma="moi" pos="PRON">je</w>
+          <w xml:id="leopardi_bonnefoy_t93" lemma="comparer" pos="VERB">compare</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s13">
+          <w xml:id="leopardi_bonnefoy_t94" lemma="ce" pos="DET">Ce</w>
+          <w xml:id="leopardi_bonnefoy_t95" lemma="silence" pos="NOUN">silence</w>
+          <w xml:id="leopardi_bonnefoy_t96" lemma="infini" pos="ADJ">infini</w>
+          <w xml:id="leopardi_bonnefoy_t97" lemma="à" pos="ADP">à</w>
+          <w xml:id="leopardi_bonnefoy_t98" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_bonnefoy_t99" lemma="voix" pos="NOUN">voix</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s14">
+          <w xml:id="leopardi_bonnefoy_t100" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_bonnefoy_t101" lemma="moi" pos="PRON">me</w>
+          <w xml:id="leopardi_bonnefoy_t102" lemma="revenir" pos="VERB">revient</w>
+          <w xml:id="leopardi_bonnefoy_t103" lemma="le" pos="DET">l’</w>
+          <w xml:id="leopardi_bonnefoy_t104" lemma="éternel" pos="NOUN">éternel</w>
+          <w xml:id="leopardi_bonnefoy_t105" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_bonnefoy_t106" lemma="mémoire" pos="NOUN">mémoire</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s15">
+          <w xml:id="leopardi_bonnefoy_t107" lemma="et" pos="CCONJ">Et</w>
+          <w xml:id="leopardi_bonnefoy_t108" lemma="le" pos="DET">les</w>
+          <w xml:id="leopardi_bonnefoy_t109" lemma="saison" pos="NOUN">saisons</w>
+          <w xml:id="leopardi_bonnefoy_t110" lemma="défunt" pos="ADJ">défuntes</w>
+          <w xml:id="leopardi_bonnefoy_t111" lemma="et" pos="CCONJ">et</w>
+          <w xml:id="leopardi_bonnefoy_t112" lemma="celui-ci" pos="PRON">celle-ci</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s16">
+          <w xml:id="leopardi_bonnefoy_t113" lemma="qui" pos="PRON">Qui</w>
+          <w xml:id="leopardi_bonnefoy_t114" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_bonnefoy_t115" lemma="vivant" pos="ADJ">vivante</w>
+          <w xml:id="leopardi_bonnefoy_t116" lemma="en" pos="ADP">en</w>
+          <w xml:id="leopardi_bonnefoy_t117" lemma="son" pos="DET">sa</w>
+          <w xml:id="leopardi_bonnefoy_t118" lemma="rumeur" pos="NOUN">rumeur</w>
+          <w xml:id="leopardi_bonnefoy_t119" lemma="immensité" pos="NOUN">Immensité</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s17">
+          <w xml:id="leopardi_bonnefoy_t120" lemma="en" pos="ADP">En</w>
+          <w xml:id="leopardi_bonnefoy_t121" lemma="lequel" pos="PRON">laquelle</w>
+          <w xml:id="leopardi_bonnefoy_t122" lemma="soi" pos="PRON">s’</w>
+          <w xml:id="leopardi_bonnefoy_t123" lemma="abîmer" pos="VERB">abîme</w>
+          <w xml:id="leopardi_bonnefoy_t124" lemma="son" pos="DET">ma</w>
+          <w xml:id="leopardi_bonnefoy_t125" lemma="pensée" pos="NOUN">pensée</w>
+        </s>
+        <s xml:id="leopardi_bonnefoy_s18">
+          <w xml:id="leopardi_bonnefoy_t126" lemma="naufrage" pos="NOUN">Naufrage</w>
+          <w xml:id="leopardi_bonnefoy_t127" lemma="mais" pos="CCONJ">mais</w>
+          <w xml:id="leopardi_bonnefoy_t128" lemma="qui" pos="PRON">qui</w>
+          <w xml:id="leopardi_bonnefoy_t129" lemma="moi" pos="PRON">m’</w>
+          <w xml:id="leopardi_bonnefoy_t130" lemma="être" pos="AUX">est</w>
+          <w xml:id="leopardi_bonnefoy_t131" lemma="doux" pos="ADJ">doux</w>
+          <w xml:id="leopardi_bonnefoy_t132" lemma="dans" pos="ADP">dans</w>
+          <w xml:id="leopardi_bonnefoy_t133" lemma="ce" pos="DET">cette</w>
+          <w xml:id="leopardi_bonnefoy_t134" lemma="mer" pos="NOUN">mer</w>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

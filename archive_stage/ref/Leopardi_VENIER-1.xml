@@ -1,0 +1,425 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">VENIER (alexandrins)</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="1999">1999</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_venier_1_s1">
+          <seg>
+            <w xml:id="leopardi_venier_1_t1" lemma="moi" pos="PRON">Je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t2" lemma="lui" pos="PRON">l’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t3" lemma="avoir" pos="AUX">ai</w>
+          </seg>
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_venier_1_t4" lemma="toujours" pos="ADV">toujours</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_venier_1_t5" lemma="chérir" pos="VERB">chéri</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t6" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_venier_1_t7" lemma="coteau" pos="NOUN">coteau</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_venier_1_t8" lemma="solitaire" pos="ADJ">solitaire</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s2">
+          <seg>
+            <w xml:id="leopardi_venier_1_t9" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t10" lemma="aussi" pos="ADV">aussi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t11" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_venier_1_t12" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t13" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_venier_1_t14" lemma="dérober" pos="VERB">dérobe</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t15" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_venier_1_t16" lemma="regard" pos="NOUN">regard</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s3">
+          <seg>
+            <w xml:id="leopardi_venier_1_t17" lemma="tout" pos="ADJ">Tout</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t18" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t19" lemma="immense" pos="ADJ">immense</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t20" lemma="pan" pos="NOUN">pan</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t21" lemma="de" pos="ADP">du</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_venier_1_t22" lemma="lointain" pos="ADJ">lointain</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_venier_1_t23" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s4">
+          <seg>
+            <w xml:id="leopardi_venier_1_t24" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t25" lemma="lorsque" pos="SCONJ">lorsqu’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_venier_1_t26" lemma="asseoir" pos="VERB">assis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t27" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t28" lemma="rester" pos="VERB">reste</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t29" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_venier_1_t30" lemma="contemplation" pos="NOUN">contemplation</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s5">
+          <seg>
+            <w xml:id="leopardi_venier_1_t31" lemma="moi" pos="PRON">Je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t32" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_venier_1_t33" lemma="former" pos="VERB">forme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t34" lemma="en" pos="ADP">en</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_venier_1_t35" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t36" lemma="par-delà" pos="ADP">par-delà</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t37" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t38" lemma="haie" pos="NOUN">haie</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s6">
+          <seg>
+            <w xml:id="leopardi_venier_1_t39" lemma="un" pos="DET">Des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_venier_1_t40" lemma="espace" pos="NOUN">espaces</w>
+          </seg>
+          <seg corresp="#leopardi_it_t25">
+            <w xml:id="leopardi_venier_1_t41" lemma="sans" pos="ADP">sans</w>
+            <w xml:id="leopardi_venier_1_t42" lemma="fin" pos="NOUN">fin</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t43" lemma="un" pos="DET">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_venier_1_t44" lemma="surhumains" pos="NOUN">surhumains</w>
+          </seg>
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_venier_1_t45" lemma="silence" pos="ADJ">silences</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s7">
+          <seg>
+            <w xml:id="leopardi_venier_1_t46" lemma="un" pos="DET">Une</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_venier_1_t47" lemma="paix" pos="NOUN">paix</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_venier_1_t48" lemma="insondable" pos="ADJ">insondable</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t49" lemma="où" pos="PRON">où</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t50" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t51" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t52" lemma="en" pos="PRON">en</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t53" lemma="falloir" pos="VERB">faut</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t54" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t55" lemma="peu" pos="ADV">peu</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s8">
+          <seg>
+            <w xml:id="leopardi_venier_1_t56" lemma="que" pos="SCONJ">Que</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t57" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t46">
+            <w xml:id="leopardi_venier_1_t58" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t59" lemma="ne" pos="ADV">ne</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t60" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_venier_1_t61" lemma="effrayer" pos="VERB">effraie</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t62" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t63" lemma="quand" pos="SCONJ">quand</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t64" lemma="parmi" pos="ADP">parmi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t65" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_venier_1_t66" lemma="plante" pos="NOUN">plantes</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s9">
+          <seg>
+            <w xml:id="leopardi_venier_1_t67" lemma="moi" pos="PRON">J’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_venier_1_t68" lemma="entendre" pos="VERB">entends</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_venier_1_t69" lemma="bruire" pos="VERB">bruire</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t70" lemma="le" pos="DET">le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_venier_1_t71" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t72" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t73" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t74" lemma="faible" pos="ADJ">faible</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_venier_1_t75" lemma="murmure" pos="NOUN">murmure</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s10">
+          <seg>
+            <w xml:id="leopardi_venier_1_t76" lemma="moi" pos="PRON">Moi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t77" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_venier_1_t78" lemma="aller" pos="VERB">vais</w>
+            <w xml:id="leopardi_venier_1_t79" lemma="comparer" pos="VERB">comparant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t80" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_venier_1_t81" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_venier_1_t82" lemma="infini" pos="ADJ">infini</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s11">
+          <seg>
+            <w xml:id="leopardi_venier_1_t83" lemma="alors" pos="ADV">Alors</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t84" lemma="lui" pos="PRON">il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t85" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_venier_1_t86" lemma="souvenir" pos="VERB">souvient</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t87" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t88" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t89" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_venier_1_t90" lemma="éternité" pos="NOUN">éternité</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s12">
+          <seg>
+            <w xml:id="leopardi_venier_1_t91" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t92" lemma="de" pos="ADP">des</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t93" lemma="âge" pos="NOUN">âges</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75">
+            <w xml:id="leopardi_venier_1_t94" lemma="défunt" pos="ADJ">défunts</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t95" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t96" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t97" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t76">
+            <w xml:id="leopardi_venier_1_t98" lemma="âge" pos="NOUN">âge</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_venier_1_t99" lemma="présent" pos="ADJ">présent</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s13">
+          <seg>
+            <w xml:id="leopardi_venier_1_t100" lemma="encore" pos="ADV">Encore</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_venier_1_t101" lemma="vivant" pos="ADJ">vivant</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t102" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t103" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t104" lemma="tout" pos="ADJ">toute</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t105" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_venier_1_t106" lemma="rumeur" pos="NOUN">rumeur</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s14">
+          <seg>
+            <w xml:id="leopardi_venier_1_t107" lemma="en" pos="ADP">En</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t108" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_venier_1_t109" lemma="immensité" pos="NOUN">immensité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t110" lemma="soi" pos="PRON">s’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_venier_1_t111" lemma="abîmer" pos="VERB">abîme</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t112" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t39">
+            <w xml:id="leopardi_venier_1_t113" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_venier_1_s15">
+          <seg>
+            <w xml:id="leopardi_venier_1_t114" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_venier_1_t115" lemma="naufrager" pos="NOUN">naufrager</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t116" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t117" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_venier_1_t118" lemma="doux" pos="ADJ">doux</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t119" lemma="à" pos="ADP">au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t120" lemma="fond" pos="NOUN">fond</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t121" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_venier_1_t122" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_venier_1_t123" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>

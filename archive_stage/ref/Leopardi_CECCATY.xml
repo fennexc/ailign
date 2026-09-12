@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L'infinito</title>
+        <author>Giacomo Leopardi</author>
+        <editor role="translator">CECCATY</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Université Grenoble Alpes</publisher>
+        <date when="2011">2011</date>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: Corpus Leopardi</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr" />
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>
+        <s xml:id="leopardi_ceccaty_s1">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t1" lemma="moi" pos="PRON">J’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t2" lemma="avoir" pos="AUX">ai</w>
+          </seg>
+          <seg corresp="#leopardi_it_t1">
+            <w xml:id="leopardi_ceccaty_t3" lemma="toujours" pos="ADV">toujours</w>
+          </seg>
+          <seg corresp="#leopardi_it_t2">
+            <w xml:id="leopardi_ceccaty_t4" lemma="aimer" pos="VERB">aimé</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t5" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t7">
+            <w xml:id="leopardi_ceccaty_t6" lemma="mont" pos="NOUN">mont</w>
+          </seg>
+          <seg corresp="#leopardi_it_t6">
+            <w xml:id="leopardi_ceccaty_t7" lemma="solitaire" pos="ADJ">solitaire</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s2">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t8" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t9" lemma="ce" pos="DET">ce</w>
+          </seg>
+          <seg corresp="#leopardi_it_t10">
+            <w xml:id="leopardi_ceccaty_t10" lemma="buisson" pos="NOUN">buisson</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t11" lemma="qui" pos="PRON">qui</w>
+          </seg>
+          <seg corresp="#leopardi_it_t20">
+            <w xml:id="leopardi_ceccaty_t12" lemma="cacher" pos="VERB">cache</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t13" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t14" lemma="tout" pos="DET">tout</w>
+          </seg>
+          <seg corresp="#leopardi_it_t19">
+            <w xml:id="leopardi_ceccaty_t15" lemma="regard" pos="NOUN">regard</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s3">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t16" lemma="le" pos="DET">L’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t17">
+            <w xml:id="leopardi_ceccaty_t17" lemma="horizon" pos="NOUN">horizon</w>
+          </seg>
+          <seg corresp="#leopardi_it_t16">
+            <w xml:id="leopardi_ceccaty_t18" lemma="lointain" pos="ADJ">lointain</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t19" lemma="mais" pos="CCONJ">Mais</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t20" lemma="quand" pos="SCONJ">quand</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t21" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t22" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t22">
+            <w xml:id="leopardi_ceccaty_t23" lemma="assiodre" pos="VERB">assieds</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s4">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t24" lemma="pour" pos="ADP">Pour</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t25" lemma="mieux" pos="ADV">mieux</w>
+          </seg>
+          <seg corresp="#leopardi_it_t24">
+            <w xml:id="leopardi_ceccaty_t26" lemma="observer" pos="VERB">observer</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t27" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t28" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t40 #leopardi_it_t41">
+            <w xml:id="leopardi_ceccaty_t29" lemma="représenter" pos="VERB">représente</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s5">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t30" lemma="à" pos="ADP">Au</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t31" lemma="fond" pos="NOUN">fond</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t32" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t33" lemma="son" pos="DET">mon</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t34" lemma="coeur" pos="NOUN">coeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t35" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t26">
+            <w xml:id="leopardi_ceccaty_t36" lemma="espace" pos="NOUN">espace</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t37" lemma="au-delà" pos="ADV">au-delà</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s6">
+          <seg corresp="#leopardi_it_t33">
+            <w xml:id="leopardi_ceccaty_t38" lemma="calme" pos="NOUN">Calme</w>
+          </seg>
+          <seg corresp="#leopardi_it_t32">
+            <w xml:id="leopardi_ceccaty_t39" lemma="surhumain" pos="ADJ">surhumain</w>
+          </seg>
+          <seg corresp="#leopardi_it_t35">
+            <w xml:id="leopardi_ceccaty_t40" lemma="très" pos="ADV">très</w>
+            <w xml:id="leopardi_ceccaty_t41" lemma="profond" pos="ADJ">profonde</w>
+          </seg>
+          <seg corresp="#leopardi_it_t36">
+            <w xml:id="leopardi_ceccaty_t42" lemma="paix" pos="NOUN">paix</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s7">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t43" lemma="pour" pos="ADP">Pour</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t44" lemma="un" pos="DET">un</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t45" lemma="peu" pos="NOUN">peu</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t46" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t47" lemma="être" pos="AUX">suis</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t48" lemma="perdre" pos="VERB">perdu</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t49" lemma="de" pos="ADP">d’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t48 #leopardi_it_t49">
+            <w xml:id="leopardi_ceccaty_t50" lemma="épouvante" pos="NOUN">épouvante</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s8">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t51" lemma="en" pos="ADP">En</w>
+          </seg>
+          <seg corresp="#leopardi_it_t54">
+            <w xml:id="leopardi_ceccaty_t52" lemma="entendre" pos="VERB">entendant</w>
+          </seg>
+          <seg corresp="#leopardi_it_t55">
+            <w xml:id="leopardi_ceccaty_t53" lemma="geindre" pos="VERB">geindre</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t54" lemma="entre" pos="ADP">entre</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t55" lemma="le" pos="DET">les</w>
+          </seg>
+          <seg corresp="#leopardi_it_t58">
+            <w xml:id="leopardi_ceccaty_t56" lemma="feuillage" pos="NOUN">feuillages</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s9">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t57" lemma="le" pos="DET">Le</w>
+          </seg>
+          <seg corresp="#leopardi_it_t53">
+            <w xml:id="leopardi_ceccaty_t58" lemma="vent" pos="NOUN">vent</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t59" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg corresp="#leopardi_it_t66 #leopardi_it_t67">
+            <w xml:id="leopardi_ceccaty_t60" lemma="comparer" pos="VERB">compare</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t61" lemma="à" pos="ADP">à</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t62" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t65">
+            <w xml:id="leopardi_ceccaty_t63" lemma="voix" pos="NOUN">voix</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t64" lemma="là" pos="ADV">-là</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s10">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t65" lemma="le" pos="DET">L’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t61">
+            <w xml:id="leopardi_ceccaty_t66" lemma="infini" pos="NOUN">infini</w>
+          </seg>
+          <seg corresp="#leopardi_it_t62">
+            <w xml:id="leopardi_ceccaty_t67" lemma="silence" pos="NOUN">silence</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t68" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t69" lemma="moi" pos="PRON">je</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t70" lemma="moi" pos="PRON">me</w>
+          </seg>
+          <seg corresp="#leopardi_it_t70">
+            <w xml:id="leopardi_ceccaty_t71" lemma="souvenir" pos="VERB">souviens</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s11">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t72" lemma="de" pos="ADP">De</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t73" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t72">
+            <w xml:id="leopardi_ceccaty_t74" lemma="éternité" pos="NOUN">éternité</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t75" lemma="un" pos="DET">des</w>
+          </seg>
+          <seg corresp="#leopardi_it_t75 #leopardi_it_t76">
+            <w xml:id="leopardi_ceccaty_t76" lemma="morte-saison" pos="NOUN">mortes-saisons</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s12">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t77" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t78" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t79" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#leopardi_it_t79">
+            <w xml:id="leopardi_ceccaty_t80" lemma="présent" pos="ADJ">présente</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t81" lemma="et" pos="CCONJ">et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t82" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t83" lemma="le" pos="DET">la</w>
+          </seg>
+          <seg corresp="#leopardi_it_t81">
+            <w xml:id="leopardi_ceccaty_t84" lemma="vivant" pos="NOUN">vivante</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s13">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t85" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t86" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t87" lemma="son" pos="DET">sa</w>
+          </seg>
+          <seg corresp="#leopardi_it_t84">
+            <w xml:id="leopardi_ceccaty_t88" lemma="rumeur" pos="NOUN">rumeur</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t89" lemma="ainsi" pos="ADV">Ainsi</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t90" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t91" lemma="le" pos="DET">l’</w>
+          </seg>
+          <seg corresp="#leopardi_it_t90">
+            <w xml:id="leopardi_ceccaty_t92" lemma="immense" pos="ADJ">immense</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s14">
+          <seg corresp="#leopardi_it_t92">
+            <w xml:id="leopardi_ceccaty_t93" lemma="sombre" pos="ADJ">Sombre</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t94" lemma="son" pos="DET">ma</w>
+          </seg>
+          <seg corresp="#leopardi_it_t94">
+            <w xml:id="leopardi_ceccaty_t95" lemma="pensée" pos="NOUN">pensée</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t96" lemma="et" pos="CCONJ">Et</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t97" lemma="dans" pos="ADP">dans</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t98" lemma="ce" pos="DET">cette</w>
+          </seg>
+          <seg corresp="#leopardi_it_t104">
+            <w xml:id="leopardi_ceccaty_t99" lemma="mer" pos="NOUN">mer</w>
+          </seg>
+        </s>
+        <s xml:id="leopardi_ceccaty_s15">
+          <seg>
+            <w xml:id="leopardi_ceccaty_t100" lemma="lui" pos="PRON">Il</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t101" lemma="moi" pos="PRON">m’</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t102" lemma="être" pos="AUX">est</w>
+          </seg>
+          <seg corresp="#leopardi_it_t101">
+            <w xml:id="leopardi_ceccaty_t103" lemma="doux" pos="ADJ">doux</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t104" lemma="enfin" pos="ADV">enfin</w>
+          </seg>
+          <seg>
+            <w xml:id="leopardi_ceccaty_t105" lemma="de" pos="ADP">de</w>
+          </seg>
+          <seg corresp="#leopardi_it_t98">
+            <w xml:id="leopardi_ceccaty_t106" lemma="faire" pos="VERB">faire</w>
+            <w xml:id="leopardi_ceccaty_t107" lemma="naufrage" pos="NOUN">naufrage</w>
+          </seg>
+        </s>
+      </p>
+    </body>
+  </text>
+</TEI>
